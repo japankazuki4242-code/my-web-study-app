@@ -1,0 +1,77 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0;
+  padding-top: calc(env(safe-area-inset-top) + 28px);
+  padding-right: calc(env(safe-area-inset-right) + 16px);
+  padding-bottom: calc(env(safe-area-inset-bottom) + 16px);
+  padding-left: calc(env(safe-area-inset-left) + 16px);
+  background-color: #121212;
+  color: #f5f5f5;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.button-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.menu-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 56px;
+  padding: 14px 18px;
+  border: 1px solid #3a3a3a;
+  border-radius: 12px;
+  background-color: #2a2a2a;
+  color: #f5f5f5;
+  font: inherit;
+  font-size: 16px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.menu-button > span:first-child {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.menu-button:hover {
+  background-color: #333333;
+}
+
+.menu-button:focus-visible {
+  outline: 3px solid #f5f5f5;
+  outline-offset: 3px;
+}
+
+.menu-button:active {
+  background-color: #242424;
+  transform: translateY(1px);
+}
