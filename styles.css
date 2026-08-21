@@ -129,3 +129,73 @@ h1 {
   text-decoration: none;
   cursor: pointer;
 }
+
+.details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+details {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #3a3a3a;
+  border-radius: 12px;
+  background-color: #2a2a2a;
+}
+
+summary {
+  min-height: 56px;
+  padding: 14px 18px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+summary:hover {
+  background-color: #333333;
+}
+
+summary:focus-visible {
+  outline: 3px solid #f5f5f5;
+  outline-offset: -3px;
+}
+
+details[open] > summary {
+  border-bottom: 1px solid #3a3a3a;
+}
+
+.details-content {
+  padding: 16px 18px 18px;
+  line-height: 1.7;
+}
+
+.details-content p {
+  margin: 0;
+}
+
+.details-content p + p {
+  margin-top: 12px;
+}
+
+pre {
+  max-width: 100%;
+  margin: 0 0 16px;
+  overflow-x: auto;
+  padding: 14px;
+  border: 1px solid #3a3a3a;
+  border-radius: 8px;
+  background-color: #121212;
+}
+
+pre:last-child {
+  margin-bottom: 0;
+}
+
+code {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.6;
+}
