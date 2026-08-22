@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;head&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;head&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p>ページの設定や情報を書くためのタグです。<br>画面には直接表示されない内容を入れます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  &gt;
+  &lt;meta
+    name="description"
+    content="HTML・CSS・JavaScriptを学習するためのWebアプリです。"
+  &gt;
+  &lt;link rel="stylesheet" href="styles.css"&gt;
+  &lt;title&gt;Web学習アプリ&lt;/title&gt;
+&lt;/head&gt;</code></pre>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <p>&lt;head&gt; タグ自体には、<br>普段よく使う属性はあまりありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p>HTMLファイルごとに、<br>ページの設定や情報を書くために1ページに1か所使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <pre><code>&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  &gt;
+  &lt;meta
+    name="description"
+    content="HTML・CSS・JavaScriptを学習するためのWebアプリです。"
+  &gt;
+  &lt;link rel="stylesheet" href="styles.css"&gt;
+  &lt;title&gt;Web学習アプリ&lt;/title&gt;
+&lt;/head&gt;</code></pre>
+            <p>Destyle.cssは今回は入れません。</p>
+            <p>リセットCSSについては、後でCSS学習側の「実際に使った例」で扱う予定です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+            <p>将来的には、TOP画面の「自由メモ」と共通化し、localStorageで「入力 → 保存 → 読み込み」を学べる構成にする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
