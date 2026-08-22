@@ -1,11 +1,14 @@
+/* 全ページ共通：すべての要素のサイズ計算 */
 * {
   box-sizing: border-box;
 }
 
+/* 全ページ共通：ブラウザ標準UIのダークテーマ */
 html {
   color-scheme: dark;
 }
 
+/* 全ページ共通：ページ本体とセーフエリア */
 body {
   min-height: 100vh;
   min-height: 100dvh;
@@ -20,12 +23,14 @@ body {
     "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
 }
 
+/* 全ページ共通：本文の最大幅と中央配置 */
 .app-container {
   width: 100%;
   max-width: 480px;
   margin: 0 auto;
 }
 
+/* 全ページ共通：画面見出し */
 h1 {
   margin: 0;
   font-size: 28px;
@@ -33,6 +38,7 @@ h1 {
   text-align: center;
 }
 
+/* トップ画面・一覧画面共通：メニューボタンの縦並び */
 .button-list {
   display: flex;
   flex-direction: column;
@@ -40,6 +46,7 @@ h1 {
   margin-top: 24px;
 }
 
+/* トップ画面・一覧画面共通：メニューボタン */
 .menu-button {
   display: flex;
   align-items: center;
@@ -58,37 +65,44 @@ h1 {
   cursor: pointer;
 }
 
+/* トップ画面・一覧画面共通：メニューボタンのラベル */
 .menu-button > span:first-child {
   font-size: 18px;
   font-weight: 600;
 }
 
+/* メニュー・固定下部ナビ共通：訪問済みリンクの文字色 */
 .menu-button:visited,
 .nav-button:visited {
   color: #f5f5f5;
 }
 
+/* メニュー・固定下部ナビ共通：マウスを重ねた状態 */
 .menu-button:hover,
 .nav-button:hover {
   background-color: #333333;
 }
 
+/* メニュー・固定下部ナビ共通：キーボードフォーカス */
 .menu-button:focus-visible,
 .nav-button:focus-visible {
   outline: 3px solid #f5f5f5;
   outline-offset: 3px;
 }
 
+/* メニュー・固定下部ナビ共通：押している状態 */
 .menu-button:active,
 .nav-button:active {
   background-color: #242424;
   transform: translateY(1px);
 }
 
+/* 固定下部ナビ付き画面共通：本文の重なり防止 */
 .page-with-bottom-nav {
   padding-bottom: calc(90px + env(safe-area-inset-bottom));
 }
 
+/* 固定下部ナビ：画面下部への固定とセーフエリア */
 .bottom-nav {
   position: fixed;
   right: 0;
@@ -103,6 +117,7 @@ h1 {
   background-color: #121212;
 }
 
+/* 固定下部ナビ：BACK / TOPの横並び */
 .bottom-nav__inner {
   display: flex;
   gap: 12px;
@@ -111,6 +126,7 @@ h1 {
   margin: 0 auto;
 }
 
+/* 固定下部ナビ：BACK / TOPボタン */
 .nav-button {
   display: flex;
   flex: 1;
@@ -130,6 +146,7 @@ h1 {
   cursor: pointer;
 }
 
+/* 詳細画面：アコーディオンの縦並び */
 .details-list {
   display: flex;
   flex-direction: column;
@@ -137,6 +154,7 @@ h1 {
   margin-top: 24px;
 }
 
+/* 詳細画面：アコーディオン全体 */
 details {
   min-width: 0;
   overflow: hidden;
@@ -145,6 +163,7 @@ details {
   background-color: #2a2a2a;
 }
 
+/* 詳細画面：アコーディオンの見出し */
 summary {
   min-height: 56px;
   padding: 14px 18px;
@@ -154,32 +173,39 @@ summary {
   cursor: pointer;
 }
 
+/* 詳細画面：アコーディオン見出しのホバー状態 */
 summary:hover {
   background-color: #333333;
 }
 
+/* 詳細画面：アコーディオン見出しのキーボードフォーカス */
 summary:focus-visible {
   outline: 3px solid #f5f5f5;
   outline-offset: -3px;
 }
 
+/* 詳細画面：開いた見出しと本文の区切り */
 details[open] > summary {
   border-bottom: 1px solid #3a3a3a;
 }
 
+/* 詳細画面：アコーディオンの本文 */
 .details-content {
   padding: 16px 18px 18px;
   line-height: 1.7;
 }
 
+/* 詳細画面：本文段落の基本余白 */
 .details-content p {
   margin: 0;
 }
 
+/* 詳細画面：連続する本文段落の間隔 */
 .details-content p + p {
   margin-top: 12px;
 }
 
+/* 詳細画面：コード例の表示枠 */
 pre {
   max-width: 100%;
   margin: 0 0 16px;
@@ -190,10 +216,12 @@ pre {
   background-color: #121212;
 }
 
+/* 詳細画面：末尾のコード例の余白調整 */
 pre:last-child {
   margin-bottom: 0;
 }
 
+/* 詳細画面：コード文字 */
 code {
   font-family: Consolas, "Courier New", monospace;
   font-size: 14px;
