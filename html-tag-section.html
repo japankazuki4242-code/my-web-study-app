@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;section&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;section&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p>ページの内容を、テーマや話題ごとのまとまりに分けるためのタグです。<br>ABOUT・MENU・NEWSなど、1つのまとまりとして扱いたい内容に使います。</p>
+            <p><code>&lt;section&gt;</code>は、単にレイアウトを分けるためだけの箱ではありません。<br>見出しを付けられるような、意味のある内容のまとまりに使います。</p>
+            <p>CSSで配置や横幅を整えるためだけの箱が必要な場合は、<code>&lt;div&gt;</code>を使うことがあります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;section&gt;
+  &lt;h2&gt;ABOUT&lt;/h2&gt;
+  &lt;p&gt;お店について紹介します。&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+            <p><code>&lt;section&gt;</code>は、見出しを付けられるようなテーマ・話題ごとのまとまりに使います。</p>
+            <p>CSSで配置や横幅を整えるためだけの箱には、<code>&lt;div&gt;</code>を使うことがあります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;section class="about"&gt;</code></pre>
+            <p>属性名：<code>class</code><br>属性値：<code>about</code></p>
+            <p><code>class</code>を付けることで、CSSやJavaScriptからこの<code>&lt;section&gt;</code>を指定できます。</p>
+            <p><code>&lt;section&gt;</code>の内容に合わせて、about・menu・news・accessなど、そのまとまりの内容が分かるclass名を付けることがあります。</p>
+            <p>例：</p>
+            <pre><code>&lt;section class="about"&gt;
+&lt;section class="menu"&gt;
+&lt;section class="news"&gt;
+&lt;section class="access"&gt;</code></pre>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p>ページの主要な内容を、<br>テーマや話題ごとのまとまりに分けたいときに使います。</p>
+            <ul>
+              <li>ABOUT（紹介）</li>
+              <li>MENU（メニュー）</li>
+              <li>NEWS（お知らせ）</li>
+              <li>ACCESS（アクセス）</li>
+              <li>SERVICE（サービス紹介）</li>
+            </ul>
+            <p><code>&lt;section&gt;</code>は、見出しを付けられるような意味のある内容のまとまりに使います。</p>
+            <p>単にCSSでレイアウトを整えたり、要素をまとめるためだけの箱が必要な場合は、<code>&lt;div&gt;</code>を使うことがあります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>以下は、実際に作成したBlack CoffeeページのABOUT部分を元にした例です。</p>
+            <pre><code>&lt;section class="about"&gt;
+  &lt;div class="container"&gt;
+    &lt;h2&gt;ABOUT&lt;/h2&gt;
+    &lt;p&gt;
+      お店についての説明
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+            <p>実際に作成したBlack Coffeeでは、ABOUTという1つのテーマを<code>&lt;section&gt;</code>でまとめています。</p>
+            <p><code>&lt;section class="about"&gt;</code><br>→ ABOUTという意味のある内容のまとまり</p>
+            <p><code>&lt;div class="container"&gt;</code><br>→ 中のコンテンツの横幅などを整えるための箱</p>
+            <p><code>&lt;h2&gt;</code><br>→ ABOUTセクションの見出し</p>
+            <p><code>&lt;p&gt;</code><br>→ ABOUTについての内容</p>
+            <p><code>&lt;section&gt;</code>は「内容・意味でまとめる」、<code>&lt;div&gt;</code>は「レイアウトなどのためにまとめる」という違いがあります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
