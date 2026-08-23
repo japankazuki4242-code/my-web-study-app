@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;header&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;header&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p>ページやセクションの先頭部分をまとめるためのタグです。<br>見出し・ロゴ・ナビゲーションなどを中に入れることがあります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;header&gt;
+  &lt;h1&gt;サイトタイトル&lt;/h1&gt;
+&lt;/header&gt;</code></pre>
+            <p>画像やロゴ、ナビゲーションなどを中に入れることもあります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;header class="site-header"&gt;</code></pre>
+            <p>属性名：<code>class</code><br>属性値：<code>site-header</code></p>
+            <p><code>class</code> は、CSSやJavaScriptからその要素を指定するときに使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p>ページの上部に、<br>サイトタイトル・ロゴ画像・ナビゲーションをまとめたり、<br>背景画像を大きく表示したいときに使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <pre><code>&lt;header class="site-header"&gt;
+  &lt;div class="header-inner"&gt;
+    &lt;h1 class="site-logo"&gt;
+      &lt;a href="#"&gt;LOGO&lt;/a&gt;
+    &lt;/h1&gt;
+
+    &lt;nav class="global-nav"&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+&lt;/header&gt;</code></pre>
+            <p>この例は、次の親子構造になっています。</p>
+            <pre><code>&lt;header&gt;
+└─ .header-inner
+   ├─ ロゴ側
+   └─ ナビゲーション側</code></pre>
+            <p>将来的にCSS側では、次のようにロゴとナビゲーションを左右に振り分ける例とつなげて学習できるようにします。</p>
+            <pre><code>.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}</code></pre>
+            <p>今回はこのCSSを実際のstyles.cssには追加せず、学習用の補足として扱います。</p>
+            <p>背景画像の詳しい指定についても、後でCSS側の<code>background-image</code>などで扱います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+            <p>将来的には、TOP画面の「自由メモ」と共通化し、localStorageで「入力 → 保存 → 読み込み」を学べる構成にする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
