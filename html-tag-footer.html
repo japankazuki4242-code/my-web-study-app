@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;footer&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;footer&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;footer&gt;</code>は、ページやセクションの最後に置く情報をまとめるためのタグです。</p>
+            <p>コピーライト、会社・店舗情報、サイト内リンク、SNSリンク、アクセス情報などを入れることがあります。</p>
+            <p>シンプルなサイトではコピーライトだけを入れることもあれば、ロゴ・サイト名・リンク・会社情報など、複数の情報をまとめることもあります。</p>
+            <p>また、<code>&lt;footer&gt;</code>は必ずページ全体の一番下だけに使うタグではありません。<code>&lt;article&gt;</code>などの中で、その記事に関する最後の情報をまとめるために使うこともあります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;footer&gt;
+  &lt;small&gt;&amp;copy; 2026 Black Coffee&lt;/small&gt;
+&lt;/footer&gt;</code></pre>
+            <p><code>&lt;footer&gt;</code>の中には、文章・リンク・会社情報など、ページの最後に表示したい要素を入れることができます。</p>
+            <p><code>&amp;copy;</code>は「©」を表示するための書き方です。</p>
+            <p><code>&lt;small&gt;</code>は、コピーライトなどの補足的な情報に使われることがあります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;footer class="footer"&gt;</code></pre>
+            <p>属性名：<code>class</code><br>属性値：<code>footer</code></p>
+            <p><code>class</code>を付けることで、CSSやJavaScriptからこの<code>&lt;footer&gt;</code>を指定できます。</p>
+            <p><code>&lt;footer&gt;</code>そのものだけでなく、footer内のロゴやコピーライトなどにもclassを付けて、それぞれCSSやJavaScriptから指定することがあります。</p>
+            <p>例：</p>
+            <pre><code>&lt;div class="footer-logo"&gt;LOGO&lt;/div&gt;
+
+&lt;small class="copyright"&gt;
+  © 2020 LOGO All rights reserved.
+&lt;/small&gt;</code></pre>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p>Webサイトの下部に、サイトに関する情報をまとめるときによく使います。</p>
+            <ul>
+              <li>コピーライト</li>
+              <li>ロゴ・サイト名</li>
+              <li>会社名・店舗名</li>
+              <li>住所・電話番号</li>
+              <li>サイト内リンク</li>
+              <li>プライバシーポリシー</li>
+              <li>SNSへのリンク</li>
+              <li>アクセス情報</li>
+              <li>地図</li>
+            </ul>
+            <p>地図は必ず<code>&lt;footer&gt;</code>に入れるものではありません。</p>
+            <p>ACCESSがページの主要な内容なら、<code>&lt;main&gt;</code>内に<code>&lt;section class="access"&gt;</code>などを作って、その中に地図やアクセス情報を配置することもあります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>実際に作成した2つのWebページのfooterを元に、シンプルな例と少し内容が増えた例を比較します。</p>
+            <p><strong>実例1：Black Coffee</strong></p>
+            <pre><code>&lt;footer&gt;
+  &lt;small&gt;&amp;copy;black coffee&lt;/small&gt;
+&lt;/footer&gt;</code></pre>
+            <p><code>&lt;footer&gt;</code><br>→ ページ下部の情報をまとめる</p>
+            <p><code>&lt;small&gt;</code><br>→ コピーライトを表示する</p>
+            <p><code>&amp;copy;</code><br>→ ©を表示する</p>
+            <p>Black Coffeeでは、コピーライトだけを入れたシンプルなfooterを使用しています。</p>
+
+            <p><strong>実例2：kazuki_HP_practice2</strong></p>
+            <pre><code>&lt;footer&gt;
+  &lt;div class="footer-logo"&gt;LOGO&lt;/div&gt;
+  &lt;small class="copyright"&gt;
+    © 2020 LOGO All rights reserved.
+  &lt;/small&gt;
+&lt;/footer&gt;</code></pre>
+            <p><code>&lt;footer&gt;</code><br>→ footer全体</p>
+            <p><code>&lt;div class="footer-logo"&gt;</code><br>→ ロゴ・サイト名の部分</p>
+            <p><code>&lt;small class="copyright"&gt;</code><br>→ コピーライト部分</p>
+            <p>kazuki_HP_practice2では、ロゴ部分とコピーライト部分を分けてfooterに入れています。</p>
+            <p><code>.footer-logo</code>と<code>.copyright</code>にそれぞれclassを付けることで、CSSから別々に見た目を指定できます。</p>
+
+            <p><strong>比較</strong></p>
+            <p>Black Coffee<br>→ コピーライトだけのシンプルなfooter</p>
+            <p>kazuki_HP_practice2<br>→ ロゴ＋コピーライトのfooter</p>
+            <p>この比較から、<code>&lt;footer&gt;</code>は決まった中身を書くタグではなく、サイトに必要な下部情報をまとめるためのタグだと分かります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
