@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;div&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;div&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;div&gt;</code>は、複数のHTML要素をひとまとまりにするためのタグです。</p>
+            <p><code>&lt;div&gt;</code>自体には、<code>&lt;header&gt;</code>や<code>&lt;section&gt;</code>のような特別な意味はなく、主にCSSでレイアウトや見た目を指定するためのグループ分けに使います。</p>
+            <p><code>&lt;section&gt;</code>は、テーマや内容として意味のあるまとまりに使います。</p>
+            <p><code>&lt;div&gt;</code>は、意味を持たせず、レイアウトやデザインのために要素をまとめたいときに使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;div&gt;
+  &lt;h2&gt;おすすめメニュー&lt;/h2&gt;
+  &lt;p&gt;人気のコーヒーを紹介します。&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            <p><code>&lt;div&gt;</code>の中に、見出し・文章・画像・リンクなどのHTML要素を入れて、1つのまとまりにすることができます。</p>
+            <pre><code>&lt;div class="container"&gt;
+  &lt;h2&gt;おすすめメニュー&lt;/h2&gt;
+  &lt;p&gt;人気のコーヒーを紹介します。&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            <p>実際のWeb制作では、<code>&lt;div&gt;</code>にclassを付けて、CSSからそのまとまりの幅・余白・配置などを指定することがよくあります。</p>
+            <p><strong>HTML：</strong></p>
+            <pre><code>&lt;div class="container"&gt;</code></pre>
+            <p><strong>CSS：</strong></p>
+            <pre><code>.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}</code></pre>
+            <p><code>&lt;div&gt;</code><br>→ HTML要素をまとめる箱</p>
+            <p><code>class="container"</code><br>→ その箱に名前を付ける</p>
+            <p><code>.container</code><br>→ CSSから、そのclass名を持つ箱を指定する</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;div class="container"&gt;</code></pre>
+            <p>属性名：<code>class</code><br>属性値：<code>container</code></p>
+            <p><code>class</code>を付けることで、CSSやJavaScriptからこの<code>&lt;div&gt;</code>を指定できます。</p>
+            <p><strong>CSSでの指定例：</strong></p>
+            <pre><code>.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}</code></pre>
+            <p>HTMLでは<code>class="container"</code>と書きますが、CSSでclassを指定するときは、class名の前に「.（ドット）」を付けて<code>.container</code>と書きます。</p>
+            <p>「.（ドット）」は、CSSでclassを指定するときに必要です。</p>
+            <pre><code>HTML
+class="container"
+       ↓
+CSS
+.container</code></pre>
+            <p><code>container</code>は、HTMLで決められた特別な名前ではなく、自分で付けるclass名です。</p>
+            <p>Web制作では、コンテンツの最大幅や中央配置、左右の余白などを整えるためのまとまりに<code>container</code>というclass名がよく使われます。</p>
+            <p><code>div</code><br>→ タグ（要素）を指定する</p>
+            <p><code>.container</code><br>→ classを指定する</p>
+            <p><code>#header</code><br>→ idを指定する</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;div&gt;</code>は、レイアウトやデザインのためにHTML要素をまとめたいときによく使います。</p>
+            <ul>
+              <li>複数の要素を1つのグループにまとめる</li>
+              <li><code>.container</code>を作ってコンテンツの横幅を整える</li>
+              <li>画像と文章をひとまとまりにする</li>
+              <li>Flexboxで横並びにしたい要素をまとめる</li>
+              <li>CSSで背景色・余白・配置などを指定するための箱を作る</li>
+            </ul>
+            <p><code>&lt;div&gt;</code>は便利なのでよく使いますが、何でも<code>&lt;div&gt;</code>で囲めばよいわけではありません。</p>
+            <p><code>&lt;header&gt;</code>・<code>&lt;nav&gt;</code>・<code>&lt;main&gt;</code>・<code>&lt;section&gt;</code>・<code>&lt;article&gt;</code>・<code>&lt;footer&gt;</code>など、内容に合った意味を持つHTMLタグがある場合は、そちらを使うことも検討します。</p>
+            <p>意味のある内容のまとまり<br>→ <code>&lt;section&gt;</code>や<code>&lt;article&gt;</code>など</p>
+            <p>レイアウトやグループ分けのための箱<br>→ <code>&lt;div&gt;</code></p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>実際に作成したBlack Coffeeとkazuki_HP_practice2の例を元に、<code>&lt;div&gt;</code>の2種類の使い方を比較します。</p>
+
+            <p><strong>実例1：Black Coffee</strong></p>
+            <p>Black Coffeeでは、<code>&lt;div class="container"&gt;</code>をコンテンツの横幅や中央配置を整えるための箱として使用しています。</p>
+            <pre><code>&lt;section class="about"&gt;
+  &lt;div class="container"&gt;
+    &lt;h2&gt;ABOUT&lt;/h2&gt;
+    &lt;p&gt;お店についての説明&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+            <p><strong>CSS例：</strong></p>
+            <pre><code>.container {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}</code></pre>
+            <p><code>&lt;div class="container"&gt;</code><br>→ 中のコンテンツを1つにまとめる箱</p>
+            <p><code>.container</code><br>→ CSSからこの箱を指定する</p>
+            <p><code>width: 100%;</code><br>→ 利用できる横幅いっぱいまで広がる</p>
+            <p><code>max-width: 700px;</code><br>→ 横幅が700pxより広がりすぎないようにする</p>
+            <p><code>margin: 0 auto;</code><br>→ 左右の余白を自動にして中央に配置する</p>
+            <p>Black Coffeeでは、about・menu・asideなどの中で<code>.container</code>を使用し、中のコンテンツの横幅を整えています。</p>
+
+            <p><strong>実例2：kazuki_HP_practice2</strong></p>
+            <p>kazuki_HP_practice2では、<code>&lt;div&gt;</code>を画像側・文章側などに分けて、レイアウトのための箱として使用しています。</p>
+            <pre><code>&lt;div class="feature-box"&gt;
+  &lt;div class="img-area"&gt;
+    &lt;figure&gt;
+      &lt;img src="./img/sample.jpg" alt="画像"&gt;
+    &lt;/figure&gt;
+  &lt;/div&gt;
+
+  &lt;div class="text-area"&gt;
+    &lt;h3&gt;タイトル&lt;/h3&gt;
+    &lt;p&gt;説明文&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <p><strong>CSS例：</strong></p>
+            <pre><code>.feature-box {
+  display: flex;
+  justify-content: space-between;
+}</code></pre>
+            <p><code>.feature-box</code><br>→ 画像側と文章側をまとめる親の箱</p>
+            <p><code>.img-area</code><br>→ 画像をまとめる子の箱</p>
+            <p><code>.text-area</code><br>→ 文章をまとめる子の箱</p>
+            <p><code>display: flex;</code><br>→ 子要素を横並びにする</p>
+            <p><code>justify-content: space-between;</code><br>→ 子要素の間にスペースを作って配置する</p>
+
+            <p><strong>比較</strong></p>
+            <p>Black Coffee<br>→ <code>.container</code>として、横幅や中央配置を整えるための<code>&lt;div&gt;</code></p>
+            <p>kazuki_HP_practice2<br>→ <code>.feature-box</code>・<code>.img-area</code>・<code>.text-area</code>として、レイアウトやグループ分けのために使う<code>&lt;div&gt;</code></p>
+            <p><code>&lt;div&gt;</code>は便利ですが、意味のあるまとまりなら<code>&lt;section&gt;</code>や<code>&lt;article&gt;</code>などを使い、レイアウトやグループ分けが目的なら<code>&lt;div&gt;</code>を使う、と考えると分かりやすいです。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
