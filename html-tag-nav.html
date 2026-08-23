@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;nav&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;nav&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p>ページ内の主要なナビゲーションリンクをまとめるためのタグです。<br>メニューや、ページ内の別の場所へ移動するリンクなどを中に入れます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;nav&gt;
+  &lt;a href="#"&gt;Home&lt;/a&gt;
+  &lt;a href="#"&gt;About&lt;/a&gt;
+  &lt;a href="#"&gt;Contact&lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+            <p><code>&lt;ul&gt;</code>と<code>&lt;li&gt;</code>を使うと、メニュー項目をリストとしてまとめられます。</p>
+            <pre><code>&lt;nav&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="/"&gt;ホーム&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/about/"&gt;会社概要&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/contact/"&gt;お問い合わせ&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+            <p><code>&lt;nav&gt;</code> → ナビゲーション全体<br><code>&lt;ul&gt;</code> → メニュー項目のまとまり<br><code>&lt;li&gt;</code> → 1つのメニュー項目<br><code>&lt;a&gt;</code> → 実際に移動するリンク</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;nav class="global-nav"&gt;</code></pre>
+            <p>属性名：<code>class</code><br>属性値：<code>global-nav</code></p>
+            <p><code>class</code> は、CSSやJavaScriptからその要素を指定するときに使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p>ページ上部のメニューや、<br>ページ内の主要な移動リンクをまとめたいときに使います。</p>
+            <ul>
+              <li>Home</li>
+              <li>About</li>
+              <li>Contact</li>
+              <li>ページ内リンク など</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <pre><code>&lt;nav class="global-nav"&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+            <p><code>#</code> はリンク先を仮で指定するときに使うことがあります。</p>
+            <p>実際にページを作るときは、<code>href</code>に移動先のURLやファイル名などを指定します。</p>
+            <p>例：</p>
+            <pre><code>&lt;a href="about.html"&gt;About&lt;/a&gt;</code></pre>
+            <p>これは<code>about.html</code>に移動するリンクです。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
