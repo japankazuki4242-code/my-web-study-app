@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;article&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;article&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;article&gt;</code>は、その部分だけを取り出しても内容が成立する、独立したコンテンツをまとめるためのタグです。</p>
+            <ul>
+              <li>ブログの記事</li>
+              <li>ニュースの記事</li>
+              <li>お知らせ1件</li>
+              <li>商品・サービスの紹介1件</li>
+            </ul>
+            <p><code>&lt;section&gt;</code>はテーマ・話題ごとのまとまりに使いますが、<code>&lt;article&gt;</code>はその部分だけでも1つの内容として成立するまとまりに使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;article&gt;
+  &lt;h2&gt;新メニューのお知らせ&lt;/h2&gt;
+  &lt;p&gt;新しいコーヒーを販売します。&lt;/p&gt;
+&lt;/article&gt;</code></pre>
+            <p><code>&lt;article&gt;</code>の中には、見出し・文章・画像・リンクなど、その記事に必要な要素を入れることができます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;article class="news-item"&gt;</code></pre>
+            <p>属性名：<code>class</code><br>属性値：<code>news-item</code></p>
+            <p><code>class</code>を付けることで、CSSやJavaScriptからこの<code>&lt;article&gt;</code>を指定できます。</p>
+            <p>articleの内容に合わせて、news-item・blog-post・product-itemなど、何の記事なのか分かりやすいclass名を付けることがあります。</p>
+            <p>例：</p>
+            <pre><code>&lt;article class="news-item"&gt;
+&lt;article class="blog-post"&gt;
+&lt;article class="product-item"&gt;</code></pre>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p>ブログやニュースなど、<br>1つ1つが独立したコンテンツとして成立する内容をまとめたいときに使います。</p>
+            <ul>
+              <li>ブログの記事</li>
+              <li>ニュースの記事</li>
+              <li>お知らせ1件</li>
+              <li>商品やサービスの紹介1件</li>
+              <li>レビューや投稿1件</li>
+            </ul>
+            <p><code>&lt;section&gt;</code>は、テーマや話題ごとのまとまりに使います。</p>
+            <p><code>&lt;article&gt;</code>は、その部分だけを取り出しても1つの記事やコンテンツとして意味が通じるような内容に使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>今回は実際の制作作品で使用したコードではなく、学習用の実践例です。</p>
+            <pre><code>&lt;article&gt;
+  &lt;h2&gt;新メニューのお知らせ&lt;/h2&gt;
+  &lt;img src="images/coffee.jpg" alt="新メニューのコーヒー"&gt;
+  &lt;p&gt;新しいコーヒーを販売します。&lt;/p&gt;
+  &lt;a href="news.html"&gt;詳しく見る&lt;/a&gt;
+&lt;/article&gt;</code></pre>
+            <p><code>&lt;article&gt;</code><br>→ 1つの独立した記事</p>
+            <p><code>&lt;h2&gt;</code><br>→ 記事の見出し</p>
+            <p><code>&lt;img&gt;</code><br>→ 記事に関連する画像</p>
+            <p><code>&lt;p&gt;</code><br>→ 記事の本文</p>
+            <p><code>&lt;a&gt;</code><br>→ 詳細ページへ移動するリンク</p>
+            <p>この例から、<code>&lt;article&gt;</code>の中には記事に必要な複数のHTML要素を組み合わせて入れられることが分かります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
