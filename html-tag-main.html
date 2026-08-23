@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;main&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;main&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p>そのページの中心となる内容をまとめるためのタグです。<br>見出し・文章・画像・セクションなど、ページごとの主要な内容を中に入れます。</p>
+            <p>そのページの一番大きな見出しとして<code>&lt;h1&gt;</code>を入れ、各セクションの見出しに<code>&lt;h2&gt;</code>を使う形がよくあります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;main&gt;
+  &lt;h1&gt;会社概要&lt;/h1&gt;
+
+  &lt;section&gt;
+    &lt;h2&gt;私たちについて&lt;/h2&gt;
+    &lt;p&gt;会社についての説明を書きます。&lt;/p&gt;
+  &lt;/section&gt;
+&lt;/main&gt;</code></pre>
+            <p><code>&lt;main&gt;</code>の中には<code>&lt;section&gt;</code>を複数入れることができます。</p>
+            <p>また、<code>&lt;figure&gt;</code>や<code>&lt;img&gt;</code>など、ページの主要な内容に必要な要素も入れられます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;main class="main-content"&gt;</code></pre>
+            <p>属性名：<code>class</code><br>属性値：<code>main-content</code></p>
+            <p><code>class</code> は、CSSやJavaScriptからその要素を指定するときに使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p>ページの中で、中心となる内容をまとめたいときに使います。</p>
+            <ul>
+              <li>記事本文</li>
+              <li>会社概要</li>
+              <li>商品やサービスの紹介</li>
+              <li>複数の<code>&lt;section&gt;</code>で分けた主要コンテンツ</li>
+            </ul>
+            <p>ページ全体の基本構造では、<code>&lt;header&gt;</code>の次に<code>&lt;main&gt;</code>を置く形がよくあります。</p>
+            <p>※必ず<code>&lt;header&gt;</code>の直後に<code>&lt;main&gt;</code>を置く、という決まりではありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>以下は、実際に作成したBlack Coffeeページの構造を元にした例です。</p>
+            <pre><code>&lt;main&gt;
+  &lt;section class="hero"&gt;
+    &lt;figure&gt;
+      &lt;img src="images/top.jpg" alt="カフェの店内"&gt;
+    &lt;/figure&gt;
+  &lt;/section&gt;
+
+  &lt;section class="about"&gt;
+    &lt;div class="container"&gt;
+      &lt;h2&gt;ABOUT&lt;/h2&gt;
+      &lt;p&gt;お店についての説明&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class="menu"&gt;
+    &lt;div class="container"&gt;
+      &lt;h2&gt;MENU&lt;/h2&gt;
+      &lt;table&gt;
+        &lt;!-- メニュー内容 --&gt;
+      &lt;/table&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+&lt;/main&gt;</code></pre>
+            <p>実際に作成したBlack Coffeeのページでは、<code>&lt;main&gt;</code>の中をhero・about・menuの複数の<code>&lt;section&gt;</code>に分けています。</p>
+            <p><code>&lt;section&gt;</code>の中には、<code>&lt;figure&gt;</code>・<code>&lt;img&gt;</code>・<code>&lt;h2&gt;</code>・<code>&lt;p&gt;</code>・<code>&lt;table&gt;</code>など、そのページの主要な内容に必要な要素を入れています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
