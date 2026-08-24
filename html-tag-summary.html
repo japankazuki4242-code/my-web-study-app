@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;summary&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;summary&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;summary&gt;</code>は、<code>&lt;details&gt;</code>の中で使う、クリックできる見出しを作るためのタグです。</p>
+            <p><code>&lt;summary&gt;</code>をクリックすると、<code>&lt;details&gt;</code>の中にある内容を開いたり閉じたりできます。</p>
+            <pre><code>&lt;details&gt;
+  &lt;summary&gt;詳しく見る&lt;/summary&gt;
+  &lt;p&gt;ここに詳しい内容を書きます。&lt;/p&gt;
+&lt;/details&gt;</code></pre>
+            <p><code>&lt;summary&gt;詳しく見る&lt;/summary&gt;</code>の部分が、ユーザーがクリックする見出しです。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;details&gt;
+  &lt;summary&gt;詳しく見る&lt;/summary&gt;
+  &lt;p&gt;ここに詳しい内容を書きます。&lt;/p&gt;
+&lt;/details&gt;</code></pre>
+            <p><code>&lt;summary&gt;</code>は<code>&lt;details&gt;</code>の中に書きます。</p>
+            <pre><code>&lt;summary&gt;詳しく見る&lt;/summary&gt;</code></pre>
+            <p>開始タグ<code>&lt;summary&gt;</code>と終了タグ<code>&lt;/summary&gt;</code>の間に、クリックする見出しの文字を書きます。</p>
+            <p>この例では「詳しく見る」が見出しです。</p>
+            <p><code>&lt;summary&gt;</code>をクリックすると、同じ<code>&lt;details&gt;</code>の中にある内容を開いたり閉じたりできます。</p>
+            <p><code>&lt;summary&gt;</code>は<code>&lt;details&gt;</code>の中で使うタグです。単体では使用しません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;summary class="details-title"&gt;詳しく見る&lt;/summary&gt;</code></pre>
+            <p>属性名：<code>class</code><br>属性値：<code>details-title</code></p>
+            <p><code>class</code>を付けると、CSSやJavaScriptからこの<code>&lt;summary&gt;</code>を指定できます。</p>
+            <p>たとえばCSSでは、次のように書けます。</p>
+            <pre><code>.details-title {
+  font-weight: bold;
+}</code></pre>
+            <p><strong>HTML：</strong></p>
+            <pre><code>class="details-title"</code></pre>
+            <p><strong>CSS：</strong></p>
+            <pre><code>.details-title</code></pre>
+            <p>CSSでclassを指定するときは、class名の前に<code>.</code>（ドット）を付けます。</p>
+            <p>今回のWeb学習アプリでは、<code>&lt;summary&gt;</code>をタグ名そのままでCSS指定しているため、<code>class="details-title"</code>は学習用の例です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;summary&gt;</code>は、<code>&lt;details&gt;</code>の中で「何の内容を開くのか」を分かりやすく示す見出しとして使います。</p>
+            <ul>
+              <li>FAQの質問部分</li>
+              <li>補足説明の見出し</li>
+              <li>詳細情報の見出し</li>
+              <li>注意事項の見出し</li>
+              <li>学習内容の折りたたみ見出し</li>
+            </ul>
+            <pre><code>&lt;details&gt;
+  &lt;summary&gt;よくある質問&lt;/summary&gt;
+  &lt;p&gt;ここに回答を書きます。&lt;/p&gt;
+&lt;/details&gt;</code></pre>
+            <p>この場合、<code>&lt;summary&gt;</code>の「よくある質問」が、ユーザーがクリックする見出しになります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>現在のWeb学習アプリで実際に使用している構造を、学習用に分かりやすく整理した例です。</p>
+            <pre><code>&lt;details&gt;
+  &lt;summary&gt;基本の書き方&lt;/summary&gt;
+
+  &lt;div class="details-content"&gt;
+    &lt;p&gt;ここに説明を書きます。&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;</code></pre>
+            <p><code>&lt;summary&gt;基本の書き方&lt;/summary&gt;</code><br>→ ユーザーがクリックする見出し</p>
+            <p><code>&lt;details&gt;</code><br>→ 開閉する全体の箱</p>
+            <p><code>&lt;div class="details-content"&gt;</code><br>→ 開いた後に表示する内容をまとめる箱</p>
+            <p><code>&lt;p&gt;</code><br>→ 実際の説明文</p>
+            <p>このWeb学習アプリでは、次の見出し部分に<code>&lt;summary&gt;</code>を実際に使っています。</p>
+            <ul>
+              <li>何をするタグ？</li>
+              <li>基本の書き方</li>
+              <li>属性名・属性値の例</li>
+              <li>よく使う場面</li>
+              <li>実際に使った例</li>
+              <li>自分のメモ</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
