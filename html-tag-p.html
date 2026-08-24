@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;p&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;p&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;p&gt;</code>は、文章の1つの段落を表すタグです。</p>
+            <p>開始タグ<code>&lt;p&gt;</code>と終了タグ<code>&lt;/p&gt;</code>で文章を囲みます。</p>
+            <pre><code>&lt;p&gt;これは1つの段落です。&lt;/p&gt;</code></pre>
+            <p><code>&lt;p&gt;</code>は、単に余白を作るためのタグではありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;p&gt;これは1つ目の段落です。&lt;/p&gt;
+&lt;p&gt;これは2つ目の段落です。&lt;/p&gt;</code></pre>
+            <p>複数の段落を書くときは、それぞれの段落を別の<code>&lt;p&gt;</code>で囲みます。</p>
+            <p>段落同士の見た目の余白は、CSSの<code>margin</code>などで調整します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;p class="message"&gt;お知らせの文章です。&lt;/p&gt;</code></pre>
+            <p>属性名：<code>class</code><br>属性値：<code>message</code></p>
+            <p><code>class</code>を付けると、CSSやJavaScriptからこの<code>&lt;p&gt;</code>を指定できます。</p>
+            <p><strong>HTML：</strong></p>
+            <pre><code>class="message"</code></pre>
+            <p><strong>CSS：</strong></p>
+            <pre><code>.message</code></pre>
+            <p>CSSでclassを指定するときは、class名の前に<code>.</code>（ドット）を付けます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;p&gt;</code>は、Webページに文章の段落を書くときに使います。</p>
+            <ul>
+              <li>サイトやお店の紹介文</li>
+              <li>商品やサービスの説明</li>
+              <li>記事やお知らせの本文</li>
+              <li>フォームの案内文</li>
+            </ul>
+            <p>内容のまとまりが変わるときは、新しい<code>&lt;p&gt;</code>に分けます。</p>
+            <p>余白を増やす目的で空の<code>&lt;p&gt;</code>を置かず、見た目の調整にはCSSを使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>Webサイトのお店紹介を、2つの段落に分けた学習用の例です。</p>
+            <pre><code>&lt;section class="about"&gt;
+  &lt;h2&gt;ABOUT&lt;/h2&gt;
+  &lt;p&gt;こだわりのコーヒーを提供するお店です。&lt;/p&gt;
+  &lt;p&gt;ゆっくり過ごせる空間をご用意しています。&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+            <p>2つの文章は別々の内容のまとまりなので、それぞれを<code>&lt;p&gt;</code>で囲んでいます。</p>
+            <p>段落同士の間隔を変えたい場合は、CSSの<code>margin</code>などを使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

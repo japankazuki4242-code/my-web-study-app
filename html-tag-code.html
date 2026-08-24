@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;code&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;code&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;code&gt;</code>は、プログラムのコードであることを意味として表すタグです。</p>
+            <p>文章の途中に短いコードを表示するときは、<code>&lt;code&gt;</code>を単独で使えます。</p>
+            <pre><code>&lt;p&gt;JavaScriptでは &lt;code&gt;console.log()&lt;/code&gt; を使います。&lt;/p&gt;</code></pre>
+            <p>複数行のコードでは、<code>&lt;pre&gt;</code>と<code>&lt;code&gt;</code>を組み合わせて使うことがよくあります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <p><strong>文章の途中に短いコードを書く例：</strong></p>
+            <pre><code>&lt;p&gt;JavaScriptでは &lt;code&gt;console.log()&lt;/code&gt; を使います。&lt;/p&gt;</code></pre>
+            <p>開始タグ<code>&lt;code&gt;</code>と終了タグ<code>&lt;/code&gt;</code>の間に、コードとして示したい内容を書きます。</p>
+            <p><strong>複数行のコードを書く例：</strong></p>
+            <pre><code>&lt;pre&gt;&lt;code&gt;
+const message = "Hello";
+console.log(message);
+&lt;/code&gt;&lt;/pre&gt;</code></pre>
+            <p><code>&lt;pre&gt;</code>は改行や空白を保つ役割、<code>&lt;code&gt;</code>は「これはコードです」という意味を持たせる役割があります。</p>
+            <p>2つはよく一緒に使いますが、必ずセットで使うタグではありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;code class="inline-code"&gt;console.log()&lt;/code&gt;</code></pre>
+            <p>属性名：<code>class</code><br>属性値：<code>inline-code</code></p>
+            <p><code>class</code>を付けると、CSSやJavaScriptからこの<code>&lt;code&gt;</code>を指定できます。</p>
+            <p><strong>HTML：</strong></p>
+            <pre><code>class="inline-code"</code></pre>
+            <p><strong>CSS：</strong></p>
+            <pre><code>.inline-code</code></pre>
+            <p>CSSでclassを指定するときは、class名の前に<code>.</code>（ドット）を付けます。</p>
+            <p><code>inline-code</code>は学習用のclass名の例です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;code&gt;</code>は、HTML・CSS・JavaScriptなどのコードを文章やページ内に表示するときに使います。</p>
+            <ul>
+              <li>文章の途中にタグ名や命令を書くとき</li>
+              <li>関数名や変数名をコードとして示すとき</li>
+              <li>複数行のコード例を表示するとき</li>
+            </ul>
+            <p>短いコードは<code>&lt;code&gt;</code>だけで表示できます。</p>
+            <p>複数行のコードでは、改行や空白を保つ<code>&lt;pre&gt;</code>の中に<code>&lt;code&gt;</code>を書く方法がよく使われます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>このWeb学習アプリでは、HTMLやCSSのコード例をコードとして示すために<code>&lt;code&gt;</code>を使っています。</p>
+            <pre><code>&lt;pre&gt;&lt;code&gt;
+&lt;details&gt;
+  &lt;summary&gt;詳しく見る&lt;/summary&gt;
+&lt;/details&gt;
+&lt;/code&gt;&lt;/pre&gt;</code></pre>
+            <p><code>&lt;pre&gt;</code><br>→ 改行やインデントを保ったまま表示する</p>
+            <p><code>&lt;code&gt;</code><br>→ 中の内容がプログラムコードであることを表す</p>
+            <p>文章中の短いタグ名を示す場合は、<code>&lt;code&gt;</code>だけを使っています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
