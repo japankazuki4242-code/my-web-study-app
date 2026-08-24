@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;pre&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;pre&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;pre&gt;</code>は、HTMLに書いた改行やスペースを保ったまま表示するためのタグです。</p>
+            <p>通常のHTMLでは、連続したスペースや改行はそのまま表示されないことがありますが、<code>&lt;pre&gt;</code>の中では、それらを保った形で表示できます。</p>
+            <pre><code>&lt;pre&gt;
+こんにちは
+  少し右にずらした文章
+    さらに右にずらした文章
+&lt;/pre&gt;</code></pre>
+            <p><code>&lt;pre&gt;</code>はプログラムコード専用のタグではありません。</p>
+            <p>コードを表示するときによく使われますが、コードそのものを表す役割は<code>&lt;code&gt;</code>が担当します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;pre&gt;
+こんにちは
+  少し右にずらした文章
+    さらに右にずらした文章
+&lt;/pre&gt;</code></pre>
+            <p><code>&lt;pre&gt;</code>は、開始タグ<code>&lt;pre&gt;</code>と終了タグ<code>&lt;/pre&gt;</code>の間に、改行やスペースを保ったまま表示したい内容を書きます。</p>
+            <p>この例では、HTMLに書いた改行と先頭のスペースが、ブラウザでもその形を保って表示されます。</p>
+            <p><code>&lt;pre&gt;</code>の中では、スペースや改行そのものが表示に影響するため、インデントにも意味があります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;pre class="code-block"&gt;
+ここに整形した文章を書きます。
+&lt;/pre&gt;</code></pre>
+            <p>属性名：<code>class</code><br>属性値：<code>code-block</code></p>
+            <p><code>class</code>を付けると、CSSやJavaScriptからこの<code>&lt;pre&gt;</code>を指定できます。</p>
+            <p><strong>CSS例：</strong></p>
+            <pre><code>.code-block {
+  background-color: #121212;
+}</code></pre>
+            <p><strong>HTML：</strong></p>
+            <pre><code>class="code-block"</code></pre>
+            <p><strong>CSS：</strong></p>
+            <pre><code>.code-block</code></pre>
+            <p>CSSでclassを指定するときは、class名の前に<code>.</code>（ドット）を付けます。</p>
+            <p><code>code-block</code>は学習用のclass名の例です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;pre&gt;</code>は、改行やスペースをそのまま見せたい内容に使います。</p>
+            <ul>
+              <li>プログラムコードを複数行で表示するとき</li>
+              <li>整形した文章をそのまま見せたいとき</li>
+              <li>インデントや改行に意味がある内容を表示するとき</li>
+              <li>ASCIIアートのように、文字の位置関係を保ちたいとき</li>
+            </ul>
+            <p><code>&lt;pre&gt;</code>と<code>&lt;code&gt;</code>はよく一緒に使いますが、必ずセットで使うわけではありません。</p>
+            <p>複数行のプログラムコードを表示する<br>→ <code>&lt;pre&gt;</code>＋<code>&lt;code&gt;</code></p>
+            <p>文章の途中に短いコードを表示する<br>→ <code>&lt;code&gt;</code>だけ</p>
+            <p>コードではなく、改行やスペースを保って表示する<br>→ <code>&lt;pre&gt;</code>だけ</p>
+            <p><strong>複数行コードの例：</strong></p>
+            <pre><code>&lt;pre&gt;&lt;code&gt;
+const message = "Hello";
+console.log(message);
+&lt;/code&gt;&lt;/pre&gt;</code></pre>
+            <p><strong>文章中の短いコードの例：</strong></p>
+            <pre><code>&lt;p&gt;JavaScriptでは &lt;code&gt;console.log()&lt;/code&gt; を使います。&lt;/p&gt;</code></pre>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>このWeb学習アプリでは、HTMLやCSSなどのコード例を複数行で見やすく表示するために、<code>&lt;pre&gt;</code>と<code>&lt;code&gt;</code>を組み合わせて使っています。</p>
+            <pre><code>&lt;pre&gt;&lt;code&gt;
+&lt;details&gt;
+  &lt;summary&gt;詳しく見る&lt;/summary&gt;
+  &lt;p&gt;ここに詳しい内容を書きます。&lt;/p&gt;
+&lt;/details&gt;
+&lt;/code&gt;&lt;/pre&gt;</code></pre>
+            <p><code>&lt;pre&gt;</code><br>→ 改行やインデントを保ったまま表示する</p>
+            <p><code>&lt;code&gt;</code><br>→ 中の内容がプログラムコードであることを表す</p>
+            <p>このWeb学習アプリでは、複数行のコード例を見やすく表示するために、<code>&lt;pre&gt;</code>と<code>&lt;code&gt;</code>を組み合わせています。</p>
+            <p>ただし、<code>&lt;pre&gt;</code>と<code>&lt;code&gt;</code>は必ずセットで使うものではありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
