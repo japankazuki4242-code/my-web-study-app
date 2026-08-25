@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;h3&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;h3&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;h3&gt;</code>は、<code>&lt;h2&gt;</code>の内容をさらに分ける小見出しなどに使うタグです。</p>
+            <p><code>&lt;h1&gt;</code>が最も上位で、<code>&lt;h2&gt;</code>、<code>&lt;h3&gt;</code>の順に下の階層になります。</p>
+            <p>見出しはページの内容を整理し、読み手や検索エンジンに構造を伝える役割があります。</p>
+            <p>数字は単なる文字サイズではなく、内容の親子関係を表します。見た目の大きさはCSSで調整します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;h1&gt;Web制作の学習&lt;/h1&gt;
+
+&lt;section&gt;
+  &lt;h2&gt;HTML&lt;/h2&gt;
+
+  &lt;section&gt;
+    &lt;h3&gt;文章タグ&lt;/h3&gt;
+  &lt;/section&gt;
+&lt;/section&gt;</code></pre>
+            <p><code>&lt;h3&gt;</code>の「文章タグ」は、<code>&lt;h2&gt;</code>の「HTML」をさらに細かく分けた項目です。</p>
+            <p><code>&lt;h1&gt;</code>→<code>&lt;h2&gt;</code>→<code>&lt;h3&gt;</code>の順に、大きな項目から小さな項目へ続いています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;h3 class="subsection-title"&gt;文章タグ&lt;/h3&gt;</code></pre>
+            <p>属性名：<code>class</code><br>属性値：<code>subsection-title</code></p>
+            <p><code>class</code>を付けると、CSSやJavaScriptからこの<code>&lt;h3&gt;</code>を指定できます。</p>
+            <pre><code>.subsection-title {
+  font-size: 24px;
+}</code></pre>
+            <p>CSSの<code>font-size</code>は見た目を調整します。<code>&lt;h3&gt;</code>は<code>&lt;h2&gt;</code>の下の階層という意味を表します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;h3&gt;</code>は、<code>&lt;h2&gt;</code>で分けた内容をさらに小さな項目に分けるときに使います。</p>
+            <ul>
+              <li>大きなセクション内の小見出し</li>
+              <li>記事の章に含まれる項目見出し</li>
+              <li>商品やサービスの個別の特徴</li>
+            </ul>
+            <p>ページの内容が<code>&lt;h2&gt;</code>までで十分に整理できる場合は、無理に<code>&lt;h3&gt;</code>を使う必要はありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>実際に作成したkazuki_HP_practice2では、Featureという<code>&lt;h2&gt;</code>の内容をさらに分ける見出しに<code>&lt;h3&gt;</code>を使っています。</p>
+            <pre><code>&lt;section class="feature"&gt;
+  &lt;h2 class="heading-title"&gt;Feature&lt;/h2&gt;
+
+  &lt;div class="text-area"&gt;
+    &lt;h3 class="text-area-title"&gt;What is “Coding Basics”?&lt;/h3&gt;
+    &lt;p&gt;内容の説明&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+            <p><code>&lt;h2&gt;</code>のFeatureが大きな項目で、<code>&lt;h3&gt;</code>のWhat is “Coding Basics”?がその中の小見出しになっています。</p>
+            <p>Black Coffeeでは<code>&lt;h3&gt;</code>を使用していませんでした。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

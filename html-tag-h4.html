@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;h4&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;h4&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;h4&gt;</code>は、<code>&lt;h3&gt;</code>の内容をさらに細かく分ける見出しを表すタグです。</p>
+            <p><code>&lt;h1&gt;</code>が最も上位で、<code>&lt;h2&gt;</code>、<code>&lt;h3&gt;</code>、<code>&lt;h4&gt;</code>の順に下の階層になります。</p>
+            <p>見出しはページの内容を整理し、読み手や検索エンジンに構造を伝える役割があります。</p>
+            <p>数字は文字サイズではなく見出しの親子関係を表します。見た目の大きさはCSSで調整します。</p>
+            <p>小規模なWebページでは<code>&lt;h1&gt;</code>〜<code>&lt;h3&gt;</code>までで内容を整理できることも多く、<code>&lt;h4&gt;</code>を無理に使う必要はありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;h1&gt;Web制作の学習&lt;/h1&gt;
+&lt;h2&gt;HTML&lt;/h2&gt;
+&lt;h3&gt;文章タグ&lt;/h3&gt;
+&lt;h4&gt;段落を表すタグ&lt;/h4&gt;</code></pre>
+            <p>この例では、Web制作の学習の中にHTMLがあり、その中に文章タグ、さらに段落を表すタグがあります。</p>
+            <p><code>&lt;h4&gt;</code>は、直前の上位見出しである<code>&lt;h3&gt;</code>の内容を細かく分けています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;h4 class="item-title"&gt;段落を表すタグ&lt;/h4&gt;</code></pre>
+            <p>属性名：<code>class</code><br>属性値：<code>item-title</code></p>
+            <p><code>class</code>を付けると、CSSやJavaScriptからこの<code>&lt;h4&gt;</code>を指定できます。</p>
+            <pre><code>.item-title {
+  font-size: 20px;
+}</code></pre>
+            <p>CSSは見た目を調整するものです。文字を小さくしたいという理由だけで<code>&lt;h4&gt;</code>を選ばず、内容の階層に合わせて使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;h4&gt;</code>は、<code>&lt;h3&gt;</code>の内容をさらに細かな項目へ分ける必要があるときに使います。</p>
+            <ul>
+              <li>長い記事の中に細かな項目があるとき</li>
+              <li>説明書や教材を何段階にも分けるとき</li>
+              <li>複雑な内容の親子関係を示すとき</li>
+            </ul>
+            <p>内容が深く分かれていない場合は、無理に<code>&lt;h4&gt;</code>まで使わなくても構いません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>確認したBlack Coffeeとkazuki_HP_practice2では、<code>&lt;h4&gt;</code>はまだ使用していません。</p>
+            <p>次は、見出し階層を理解するための学習用の例です。</p>
+            <pre><code>&lt;h2&gt;HTML&lt;/h2&gt;
+&lt;h3&gt;文章タグ&lt;/h3&gt;
+&lt;h4&gt;段落を表すタグ&lt;/h4&gt;
+&lt;p&gt;pタグについて説明します。&lt;/p&gt;</code></pre>
+            <p><code>&lt;h4&gt;</code>は、<code>&lt;h3&gt;</code>の「文章タグ」に含まれる、さらに細かな「段落を表すタグ」の見出しです。</p>
+            <p>実際のページでここまで細かな階層が不要なら、使う必要はありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;h5&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;h5&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;h5&gt;</code>は、<code>&lt;h4&gt;</code>の内容をさらに細かく分ける見出しを表すタグです。</p>
+            <p><code>&lt;h1&gt;</code>から順に階層が下がり、<code>&lt;h5&gt;</code>はかなり深い位置の見出しになります。</p>
+            <p>数字は単なる文字サイズではありません。内容の親子関係を示し、読み手や検索エンジンにページ構造を伝えます。</p>
+            <p>通常の小規模なWebページでは使用頻度が低いこともあり、必要がなければ無理に使いません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;h2&gt;HTML&lt;/h2&gt;
+&lt;h3&gt;文章タグ&lt;/h3&gt;
+&lt;h4&gt;見出しタグ&lt;/h4&gt;
+&lt;h5&gt;h1タグの使い方&lt;/h5&gt;</code></pre>
+            <p><code>&lt;h5&gt;</code>は、この例の「h1タグの使い方」のように、<code>&lt;h4&gt;</code>の内容をさらに細かく分ける見出しです。</p>
+            <p>大きな項目から小さな項目へ続く関係を意識し、上位の見出しとのつながりが分かるようにします。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;h5 class="detail-title"&gt;h1タグの使い方&lt;/h5&gt;</code></pre>
+            <p>属性名：<code>class</code><br>属性値：<code>detail-title</code></p>
+            <p><code>class</code>を付けると、CSSやJavaScriptからこの<code>&lt;h5&gt;</code>を指定できます。</p>
+            <pre><code>.detail-title {
+  font-size: 18px;
+}</code></pre>
+            <p>CSSの文字サイズは見た目の指定です。<code>&lt;h5&gt;</code>は階層を表すタグなので、小さい文字を表示する目的だけでは使いません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;h5&gt;</code>は、内容が何段階にも分かれる長い文書で、<code>&lt;h4&gt;</code>の下に見出しが必要なときに使います。</p>
+            <ul>
+              <li>長いマニュアルの細かな項目</li>
+              <li>多くの階層を持つ教材</li>
+              <li>詳しい仕様書の小さな項目</li>
+            </ul>
+            <p>一般的な小規模サイトでは<code>&lt;h1&gt;</code>〜<code>&lt;h3&gt;</code>で十分な場合も多く、<code>&lt;h5&gt;</code>を無理に追加する必要はありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>確認したBlack Coffeeとkazuki_HP_practice2では、<code>&lt;h5&gt;</code>はまだ使用していません。</p>
+            <p>次は、深い見出し階層が必要な場合を示す学習用の例です。</p>
+            <pre><code>&lt;h3&gt;文章タグ&lt;/h3&gt;
+&lt;h4&gt;見出しタグ&lt;/h4&gt;
+&lt;h5&gt;h1タグの使い方&lt;/h5&gt;
+&lt;p&gt;ページの中心となる見出しに使います。&lt;/p&gt;</code></pre>
+            <p><code>&lt;h5&gt;</code>は<code>&lt;h4&gt;</code>より下の内容を表します。文字を小さくするための例ではありません。</p>
+            <p>実際の内容にこの深さが必要な場合だけ使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

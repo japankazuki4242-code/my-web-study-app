@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;h6&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;h6&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;h6&gt;</code>は、HTMLの見出しタグの中で最も下の階層を表すタグです。</p>
+            <p><code>&lt;h1&gt;</code>が最も上位で、<code>&lt;h2&gt;</code>から順に階層が下がり、<code>&lt;h6&gt;</code>が最も深い見出しになります。</p>
+            <p>見出しはページの内容を整理し、読み手や検索エンジンに構造を伝える役割があります。</p>
+            <p>数字は単なる文字サイズではありません。内容の親子関係に合わせて使い、見た目はCSSで調整します。</p>
+            <p>小規模なWebページでは使う機会が少ないこともあり、無理に<code>&lt;h6&gt;</code>まで使う必要はありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;h3&gt;文章タグ&lt;/h3&gt;
+&lt;h4&gt;見出しタグ&lt;/h4&gt;
+&lt;h5&gt;h1タグの使い方&lt;/h5&gt;
+&lt;h6&gt;ページタイトルの例&lt;/h6&gt;</code></pre>
+            <p><code>&lt;h6&gt;</code>は、この例の「ページタイトルの例」のように、<code>&lt;h5&gt;</code>の内容をさらに細かく分ける見出しです。</p>
+            <p>ここまで深い階層が必要かを考え、内容の親子関係が自然な場合に使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;h6 class="example-title"&gt;ページタイトルの例&lt;/h6&gt;</code></pre>
+            <p>属性名：<code>class</code><br>属性値：<code>example-title</code></p>
+            <p><code>class</code>を付けると、CSSやJavaScriptからこの<code>&lt;h6&gt;</code>を指定できます。</p>
+            <pre><code>.example-title {
+  font-size: 16px;
+}</code></pre>
+            <p>CSSは見た目を調整するために使います。16pxにしたいという理由だけで<code>&lt;h6&gt;</code>を選ばず、見出しの階層で選びます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;h6&gt;</code>は、非常に長く複雑な文書で、<code>&lt;h5&gt;</code>より下の見出しが必要なときに使います。</p>
+            <ul>
+              <li>階層が深いマニュアル</li>
+              <li>細かく分類された教材</li>
+              <li>複雑な仕様書の最小項目</li>
+            </ul>
+            <p>通常のWebページでは使用頻度が低く、内容がそこまで細かく分かれないなら使わなくても構いません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>確認したBlack Coffeeとkazuki_HP_practice2では、<code>&lt;h6&gt;</code>はまだ使用していません。</p>
+            <p>次は、最も深い見出し階層を示すための学習用の例です。</p>
+            <pre><code>&lt;h4&gt;見出しタグ&lt;/h4&gt;
+&lt;h5&gt;h1タグの使い方&lt;/h5&gt;
+&lt;h6&gt;ページタイトルの例&lt;/h6&gt;
+&lt;p&gt;Web学習アプリというタイトルを表示します。&lt;/p&gt;</code></pre>
+            <p><code>&lt;h6&gt;</code>は<code>&lt;h5&gt;</code>に含まれる、さらに細かな項目の見出しです。</p>
+            <p>見た目を小さくする目的ではなく、実際にこの階層が必要な場合にだけ使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;h1&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;h1&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;h1&gt;</code>は、最も上位の見出しを表すタグです。</p>
+            <p>ページ全体の中心となる大きな見出しに使うことが多く、初心者はまず「このページが何についてのページか」を表す見出しに使うと理解しやすいです。</p>
+            <p><code>&lt;h1&gt;</code>から<code>&lt;h6&gt;</code>までの数字は、単なる文字サイズではなく見出しの階層を表します。</p>
+            <p>見出しはページの内容を整理し、読み手や検索エンジンに構造を伝える役割があります。</p>
+            <p>見た目の大きさだけでタグを選ばず、文字サイズなどの見た目はCSSで調整します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;h1&gt;Web制作の学習&lt;/h1&gt;</code></pre>
+            <p>開始タグ<code>&lt;h1&gt;</code>と終了タグ<code>&lt;/h1&gt;</code>の間に、ページの中心となる見出しを書きます。</p>
+            <pre><code>&lt;h1&gt;Web制作の学習&lt;/h1&gt;
+
+&lt;section&gt;
+  &lt;h2&gt;HTML&lt;/h2&gt;
+
+  &lt;section&gt;
+    &lt;h3&gt;文章タグ&lt;/h3&gt;
+  &lt;/section&gt;
+&lt;/section&gt;</code></pre>
+            <p>この例では、<code>&lt;h1&gt;</code>がページ全体、<code>&lt;h2&gt;</code>がその中の大きな項目、<code>&lt;h3&gt;</code>がさらに細かい項目という親子関係になっています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;h1 class="page-title"&gt;Web制作の学習&lt;/h1&gt;</code></pre>
+            <p>属性名：<code>class</code><br>属性値：<code>page-title</code></p>
+            <p><code>class</code>を付けると、CSSやJavaScriptからこの<code>&lt;h1&gt;</code>を指定できます。</p>
+            <pre><code>.page-title {
+  font-size: 32px;
+}</code></pre>
+            <p>このCSSは見た目の文字サイズを指定する例です。<code>&lt;h1&gt;</code>の「最上位の見出し」という意味は、CSSの文字サイズとは別です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;h1&gt;</code>は、ページの中心となる見出しを示すときによく使います。</p>
+            <ul>
+              <li>サイトやアプリのトップページ名</li>
+              <li>記事ページの記事タイトル</li>
+              <li>会社概要など個別ページの中心見出し</li>
+            </ul>
+            <p><code>&lt;h1&gt;</code>を必ず1ページに1個だけにしなければならない、と単純に決めるものではありません。</p>
+            <p>ただし初心者のうちは、ページの中心となる見出しを1つ決め、そこから<code>&lt;h2&gt;</code>、<code>&lt;h3&gt;</code>へ階層を下げると構造を整理しやすくなります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>実際に作成したBlack Coffeeでは、ページ上部のサイト名に<code>&lt;h1&gt;</code>を使っています。</p>
+            <pre><code>&lt;header&gt;
+  &lt;h1&gt;BLACK COFFEE&lt;/h1&gt;
+&lt;/header&gt;</code></pre>
+            <p>また、kazuki_HP_practice2では、ヘッダーのロゴ部分に<code>&lt;h1 class="header-logo"&gt;</code>を使っています。</p>
+            <pre><code>&lt;h1 class="header-logo"&gt;
+  &lt;a href="#"&gt;LOGO&lt;/a&gt;
+&lt;/h1&gt;</code></pre>
+            <p>どちらもページの中心となるサイト名やロゴを、最上位の見出しとして表しています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
