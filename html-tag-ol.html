@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;ol&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;ol&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;ol&gt;</code>は、<span lang="en">ordered list</span>の略で、順番に意味がある項目をまとめるタグです。</p>
+            <p>中の1つ1つの項目は<code>&lt;li&gt;</code>で表します。</p>
+            <p>ブラウザでは1、2、3などの番号が表示されることが多いですが、番号を表示することだけが本質ではありません。</p>
+            <p>手順・順位など、項目の順序そのものに意味があることが重要です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;ol&gt;
+  &lt;li&gt;HTMLを書く&lt;/li&gt;
+  &lt;li&gt;CSSを書く&lt;/li&gt;
+  &lt;li&gt;ブラウザで確認する&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+            <p><code>&lt;ol&gt;</code>がリスト全体の親要素で、各<code>&lt;li&gt;</code>が順番を持つ1つの項目です。</p>
+            <pre><code>ol
+├─ li
+├─ li
+└─ li</code></pre>
+            <p>この例は作業する順番を入れ替えると流れが変わるため、<code>&lt;ol&gt;</code>を使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;ol class="steps"&gt;
+  &lt;li&gt;HTMLを書く&lt;/li&gt;
+  &lt;li&gt;CSSを書く&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+            <p>属性名：<code>class</code><br>属性値：<code>steps</code></p>
+            <p><code>class</code>を付けると、CSSやJavaScriptからこの<code>&lt;ol&gt;</code>を指定できます。</p>
+            <p>HTMLの<code>&lt;ol&gt;</code>は順序に意味があるリストを表し、CSSは番号や余白などの見た目を調整します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;ol&gt;</code>は、項目の順番が内容の理解に関係するときに使います。</p>
+            <ul>
+              <li>作業や料理の手順</li>
+              <li>順位やランキング</li>
+              <li>学習する順番</li>
+            </ul>
+            <p>順番を入れ替えても意味が大きく変わらない一覧には、<code>&lt;ul&gt;</code>を使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>確認したBlack Coffeeとkazuki_HP_practice2では、<code>&lt;ol&gt;</code>はまだ使用していません。</p>
+            <p>次は、Webページを作る手順を示す学習用の例です。</p>
+            <pre><code>&lt;ol&gt;
+  &lt;li&gt;HTMLを書く&lt;/li&gt;
+  &lt;li&gt;CSSを書く&lt;/li&gt;
+  &lt;li&gt;ブラウザで確認する&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+            <p>順番どおりに進める作業なので、<code>&lt;ol&gt;</code>で表しています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

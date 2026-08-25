@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;ul&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;ul&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;ul&gt;</code>は、<span lang="en">unordered list</span>の略で、順番そのものに意味がない項目をまとめるタグです。</p>
+            <p>中の1つ1つの項目は<code>&lt;li&gt;</code>で表します。</p>
+            <p>ブラウザでは黒丸などが表示されることが多いですが、黒丸を表示すること自体が本質ではありません。</p>
+            <p>リストの見た目はCSSで変更できます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;ul&gt;
+  &lt;li&gt;HTML&lt;/li&gt;
+  &lt;li&gt;CSS&lt;/li&gt;
+  &lt;li&gt;JavaScript&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+            <p><code>&lt;ul&gt;</code>がリスト全体の親要素で、各<code>&lt;li&gt;</code>が子要素となる1つの項目です。</p>
+            <pre><code>ul
+├─ li
+├─ li
+└─ li</code></pre>
+            <p>HTML・CSS・JavaScriptは、順番を入れ替えても一覧の意味が大きく変わらないため、<code>&lt;ul&gt;</code>が使えます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;ul class="menu-list"&gt;
+  &lt;li&gt;Home&lt;/li&gt;
+  &lt;li&gt;About&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+            <p>属性名：<code>class</code><br>属性値：<code>menu-list</code></p>
+            <p><code>class</code>を付けると、CSSやJavaScriptからこの<code>&lt;ul&gt;</code>を指定できます。</p>
+            <p>HTMLの<code>&lt;ul&gt;</code>は順序に意味がないリストという構造を表し、CSSは黒丸・余白・配置などの見た目を調整します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;ul&gt;</code>は、並べる順番を入れ替えても意味が大きく変わらない項目の一覧に使います。</p>
+            <ul>
+              <li>ナビゲーションメニュー</li>
+              <li>特徴や持ち物の一覧</li>
+              <li>選択肢や関連リンクの一覧</li>
+            </ul>
+            <p>手順や順位など、順番に意味がある場合は<code>&lt;ol&gt;</code>を使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>実際に作成したBlack Coffeeでは、ナビゲーションのリンクをまとめるために<code>&lt;ul&gt;</code>を使っています。</p>
+            <pre><code>&lt;ul&gt;
+  &lt;li&gt;&lt;a href=""&gt;Home&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=""&gt;Menu&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=""&gt;Access&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=""&gt;Contact&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+            <p>kazuki_HP_practice2でも、Home・About・Contactのナビゲーションを<code>&lt;ul&gt;</code>でまとめています。</p>
+            <p>どちらも項目の順序より、複数のメニュー項目を1つの一覧としてまとめることが目的です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

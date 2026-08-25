@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;li&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;li&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;li&gt;</code>は、<span lang="en">list item</span>の略で、<code>&lt;ul&gt;</code>や<code>&lt;ol&gt;</code>の中にある1つの項目を表すタグです。</p>
+            <p><code>&lt;li&gt;</code>単独でリスト全体を作るのではなく、親となる<code>&lt;ul&gt;</code>または<code>&lt;ol&gt;</code>の中で使います。</p>
+            <p><code>&lt;ul&gt;</code>では順序に意味がない項目、<code>&lt;ol&gt;</code>では順序に意味がある項目を<code>&lt;li&gt;</code>で表します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;ul&gt;
+  &lt;li&gt;HTML&lt;/li&gt;
+  &lt;li&gt;CSS&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+            <p><code>&lt;ul&gt;</code>がリスト全体で、2つの<code>&lt;li&gt;</code>がそれぞれ「HTML」「CSS」という項目です。</p>
+            <pre><code>ul
+├─ li
+└─ li</code></pre>
+            <p><code>&lt;ol&gt;</code>の中でも、同じように各項目を<code>&lt;li&gt;</code>で表します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;ul&gt;
+  &lt;li class="menu-item"&gt;Home&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+            <p>属性名：<code>class</code><br>属性値：<code>menu-item</code></p>
+            <p><code>class</code>を付けると、CSSやJavaScriptからこの<code>&lt;li&gt;</code>を指定できます。</p>
+            <p>HTMLの<code>&lt;li&gt;</code>はリストの1項目という意味を表し、CSSはマーク・余白・配置などの見た目を調整します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;li&gt;</code>は、<code>&lt;ul&gt;</code>または<code>&lt;ol&gt;</code>で作る一覧の各項目に使います。</p>
+            <ul>
+              <li>ナビゲーションの各リンク</li>
+              <li>特徴や持ち物の各項目</li>
+              <li>手順やランキングの各項目</li>
+            </ul>
+            <p><code>&lt;li&gt;</code>は項目そのものを表します。</p>
+            <p>一方、<code>&lt;dt&gt;</code>は説明される名前・用語、<code>&lt;dd&gt;</code>はその説明や値です。役割は同じではありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>実際に作成したBlack Coffeeでは、ナビゲーションの各項目に<code>&lt;li&gt;</code>を使っています。</p>
+            <pre><code>&lt;ul&gt;
+  &lt;li&gt;&lt;a href=""&gt;Home&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=""&gt;Menu&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=""&gt;Access&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=""&gt;Contact&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+            <p>kazuki_HP_practice2でも、Home・About・Contactをそれぞれ<code>&lt;li class="header-menu-list"&gt;</code>で囲んでいます。</p>
+            <p>両作品とも、<code>&lt;ul&gt;</code>の中でナビゲーションの1項目を表すために使っています。</p>
+            <p><code>&lt;dl&gt;</code>のように名前と説明を対応させる使い方ではありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
