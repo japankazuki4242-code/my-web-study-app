@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;meta&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;meta&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;meta&gt;</code>は、<code>&lt;head&gt;</code>の中でページに関する設定や情報を指定するタグです。</p>
+            <p>文字コード・画面幅に関する設定・ページの説明などを指定できます。</p>
+            <p><code>&lt;meta&gt;</code>は終了タグを持たないため、<code>&lt;/meta&gt;</code>とは書きません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  &gt;
+  &lt;meta
+    name="description"
+    content="HTMLを学習するためのWebアプリです。"
+  &gt;
+&lt;/head&gt;</code></pre>
+            <p><code>charset="UTF-8"</code>は、このページで使う文字コードを指定します。</p>
+            <p><code>name</code>は情報の種類、<code>content</code>はその具体的な内容を指定します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <p><code>charset="UTF-8"</code><br>→ 文字コードを指定</p>
+            <p><code>name="viewport"</code><br>→ 画面表示に関する設定の種類</p>
+            <p><code>content="width=device-width, initial-scale=1.0, viewport-fit=cover"</code><br>→ 端末幅や初期表示倍率、iPhoneのセーフエリア利用に関する内容</p>
+            <p><code>name="description"</code>と<code>content</code><br>→ ページの説明文を指定</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;meta&gt;</code>は、HTMLページの基本設定や、ブラウザ・検索サービスなどに伝える情報を書くときに使います。</p>
+            <p>meta descriptionはページ内容を説明する情報ですが、書いた文章が検索結果に必ずそのまま表示されるとは限りません。</p>
+            <p>画面に直接表示する本文ではなく、<code>&lt;head&gt;</code>内のページ情報です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>現在のmy-web-study-appでは、各ページで文字コードとiPhone対応を含むviewport設定を使用しています。</p>
+            <pre><code>&lt;meta charset="UTF-8"&gt;
+&lt;meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+&gt;</code></pre>
+            <p><code>viewport-fit=cover</code>を含め、iPhoneのセーフエリアを考慮したCSSと組み合わせています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

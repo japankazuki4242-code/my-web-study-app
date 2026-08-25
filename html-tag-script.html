@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;script&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;script&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;script&gt;</code>は、HTMLからJavaScriptファイルを読み込んだり、HTML内にJavaScriptを書いたりするためのタグです。</p>
+            <p>Version 1では、外部の<code>script.js</code>を読み込む使い方を中心に学びます。</p>
+            <p><code>&lt;script&gt;</code>は<code>&lt;meta&gt;</code>や<code>&lt;link&gt;</code>とは異なり、終了タグ<code>&lt;/script&gt;</code>が必要です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;script src="script.js"&gt;&lt;/script&gt;</code></pre>
+            <p><code>src="script.js"</code>は、読み込むJavaScriptファイルの場所を指定します。</p>
+            <p>この指定によって、HTMLと外部JavaScriptファイルがつながります。</p>
+            <p>外部ファイルを読み込む場合も、終了タグ<code>&lt;/script&gt;</code>を書きます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;script src="script.js"&gt;&lt;/script&gt;</code></pre>
+            <p>属性名：<code>src</code><br>属性値：<code>script.js</code></p>
+            <p><code>src</code>は、読み込むJavaScriptファイルの場所を指定します。</p>
+            <p>同じフォルダにある<code>script.js</code>を読み込む、シンプルな相対パスの例です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;script&gt;</code>は、クリック時の処理や画面の内容を変える処理など、JavaScriptによる動作をHTMLへつなげるときに使います。</p>
+            <ul>
+              <li>ボタンをクリックしたときの処理</li>
+              <li>入力内容の保存や読み込み</li>
+              <li>画面表示の切り替え</li>
+            </ul>
+            <p>今回はJavaScriptの高度な内容には広げず、外部ファイルを読み込む基本を扱います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>現在のmy-web-study-appでは、下部ナビゲーションのBACKボタンを動かすために<code>script.js</code>を読み込んでいます。</p>
+            <pre><code>&lt;button type="button" id="back-button" class="nav-button"&gt;BACK&lt;/button&gt;
+
+&lt;script src="script.js"&gt;&lt;/script&gt;</code></pre>
+            <p><code>script.js</code>では、<code>id="back-button"</code>のボタンを取得し、クリック時に<code>history.back()</code>を実行しています。</p>
+            <pre><code>const backButton = document.getElementById("back-button");
+
+backButton.addEventListener("click", function () {
+  history.back();
+});</code></pre>
+            <p>HTMLがボタンの構造を作り、JavaScriptがBACKの動作を追加しています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

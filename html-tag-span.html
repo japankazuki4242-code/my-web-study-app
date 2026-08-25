@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;span&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;span&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;span&gt;</code>は、文章などの一部分を囲う、特別な意味を持たない汎用のインライン要素です。</p>
+            <p>CSSやJavaScriptで文章の一部分だけを扱いたい場合などに使います。</p>
+            <p>段落全体ではなく、同じ行の中にある一部分をまとめる基本的な使い方ができます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;p&gt;料金は&lt;span&gt;500円&lt;/span&gt;です。&lt;/p&gt;</code></pre>
+            <p>開始タグ<code>&lt;span&gt;</code>と終了タグ<code>&lt;/span&gt;</code>の間に、ひとまとまりとして扱いたい部分を書きます。</p>
+            <p><code>&lt;span&gt;</code>自体には、重要性や強調などの特別な意味はありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;p&gt;料金は&lt;span class="price"&gt;500円&lt;/span&gt;です。&lt;/p&gt;</code></pre>
+            <p>属性名：<code>class</code><br>属性値：<code>price</code></p>
+            <p><code>class</code>を付けると、CSSやJavaScriptから文章の一部分を指定できます。</p>
+            <p>HTMLの<code>&lt;span&gt;</code>は意味を追加しないまとまりで、色や太さなどの見た目はCSSで調整します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;span&gt;</code>は、他に意味の合うタグがなく、文章や要素内の一部分だけをCSSやJavaScriptで扱いたいときに使います。</p>
+            <p><code>&lt;strong&gt;</code>は内容の重要性、<code>&lt;em&gt;</code>は文章内の強調という意味を持ちます。</p>
+            <p>重要性や強調を表すべき場面で、見た目のためだけに<code>&lt;span&gt;</code>へ置き換えないようにします。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>現在のmy-web-study-appでは、メニューボタン内のラベルと右端の「＞」を別々の<code>&lt;span&gt;</code>で囲んでいます。</p>
+            <pre><code>&lt;a href="html-tags.html" class="menu-button"&gt;
+  &lt;span&gt;タグ名から探す&lt;/span&gt;
+  &lt;span aria-hidden="true"&gt;＞&lt;/span&gt;
+&lt;/a&gt;</code></pre>
+            <p>2つの部分を分けることで、既存CSSのflexレイアウトによってラベルを左側、「＞」を右側に配置しています。</p>
+            <p>「＞」は装飾なので、<code>aria-hidden="true"</code>を付けています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

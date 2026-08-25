@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;aside&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;aside&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;aside&gt;</code>は、ページの中心となる内容ではなく、本文やページ内容に関連する補足情報を表すタグです。</p>
+            <p>関連情報・補足説明・広告・プロフィールなどに使うことがあります。</p>
+            <p>「画面の右側に置くタグ」ではありません。右側などの配置はCSSの役割です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;main&gt;
+  &lt;article&gt;
+    &lt;h1&gt;コーヒーの淹れ方&lt;/h1&gt;
+    &lt;p&gt;本文を書きます。&lt;/p&gt;
+
+    &lt;aside&gt;
+      &lt;h2&gt;関連情報&lt;/h2&gt;
+      &lt;p&gt;おすすめの豆を紹介します。&lt;/p&gt;
+    &lt;/aside&gt;
+  &lt;/article&gt;
+&lt;/main&gt;</code></pre>
+            <p>この例では、記事の本文に関連する補足情報として<code>&lt;aside&gt;</code>を<code>&lt;article&gt;</code>の中に置いています。</p>
+            <p><code>&lt;aside&gt;</code>はmainの外にしか置けないタグではなく、内容との関係に応じてarticleなどの中でも使えます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;aside class="related-info"&gt;
+  &lt;h2&gt;関連情報&lt;/h2&gt;
+&lt;/aside&gt;</code></pre>
+            <p>属性名：<code>class</code><br>属性値：<code>related-info</code></p>
+            <p><code>class</code>を付けると、CSSやJavaScriptから補足情報のまとまりを指定できます。</p>
+            <p>HTMLは補足情報という意味を表し、左右の配置や幅などの見た目はCSSで調整します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;aside&gt;</code>は、中心内容と関係はあるものの、そこから分けて扱える補足情報に使います。</p>
+            <ul>
+              <li>関連記事や関連リンク</li>
+              <li>記事を書いた人のプロフィール</li>
+              <li>補足説明やお知らせ</li>
+              <li>広告</li>
+            </ul>
+            <p>配置場所ではなく、内容が中心情報か補足情報かを考えて使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>実際に作成したBlack Coffeeでは、メイン内容の後にあるINFORMATION部分を<code>&lt;aside&gt;</code>でまとめています。</p>
+            <pre><code>&lt;aside&gt;
+  &lt;div class="container"&gt;
+    &lt;h2&gt;INFORMATION&lt;/h2&gt;
+    &lt;p&gt;お知らせの内容&lt;/p&gt;
+    &lt;figure&gt;
+      &lt;img src="images/icon.png" alt="カフェのアイコン"&gt;
+    &lt;/figure&gt;
+  &lt;/div&gt;
+&lt;/aside&gt;</code></pre>
+            <p>ページの中心となるメニュー表とは分けて、関連する補足情報として扱っています。</p>
+            <p>kazuki_HP_practice2では、<code>&lt;aside&gt;</code>を使用していません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

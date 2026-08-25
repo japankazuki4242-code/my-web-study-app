@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;title&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;title&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;title&gt;</code>は、<code>&lt;head&gt;</code>の中に書くページのタイトルです。</p>
+            <p>ブラウザのタブやブックマークなどで使われます。</p>
+            <p>本文に大きな見出しを表示するタグではありません。本文の見出しには<code>&lt;h1&gt;</code>などを使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;head&gt;
+  &lt;title&gt;Web学習アプリ&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;h1&gt;Web学習アプリ&lt;/h1&gt;
+&lt;/body&gt;</code></pre>
+            <p><code>&lt;title&gt;</code>はブラウザのタブなどで使うページタイトルです。</p>
+            <p><code>&lt;h1&gt;</code>はページ本文に表示する中心見出しです。同じ文字を書く場合があっても役割は異なります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <p><code>&lt;title&gt;</code>は、開始タグと終了タグの間にページタイトルを書きます。</p>
+            <pre><code>&lt;title&gt;HTML | Web学習アプリ&lt;/title&gt;</code></pre>
+            <p>Version 1の基本的な使い方では、普段追加する属性は特にありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;title&gt;</code>はHTMLページごとに、そのページの内容が分かるタイトルを付けるために使います。</p>
+            <p>複数のタブを開いたときにもページを見分けやすくなります。</p>
+            <p>見た目の大きな文字を作る目的ではなく、ページ自体のタイトルを設定するタグです。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>現在のmy-web-study-appでは、トップページと各学習ページに内容に合った<code>&lt;title&gt;</code>を設定しています。</p>
+            <pre><code>&lt;title&gt;Web学習アプリ&lt;/title&gt;
+
+&lt;title&gt;HTML | Web学習アプリ&lt;/title&gt;</code></pre>
+            <p>トップページとHTMLページで、ページ内容に合わせて異なるタイトルを設定しています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
