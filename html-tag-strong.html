@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;strong&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;strong&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;strong&gt;</code>は、内容の重要性・重大性・緊急性などを表すタグです。</p>
+            <p>文章の中で、本当に重要な内容を示したいときに使います。</p>
+            <p>ブラウザでは太字で表示されることが多いですが、文字を太くするためだけのタグではありません。</p>
+            <p>「太字にしたいから」ではなく、「内容が重要だから」<code>&lt;strong&gt;</code>を使います。見た目だけを太字にしたい場合はCSSで調整します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;p&gt;
+  &lt;strong&gt;締切は8月31日です。&lt;/strong&gt;
+  忘れずに提出してください。
+&lt;/p&gt;</code></pre>
+            <p>開始タグ<code>&lt;strong&gt;</code>と終了タグ<code>&lt;/strong&gt;</code>の間に、重要性を持たせたい内容を書きます。</p>
+            <p>この例では、提出について特に重要な「締切は8月31日です。」という部分を<code>&lt;strong&gt;</code>で囲んでいます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;strong class="important-text"&gt;重要なお知らせ&lt;/strong&gt;</code></pre>
+            <p>属性名：<code>class</code><br>属性値：<code>important-text</code></p>
+            <p><code>class</code>を付けると、CSSやJavaScriptからこの<code>&lt;strong&gt;</code>を指定できます。</p>
+            <pre><code>.important-text {
+  font-weight: bold;
+}</code></pre>
+            <p>HTMLの<code>&lt;strong&gt;</code>は内容の重要性を表し、CSSは太さなどの見た目を調整します。</p>
+            <p>HTMLの意味とCSSの見た目は、別の役割として考えます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;strong&gt;</code>は、文章の中で見落としてほしくない重要な内容に使います。</p>
+            <ul>
+              <li>提出期限や申込期限</li>
+              <li>安全に関わる注意</li>
+              <li>料金や条件に関する重要事項</li>
+              <li>必ず守ってほしい内容</li>
+            </ul>
+            <p><code>&lt;strong&gt;</code>は内容そのものの重要性を表します。</p>
+            <p><code>&lt;em&gt;</code>は、文章の中で強調して伝えたい部分を表します。似ていますが、同じ意味のタグではありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>確認したBlack Coffeeとkazuki_HP_practice2では、<code>&lt;strong&gt;</code>はまだ使用していません。</p>
+            <p>次は、重要な期限を伝えるための学習用の例です。</p>
+            <pre><code>&lt;p&gt;
+  &lt;strong&gt;締切は8月31日です。&lt;/strong&gt;
+  忘れずに提出してください。
+&lt;/p&gt;</code></pre>
+            <p>締切は見落とすと困る重要な内容なので、<code>&lt;strong&gt;</code>で意味を持たせています。</p>
+            <p>単に文字を太く見せることが目的ではありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

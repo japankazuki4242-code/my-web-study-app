@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;small&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;small&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;small&gt;</code>は、補足・注記・著作権表記など、主本文より一段控えめな情報を表す場面で使われるタグです。</p>
+            <p>ブラウザでは小さめの文字で表示されることが多いですが、文字を小さくするためだけのタグではありません。</p>
+            <p>単純に文字サイズだけを小さくしたい場合は、CSSで見た目を調整します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;footer&gt;
+  &lt;small&gt;&amp;copy; 2026 Web Study App&lt;/small&gt;
+&lt;/footer&gt;</code></pre>
+            <p>開始タグ<code>&lt;small&gt;</code>と終了タグ<code>&lt;/small&gt;</code>の間に、補足的な情報や著作権表記を書きます。</p>
+            <p>この例では、ページの主な内容ではなく、footerに置く著作権表記に使っています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;small class="copyright"&gt;&amp;copy; 2026 Web Study App&lt;/small&gt;</code></pre>
+            <p>属性名：<code>class</code><br>属性値：<code>copyright</code></p>
+            <p><code>class</code>を付けると、CSSやJavaScriptからこの<code>&lt;small&gt;</code>を指定できます。</p>
+            <pre><code>.copyright {
+  font-size: 12px;
+}</code></pre>
+            <p>HTMLの<code>&lt;small&gt;</code>は控えめな補足情報という意味を表し、CSSは文字サイズなどの見た目を調整します。</p>
+            <p>HTMLの意味とCSSの見た目を混同しないようにします。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;small&gt;</code>は、本文を補う控えめな情報を示すときに使います。</p>
+            <ul>
+              <li>footerの著作権表記</li>
+              <li>注意書きや注記</li>
+              <li>条件や免責事項などの補足</li>
+            </ul>
+            <p>単に小さい文字を作りたいだけなら、意味に合わない<code>&lt;small&gt;</code>を使わず、CSSの<code>font-size</code>などで調整します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>実際に作成したBlack Coffeeでは、footerの著作権表記に<code>&lt;small&gt;</code>を使っています。</p>
+            <pre><code>&lt;footer&gt;
+  &lt;small&gt;&amp;copy;black coffee&lt;/small&gt;
+&lt;/footer&gt;</code></pre>
+            <p>kazuki_HP_practice2でも、footerの著作権表記に<code>&lt;small class="copyright"&gt;</code>を使っています。</p>
+            <pre><code>&lt;footer&gt;
+  &lt;div class="footer-logo"&gt;LOGO&lt;/div&gt;
+  &lt;small class="copyright"&gt;© 2020 LOGO All rights reserved.&lt;/small&gt;
+&lt;/footer&gt;</code></pre>
+            <p>どちらの作品でも、ページの主な内容より控えめな著作権情報を表すために使われています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

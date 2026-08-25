@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;em&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;em&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;em&gt;</code>は、文章の中で強調して読んでほしい部分を表すタグです。</p>
+            <p>文章のどこを強調して伝えるか、という意味を持たせます。</p>
+            <p>ブラウザでは斜体で表示されることが多いですが、文字を斜体にするためだけのタグではありません。</p>
+            <p>見た目だけを斜体にしたい場合はCSSで調整します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;p&gt;
+  この作業で&lt;em&gt;特に大切なのは&lt;/em&gt;、
+  親要素と子要素の関係を確認することです。
+&lt;/p&gt;</code></pre>
+            <p>開始タグ<code>&lt;em&gt;</code>と終了タグ<code>&lt;/em&gt;</code>の間に、強調して読んでほしい部分を書きます。</p>
+            <p>この例では、「特に大切なのは」という部分を強調して、後に続く内容へ注意を向けています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;em class="emphasis"&gt;特に大切なのは&lt;/em&gt;</code></pre>
+            <p>属性名：<code>class</code><br>属性値：<code>emphasis</code></p>
+            <p><code>class</code>を付けると、CSSやJavaScriptからこの<code>&lt;em&gt;</code>を指定できます。</p>
+            <pre><code>.emphasis {
+  font-style: normal;
+}</code></pre>
+            <p>このCSSでは斜体ではない見た目に変えていますが、HTMLの<code>&lt;em&gt;</code>が持つ強調の意味は残ります。</p>
+            <p>HTMLは意味を表し、CSSは見た目を調整します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;em&gt;</code>は、文章を読むときに特に強調して伝えたい言葉や部分に使います。</p>
+            <ul>
+              <li>特に注目してほしい言葉</li>
+              <li>話すときに強く読むような部分</li>
+              <li>文章の意図をはっきり伝えたい部分</li>
+            </ul>
+            <p><code>&lt;strong&gt;</code>は内容そのものの重要性を表します。</p>
+            <p><code>&lt;em&gt;</code>は文章の中で強調して伝えたい部分を表します。同じ意味として使い分けるのではありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>確認したBlack Coffeeとkazuki_HP_practice2では、<code>&lt;em&gt;</code>はまだ使用していません。</p>
+            <p>次は、文章の一部分を強調するための学習用の例です。</p>
+            <pre><code>&lt;p&gt;
+  この作業で&lt;em&gt;特に大切なのは&lt;/em&gt;、
+  親要素と子要素の関係を確認することです。
+&lt;/p&gt;</code></pre>
+            <p><code>&lt;em&gt;</code>によって「特に大切なのは」という部分を強調し、文章の伝え方に意味を加えています。</p>
+            <p>単に文字を斜体に見せることが目的ではありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
