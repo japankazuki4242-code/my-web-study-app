@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;td&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;td&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;td&gt;</code>は、table dataとして表の通常のデータセルを表すタグです。</p>
+            <p><code>&lt;tr&gt;</code>の中に置き、その行にある実際のデータを表します。</p>
+            <p><code>&lt;th&gt;</code>は見出しセル、<code>&lt;td&gt;</code>はデータセルです。</p>
+            <p><code>&lt;td&gt;</code>は普通の文字にするためのタグではなく、セルの意味がデータであることを表します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;tr&gt;
+  &lt;th&gt;価格&lt;/th&gt;
+  &lt;td&gt;500円&lt;/td&gt;
+&lt;/tr&gt;</code></pre>
+            <p>「価格」は、そのデータが何を意味するか示す見出しなので<code>&lt;th&gt;</code>です。</p>
+            <p>「500円」は、実際に入っているデータなので<code>&lt;td&gt;</code>です。</p>
+            <pre><code>tr
+├─ th → 見出しセル
+└─ td → データセル</code></pre>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;td class="table-data"&gt;500円&lt;/td&gt;</code></pre>
+            <p>属性名：<code>class</code><br>属性値：<code>table-data</code></p>
+            <p><code>class</code>を付けると、CSSやJavaScriptからこのデータセルを指定できます。</p>
+            <p>HTMLの<code>&lt;td&gt;</code>はデータセルという意味を表し、色や配置などの見た目はCSSで調整します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;td&gt;</code>は、表の各行に実際の値や内容を入れるときに使います。</p>
+            <ul>
+              <li>商品名や価格</li>
+              <li>曜日や営業時間</li>
+              <li>人数や集計値</li>
+            </ul>
+            <p><code>&lt;th&gt;</code>と<code>&lt;td&gt;</code>の違いは、太字か普通の文字かではありません。</p>
+            <p><code>&lt;th&gt;</code>は見出し、<code>&lt;td&gt;</code>はデータという意味の違いです。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>実際に作成したBlack Coffeeでは、メニュー名と価格のデータに<code>&lt;td&gt;</code>を使っています。</p>
+            <pre><code>&lt;tr&gt;
+  &lt;td&gt;サンプルメニュー&lt;/td&gt;
+  &lt;td&gt;400円&lt;/td&gt;
+&lt;/tr&gt;</code></pre>
+            <p>「サンプルメニュー」と「400円」は、どちらもその行に入る実際のデータです。</p>
+            <p>kazuki_HP_practice2では、<code>&lt;td&gt;</code>を使用していません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

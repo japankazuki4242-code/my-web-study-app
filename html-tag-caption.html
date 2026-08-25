@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;caption&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;caption&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;caption&gt;</code>は、tableの内容を表すcaption（表題）を付けるタグです。</p>
+            <p>「このtableが何についての表なのか」を示し、表の内容を理解しやすくします。</p>
+            <p><code>&lt;table&gt;</code>の中で使い、単なるページ全体の見出しではありません。</p>
+            <p><code>&lt;h1&gt;</code>や<code>&lt;h2&gt;</code>はページやセクションの見出し、<code>&lt;caption&gt;</code>はtableそのものの表題です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;h2&gt;店舗情報&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;caption&gt;営業時間&lt;/caption&gt;
+  &lt;tr&gt;
+    &lt;th&gt;曜日&lt;/th&gt;
+    &lt;td&gt;月曜日&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+            <p>「店舗情報」はページ内のセクション見出しです。</p>
+            <p>「営業時間」は、そのtableが何についての表なのかを示す表題です。</p>
+            <p>初心者向けの基本形では、<code>&lt;caption&gt;</code>を<code>&lt;table&gt;</code>内の先頭付近に書くと構造を追いやすくなります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;table&gt;
+  &lt;caption class="table-caption"&gt;商品価格一覧&lt;/caption&gt;
+&lt;/table&gt;</code></pre>
+            <p>属性名：<code>class</code><br>属性値：<code>table-caption</code></p>
+            <p><code>class</code>を付けると、CSSやJavaScriptからこの表題を指定できます。</p>
+            <p>HTMLの<code>&lt;caption&gt;</code>は表題という意味を表し、文字サイズや配置などの見た目はCSSで調整します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;caption&gt;</code>は、表が何についてのデータなのかを明確にしたいときに使います。</p>
+            <ul>
+              <li>商品価格一覧</li>
+              <li>営業時間</li>
+              <li>月別売上</li>
+              <li>サービス比較表</li>
+            </ul>
+            <p>表の上に大きな文字を表示するためだけのタグではありません。見た目はCSS、表題の意味はHTMLで表します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>確認したBlack Coffeeとkazuki_HP_practice2では、<code>&lt;caption&gt;</code>はまだ使用していません。</p>
+            <p>次は、表の内容を分かりやすく示すための学習用の例です。</p>
+            <pre><code>&lt;table&gt;
+  &lt;caption&gt;商品価格一覧&lt;/caption&gt;
+  &lt;tr&gt;
+    &lt;th&gt;商品名&lt;/th&gt;
+    &lt;th&gt;価格&lt;/th&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+            <p><code>&lt;caption&gt;</code>は「商品価格一覧」というtableの表題であり、ページ全体の見出しではありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

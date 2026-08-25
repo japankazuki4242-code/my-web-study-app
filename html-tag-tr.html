@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;tr&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;tr&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;tr&gt;</code>は、table rowの略で、表の1行を表すタグです。</p>
+            <p><code>&lt;tr&gt;</code>そのものが1つのセルではありません。中に<code>&lt;th&gt;</code>や<code>&lt;td&gt;</code>を入れて、その行のセルを作ります。</p>
+            <p>基本的には<code>&lt;thead&gt;</code>・<code>&lt;tbody&gt;</code>・<code>&lt;tfoot&gt;</code>などの中で使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;tr&gt;
+  &lt;th&gt;商品名&lt;/th&gt;
+  &lt;td&gt;コーヒー&lt;/td&gt;
+&lt;/tr&gt;</code></pre>
+            <pre><code>tr
+├─ th
+└─ td</code></pre>
+            <p><code>&lt;tr&gt;</code>が1行全体を作り、<code>&lt;th&gt;</code>と<code>&lt;td&gt;</code>がその行に並ぶセルです。</p>
+            <p><code>&lt;th&gt;</code>は見出しセル、<code>&lt;td&gt;</code>はデータセルです。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;tr class="table-row"&gt;
+  &lt;td&gt;コーヒー&lt;/td&gt;
+  &lt;td&gt;500円&lt;/td&gt;
+&lt;/tr&gt;</code></pre>
+            <p>属性名：<code>class</code><br>属性値：<code>table-row</code></p>
+            <p><code>class</code>を付けると、CSSやJavaScriptからこの行を指定できます。</p>
+            <p>HTMLの<code>&lt;tr&gt;</code>は1行という構造を表し、背景色や余白などの見た目はCSSで調整します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;tr&gt;</code>は、表の見出し行・データ行・集計行を1行ずつ作るときに使います。</p>
+            <p><code>&lt;thead&gt;</code>・<code>&lt;tbody&gt;</code>・<code>&lt;tfoot&gt;</code>がそれぞれの部分をまとめ、その中の<code>&lt;tr&gt;</code>が各行を作ります。</p>
+            <p>1行の中には、必要な数の<code>&lt;th&gt;</code>や<code>&lt;td&gt;</code>を並べます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>実際に作成したBlack Coffeeでは、メニュー名と価格を1行ずつまとめるために<code>&lt;tr&gt;</code>を使っています。</p>
+            <pre><code>&lt;tr&gt;
+  &lt;td&gt;サンプルメニュー&lt;/td&gt;
+  &lt;td&gt;400円&lt;/td&gt;
+&lt;/tr&gt;</code></pre>
+            <p>1つの<code>&lt;tr&gt;</code>の中に、メニュー名と価格の2つの<code>&lt;td&gt;</code>があります。</p>
+            <p>kazuki_HP_practice2では、<code>&lt;tr&gt;</code>を使用していません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

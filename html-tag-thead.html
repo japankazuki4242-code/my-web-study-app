@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;thead&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;thead&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;thead&gt;</code>は、table header groupとして表の見出し部分の行をまとめるタグです。</p>
+            <p>中には<code>&lt;tr&gt;</code>を置き、その行の中に<code>&lt;th&gt;</code>などを置きます。</p>
+            <p>表の構造を意味ごとに整理することが役割で、見た目を自動的に特別にすることが本質ではありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;thead&gt;
+  &lt;tr&gt;
+    &lt;th&gt;商品名&lt;/th&gt;
+    &lt;th&gt;価格&lt;/th&gt;
+  &lt;/tr&gt;
+&lt;/thead&gt;</code></pre>
+            <pre><code>thead
+└─ tr
+    ├─ th
+    └─ th</code></pre>
+            <p><code>&lt;thead&gt;</code>が表の見出し部分、<code>&lt;tr&gt;</code>が1行、<code>&lt;th&gt;</code>が各見出しセルです。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;thead class="table-head"&gt;
+  &lt;tr&gt;
+    &lt;th&gt;商品名&lt;/th&gt;
+    &lt;th&gt;価格&lt;/th&gt;
+  &lt;/tr&gt;
+&lt;/thead&gt;</code></pre>
+            <p>属性名：<code>class</code><br>属性値：<code>table-head</code></p>
+            <p><code>class</code>を付けると、CSSやJavaScriptから表の見出し部分を指定できます。</p>
+            <p>HTMLは見出し部分という構造を表し、背景色などの見た目はCSSで調整します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;thead&gt;</code>は、表の列名などを含む見出し行を、主なデータ部分と分けてまとめたいときに使います。</p>
+            <p><code>&lt;thead&gt;</code>は見出し部分、<code>&lt;tbody&gt;</code>は主なデータ部分、<code>&lt;tfoot&gt;</code>はまとめ・集計部分を表します。</p>
+            <p>すべての表に必須という意味ではなく、構造を明確にする必要に応じて使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>確認したBlack Coffeeとkazuki_HP_practice2では、<code>&lt;thead&gt;</code>はまだ使用していません。</p>
+            <p>次は、見出し行をまとめる学習用の例です。</p>
+            <pre><code>&lt;thead&gt;
+  &lt;tr&gt;
+    &lt;th&gt;商品名&lt;/th&gt;
+    &lt;th&gt;価格&lt;/th&gt;
+  &lt;/tr&gt;
+&lt;/thead&gt;</code></pre>
+            <p>実作品で使用したコードではありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;table&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;table&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;table&gt;</code>は、行と列を使って関連するデータを整理する表全体の親となるタグです。</p>
+            <p><code>&lt;table&gt;</code>単体だけでは通常、表の中身は完成しません。<code>&lt;tr&gt;</code>・<code>&lt;th&gt;</code>・<code>&lt;td&gt;</code>などを組み合わせます。</p>
+            <p>必要に応じて<code>&lt;caption&gt;</code>・<code>&lt;thead&gt;</code>・<code>&lt;tbody&gt;</code>・<code>&lt;tfoot&gt;</code>も使います。</p>
+            <p>ページ全体の配置を作るレイアウト目的では使いません。HTMLはデータの構造を表し、枠線や配置などの見た目はCSSで調整します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <p><strong>表全体の親子構造：</strong></p>
+            <pre><code>&lt;table&gt;
+├─ &lt;caption&gt;  表が何についての表なのかを示す
+├─ &lt;thead&gt;    表の見出し部分
+│   └─ &lt;tr&gt;   1行
+│       ├─ &lt;th&gt; 見出しセル
+│       └─ &lt;th&gt;
+├─ &lt;tbody&gt;    主なデータ部分
+│   ├─ &lt;tr&gt;
+│   │   ├─ &lt;td&gt; データセル
+│   │   └─ &lt;td&gt;
+│   └─ &lt;tr&gt;
+│       ├─ &lt;td&gt;
+│       └─ &lt;td&gt;
+└─ &lt;tfoot&gt;    表のまとめ部分
+    └─ &lt;tr&gt;
+        ├─ &lt;th&gt; 見出しとして使うこともある
+        └─ &lt;td&gt; データ</code></pre>
+            <p><strong>完成形の例：</strong></p>
+            <pre><code>&lt;table&gt;
+  &lt;caption&gt;営業時間&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;曜日&lt;/th&gt;
+      &lt;th&gt;時間&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;月曜日&lt;/td&gt;
+      &lt;td&gt;10:00〜18:00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;火曜日&lt;/td&gt;
+      &lt;td&gt;10:00〜18:00&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+            <p><code>&lt;table&gt;</code>の中に表題や各部分があり、その中の<code>&lt;tr&gt;</code>が1行、さらにその中の<code>&lt;th&gt;</code>と<code>&lt;td&gt;</code>がセルになります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;table class="price-table"&gt;
+  &lt;tr&gt;
+    &lt;td&gt;コーヒー&lt;/td&gt;
+    &lt;td&gt;500円&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+            <p>属性名：<code>class</code><br>属性値：<code>price-table</code></p>
+            <p><code>class</code>を付けると、CSSやJavaScriptからこの表を指定できます。</p>
+            <p>HTMLは表の意味と構造を表し、枠線・幅・色などの見た目はCSSで指定します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;table&gt;</code>は、行と列の関係があるデータを整理して見せたいときに使います。</p>
+            <ul>
+              <li>商品と価格の一覧</li>
+              <li>営業時間や予定表</li>
+              <li>成績や集計結果</li>
+              <li>仕様の比較</li>
+            </ul>
+            <p><code>&lt;thead&gt;</code>は見出し部分、<code>&lt;tbody&gt;</code>は主なデータ部分、<code>&lt;tfoot&gt;</code>はまとめ・集計部分です。</p>
+            <p>これらをすべての表に必ず書くという意味ではなく、表の構造を分かりやすく整理する必要に応じて使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>実際に作成したBlack Coffeeでは、メニュー名と価格を並べる表に<code>&lt;table&gt;</code>を使っています。</p>
+            <pre><code>&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td&gt;サンプルメニュー&lt;/td&gt;
+    &lt;td&gt;400円&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+            <p>実作品では<code>&lt;tr&gt;</code>と<code>&lt;td&gt;</code>を使ったシンプルな構造で、<code>&lt;caption&gt;</code>・<code>&lt;thead&gt;</code>・<code>&lt;tbody&gt;</code>・<code>&lt;th&gt;</code>・<code>&lt;tfoot&gt;</code>は使用していません。</p>
+            <p>kazuki_HP_practice2では、今回の表関連タグを使用していません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

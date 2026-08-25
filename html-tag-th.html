@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;th&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;th&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;th&gt;</code>は、table headerとして表の見出しセルを表すタグです。</p>
+            <p>列の見出しにも、行の見出しにも使えます。</p>
+            <p>ブラウザでは太字で表示されることが多いですが、文字を太字にするためだけのタグではありません。</p>
+            <p><code>&lt;th&gt;</code>は見出し、<code>&lt;td&gt;</code>はデータという意味の違いがあります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <p><strong>列の見出し：</strong></p>
+            <pre><code>&lt;thead&gt;
+  &lt;tr&gt;
+    &lt;th&gt;商品名&lt;/th&gt;
+    &lt;th&gt;価格&lt;/th&gt;
+  &lt;/tr&gt;
+&lt;/thead&gt;</code></pre>
+            <p><strong>行の見出し：</strong></p>
+            <pre><code>&lt;tbody&gt;
+  &lt;tr&gt;
+    &lt;th&gt;コーヒー&lt;/th&gt;
+    &lt;td&gt;500円&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;</code></pre>
+            <p><code>&lt;th&gt;</code>は<code>&lt;thead&gt;</code>専用ではなく、<code>&lt;tbody&gt;</code>内で行見出しとしても使えます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;th scope="col"&gt;商品名&lt;/th&gt;
+&lt;th scope="row"&gt;コーヒー&lt;/th&gt;</code></pre>
+            <p>属性名：<code>scope</code></p>
+            <p><code>scope="col"</code><br>→ 列の見出し</p>
+            <p><code>scope="row"</code><br>→ 行の見出し</p>
+            <p><code>scope</code>は、その見出しがどの方向のセルに関係するかを表します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;th&gt;</code>は、表のデータが何を意味するか示す見出しセルに使います。</p>
+            <pre><code>&lt;tr&gt;
+  &lt;th&gt;商品名&lt;/th&gt;
+  &lt;td&gt;コーヒー&lt;/td&gt;
+&lt;/tr&gt;</code></pre>
+            <p>「商品名」はデータの意味を示す見出しなので<code>&lt;th&gt;</code>です。</p>
+            <p>「コーヒー」は実際のデータなので<code>&lt;td&gt;</code>です。違いは太字か普通の文字かではなく、見出しかデータかです。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>確認したBlack Coffeeとkazuki_HP_practice2では、<code>&lt;th&gt;</code>はまだ使用していません。</p>
+            <p>次は、商品名と価格を列見出しにする学習用の例です。</p>
+            <pre><code>&lt;thead&gt;
+  &lt;tr&gt;
+    &lt;th scope="col"&gt;商品名&lt;/th&gt;
+    &lt;th scope="col"&gt;価格&lt;/th&gt;
+  &lt;/tr&gt;
+&lt;/thead&gt;</code></pre>
+            <p>実作品で使用したコードではありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
