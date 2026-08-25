@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;fieldset&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;fieldset&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;fieldset&gt;</code>は、関連するフォーム入力項目を1つのグループとしてまとめるタグです。</p>
+            <p>中に入力項目を置き、<code>&lt;legend&gt;</code>と組み合わせてグループの内容を示せます。</p>
+            <p>ブラウザでは枠線が表示されることがありますが、単に枠線を付けるためのタグではありません。</p>
+            <p>HTMLとして「これらは同じ種類の入力項目のグループです」という意味を持たせます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;fieldset&gt;
+  &lt;legend&gt;お問い合わせ種別&lt;/legend&gt;
+  &lt;label&gt;
+    &lt;input type="radio" name="category" value="service"&gt;
+    サービスについて
+  &lt;/label&gt;
+  &lt;label&gt;
+    &lt;input type="radio" name="category" value="price"&gt;
+    料金について
+  &lt;/label&gt;
+&lt;/fieldset&gt;</code></pre>
+            <pre><code>fieldset
+├─ legend
+└─ 関連する入力項目</code></pre>
+            <p><code>&lt;fieldset&gt;</code>がグループ全体の親で、<code>&lt;legend&gt;</code>が「お問い合わせ種別」というグループ名を示します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;fieldset class="category-group"&gt;
+  &lt;legend&gt;お問い合わせ種別&lt;/legend&gt;
+  ...
+&lt;/fieldset&gt;</code></pre>
+            <p>属性名：<code>class</code><br>属性値：<code>category-group</code></p>
+            <p><code>class</code>を付けると、CSSやJavaScriptからグループを指定できます。</p>
+            <p>HTMLは関連する入力項目のグループという意味を表し、枠線や余白などの見た目はCSSで調整します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;fieldset&gt;</code>は、複数の入力項目を内容ごとにまとめたいときに使います。</p>
+            <ul>
+              <li>お問い合わせ種別のラジオボタン</li>
+              <li>配送先情報の入力欄</li>
+              <li>アンケートの関連する質問</li>
+            </ul>
+            <p>見た目の枠が必要かどうかではなく、入力項目に意味のあるグループ関係があるかを考えて使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>確認したBlack Coffeeとkazuki_HP_practice2では、<code>&lt;fieldset&gt;</code>はまだ使用していません。</p>
+            <p>このページに掲載したお問い合わせ種別のコードは、親子関係を理解するための学習用例です。</p>
+            <p>実作品で使用したコードではありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

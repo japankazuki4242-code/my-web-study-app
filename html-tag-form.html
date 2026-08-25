@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;form&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;form&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;form&gt;</code>は、ユーザーに情報を入力してもらう入力欄やボタンなどをまとめる、フォーム全体の親となるタグです。</p>
+            <p><code>&lt;form&gt;</code>だけでは通常、中身は完成しません。<code>&lt;label&gt;</code>・<code>&lt;input&gt;</code>・<code>&lt;textarea&gt;</code>・<code>&lt;select&gt;</code>・<code>&lt;button&gt;</code>などを組み合わせます。</p>
+            <p>HTMLだけで、入力データの保存やメール送信まで必ず完成するわけではありません。実際の処理にはサーバー側などの仕組みが必要です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <p><strong>フォーム全体の親子構造：</strong></p>
+            <pre><code>&lt;form&gt;
+├─ &lt;label&gt; ── 入力欄が何の項目かを示す
+├─ &lt;input&gt; ── 1行入力など
+├─ &lt;label&gt;
+├─ &lt;textarea&gt; ── 複数行の文章入力
+├─ &lt;label&gt;
+├─ &lt;select&gt; ── 選択肢全体
+│   ├─ &lt;option&gt; ── 1つの選択肢
+│   └─ &lt;option&gt;
+├─ &lt;fieldset&gt; ── 関連する入力項目をまとめる
+│   ├─ &lt;legend&gt; ── グループが何かを示す
+│   └─ 入力項目
+└─ &lt;button&gt; ── 送信などの操作</code></pre>
+            <p><strong>完成したお問い合わせフォームの学習例：</strong></p>
+            <pre><code>&lt;!-- HTMLのフォーム開始タグ --&gt;
+&lt;form action="#" method="post"&gt;
+  &lt;!-- 一行テキスト --&gt;
+  &lt;div&gt;
+    &lt;label for="name"&gt;お名前：&lt;/label&gt;
+    &lt;input type="text" id="name" name="user_name" required&gt;
+  &lt;/div&gt;
+
+  &lt;!-- メールアドレス --&gt;
+  &lt;div&gt;
+    &lt;label for="email"&gt;メールアドレス：&lt;/label&gt;
+    &lt;input type="email" id="email" name="user_email" required&gt;
+  &lt;/div&gt;
+
+  &lt;!-- セレクトボックス --&gt;
+  &lt;div&gt;
+    &lt;label for="category"&gt;お問い合わせ種別：&lt;/label&gt;
+    &lt;select id="category" name="category"&gt;
+      &lt;option value="service"&gt;サービスについて&lt;/option&gt;
+      &lt;option value="price"&gt;料金について&lt;/option&gt;
+      &lt;option value="other"&gt;その他&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/div&gt;
+
+  &lt;!-- 複数行テキスト --&gt;
+  &lt;div&gt;
+    &lt;label for="message"&gt;お問い合わせ内容：&lt;/label&gt;
+    &lt;textarea id="message" name="user_message" rows="5"&gt;&lt;/textarea&gt;
+  &lt;/div&gt;
+
+  &lt;!-- 送信ボタン --&gt;
+  &lt;button type="submit"&gt;送信する&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+            <p><code>action="#"</code>は学習用の仮の送信先で、これだけで本物の送信機能は完成しません。<code>method="post"</code>は送信方法の1つです。</p>
+            <p><code>for="name"</code>と<code>id="name"</code>がlabelと入力欄を関連付けます。<code>name="user_name"</code>は送信時のデータ名です。</p>
+            <p><code>required</code>は入力必須をブラウザに伝える、値を書かずに使えるboolean属性です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;form action="#" method="post"&gt;
+  ...
+&lt;/form&gt;</code></pre>
+            <p><code>action</code><br>→ 送信先。ここでの<code>#</code>は学習用の仮指定です。</p>
+            <p><code>method</code><br>→ 送信方法。基本として<code>get</code>と<code>post</code>があります。</p>
+            <p><code>get</code>は送信内容がURLに含まれる方法、<code>post</code>は送信内容をリクエストの本文に含める方法です。Version 1では違いを高度に掘り下げません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;form&gt;</code>は、ユーザーから情報を受け取る画面に使います。</p>
+            <ul>
+              <li>お問い合わせ</li>
+              <li>ログインや会員登録</li>
+              <li>検索</li>
+              <li>アンケートや申込み</li>
+            </ul>
+            <p><code>id</code>はHTML内で要素を識別したりlabelと関連付けたりするために使えます。</p>
+            <p><code>name</code>は、フォーム送信時に値が何のデータかを識別する名前です。同じ役割ではありません。</p>
+            <p>お問い合わせフォームをページの主要な内容として扱う場合は、<code>&lt;main&gt;</code>内の<code>&lt;section&gt;</code>に置く形が基本例の1つです。</p>
+            <pre><code>&lt;body&gt;
+  &lt;header&gt;
+    ...
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    &lt;section&gt;
+      &lt;h2&gt;お問い合わせ&lt;/h2&gt;
+      &lt;form&gt;
+        ...
+      &lt;/form&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+
+  &lt;footer&gt;
+    ...
+  &lt;/footer&gt;
+&lt;/body&gt;</code></pre>
+            <p><code>&lt;main&gt;</code>内のお問い合わせフォームはページの主要コンテンツ、<code>&lt;footer&gt;</code>はコピーライト・補助リンク・会社情報など、ページ末尾の補足情報をまとめる役割があります。</p>
+            <p>画面の下の方に表示されることと、HTMLで<code>&lt;footer&gt;</code>の中に入れることは同じ意味ではありません。</p>
+            <p>デザイン上はフォームをページ下部やfooterの直前に配置することもありますが、「ページ下部にあるからfooterに入れる」とは判断しません。HTML要素は内容の意味や役割で選びます。</p>
+            <p>フォームを必ずmain内に置くという断定ではありません。サイトの構造やフォームの役割に応じて適切な位置は変わります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>確認したBlack Coffeeとkazuki_HP_practice2では、<code>&lt;form&gt;</code>はまだ使用していません。</p>
+            <p>このページに掲載したお問い合わせフォームは、各タグのつながりを学ぶための学習用例です。</p>
+            <p>実際に問い合わせを保存したりメール送信したりするには、HTML以外の処理が必要です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

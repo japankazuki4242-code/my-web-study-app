@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;textarea&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;textarea&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;textarea&gt;</code>は、お問い合わせ内容やコメントなど、複数行の文章を入力するためのタグです。</p>
+            <p>開始タグ<code>&lt;textarea&gt;</code>と終了タグ<code>&lt;/textarea&gt;</code>が必要です。</p>
+            <p>終了タグを持たない<code>&lt;input&gt;</code>とはHTML構造が異なります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;label for="message"&gt;お問い合わせ内容：&lt;/label&gt;
+&lt;textarea id="message" name="user_message" rows="5"&gt;&lt;/textarea&gt;</code></pre>
+            <p><code>id="message"</code>はlabelとの関連付け、<code>name="user_message"</code>は送信時のデータ名です。</p>
+            <p><code>rows="5"</code>は、表示する行数の目安を指定します。最終的な見た目の大きさはCSSでも調整できます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;textarea
+  id="message"
+  name="user_message"
+  rows="5"
+  class="message-field"
+&gt;&lt;/textarea&gt;</code></pre>
+            <p><code>id</code>：HTML内で識別し、labelと関連付ける</p>
+            <p><code>name</code>：フォーム送信時のデータ名</p>
+            <p><code>rows</code>：表示する行数の目安</p>
+            <p><code>class</code>：CSSやJavaScriptから指定しやすくする</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;textarea&gt;</code>は、複数行になる可能性がある長めの文章を入力してもらうときに使います。</p>
+            <ul>
+              <li>お問い合わせ内容</li>
+              <li>コメントや感想</li>
+              <li>住所や詳しい説明</li>
+            </ul>
+            <p><code>&lt;input type="text"&gt;</code>は基本的に1行、<code>&lt;textarea&gt;</code>は複数行の入力です。</p>
+            <p><code>&lt;input&gt;</code>は終了タグなし、<code>&lt;textarea&gt;</code>は開始タグと終了タグがあります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>確認したBlack Coffeeとkazuki_HP_practice2では、<code>&lt;textarea&gt;</code>はまだ使用していません。</p>
+            <p>次は、お問い合わせ内容を入力する学習用の例です。</p>
+            <pre><code>&lt;label for="message"&gt;お問い合わせ内容：&lt;/label&gt;
+&lt;textarea id="message" name="user_message" rows="5"&gt;&lt;/textarea&gt;</code></pre>
+            <p>実作品で使用したコードではありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

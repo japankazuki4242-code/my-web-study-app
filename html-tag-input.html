@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;input&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;input&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;input&gt;</code>は、type属性によってさまざまな入力欄や操作を作るタグです。</p>
+            <p><code>&lt;input&gt;</code>はvoid要素で終了タグを持たないため、<code>&lt;/input&gt;</code>とは書きません。</p>
+            <p><code>type="text"</code>は基本的に1行の入力、複数行の文章には<code>&lt;textarea&gt;</code>を使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;label for="name"&gt;お名前：&lt;/label&gt;
+&lt;input type="text" id="name" name="user_name" required&gt;</code></pre>
+            <p><code>type="text"</code>は1行テキスト、<code>id="name"</code>はlabelとの関連付けなどに使います。</p>
+            <p><code>name="user_name"</code>は送信時のデータ名、<code>required</code>は入力必須をブラウザに伝えるboolean属性です。</p>
+            <p><code>value</code>属性を使うと、初期値や送信される値を指定できます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <p><strong>代表的なtype：</strong></p>
+            <ul>
+              <li><code>type="text"</code>：1行テキスト</li>
+              <li><code>type="email"</code>：メールアドレス</li>
+              <li><code>type="password"</code>：パスワード入力</li>
+              <li><code>type="checkbox"</code>：チェックボックス</li>
+              <li><code>type="radio"</code>：ラジオボタン</li>
+              <li><code>type="submit"</code>：送信ボタンとして使えるinput</li>
+            </ul>
+            <pre><code>&lt;input type="radio" name="plan" value="basic"&gt;</code></pre>
+            <p><code>name</code>は送信データ名、<code>value</code>はその選択肢が選ばれたときに送信される値です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;input&gt;</code>は、名前・メールアドレス・パスワード・選択項目など、短い入力や選択に使います。</p>
+            <p><code>&lt;input type="text"&gt;</code><br>→ 基本的に1行のテキスト入力。終了タグなし。</p>
+            <p><code>&lt;textarea&gt;&lt;/textarea&gt;</code><br>→ 複数行の文章入力。開始タグと終了タグあり。</p>
+            <p>お問い合わせ本文や長いコメントには<code>&lt;textarea&gt;</code>が向いています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>確認したBlack Coffeeとkazuki_HP_practice2では、<code>&lt;input&gt;</code>はまだ使用していません。</p>
+            <p>次は、必須のお名前入力欄を作る学習用の例です。</p>
+            <pre><code>&lt;label for="name"&gt;お名前：&lt;/label&gt;
+&lt;input type="text" id="name" name="user_name" required&gt;</code></pre>
+            <p>実作品で使用したコードではありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

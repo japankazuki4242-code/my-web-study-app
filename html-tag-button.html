@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;button&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;button&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;button&gt;</code>は、ユーザーがクリックやタップで操作するためのボタンを作るタグです。</p>
+            <p>フォーム内では送信などに使えます。<code>type</code>属性によってボタンの役割が変わります。</p>
+            <p>HTMLはボタンの役割を表し、色・大きさ・配置などの見た目はCSSで調整します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;button type="submit"&gt;送信する&lt;/button&gt;</code></pre>
+            <p>開始タグと終了タグの間に、ボタンに表示する文字を書きます。</p>
+            <p>フォーム内のbuttonでは<code>type</code>属性を明示すると、そのボタンの役割が分かりやすくなります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <ul>
+              <li><code>type="submit"</code>：フォームを送信する</li>
+              <li><code>type="button"</code>：送信機能を持たない通常のボタン</li>
+              <li><code>type="reset"</code>：フォームを初期状態へ戻す</li>
+            </ul>
+            <pre><code>&lt;button type="button" class="menu-button"&gt;メニュー&lt;/button&gt;</code></pre>
+            <p><code>class</code>を付けると、CSSやJavaScriptからボタンを指定できます。</p>
+            <p><code>type="reset"</code>は入力内容を戻すため、誤操作につながらないか考えて使います。必ず必要なボタンではありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;button&gt;</code>は、フォーム送信やJavaScriptで処理を実行する操作に使います。</p>
+            <ul>
+              <li>お問い合わせフォームを送信する</li>
+              <li>メニューや内容を開閉する</li>
+              <li>入力内容を操作する</li>
+            </ul>
+            <p>別ページへ移動するリンクには、目的に応じて<code>&lt;a&gt;</code>を使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>確認したBlack Coffeeとkazuki_HP_practice2では、<code>&lt;button&gt;</code>はまだ使用していません。</p>
+            <p>現在のWeb学習アプリではボタンを使用していますが、これは2つの完成作品で使った例とは区別します。</p>
+            <p>次は、フォーム送信用の学習例です。</p>
+            <pre><code>&lt;button type="submit"&gt;送信する&lt;/button&gt;</code></pre>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

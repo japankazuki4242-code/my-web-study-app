@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;label&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;label&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;label&gt;</code>は、入力欄が何の項目なのかを示すタグです。</p>
+            <p><code>&lt;input&gt;</code>・<code>&lt;textarea&gt;</code>・<code>&lt;select&gt;</code>などと関連付けて使えます。</p>
+            <p>単なる文字表示や太字にするためのタグではなく、項目名と入力欄の関係をHTMLで表します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;label for="email"&gt;メールアドレス：&lt;/label&gt;
+&lt;input type="email" id="email" name="user_email"&gt;</code></pre>
+            <pre><code>for="email"
+      ↓
+id="email"</code></pre>
+            <p><code>for</code>と<code>id</code>を同じ値にすることで、「メールアドレス」というlabelと入力欄を関連付けています。</p>
+            <p>labelをクリックすると、関連する入力欄にフォーカスしやすくなります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;label for="name" class="form-label"&gt;お名前：&lt;/label&gt;
+&lt;input id="name" name="user_name"&gt;</code></pre>
+            <p><code>for="name"</code><br>→ <code>id="name"</code>の入力欄と関連付ける</p>
+            <p><code>class="form-label"</code><br>→ CSSやJavaScriptからlabelを指定しやすくする</p>
+            <p><code>name="user_name"</code><br>→ フォーム送信時のデータ名</p>
+            <p><code>for</code>と<code>id</code>は要素同士の関連付け、<code>name</code>は送信データの識別に使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;label&gt;</code>は、名前・メールアドレス・お問い合わせ内容・選択欄などの項目名に使います。</p>
+            <p>入力欄の目的が分かりやすくなり、クリックやタップでも入力欄を選びやすくなります。</p>
+            <p>見た目の文字サイズや太さはCSSで調整し、HTMLではlabelと入力欄の意味のつながりを作ります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>確認したBlack Coffeeとkazuki_HP_practice2では、<code>&lt;label&gt;</code>はまだ使用していません。</p>
+            <p>次は、お名前の項目名と入力欄を関連付ける学習用の例です。</p>
+            <pre><code>&lt;label for="name"&gt;お名前：&lt;/label&gt;
+&lt;input type="text" id="name" name="user_name"&gt;</code></pre>
+            <p>実作品で使用したコードではありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

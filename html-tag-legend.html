@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;legend&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;legend&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;legend&gt;</code>は、<code>&lt;fieldset&gt;</code>でまとめたグループが何についてのものかを示すタグです。</p>
+            <p><code>&lt;fieldset&gt;</code>の中で使い、単なる文字表示や装飾のためには使いません。</p>
+            <p>HTMLとして入力グループの内容を分かりやすくします。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;fieldset&gt;
+  &lt;legend&gt;お問い合わせ種別&lt;/legend&gt;
+  ...
+&lt;/fieldset&gt;</code></pre>
+            <pre><code>fieldset
+└─ legend</code></pre>
+            <p><code>&lt;fieldset&gt;</code>が入力項目のグループ全体で、<code>&lt;legend&gt;</code>がそのグループ名です。</p>
+            <p><code>&lt;legend&gt;</code>を単独のページ見出しとして使うのではなく、<code>&lt;fieldset&gt;</code>との親子関係で使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;fieldset&gt;
+  &lt;legend class="group-title"&gt;お問い合わせ種別&lt;/legend&gt;
+  ...
+&lt;/fieldset&gt;</code></pre>
+            <p>属性名：<code>class</code><br>属性値：<code>group-title</code></p>
+            <p><code>class</code>を付けると、CSSやJavaScriptからlegendを指定できます。</p>
+            <p>HTMLはグループ名という意味を表し、文字サイズなどの見た目はCSSで調整します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;legend&gt;</code>は、関連する入力項目のグループ名を示したいときに使います。</p>
+            <ul>
+              <li>お問い合わせ種別</li>
+              <li>配送先情報</li>
+              <li>回答方法の選択</li>
+            </ul>
+            <p><code>&lt;caption&gt;</code>はtableが何についての表かを示し、<code>&lt;legend&gt;</code>はfieldsetが何についてのグループかを示します。</p>
+            <p>親となる内容を説明する点は似ていますが、別の目的を持つ別のタグです。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>確認したBlack Coffeeとkazuki_HP_practice2では、<code>&lt;legend&gt;</code>はまだ使用していません。</p>
+            <p>次は、入力グループの内容を示す学習用の例です。</p>
+            <pre><code>&lt;fieldset&gt;
+  &lt;legend&gt;お問い合わせ種別&lt;/legend&gt;
+  ...
+&lt;/fieldset&gt;</code></pre>
+            <p>実作品で使用したコードではありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
