@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>ページ構造から探す | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>ページ構造から探す</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>ホームページ全体の基本構造</summary>
+          <div class="details-content">
+            <p>ホームページ全体は、次のような親子関係で作ることがあります。</p>
+            <pre><code>body
+├─ header
+├─ main
+│  ├─ section
+│  ├─ section
+│  └─ section
+├─ aside（必要な場合）
+└─ footer</code></pre>
+            <p>ただし、すべてのホームページが必ずこの構造になるわけではありません。内容や制作した時期、教材の方針などによって構造は変わります。</p>
+
+            <p>実際に模写したBlack Coffeeは、次のような大きな構造です。</p>
+            <pre><code>body
+├─ header
+├─ main
+│  ├─ section.hero
+│  ├─ section.about
+│  └─ section.menu
+├─ aside
+└─ footer</code></pre>
+
+            <p>kazuki_HP_practice2では、<code>&lt;main&gt;</code>の中にファーストビューとFeature部分があります。</p>
+            <pre><code>body
+├─ header
+├─ main
+│  ├─ div.fv
+│  └─ section.feature
+└─ footer</code></pre>
+
+            <p>Progate教材を模写したkazu_practice_progate_html_cssは、<code>&lt;main&gt;</code>や<code>&lt;section&gt;</code>ではなく、<code>&lt;div&gt;</code>とclass名を中心に構成されています。</p>
+            <pre><code>body
+├─ header
+├─ div.top-wrapper
+├─ div.lesson-wrapper
+├─ div.message-wrapper
+└─ footer</code></pre>
+            <p>教材によって構造や書き方は異なります。新しい書き方と違うから間違いということではなく、それぞれのコードを親子関係で見ることが大切です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>ヘッダー・ナビゲーション</summary>
+          <div class="details-content">
+            <p>Black Coffeeのヘッダーは、見出しとナビゲーションを直接まとめています。</p>
+            <pre><code>header
+├─ h1
+└─ nav
+   └─ ul
+      └─ li
+         └─ a</code></pre>
+            <p><code>&lt;nav&gt;</code>の中にリストがあり、それぞれの<code>&lt;li&gt;</code>の中に移動用の<code>&lt;a&gt;</code>があります。</p>
+
+            <p>kazuki_HP_practice2では、ヘッダーの内側に<code>&lt;div class="header-inner"&gt;</code>を作っています。</p>
+            <pre><code>header
+└─ div.header-inner
+   ├─ div.logo-box
+   └─ nav.header-menu
+      └─ ul
+         └─ li
+            └─ a</code></pre>
+            <p><code>header-inner</code>でロゴ側とメニュー側をまとめ、CSSで配置を整えています。</p>
+            <p>ヘッダーの中が必ずこの形になるわけではありません。ページの内容やデザインによって、必要な要素や親子関係は変わります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>ファーストビュー</summary>
+          <div class="details-content">
+            <p>Black Coffeeでは、<code>&lt;section&gt;</code>の中に画像を置いています。</p>
+            <pre><code>&lt;section class="hero"&gt;
+  &lt;figure&gt;
+    &lt;img src="images/top.jpg" alt="カフェの店内"&gt;
+  &lt;/figure&gt;
+&lt;/section&gt;</code></pre>
+
+            <p>kazuki_HP_practice2では、空の<code>&lt;div&gt;</code>を作り、CSSの<code>background-image</code>で画像を表示しています。</p>
+            <pre><code>&lt;div class="fv"&gt;&lt;/div&gt;</code></pre>
+
+            <p>Progate教材では、<code>&lt;div class="top-wrapper"&gt;</code>の中に<code>&lt;div class="container"&gt;</code>を置いています。</p>
+            <pre><code>&lt;div class="top-wrapper"&gt;
+  &lt;div class="container"&gt;
+    &lt;h1&gt;LEARN TO CODE.&lt;/h1&gt;
+    &lt;p&gt;Progateはオンラインプログラミング学習サービスです。&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+            <p><code>hero</code>・<code>fv</code>・<code>top-wrapper</code>はHTMLタグではなく、制作者が付けたclass名です。ファーストビュー専用のHTMLタグがあるわけではありません。</p>
+            <p>HTMLで内容の親子関係を作り、CSSで背景画像・大きさ・配置などの見た目を整えます。同じような見た目でも、HTML構造は1種類とは限りません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>メインコンテンツ・section</summary>
+          <div class="details-content">
+            <p><code>&lt;main&gt;</code>は、そのページの中心となる内容をまとめるために使います。</p>
+            <p><code>&lt;section&gt;</code>は、関連する内容を章やテーマごとのまとまりとして整理するときに使います。</p>
+            <pre><code>&lt;main&gt;
+  &lt;section&gt;
+    &lt;h2&gt;ABOUT&lt;/h2&gt;
+  &lt;/section&gt;
+
+  &lt;section&gt;
+    &lt;h2&gt;SERVICE&lt;/h2&gt;
+  &lt;/section&gt;
+
+  &lt;section&gt;
+    &lt;h2&gt;CONTACT&lt;/h2&gt;
+  &lt;/section&gt;
+&lt;/main&gt;</code></pre>
+            <p>この例では、ABOUT・SERVICE・CONTACTをそれぞれ内容のまとまりとして分けています。</p>
+            <p>ただし、ABOUTだから必ず<code>&lt;section&gt;</code>、CONTACTだから必ず<code>&lt;section&gt;</code>というルールではありません。名前だけで決めず、見出しを付けられるような意味のあるまとまりかを考えます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>container / inner の考え方</summary>
+          <div class="details-content">
+            <p>Black CoffeeとProgate教材では<code>container</code>、kazuki_HP_practice2では<code>header-inner</code>や<code>feature-inner</code>というclass名が使われています。</p>
+            <pre><code>&lt;section&gt;
+  &lt;div class="container"&gt;
+    &lt;h2&gt;見出し&lt;/h2&gt;
+    &lt;p&gt;文章&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+            <p>このHTMLを親子関係で見ると、次のようになります。</p>
+            <pre><code>section
+└─ div.container
+   ├─ h2
+   └─ p</code></pre>
+            <p><code>container</code>・<code>inner</code>・<code>wrapper</code>はHTMLタグではなく、制作者が付けたclass名です。</p>
+            <p>中身の横幅・余白・配置をCSSで整えるための内側の箱として使われることがあります。</p>
+            <p>ただし、<code>container</code>という名前を必ず使う決まりはなく、<code>inner</code>というclassに決まった機能があるわけでもありません。実際の役割はHTMLの構造とCSSの指定によって変わります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>aside・footer</summary>
+          <div class="details-content">
+            <p>Black Coffeeでは、メインコンテンツの後に補足情報とフッターが続いています。</p>
+            <pre><code>main
+↓
+aside
+↓
+footer</code></pre>
+            <p><code>&lt;aside&gt;</code>は、本文やページ内容に関連する補足情報を表します。「画面の右側に置くタグ」ではなく、表示する位置はCSSによって変わります。</p>
+            <p><code>&lt;footer&gt;</code>は、ページやセクションの締めくくりとなる情報を表します。コピーライトや関連情報などを入れることがあります。</p>
+            <p><code>&lt;footer&gt;</code>も「画面の一番下に置くためだけのタグ」ではありません。画面上の位置だけではなく、内容が持つ意味や役割を考えてHTMLタグを選びます。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
