@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;figcaption&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;figcaption&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;figcaption&gt;</code>は、<code>&lt;figure&gt;</code>の内容に説明やキャプションを付けるためのタグです。</p>
+            <p>基本的に<code>&lt;figure&gt;</code>の中で使い、単独で自由な文章の説明用として使うタグではありません。</p>
+            <p>画像だけでなく、<code>&lt;figure&gt;</code>でまとめた図やコード例などの説明にも使えます。</p>
+            <p><code>&lt;figure&gt;</code>に必ず<code>&lt;figcaption&gt;</code>が必要なわけではありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;figure&gt;
+  &lt;img src="images/cafe.jpg" alt="カフェの店内"&gt;
+  &lt;figcaption&gt;店内の様子&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+            <p><code>&lt;figure&gt;</code>が画像と説明をまとめる親要素です。</p>
+            <p><code>&lt;img&gt;</code>と<code>&lt;figcaption&gt;</code>は、その中に入る子要素です。</p>
+            <p>この例では、<code>&lt;figcaption&gt;</code>の「店内の様子」が、同じ<code>&lt;figure&gt;</code>内の画像に対する説明になります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;figure&gt;
+  &lt;img src="images/cafe.jpg" alt="カフェの店内"&gt;
+  &lt;figcaption class="photo-caption"&gt;店内の様子&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+            <p>属性名：<code>class</code><br>属性値：<code>photo-caption</code></p>
+            <p><code>class</code>を付けると、CSSやJavaScriptからこの<code>&lt;figcaption&gt;</code>を指定できます。</p>
+            <pre><code>.photo-caption {
+  text-align: center;
+}</code></pre>
+            <p>HTMLの<code>&lt;figcaption&gt;</code>は説明という意味を表し、CSSは文字の配置などの見た目を調整します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;figcaption&gt;</code>は、<code>&lt;figure&gt;</code>でまとめた内容に短い説明を付けたいときに使います。</p>
+            <ul>
+              <li>写真の内容や撮影場所を説明する</li>
+              <li>グラフや図が何を表すか説明する</li>
+              <li>コード例の内容を説明する</li>
+            </ul>
+            <p>説明が不要なら、<code>&lt;figure&gt;</code>だけを使い、<code>&lt;figcaption&gt;</code>を省略できます。</p>
+            <p>一般的な文章の段落には<code>&lt;p&gt;</code>などを使い、<code>&lt;figcaption&gt;</code>を単独の説明文として使いません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>確認したBlack Coffeeとkazuki_HP_practice2では、<code>&lt;figcaption&gt;</code>はまだ使用していません。</p>
+            <p>次は、画像と説明をひとまとまりにする学習用の例です。</p>
+            <pre><code>&lt;figure&gt;
+  &lt;img src="images/cafe.jpg" alt="カフェの店内"&gt;
+  &lt;figcaption&gt;店内の様子&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+            <p><code>&lt;figure&gt;</code>が全体のまとまりで、<code>&lt;figcaption&gt;</code>がその内容に付ける説明です。</p>
+            <p>実作品で使用したコードではなく、親子関係を理解するための学習用例です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

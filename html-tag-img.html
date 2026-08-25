@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;img&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;img&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;img&gt;</code>は、Webページに画像を表示するためのタグです。</p>
+            <p><code>src</code>属性で画像ファイルの場所を指定し、<code>alt</code>属性で画像が伝える内容を代替テキストとして指定します。</p>
+            <p><code>&lt;img&gt;</code>は終了タグを持たないため、<code>&lt;img&gt;&lt;/img&gt;</code>のようには書きません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;img src="images/top.jpg" alt="カフェの店内"&gt;</code></pre>
+            <p><code>src="images/top.jpg"</code>は、現在のHTMLファイルから見て<code>images</code>フォルダ内にある<code>top.jpg</code>を指定しています。</p>
+            <p>このように、現在のファイルを基準に場所を示す書き方を相対パスといいます。</p>
+            <p><code>alt="カフェの店内"</code>は、画像が伝えている内容を文字で表しています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;img
+  src="images/top.jpg"
+  alt="カフェの店内"
+  width="800"
+  height="500"
+&gt;</code></pre>
+            <p><code>src</code><br>→ 画像ファイルの場所</p>
+            <p><code>alt</code><br>→ 画像の代替テキスト</p>
+            <p><code>width</code><br>→ 画像の幅</p>
+            <p><code>height</code><br>→ 画像の高さ</p>
+            <p>画像の見た目の大きさやレスポンシブ表示は、CSSでも調整します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;img&gt;</code>は、写真・ロゴ・イラストなどをページに表示するときに使います。</p>
+            <ul>
+              <li>メインビジュアルや商品写真</li>
+              <li>お店や会社を紹介する写真</li>
+              <li>ロゴやアイコン</li>
+              <li>説明に必要な図やイラスト</li>
+            </ul>
+            <p><code>alt</code>には単なる画像タイトルではなく、その画像が伝える内容を考えて書きます。</p>
+            <p>内容を伝えない装飾目的の画像では、<code>alt=""</code>とする場合があります。</p>
+            <p>CSSでは、例えば<code>max-width: 100%;</code>と<code>height: auto;</code>を使い、画面幅に合わせて画像を表示できます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>実際に作成したBlack Coffeeでは、カフェの店内写真とアイコン画像に<code>&lt;img&gt;</code>を使っています。</p>
+            <pre><code>&lt;img src="images/top.jpg" alt="カフェの店内"&gt;
+&lt;img src="images/icon.png" alt="カフェのアイコン"&gt;</code></pre>
+            <p>kazuki_HP_practice2では、Featureセクションの画像に<code>src</code>・<code>alt</code>・<code>width</code>・<code>height</code>を指定しています。</p>
+            <pre><code>&lt;img
+  src="./img/sample 1@2x.jpg"
+  alt="女性がパソコンを操作している"
+  width="480"
+  height="329"
+&gt;</code></pre>
+            <p>どちらも画像の場所と、画像が伝える内容を指定して表示しています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

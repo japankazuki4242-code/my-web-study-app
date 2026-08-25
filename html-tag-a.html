@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;a&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;a&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;a&gt;</code>は、別のページやページ内の場所へ移動するリンクを作るためのタグです。</p>
+            <p><code>&lt;a&gt;</code>がリンク全体を表し、<code>href</code>属性が移動先を指定します。</p>
+            <p>外部ページだけでなく、同じサイト内の別ページや、同じページ内の場所にも移動できます。</p>
+            <p>文字だけでなく、画像などを<code>&lt;a&gt;</code>で囲んでリンクにすることもできます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;a href="about.html"&gt;ABOUTを見る&lt;/a&gt;</code></pre>
+            <p>開始タグ<code>&lt;a&gt;</code>と終了タグ<code>&lt;/a&gt;</code>の間に、リンクとして表示する文字を書きます。</p>
+            <p><code>href="about.html"</code>は、同じフォルダにある<code>about.html</code>へ移動する指定です。</p>
+            <p><strong>ページ内リンクの例：</strong></p>
+            <pre><code>&lt;a href="#contact"&gt;CONTACTへ&lt;/a&gt;</code></pre>
+            <p><code>#contact</code>は、同じページ内にある<code>id="contact"</code>の要素へ移動する指定です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;a href="about.html" class="link-button"&gt;ABOUTを見る&lt;/a&gt;</code></pre>
+            <p>属性名：<code>href</code><br>属性値：<code>about.html</code></p>
+            <p><code>href</code>はリンク先を指定します。</p>
+            <p>属性名：<code>class</code><br>属性値：<code>link-button</code></p>
+            <p><code>class</code>は、CSSやJavaScriptから指定しやすくするために使います。</p>
+            <p>HTMLはリンクの意味と移動先を表し、CSSは色や形などの見た目を調整します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;a&gt;</code>は、クリックやタップで別の場所へ移動できるようにするときに使います。</p>
+            <ul>
+              <li>ナビゲーションから別ページへ移動する</li>
+              <li>詳しい内容のページへ移動する</li>
+              <li>外部のWebサイトへ移動する</li>
+              <li>同じページ内の特定の場所へ移動する</li>
+              <li>画像をクリックできるリンクにする</li>
+            </ul>
+            <p>リンク先がない操作ボタンには、目的に応じて<code>&lt;button&gt;</code>を使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>実際に作成したBlack Coffeeでは、ナビゲーションと予約ボタンに<code>&lt;a&gt;</code>を使っています。</p>
+            <pre><code>&lt;nav&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=""&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=""&gt;Menu&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+
+&lt;a href="" class="btn"&gt;予約はこちら&lt;/a&gt;</code></pre>
+            <p>kazuki_HP_practice2でも、ロゴ・ナビゲーション・Read Moreボタンに<code>&lt;a&gt;</code>を使っています。</p>
+            <pre><code>&lt;h1 class="header-logo"&gt;
+  &lt;a href="#"&gt;LOGO&lt;/a&gt;
+&lt;/h1&gt;
+
+&lt;a href="#" class="cta-btn"&gt;Read More&lt;/a&gt;</code></pre>
+            <p>どちらも移動できる文字やボタン部分を作るために使われています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自分のメモ</summary>
+          <div class="details-content">
+            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
