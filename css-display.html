@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Display・横並び | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>Display・横並び</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>displayとは？</summary>
+          <div class="details-content">
+            <p><code>display</code>は、要素をどのような箱として表示するかを指定します。</p>
+            <p>Version 1では、<code>block</code>・<code>inline</code>・<code>inline-block</code>・<code>none</code>を中心に学びます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>block</summary>
+          <div class="details-content">
+            <pre><code>.box {
+  display: block;
+}</code></pre>
+            <p>block要素は新しい行から始まり、基本的に利用できる横幅へ広がります。</p>
+            <p><code>width</code>・<code>height</code>・余白などを指定できます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>inline</summary>
+          <div class="details-content">
+            <pre><code>.text {
+  display: inline;
+}</code></pre>
+            <p>inline要素は、文章の一部分のように横へ並びます。</p>
+            <p>block要素と同じ感覚では<code>width</code>や<code>height</code>を指定できません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>inline-block</summary>
+          <div class="details-content">
+            <pre><code>.btn {
+  display: inline-block;
+  padding: 8px 24px;
+}</code></pre>
+            <p>inline-blockは、横へ並びながら、<code>width</code>・<code>height</code>・<code>padding</code>などを扱いやすい表示方法です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>display: none</summary>
+          <div class="details-content">
+            <pre><code>.menu {
+  display: none;
+}</code></pre>
+            <p><code>display: none;</code>を指定すると、要素が非表示になり、レイアウト上からも取り除かれます。</p>
+            <p><code>opacity: 0;</code>は透明になりますが、要素があった領域は残ります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>float と clear</summary>
+          <div class="details-content">
+            <p>Progate模写では、4つのレッスンを横並びにするために<code>float</code>を使っています。</p>
+            <pre><code>.lesson {
+  float: left;
+  width: 25%;
+}</code></pre>
+            <p><code>float: left;</code>で左へ寄せ、<code>width: 25%;</code>で4つ分の横幅にしています。</p>
+            <pre><code>.clear {
+  clear: left;
+}</code></pre>
+            <p><code>clear</code>は、floatによる回り込みの影響を解除するために使います。</p>
+            <p>現在の単純な横並びではFlexboxやGridを使うことも多いですが、この教材のfloatによる実装も横並びを作る方法の1つです。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>Black Coffeeの予約ボタンは、リンクをinline-blockにして余白や境界線を指定しています。</p>
+            <pre><code>aside .btn {
+  display: inline-block;
+  padding: 20px 80px;
+  border: 5px solid black;
+}</code></pre>
+            <p>Progate模写でも、共通のボタンclassへinline-blockを指定しています。</p>
+            <pre><code>.btn {
+  padding: 8px 24px;
+  display: inline-block;
+}</code></pre>
+            <p>狭い画面では、通常メニューとメニューアイコンの表示を切り替えています。</p>
+            <pre><code>.header-right {
+  display: none;
+}
+
+.menu-icon {
+  display: block;
+}</code></pre>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

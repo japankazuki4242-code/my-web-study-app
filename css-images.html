@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>画像 | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>画像</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>width: 100%</summary>
+          <div class="details-content">
+            <pre><code>img {
+  width: 100%;
+}</code></pre>
+            <p>画像を、基準となる親要素の幅いっぱいに広げます。必ず画面全体の幅になるわけではありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>max-width: 100%</summary>
+          <div class="details-content">
+            <pre><code>img {
+  max-width: 100%;
+}</code></pre>
+            <p>画像の横幅が、基準となる幅の100%を超えないようにします。小さい画像を必ず100%まで広げる指定ではありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>height: auto</summary>
+          <div class="details-content">
+            <pre><code>img {
+  max-width: 100%;
+  height: auto;
+}</code></pre>
+            <p><code>height: auto;</code>は、変更した横幅に合わせて高さを自動計算します。画像の縦横比を保ちやすくなります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>width と max-width の違い</summary>
+          <div class="details-content">
+            <p><code>width: 100%;</code><br>→ 基準幅いっぱいへ広げる</p>
+            <p><code>max-width: 100%;</code><br>→ 基準幅の100%を上限にする</p>
+            <p>元の画像サイズや、どこまで広げたいかを考えて使い分けます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>HTMLのwidth / height属性との違い</summary>
+          <div class="details-content">
+            <pre><code>&lt;img
+  src="photo.jpg"
+  alt="写真"
+  width="800"
+  height="600"
+&gt;</code></pre>
+            <p>HTMLの<code>width</code>・<code>height</code>属性は、画像の寸法情報をHTMLに持たせます。</p>
+            <p>CSSの<code>width</code>・<code>height</code>は、画面上での表示サイズを調整します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>背景画像との違い</summary>
+          <div class="details-content">
+            <p><code>&lt;img&gt;</code><br>→ HTMLの内容として意味のある画像に使う</p>
+            <p><code>background-image</code><br>→ 要素の背景やデザインとして画像を使う</p>
+            <p>「写真だからimg」「大きいからbackground-image」という単純な決まりではありません。その画像がページ内容なのか、背景としての装飾なのかを考えます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>Black CoffeeのファーストビューはHTMLの画像として配置し、親要素の幅いっぱいに表示しています。</p>
+            <pre><code>&lt;figure&gt;
+  &lt;img src="images/top.jpg" alt="カフェの店内"&gt;
+&lt;/figure&gt;</code></pre>
+            <pre><code>main .hero figure img {
+  width: 100%;
+}</code></pre>
+            <p>kazuki_HP_practice2のファーストビューはCSSの背景画像です。</p>
+            <pre><code>.fv {
+  background-image: url("./img/fv 1.jpg");
+  background-size: cover;
+  background-position: center;
+}</code></pre>
+            <p>同じ作品の通常の画像には、はみ出しを防ぎながら縦横比を保つ指定があります。</p>
+            <pre><code>img {
+  max-width: 100%;
+  height: auto;
+}</code></pre>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

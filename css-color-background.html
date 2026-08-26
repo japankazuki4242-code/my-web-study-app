@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>色・背景 | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>色・背景</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>color と background-color</summary>
+          <div class="details-content">
+            <pre><code>.box {
+  color: white;
+  background-color: black;
+}</code></pre>
+            <p><code>color</code>は文字色、<code>background-color</code>は背景色を指定します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>色の指定方法</summary>
+          <div class="details-content">
+            <pre><code>.sample-1 {
+  color: black;
+}
+
+.sample-2 {
+  color: #EFA358;
+}
+
+.sample-3 {
+  color: rgb(239, 163, 88);
+}
+
+.sample-4 {
+  color: rgba(0, 0, 0, 0.5);
+}</code></pre>
+            <p>色名・16進数・RGB・RGBAなどの方法で色を指定できます。</p>
+            <p><code>rgba(R, G, B, A)</code>の順番です。</p>
+            <p><code>R</code> → Red / 赤<br><code>G</code> → Green / 緑<br><code>B</code> → Blue / 青<br><code>A</code> → Alpha / 透明度</p>
+            <p>RGBは基本的に0〜255で指定します。</p>
+            <p><code>rgba(255, 0, 0, 1)</code><br>→ 赤255・緑0・青0・透明度1なので、不透明な赤</p>
+            <p><code>rgba(0, 0, 0, 0.5)</code><br>→ RGBがすべて0なので黒、Alphaが0.5なので半透明の黒</p>
+            <p>Alphaは、<code>0</code>が完全に透明、<code>0.5</code>が半透明、<code>1</code>が不透明です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>background-image</summary>
+          <div class="details-content">
+            <pre><code>.hero {
+  background-image: url("images/top.jpg");
+}</code></pre>
+            <p><code>background-image</code>は、要素の背景に画像を表示します。<code>url()</code>の中に画像ファイルの場所を書きます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>background-size: cover</summary>
+          <div class="details-content">
+            <pre><code>.hero {
+  background-size: cover;
+}</code></pre>
+            <p><code>cover</code>は、画像の縦横比を保ちながら背景の領域全体を埋めます。</p>
+            <p>領域全体を埋めるため、画像の上下または左右が一部切れる場合があります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>background-position</summary>
+          <div class="details-content">
+            <pre><code>.hero {
+  background-position: center;
+}</code></pre>
+            <p><code>background-position</code>は、背景画像を領域内のどこへ合わせるか指定します。<code>center</code>は中央へ合わせます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>opacity と rgba()</summary>
+          <div class="details-content">
+            <pre><code>.box {
+  opacity: 0.5;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}</code></pre>
+            <p><code>opacity: 0.5;</code><br>→ 要素全体が半透明になり、中の文字や画像にも影響する</p>
+            <p><code>rgba(...)</code><br>→ 背景色など、指定した色だけの透明度を変更できる</p>
+            <p><code>rgba()</code>のカッコ内は、<code>rgba(R, G, B, A)</code>の順番です。</p>
+            <pre><code>rgba( 0, 0, 0, 0.5 )
+      R  G  B    A
+      赤 緑 青   Alpha</code></pre>
+            <p><code>R</code> → Red / 赤<br><code>G</code> → Green / 緑<br><code>B</code> → Blue / 青<br><code>A</code> → Alpha / 透明・不透明の度合い</p>
+            <p>RGBは基本的に0〜255の数値で指定します。</p>
+            <p><code>rgba(0, 0, 0, 0.5)</code>では、R・G・Bがすべて0なので色は黒です。Aが0.5なので半透明になります。</p>
+            <p>つまり、<code>rgba(0, 0, 0, 0.5)</code>は「半透明の黒」という意味です。</p>
+            <p>Alphaは、<code>0</code>が完全に透明、<code>0.5</code>が半透明、<code>1</code>が不透明です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>kazuki_HP_practice2では、ファーストビューを背景画像で表示しています。</p>
+            <pre><code>.fv {
+  height: 603px;
+  background-image: url("./img/fv 1.jpg");
+  background-size: cover;
+  background-position: center;
+}</code></pre>
+            <p>Progate模写でも、ファーストビューに背景画像・cover・centerを使っています。</p>
+            <pre><code>.top-wrapper {
+  background-image: url(https://prog-8.com/images/html/advanced/top.png);
+  background-size: cover;
+  background-position: center;
+}</code></pre>
+            <p>Progate模写の固定ヘッダーには、少し透けた背景色が使われています。</p>
+            <pre><code>header {
+  background-color: rgba(34, 49, 52, 0.9);
+}</code></pre>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

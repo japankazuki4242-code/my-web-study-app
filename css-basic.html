@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>CSSの基本 | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>CSSの基本</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>CSSは何をするもの？</summary>
+          <div class="details-content">
+            <p>HTMLは、見出し・文章・画像など、ページの構造や内容の意味を表します。</p>
+            <p>CSSは、色・大きさ・余白・配置など、HTMLで作ったページの見た目を整えます。</p>
+            <p>HTMLとCSSは役割を分けながら、組み合わせてWebページを作ります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>CSSの基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>h1 {
+  color: blue;
+}</code></pre>
+            <p>このCSSは、<code>h1</code>を選び、文字色を青にします。</p>
+            <p>基本は「どこに・何を・どうする」を順番に読むと理解しやすくなります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>セレクタ・プロパティ・値</summary>
+          <div class="details-content">
+            <pre><code>h1 {
+  color: blue;
+}</code></pre>
+            <p><code>h1</code><br>→ セレクタ。どのHTML要素に指定するかを選ぶ</p>
+            <p><code>color</code><br>→ プロパティ。何を変更するかを指定する</p>
+            <p><code>blue</code><br>→ 値。どのように変更するかを指定する</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>記号の意味</summary>
+          <div class="details-content">
+            <p><code>{ }</code><br>→ そのセレクタに対するCSSを書く範囲</p>
+            <p><code>:</code><br>→ プロパティと値を区切る</p>
+            <p><code>;</code><br>→ 1つの指定の終わり</p>
+            <pre><code>セレクタ {
+  プロパティ: 値;
+}</code></pre>
+          </div>
+        </details>
+
+        <details>
+          <summary>HTMLとCSSのつながり</summary>
+          <div class="details-content">
+            <p><strong>HTML：</strong></p>
+            <pre><code>&lt;h1&gt;タイトル&lt;/h1&gt;</code></pre>
+            <p><strong>CSS：</strong></p>
+            <pre><code>h1 {
+  color: blue;
+}</code></pre>
+            <pre><code>HTMLのh1
+↓
+CSSのh1が選ぶ
+↓
+color: blue; が適用される</code></pre>
+            <p>CSSファイルは、HTMLの<code>&lt;link&gt;</code>から読み込むことでページへつながります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>Black Coffeeでは、ヘッダーへ背景色・内側の余白・文字の位置を指定しています。</p>
+            <pre><code>header {
+  background-color: white;
+  padding: 30px;
+  text-align: center;
+}</code></pre>
+            <p><code>header</code><br>→ HTMLの<code>&lt;header&gt;</code>を選ぶ</p>
+            <p><code>background-color: white;</code><br>→ 背景色を白にする</p>
+            <p><code>padding: 30px;</code><br>→ 内側に30pxの余白を作る</p>
+            <p><code>text-align: center;</code><br>→ 中の文字などを中央に揃える</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

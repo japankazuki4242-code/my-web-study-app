@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>文字 | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>文字</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>font-size</summary>
+          <div class="details-content">
+            <pre><code>h1 {
+  font-size: 28px;
+}</code></pre>
+            <p><code>font-size</code>は文字サイズを指定します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>font-weight</summary>
+          <div class="details-content">
+            <pre><code>.normal {
+  font-weight: normal;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.weight-400 {
+  font-weight: 400;
+}
+
+.weight-700 {
+  font-weight: 700;
+}</code></pre>
+            <p><code>font-weight</code>は文字の太さを指定します。Version 1では<code>normal</code>・<code>bold</code>・<code>400</code>・<code>700</code>を基本として扱います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>font-family</summary>
+          <div class="details-content">
+            <pre><code>body {
+  font-family: Arial, "Helvetica Neue",
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    Meiryo,
+    sans-serif;
+}</code></pre>
+            <p>ブラウザは左から順番に、端末で利用できるフォントを探します。</p>
+            <p><code>Arial</code>や<code>Meiryo</code>は1単語の具体的なフォント名なので、基本的に引用符なしで書けます。</p>
+            <p><code>"Helvetica Neue"</code>や<code>"Hiragino Sans"</code>はスペースを含む具体的なフォント名です。複数単語でも引用符なしで書ける場合がありますが、初心者向けには引用符で囲む書き方が安全で分かりやすいです。</p>
+            <p><code>sans-serif</code>は特定のフォント名ではなく、CSSの総称フォントを表すキーワードなので引用符を付けません。</p>
+            <p><code>"sans-serif"</code>と書くと、総称フォントではなく「sans-serif」という名前のフォントを探す意味になります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>line-height</summary>
+          <div class="details-content">
+            <pre><code>p {
+  font-size: 16px;
+  line-height: 1.7;
+}</code></pre>
+            <p><code>font-size</code>は文字そのものの大きさ、<code>line-height</code>は1行分の高さを指定します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>text-align</summary>
+          <div class="details-content">
+            <pre><code>h1 {
+  text-align: center;
+}</code></pre>
+            <p><code>text-align</code>は、要素内の文字やインライン要素の横方向の揃え方を指定します。<code>center</code>は中央揃えです。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>text-decoration / letter-spacing</summary>
+          <div class="details-content">
+            <pre><code>a {
+  text-decoration: none;
+}
+
+h1 {
+  letter-spacing: 5px;
+}</code></pre>
+            <p><code>text-decoration</code>は下線などの文字装飾を指定します。<code>none</code>は装飾を表示しません。</p>
+            <p><code>letter-spacing</code>は文字と文字の間隔を指定します。</p>
+            <p><code>line-height</code>は行と行、<code>letter-spacing</code>は文字と文字の間隔です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>Black Coffee・kazuki_HP_practice2・Progate模写では、同じシステムフォントの候補を使用しています。</p>
+            <pre><code>body {
+  font-family: Arial, "Helvetica Neue",
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    Meiryo,
+    sans-serif;
+}</code></pre>
+            <p>kazuki_HP_practice2では、説明文に文字サイズ・文字色・行の高さ・下余白を指定しています。</p>
+            <pre><code>.text-area-desc {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}</code></pre>
+            <p>Progate模写では、トップの見出しに文字間隔を指定しています。</p>
+            <pre><code>.top-wrapper h1 {
+  letter-spacing: 5px;
+}</code></pre>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

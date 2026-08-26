@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>レスポンシブ | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>レスポンシブ</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>レスポンシブとは？</summary>
+          <div class="details-content">
+            <p>レスポンシブ対応は、PC・タブレット・スマートフォンなどの画面幅に合わせて、レイアウトやサイズを調整する考え方です。</p>
+            <p>すべての端末へ別々のHTMLを作るのではなく、同じ内容をCSSで見やすく調整できます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>メディアクエリの基本</summary>
+          <div class="details-content">
+            <pre><code>@media screen and (max-width: 871px) {
+  .feature-box {
+    flex-direction: column;
+  }
+}</code></pre>
+            <p><code>@media</code><br>→ 条件付きでCSSを適用する</p>
+            <p><code>max-width: 871px</code><br>→ 画面幅が871px以下の場合</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>max-width の読み方</summary>
+          <div class="details-content">
+            <p>メディアクエリ内の<code>max-width</code>は、画面幅などの条件を表します。</p>
+            <pre><code>@media screen and (max-width: 871px) {
+}</code></pre>
+            <p>これは、要素自体へ<code>max-width: 871px;</code>を指定するCSSとは役割が異なります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>ブレークポイントとは？</summary>
+          <div class="details-content">
+            <p>ブレークポイントは、レイアウトやサイズを切り替える境目となる画面幅です。</p>
+            <p>すべてのサイトで使う絶対的な数字はありません。内容が見づらくなる幅を確認し、そのサイトに合う値を決めます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>横並び → 縦並び</summary>
+          <div class="details-content">
+            <pre><code>.feature-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 871px) {
+  .feature-box {
+    flex-direction: column;
+    text-align: center;
+  }
+}</code></pre>
+            <p>広い画面では横並び、狭い画面では縦並びへ切り替える例です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>画像・文字サイズの調整</summary>
+          <div class="details-content">
+            <pre><code>@media screen and (max-width: 520px) {
+  .fv {
+    height: 380px;
+  }
+
+  .img-area figure {
+    width: 100%;
+    height: auto;
+  }
+
+  .header-menu-list a {
+    font-size: 16px;
+  }
+}</code></pre>
+            <p>狭い画面に合わせて、背景領域の高さ・画像幅・文字サイズを調整しています。</p>
+            <p>小さくしすぎず、読みやすさや押しやすさを確認することも大切です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>kazuki_HP_practice2では、871pxで横並びを縦並びへ変更し、520pxで画像や文字サイズを調整しています。</p>
+            <p>Progate模写では、1000px以下で4列を2列へ、670px以下で1列へ変更しています。</p>
+            <pre><code>@media all and (max-width: 1000px) {
+  .lesson {
+    width: 50%;
+  }
+}
+
+@media all and (max-width: 670px) {
+  .lesson {
+    width: 100%;
+  }
+}</code></pre>
+            <p>670px以下では、通常メニューを隠してメニューアイコンを表示する切り替えもあります。</p>
+            <pre><code>.header-right {
+  display: none;
+}
+
+.menu-icon {
+  display: block;
+}</code></pre>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

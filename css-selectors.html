@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>セレクタ | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>セレクタ</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>セレクタとは？</summary>
+          <div class="details-content">
+            <p>セレクタは、CSSを適用するHTML要素を選ぶ部分です。</p>
+            <pre><code>h1 {
+  color: #333;
+}</code></pre>
+            <p>この例では、<code>h1</code>がセレクタです。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>要素セレクタ</summary>
+          <div class="details-content">
+            <pre><code>h1 {
+  font-size: 28px;
+}</code></pre>
+            <p>HTMLのタグ名をそのまま書き、同じ種類の要素を選びます。この例ではページ内の<code>&lt;h1&gt;</code>が対象になります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>classセレクタ</summary>
+          <div class="details-content">
+            <p><strong>HTML：</strong></p>
+            <pre><code>&lt;p class="message"&gt;こんにちは&lt;/p&gt;</code></pre>
+            <p><strong>CSS：</strong></p>
+            <pre><code>.message {
+  color: red;
+}</code></pre>
+            <p>HTMLでは<code>class="message"</code>、CSSではclass名の前に<code>.</code>を付けて<code>.message</code>と書きます。</p>
+            <p>classは複数の要素で再利用できます。</p>
+            <p><strong>複数のclassを付ける例：</strong></p>
+            <pre><code>&lt;a class="btn signup"&gt;新規登録&lt;/a&gt;</code></pre>
+            <pre><code>.btn {
+  padding: 8px 24px;
+}
+
+.signup {
+  background-color: #239b76;
+}</code></pre>
+            <p>共通の見た目を<code>.btn</code>、個別の見た目を<code>.signup</code>へ分けられます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>IDセレクタ</summary>
+          <div class="details-content">
+            <p><strong>HTML：</strong></p>
+            <pre><code>&lt;div id="page"&gt;&lt;/div&gt;</code></pre>
+            <p><strong>CSS：</strong></p>
+            <pre><code>#page {
+  width: 100%;
+}</code></pre>
+            <p>覚え方は、classが<code>.</code>、IDが<code>#</code>です。</p>
+            <p>同じid値は、同一ページ内で重複させません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>親要素の中から指定する</summary>
+          <div class="details-content">
+            <pre><code>header nav ul li a {
+  color: black;
+}</code></pre>
+            <pre><code>header
+└─ nav
+   └─ ul
+      └─ li
+         └─ a</code></pre>
+            <p>セレクタを半角スペースで区切ると、親要素の内側にある要素へ対象を絞れます。</p>
+            <p>ただし、長いセレクタが必ず良いわけではありません。必要な範囲を読みやすく指定します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>複数の対象をまとめて指定する</summary>
+          <div class="details-content">
+            <pre><code>h1,
+h2 {
+  color: #333;
+}</code></pre>
+            <p>カンマで区切ると、複数の対象に同じCSSを指定できます。</p>
+            <p><code>header h1</code><br>→ headerの中のh1</p>
+            <p><code>h1, h2</code><br>→ h1とh2の両方</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>その他のセレクタ・優先順位</summary>
+          <div class="details-content">
+            <pre><code>div &gt; p {
+}
+
+div + p {
+}
+
+div ~ p {
+}
+
+input[type="text"] {
+}</code></pre>
+            <p><code>&gt;</code>は直接の子、<code>+</code>は直後の要素、<code>~</code>は後に続く兄弟要素を選ぶ書き方です。属性セレクタは、特定の属性を持つ要素を選べます。</p>
+            <p>Version 1では、まずこのような指定方法があることを知れば十分です。</p>
+            <p>優先順位は、同じ要素に複数の指定が重なったとき、どのCSSが採用されるかというルールです。</p>
+            <p>制作では<code>container</code>・<code>wrapper</code>・<code>inner</code>・<code>content</code>・<code>item</code>・<code>nav</code>・<code>menu</code>・<code>image</code>・<code>title</code>・<code>button</code>・<code>active</code>などのclass名を見かけます。</p>
+            <p><code>button → btn</code>、<code>image → img</code>、<code>navigation → nav</code>、<code>previous → prev</code>、<code>favorite → fav</code>のように省略することもあります。</p>
+            <p>これらは必須ルールではありません。内容や役割が読み取れる名前を付けるための参考例です。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

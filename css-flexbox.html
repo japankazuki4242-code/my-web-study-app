@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Flexbox | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>Flexbox</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>Flexboxとは？</summary>
+          <div class="details-content">
+            <p>Flexboxは、複数の要素を横や縦へ並べ、間隔や位置を調整するためのレイアウト方法です。</p>
+            <p>ナビゲーション・カード・画像と文章の横並びなどでよく使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>親要素と子要素</summary>
+          <div class="details-content">
+            <pre><code>&lt;div class="box"&gt;
+  &lt;div class="item"&gt;A&lt;/div&gt;
+  &lt;div class="item"&gt;B&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <pre><code>div.box
+├─ div.item
+└─ div.item</code></pre>
+            <p>並べたい<code>.item</code>ではなく、その親要素である<code>.box</code>へ<code>display: flex;</code>を書きます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>display: flex</summary>
+          <div class="details-content">
+            <pre><code>.box {
+  display: flex;
+}</code></pre>
+            <p>親要素をFlexboxにすると、その直接の子要素が並びます。初期状態では基本的に横方向です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>justify-content</summary>
+          <div class="details-content">
+            <p><code>justify-content</code>は、主軸方向の並び方を指定します。</p>
+            <p><code>flex-start</code><br>→ 主軸の先頭へ寄せる</p>
+            <p><code>center</code><br>→ 主軸方向の中央へ寄せる</p>
+            <p><code>space-between</code><br>→ 最初と最後を両端へ置き、間を均等に空ける</p>
+            <pre><code>.box {
+  display: flex;
+  justify-content: space-between;
+}</code></pre>
+          </div>
+        </details>
+
+        <details>
+          <summary>align-items</summary>
+          <div class="details-content">
+            <p><code>align-items</code>は、交差軸方向の揃え方を指定します。</p>
+            <pre><code>.box {
+  display: flex;
+  align-items: center;
+}</code></pre>
+            <p><code>justify-content</code>は主軸、<code>align-items</code>は交差軸を調整します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>gap</summary>
+          <div class="details-content">
+            <pre><code>.box {
+  display: flex;
+  gap: 20px;
+}</code></pre>
+            <p><code>gap</code>は、Flexbox内の子要素同士の間隔を指定します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>flex-direction / flex-wrap</summary>
+          <div class="details-content">
+            <pre><code>.box {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}</code></pre>
+            <p><code>flex-direction: row;</code><br>→ 基本的に横方向</p>
+            <p><code>flex-direction: column;</code><br>→ 縦方向</p>
+            <p><code>flex-wrap: wrap;</code><br>→ 子要素が入りきらない場合に折り返す</p>
+            <p>flex-directionが変わると主軸の方向も変わります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>kazuki_HP_practice2では、画像側と文章側を横並びにしています。</p>
+            <pre><code>.feature-box {
+  display: flex;
+  justify-content: space-between;
+}</code></pre>
+            <p>画面が狭い場合は、縦並びへ切り替えています。</p>
+            <pre><code>.feature-box {
+  flex-direction: column;
+  text-align: center;
+}</code></pre>
+            <p>ヘッダーでは、ロゴとメニューを左右に分け、縦方向の中央を揃えています。</p>
+            <pre><code>.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}</code></pre>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

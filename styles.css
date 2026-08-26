@@ -227,3 +227,33 @@ code {
   font-size: 14px;
   line-height: 1.6;
 }
+
+/* リセットCSS画面：Destyle公式リンク */
+.external-link {
+  color: #f5f5f5;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* リセットCSS画面：訪問済み公式リンクの文字色 */
+.external-link:visited {
+  color: #f5f5f5;
+}
+
+/* リセットCSS画面：Destyleコピー用ボタン */
+.copy-button {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+/* リセットCSS画面：コピー結果の表示欄 */
+.details-content .copy-status {
+  min-height: 1.7em;
+  margin-bottom: 12px;
+}
+
+/* リセットCSS画面：Destyle全文の縦横スクロール枠 */
+.destyle-code {
+  max-height: 360px;
+  overflow: auto;
+}

@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>リセットCSS | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>リセットCSS</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>リセットCSSとは？</summary>
+          <div class="details-content">
+            <p>ブラウザには、<code>h1</code>・<code>p</code>・<code>ul</code>などへ最初から標準のCSSが設定されています。</p>
+            <p>リセットCSSは、ブラウザ標準の余白や見た目などを整え、自分でCSSを書きやすくするためのCSSです。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>なぜリセットするの？</summary>
+          <div class="details-content">
+            <p>ブラウザ標準の見た目が残っていると、自分では指定していない余白などが表示されることがあります。</p>
+            <p>最初に基準となる状態を整えると、その後のサイズや余白を自分で指定しやすくなります。</p>
+            <p>リセット方法は1つだけではなく、制作物に合わせて選びます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本のリセットCSS</summary>
+          <div class="details-content">
+            <pre><code>* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}</code></pre>
+            <p><code>*</code><br>→ すべての要素を選ぶ</p>
+            <p><code>margin: 0</code><br>→ 外側の標準余白を0にする</p>
+            <p><code>padding: 0</code><br>→ 内側の標準余白を0にする</p>
+            <p><code>box-sizing: border-box</code><br>→ widthやheightの内側にpaddingとborderを含め、サイズを計算しやすくする</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Destyleを使う方法</summary>
+          <div class="details-content">
+            <p>Destyleは、ブラウザ標準の見た目を整えるためのリセットCSSの1つです。</p>
+            <p><strong>掲載コード：</strong>Destyle v4.0.1<br><strong>取得元：</strong>公式GitHub<br><strong>ライセンス：</strong>MIT License</p>
+            <p>※最新版は公式GitHubも確認してください。</p>
+            <p><a href="https://github.com/nicolas-cusan/destyle.css" class="external-link" target="_blank" rel="noopener noreferrer">公式GitHubで最新版を見る</a></p>
+
+            <p><strong>CDNで読み込む</strong></p>
+            <pre><code id="destyle-cdn-code">&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@4.0.1/destyle.min.css"&gt;</code></pre>
+            <p>この1行をHTMLの<code>&lt;head&gt;</code>内に書くと、jsDelivr経由でDestyle v4.0.1のCSSを読み込みます。</p>
+
+            <button type="button" id="copy-destyle-button" class="nav-button copy-button">コードをコピー</button>
+            <p id="copy-status" class="copy-status" role="status" aria-live="polite"></p>
+
+            <p>CDNの<code>&lt;link&gt;</code>は、それ自体がリセット処理をするコードではありません。Destyle本体のCSSファイルを読み込むための指定です。</p>
+            <pre><code>HTML
+↓
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@4.0.1/destyle.min.css"&gt;
+↓
+jsDelivrからDestyle v4.0.1を読み込む
+↓
+多数のリセット指定がブラウザへ適用される</code></pre>
+
+            <p>Destyle全文は、1つの巨大な特別な命令ではありません。</p>
+            <p><code>body</code>・<code>h1</code>〜<code>h6</code>・<code>ul</code>・<code>ol</code>・<code>button</code>など、HTML要素や状態ごとにCSSセレクタを指定し、標準の余白・文字の見た目・リスト記号・サイズ計算などを1つずつ整えるCSSの集まりです。</p>
+            <pre><code>HTML要素
+↓
+Destyle内のセレクタで指定
+↓
+ブラウザ標準の見た目を整える</code></pre>
+            <p>全部を覚える必要はありません。普段は上にあるCDNコード1行を<code>&lt;head&gt;</code>内へ書けば、Destyle全文を自分で貼り付けなくても利用できます。</p>
+
+            <p><strong>代表的なリセット指定</strong></p>
+            <pre><code>body {
+  margin: 0;
+}</code></pre>
+            <p>ブラウザが<code>body</code>へ最初から付ける余白を0にします。</p>
+
+            <pre><code>h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+}</code></pre>
+            <p>見出しにブラウザが標準で付ける文字サイズ・太さ・余白などを整えます。</p>
+
+            <pre><code>ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}</code></pre>
+            <p>リストの標準余白を0にし、標準の箇条書き記号を表示しない状態にします。</p>
+
+            <pre><code>*,
+::before,
+::after {
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 0;
+  min-width: 0;
+}</code></pre>
+            <p>多くの要素と、その前後に作られる要素について、サイズ計算や境界線などの基本状態を整えます。</p>
+
+            <details class="destyle-details">
+              <summary>Destyle全文を見る</summary>
+              <div class="details-content">
+                <pre class="destyle-code"><code id="destyle-code">/*! destyle.css v4.0.1 | MIT License | https://github.com/nicolas-cusan/destyle.css */
+
+/* Reset box-model and set borders */
+/* ============================================ */
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 0;
+  min-width: 0;
+}
+
+/* Document */
+/* ============================================ */
+
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ * 3. Remove gray overlay on links for iOS.
+ */
+
+html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+  -webkit-tap-highlight-color: transparent; /* 3*/
+}
+
+/* Sections */
+/* ============================================ */
+
+/**
+ * Remove the margin in all browsers.
+ */
+
+body {
+  margin: 0;
+}
+
+/**
+ * Render the `main` element consistently in IE.
+ */
+
+main {
+  display: block;
+}
+
+/* Vertical rhythm */
+/* ============================================ */
+
+p,
+table,
+blockquote,
+address,
+pre,
+iframe,
+form,
+figure,
+dl {
+  margin: 0;
+}
+
+/* Headings */
+/* ============================================ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+}
+
+/* Lists (enumeration) */
+/* ============================================ */
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Lists (definition) */
+/* ============================================ */
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-left: 0;
+}
+
+/* Grouping content */
+/* ============================================ */
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+  border-top-width: 1px;
+  margin: 0;
+  clear: both;
+  color: inherit;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: inherit; /* 2 */
+}
+
+address {
+  font-style: inherit;
+}
+
+/* Text-level semantics */
+/* ============================================ */
+
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+
+a {
+  background-color: transparent;
+  text-decoration: none;
+  color: inherit;
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+
+abbr[title] {
+  text-decoration: underline dotted; /* 2 */
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: inherit; /* 2 */
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Replaced content */
+/* ============================================ */
+
+/**
+ * Prevent vertical alignment issues.
+ */
+
+svg,
+img,
+embed,
+object,
+iframe {
+  vertical-align: bottom;
+}
+
+/* Forms */
+/* ============================================ */
+
+/**
+ * Reset form fields to make them styleable.
+ * 1. Make form elements stylable across systems iOS especially.
+ * 2. Inherit text-transform from parent.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  -webkit-appearance: none; /* 1 */
+  appearance: none;
+  vertical-align: middle;
+  color: inherit;
+  font: inherit;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  text-align: inherit;
+  text-transform: inherit; /* 2 */
+}
+
+/**
+ * Correct cursors for clickable elements.
+ */
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  cursor: pointer;
+}
+
+button:disabled,
+[type="button"]:disabled,
+[type="reset"]:disabled,
+[type="submit"]:disabled {
+  cursor: default;
+}
+
+/**
+ * Improve outlines for Firefox and unify style with input elements &amp; buttons.
+ */
+
+:-moz-focusring {
+  outline: auto;
+}
+
+select:disabled {
+  opacity: inherit;
+}
+
+/**
+ * Remove padding
+ */
+
+option {
+  padding: 0;
+}
+
+/**
+ * Reset to invisible
+ */
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * Correct the outline style in Safari.
+ */
+
+[type="search"] {
+  outline-offset: -2px; /* 1 */
+}
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Fix font inheritance.
+ */
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/**
+ * Fix appearance for Firefox
+ */
+[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/**
+ * Clickable labels
+ */
+
+label[for] {
+  cursor: pointer;
+}
+
+/* Interactive */
+/* ============================================ */
+
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+
+details {
+  display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+
+summary {
+  display: list-item;
+}
+
+/*
+ * Remove outline for editable content.
+ */
+
+[contenteditable]:focus {
+  outline: auto;
+}
+
+/* Tables */
+/* ============================================ */
+
+/**
+1. Correct table border color inheritance in all Chrome and Safari.
+*/
+
+table {
+  border-color: inherit; /* 1 */
+  border-collapse: collapse;
+}
+
+caption {
+  text-align: left;
+}
+
+td,
+th {
+  vertical-align: top;
+  padding: 0;
+}
+
+th {
+  text-align: left;
+  font-weight: bold;
+}</code></pre>
+              </div>
+            </details>
+          </div>
+        </details>
+
+        <details>
+          <summary>読み込み順に注意</summary>
+          <div class="details-content">
+            <pre><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@4.0.1/destyle.min.css"&gt;
+&lt;link rel="stylesheet" href="style.css"&gt;</code></pre>
+            <p>1. Destyleを先に読み込む<br>→ ブラウザ標準の見た目を整える</p>
+            <p>2. <code>style.css</code><br>→ 自分のデザインを指定する</p>
+            <p>Destyleでブラウザ標準の見た目を整えたあと、自分のCSSでデザインを指定します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>Black Coffeeでは、すべての要素のmarginとpaddingを0にしています。</p>
+            <pre><code>* {
+  padding: 0;
+  margin: 0;
+}</code></pre>
+            <p>Progate模写では、余白のリセットに加えてbox-sizingも指定しています。</p>
+            <pre><code>* {
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}</code></pre>
+            <p>kazuki_HP_practice2では、HTMLからDestyle v4.0.0のCDNを自作CSSより先に読み込んでいます。</p>
+            <pre><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@4.0.0/destyle.min.css"&gt;
+&lt;link rel="stylesheet" href="./style.css"&gt;</code></pre>
+            <p>このように、簡単なリセットを自分で書く方法と、Destyleなどを読み込む方法があります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>注意点</summary>
+          <div class="details-content">
+            <p>完成済みのサイトへ途中からリセットCSSを追加すると、これまで表示されていた余白・文字サイズ・リスト記号などが変化する場合があります。</p>
+            <p>追加後は一部分だけでなく、ページ全体を確認します。</p>
+            <p>このWeb学習アプリには、表示を壊さないため、今回Destyleを実際の共通CSSとして追加していません。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

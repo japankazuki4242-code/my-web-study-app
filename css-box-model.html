@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>余白・ボックスモデル | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>余白・ボックスモデル</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>ボックスモデルとは？</summary>
+          <div class="details-content">
+            <p>HTML要素は、内容・内側の余白・境界線・外側の余白を持つ箱として考えられます。</p>
+            <pre><code>margin
+└─ border
+   └─ padding
+      └─ content</code></pre>
+            <p><code>content</code><br>→ 文字や画像などの中身</p>
+            <p><code>padding</code><br>→ 境界線の内側の余白</p>
+            <p><code>border</code><br>→ 箱の境界線</p>
+            <p><code>margin</code><br>→ 境界線の外側の余白</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>margin と padding</summary>
+          <div class="details-content">
+            <pre><code>.box {
+  margin: 20px;
+  padding: 16px;
+}</code></pre>
+            <p><code>margin</code>は他の要素との外側の間隔、<code>padding</code>は内容と境界線の内側の間隔を作ります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>値を1〜4個書くとき</summary>
+          <div class="details-content">
+            <p><code>margin: 10px;</code><br>→ 上下左右</p>
+            <p><code>margin: 10px 20px;</code><br>→ 上下 / 左右</p>
+            <p><code>margin: 10px 20px 30px;</code><br>→ 上 / 左右 / 下</p>
+            <p><code>margin: 10px 20px 30px 40px;</code><br>→ 上 / 右 / 下 / 左</p>
+            <p>4つの値は、上から時計回りに読みます。<code>padding</code>も同じ順番です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>border</summary>
+          <div class="details-content">
+            <pre><code>.box {
+  border: 1px solid black;
+}</code></pre>
+            <p><code>1px</code><br>→ 線の太さ</p>
+            <p><code>solid</code><br>→ 線の種類</p>
+            <p><code>black</code><br>→ 線の色</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>box-sizing: border-box</summary>
+          <div class="details-content">
+            <pre><code>* {
+  box-sizing: border-box;
+}</code></pre>
+            <p><code>border-box</code>を指定すると、指定した<code>width</code>や<code>height</code>の内側に<code>padding</code>と<code>border</code>を含めて計算します。</p>
+            <p>paddingやborderを追加したときのサイズを考えやすくなります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>margin: 0 auto</summary>
+          <div class="details-content">
+            <pre><code>.container {
+  max-width: 700px;
+  margin: 0 auto;
+}</code></pre>
+            <p><code>0</code><br>→ 上下のmargin</p>
+            <p><code>auto</code><br>→ 左右のmarginを自動計算</p>
+            <p>横幅やmax-widthが決まったブロック要素を、左右中央へ配置するときによく使います。何でも自動的に中央になる指定ではありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p>Black Coffeeでは、ABOUT部分に内側の余白を作り、内容の横幅を制限して中央へ配置しています。</p>
+            <pre><code>main .about {
+  padding: 30px;
+}
+
+main .about .container {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}</code></pre>
+            <p>Progate模写では、全要素に<code>box-sizing: border-box;</code>を指定しています。</p>
+            <pre><code>* {
+  box-sizing: border-box;
+}</code></pre>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
