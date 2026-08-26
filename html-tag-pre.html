@@ -103,9 +103,15 @@ console.log(message);
         </details>
 
         <details>
-          <summary>自分のメモ</summary>
+          <summary>自由メモ</summary>
           <div class="details-content">
-            <p>ここには、あとで自分の学習メモを保存できるようにする予定です。</p>
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
           </div>
         </details>
       </div>
