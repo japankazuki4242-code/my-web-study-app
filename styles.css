@@ -257,3 +257,44 @@ code {
   max-height: 360px;
   overflow: auto;
 }
+
+/* TOP自由メモ画面：入力欄・保存ボタン・結果表示の縦並び */
+.free-memo-area {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+/* TOP自由メモ画面：メモ入力欄 */
+.free-memo-input {
+  width: 100%;
+  min-height: 240px;
+  padding: 14px;
+  border: 1px solid #3a3a3a;
+  border-radius: 12px;
+  background-color: #2a2a2a;
+  color: #f5f5f5;
+  font: inherit;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+/* TOP自由メモ画面：メモ入力欄のキーボードフォーカス */
+.free-memo-input:focus-visible {
+  outline: 3px solid #f5f5f5;
+  outline-offset: 3px;
+}
+
+/* TOP自由メモ画面：保存ボタン */
+.free-memo-save-button {
+  flex: none;
+  width: 100%;
+}
+
+/* TOP自由メモ画面：保存結果 */
+.free-memo-status {
+  min-height: 1.7em;
+  margin: 0;
+  line-height: 1.7;
+}

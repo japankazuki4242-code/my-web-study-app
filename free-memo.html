@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>自由メモ | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>自由メモ</h1>
+
+      <div class="free-memo-area">
+        <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ"></textarea>
+
+        <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+        <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
