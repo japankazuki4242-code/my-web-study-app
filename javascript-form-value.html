@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>入力された値を取得する | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>入力された値を取得する</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>HTMLに入力欄を作る</summary>
+          <div class="details-content">
+            <p>まず、HTMLで名前を入力するための入力欄を作ります。</p>
+            <pre class="javascript-code"><code>&lt;input id="user-name" type="text"&gt;</code></pre>
+            <p><code>id="user-name"</code>は、JavaScriptからこの入力欄を見つけるための目印になります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>JavaScriptで入力欄を見つける</summary>
+          <div class="details-content">
+            <p><code>document.getElementById()</code>を使い、HTMLのidから入力欄を見つけます。</p>
+            <pre class="javascript-code"><code>const userNameInput =
+  document.getElementById("user-name");</code></pre>
+            <p>HTMLの<code>id="user-name"</code><br>↓ 同じ名前でつながる<br>JavaScriptの<code>getElementById("user-name")</code></p>
+            <p><code>userNameInput</code>には、入力された文字ではなく、HTMLの<code>&lt;input&gt;</code>要素そのものが入ります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>.valueで入力値を取得する</summary>
+          <div class="details-content">
+            <p>入力欄に現在入力されている値は、<code>.value</code>で取得できます。</p>
+            <pre class="javascript-code"><code>const userName =
+  userNameInput.value;</code></pre>
+            <p><code>userNameInput.value</code>で取得した値を、<code>userName</code>という変数へ保存しています。</p>
+            <p>たとえば入力欄に「山田太郎」と入力されていれば、<code>userName</code>には文字列の「山田太郎」が入ります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>3つの名前の違い</summary>
+          <div class="details-content">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">書き方</th>
+                  <th scope="col">表しているもの</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>userNameInput</code></td>
+                  <td>HTMLの<code>&lt;input&gt;</code>要素そのもの</td>
+                </tr>
+                <tr>
+                  <td><code>userNameInput.value</code></td>
+                  <td>入力欄に現在入力されている値</td>
+                </tr>
+                <tr>
+                  <td><code>userName</code></td>
+                  <td>取得した値を保存する変数</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>要素を入れる変数と、入力値を入れる変数を分けて考えると、コードの流れを追いやすくなります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>コードを書く順番</summary>
+          <div class="details-content">
+            <p>入力値を取得するときは、次の順番で考えます。</p>
+            <p>① HTMLに入力欄を作る</p>
+            <p>② 入力欄にidを付ける</p>
+            <p>③ <code>getElementById()</code>で入力欄を見つける</p>
+            <p>④ 見つけたHTML要素を変数へ入れる</p>
+            <p>⑤ <code>.value</code>で現在の入力値を取得する</p>
+            <p>⑥ 取得した値を使って処理する</p>
+            <p><strong>HTML：</strong></p>
+            <pre class="javascript-code"><code>&lt;input id="user-name" type="text"&gt;</code></pre>
+            <p><strong>JavaScript：</strong></p>
+            <pre class="javascript-code"><code>const userNameInput =
+  document.getElementById("user-name");
+
+const userName =
+  userNameInput.value;</code></pre>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

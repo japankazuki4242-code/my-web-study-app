@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>radio・checkbox・select | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>radio・checkbox・select</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>3つの選択欄の早見表</summary>
+          <div class="details-content">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">種類</th>
+                  <th scope="col">使い方</th>
+                  <th scope="col">確認する値</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>radio</code></td>
+                  <td>複数から1つだけ選ぶ</td>
+                  <td><code>.value</code><br><code>.checked</code></td>
+                </tr>
+                <tr>
+                  <td><code>checkbox</code></td>
+                  <td>複数選択・同意確認</td>
+                  <td><code>.checked</code></td>
+                </tr>
+                <tr>
+                  <td><code>select</code></td>
+                  <td>プルダウンから選ぶ</td>
+                  <td><code>.value</code></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <details>
+          <summary>radio：1つだけ選ぶ</summary>
+          <div class="details-content">
+            <p><code>radio</code>は、複数の選択肢から1つだけ選んでもらうときに使います。</p>
+            <pre class="javascript-code"><code>&lt;label&gt;
+  &lt;input
+    type="radio"
+    id="contact-email"
+    name="contact-method"
+    value="email"
+  &gt;
+  メール
+&lt;/label&gt;
+
+&lt;label&gt;
+  &lt;input
+    type="radio"
+    id="contact-phone"
+    name="contact-method"
+    value="phone"
+  &gt;
+  電話
+&lt;/label&gt;</code></pre>
+            <p>同じ<code>name="contact-method"</code>を付けたラジオボタンは、同じグループになります。同じグループの中では、1つだけ選べます。</p>
+            <p><code>.checked</code>で、そのラジオボタンが選ばれているかを確認できます。</p>
+            <p><code>.value</code>で、そのラジオボタンに設定されている<code>value</code>の値を取得できます。</p>
+            <pre class="javascript-code"><code>const emailRadio =
+  document.getElementById("contact-email");
+
+console.log(emailRadio.checked);
+console.log(emailRadio.value);</code></pre>
+          </div>
+        </details>
+
+        <details>
+          <summary>checkbox：チェック状態を確認する</summary>
+          <div class="details-content">
+            <p><code>checkbox</code>は、複数の項目を選んでもらう場合や、同意を確認する場合に使います。</p>
+            <pre class="javascript-code"><code>&lt;label&gt;
+  &lt;input id="agree" type="checkbox"&gt;
+  利用規約に同意する
+&lt;/label&gt;</code></pre>
+            <pre class="javascript-code"><code>const agreeCheckbox =
+  document.getElementById("agree");
+
+const isAgreed =
+  agreeCheckbox.checked;</code></pre>
+            <p><code>true</code><br>→ チェックされている</p>
+            <p><code>false</code><br>→ チェックされていない</p>
+            <p><code>.checked</code>は、チェック状態を<code>true</code>または<code>false</code>で表します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>select：選ばれた値を取得する</summary>
+          <div class="details-content">
+            <p><code>select</code>は、プルダウンの選択肢から1つを選んでもらうときに使います。</p>
+            <pre class="javascript-code"><code>&lt;select id="prefecture"&gt;
+  &lt;option value="aichi"&gt;愛知県&lt;/option&gt;
+  &lt;option value="gifu"&gt;岐阜県&lt;/option&gt;
+  &lt;option value="mie"&gt;三重県&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+            <pre class="javascript-code"><code>const prefectureSelect =
+  document.getElementById("prefecture");
+
+const prefecture =
+  prefectureSelect.value;</code></pre>
+            <p><code>.value</code>で、現在選ばれている<code>&lt;option&gt;</code>の<code>value</code>を取得できます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>valueとcheckedの違い</summary>
+          <div class="details-content">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">プロパティ</th>
+                  <th scope="col">確認できること</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>.value</code></td>
+                  <td>入力欄や選択肢が持つ値</td>
+                </tr>
+                <tr>
+                  <td><code>.checked</code></td>
+                  <td>radioやcheckboxが選ばれているか</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>ラジオボタンでは、<code>.checked</code>で選ばれているかを確認し、<code>.value</code>でその選択肢の値を取得します。</p>
+            <p>チェックボックスでは、まず<code>.checked</code>でチェック状態を確認します。</p>
+            <p>セレクトボックスでは、<code>.value</code>で現在選ばれている値を取得します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

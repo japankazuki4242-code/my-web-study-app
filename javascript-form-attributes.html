@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>フォームで使う基本属性 | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>フォームで使う基本属性</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>基本属性一覧</summary>
+          <div class="details-content">
+            <p>フォームの入力欄では、次のような属性をよく使います。</p>
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">属性</th>
+                  <th scope="col">主な役割</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>type</code></td>
+                  <td>入力欄の種類を指定する</td>
+                </tr>
+                <tr>
+                  <td><code>id</code></td>
+                  <td>その要素を見分ける名前を付ける</td>
+                </tr>
+                <tr>
+                  <td><code>name</code></td>
+                  <td>送信するデータの名前を付ける</td>
+                </tr>
+                <tr>
+                  <td><code>value</code></td>
+                  <td>入力欄の値や選択肢の値を指定する</td>
+                </tr>
+                <tr>
+                  <td><code>placeholder</code></td>
+                  <td>入力前にヒントを表示する</td>
+                </tr>
+                <tr>
+                  <td><code>required</code></td>
+                  <td>入力を必須にする</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本属性を使った例</summary>
+          <div class="details-content">
+            <pre><code>&lt;input
+  type="email"
+  id="user-email"
+  name="email"
+  placeholder="example@example.com"
+  required
+&gt;</code></pre>
+            <p><code>type="email"</code><br>→ メールアドレス用の入力欄にする</p>
+            <p><code>id="user-email"</code><br>→ このHTML要素を見分ける名前を付ける</p>
+            <p><code>name="email"</code><br>→ 送信するデータへ<code>email</code>という名前を付ける</p>
+            <p><code>placeholder="example@example.com"</code><br>→ 入力前にメールアドレスの例を表示する</p>
+            <p><code>required</code><br>→ 入力を必須にする</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>idとnameの違い</summary>
+          <div class="details-content">
+            <p><code>id</code>と<code>name</code>は似ていますが、主な役割が違います。</p>
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">属性</th>
+                  <th scope="col">主な役割</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>id</code></td>
+                  <td>JavaScriptで特定のHTML要素を見つけたり、<code>&lt;label&gt;</code>のfor属性と入力欄を関連付けたりするために使う</td>
+                </tr>
+                <tr>
+                  <td><code>name</code></td>
+                  <td>フォームを送信するときのデータ名として使う</td>
+                </tr>
+              </tbody>
+            </table>
+            <p><code>id="user-email"</code><br>→ HTMLの中から、この入力欄を見分ける</p>
+            <p><code>name="email"</code><br>→ 送信する値が何のデータなのかを表す</p>
+            <p>同じ入力欄に<code>id</code>と<code>name</code>の両方を書くことがありますが、それぞれ別の役割を持っています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>JavaScriptとのつながり</summary>
+          <div class="details-content">
+            <p>JavaScriptでは、HTMLに付けた<code>id</code>を使って入力欄を見つけられます。</p>
+            <p><strong>HTML：</strong></p>
+            <pre><code>&lt;input id="user-email" type="email"&gt;</code></pre>
+            <p><strong>JavaScript：</strong></p>
+            <pre><code>document.getElementById("user-email");</code></pre>
+            <p>HTMLの<code>id="user-email"</code><br>↓ 同じ値<br>JavaScriptの<code>getElementById("user-email")</code></p>
+            <p>このように、同じ<code>id</code>名を使うことで、JavaScriptから目的の入力欄を見つけられます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

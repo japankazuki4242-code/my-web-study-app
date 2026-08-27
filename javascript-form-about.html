@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>フォームとは？ | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>フォームとは？</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>フォームとは？</summary>
+          <div class="details-content">
+            <p>フォームは、ユーザーに情報を入力・選択してもらい、その内容を送信したり処理したりする仕組みです。</p>
+            <p><code>&lt;form&gt;</code>は入力欄そのものではありません。入力や選択に使う要素を、1つのまとまりとして囲む役割があります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>フォームを使う場面</summary>
+          <div class="details-content">
+            <p>フォームは、次のような場面で使います。</p>
+            <ul>
+              <li>お問い合わせ</li>
+              <li>会員登録</li>
+              <li>ログイン</li>
+              <li>検索</li>
+              <li>アンケート</li>
+              <li>予約</li>
+              <li>注文</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>フォームの親子構造</summary>
+          <div class="details-content">
+            <p><code>&lt;form&gt;</code>の中には、<code>&lt;input&gt;</code>・<code>&lt;textarea&gt;</code>・<code>&lt;select&gt;</code>・<code>&lt;button&gt;</code>などを入れます。</p>
+            <pre><code>&lt;form&gt;
+  &lt;input type="text"&gt;
+  &lt;textarea&gt;&lt;/textarea&gt;
+  &lt;select&gt;&lt;/select&gt;
+  &lt;button type="submit"&gt;送信&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+            <p><code>&lt;form&gt;</code><br>→ フォーム全体をまとめる親要素</p>
+            <p><code>&lt;input&gt;</code>・<code>&lt;textarea&gt;</code>・<code>&lt;select&gt;</code><br>→ ユーザーが入力・選択する要素</p>
+            <p><code>&lt;button&gt;</code><br>→ 入力した内容を送信する操作などに使う要素</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>JavaScriptで扱う流れ</summary>
+          <div class="details-content">
+            <p>JavaScriptでフォームの入力内容を扱うときは、次の流れで考えます。</p>
+            <p>① HTMLで入力欄を作る<br>↓<br>② JavaScriptで入力欄を見つける<br>↓<br>③ 入力された値を取得する<br>↓<br>④ 取得した値を使って処理する</p>
+            <p>このページでは、フォームの役割と基本的な流れを確認します。送信時の詳しい処理は、後の学習項目で扱います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

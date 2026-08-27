@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>お問い合わせフォームの基本的な流れ | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>お問い合わせフォームの基本的な流れ</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>お問い合わせフォームで行うこと</summary>
+          <div class="details-content">
+            <p>お問い合わせフォームでは、HTMLで入力欄を作り、JavaScriptでその要素と入力値を扱います。</p>
+            <p>HTMLでフォームを作る<br>↓<br>JavaScriptでフォームと入力欄を見つける<br>↓<br>送信されたときに入力値を取得する<br>↓<br>取得した値をJavaScriptで処理する</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>コード全体を見る</summary>
+          <div class="details-content">
+            <p><strong>HTML：</strong></p>
+            <pre class="javascript-code"><code>&lt;form id="contact-form"&gt;
+  &lt;label for="user-name"&gt;名前&lt;/label&gt;
+  &lt;input
+    type="text"
+    id="user-name"
+    name="userName"
+    required
+  &gt;
+
+  &lt;label for="email"&gt;メールアドレス&lt;/label&gt;
+  &lt;input
+    type="email"
+    id="email"
+    name="email"
+    required
+  &gt;
+
+  &lt;label for="message"&gt;お問い合わせ内容&lt;/label&gt;
+  &lt;textarea
+    id="message"
+    name="message"
+    required
+  &gt;&lt;/textarea&gt;
+
+  &lt;button type="submit"&gt;送信&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+            <p><strong>JavaScript：</strong></p>
+            <pre class="javascript-code"><code>const contactForm =
+  document.getElementById("contact-form");
+
+const userNameInput =
+  document.getElementById("user-name");
+
+const emailInput =
+  document.getElementById("email");
+
+const messageInput =
+  document.getElementById("message");
+
+contactForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const userName = userNameInput.value;
+  const email = emailInput.value;
+  const message = messageInput.value;
+
+  console.log(userName);
+  console.log(email);
+  console.log(message);
+});</code></pre>
+          </div>
+        </details>
+
+        <details>
+          <summary>8段階の流れ</summary>
+          <div class="details-content">
+            <p>① HTMLでフォームを作る</p>
+            <p>② <code>&lt;input&gt;</code>・<code>&lt;textarea&gt;</code>へidを付ける</p>
+            <p>③ JavaScriptで要素を見つける</p>
+            <p>④ <code>submit</code>イベントを登録する</p>
+            <p>⑤ ユーザーが送信する</p>
+            <p>⑥ <code>preventDefault()</code>で標準動作を止める</p>
+            <p>⑦ <code>.value</code>で入力値を取得する</p>
+            <p>⑧ JavaScriptで処理する</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>HTMLとJavaScriptの対応</summary>
+          <div class="details-content">
+            <p>HTMLのid属性の値と、<code>getElementById()</code>に指定する文字列を同じにします。</p>
+            <p>HTML<br><code>id="contact-form"</code><br>↓ 同じ値<br>JavaScript<br><code>getElementById("contact-form")</code></p>
+            <p>HTML<br><code>id="user-name"</code><br>↓ 同じ値<br>JavaScript<br><code>getElementById("user-name")</code></p>
+            <p>HTML<br><code>id="email"</code><br>↓ 同じ値<br>JavaScript<br><code>getElementById("email")</code></p>
+            <p>HTML<br><code>id="message"</code><br>↓ 同じ値<br>JavaScript<br><code>getElementById("message")</code></p>
+            <p>id属性の値と<code>getElementById()</code>に指定する文字列が一致することで、JavaScriptから目的のフォームや入力欄を見つけられます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>入力値を取得する</summary>
+          <div class="details-content">
+            <pre><code>const userName = userNameInput.value;
+const email = emailInput.value;
+const message = messageInput.value;</code></pre>
+            <p><code>userNameInput</code>・<code>emailInput</code>・<code>messageInput</code>は、HTMLから見つけた入力要素です。</p>
+            <p>それぞれの<code>.value</code>を使うと、現在入力されている値を取得できます。</p>
+            <p>取得した値を、<code>userName</code>・<code>email</code>・<code>message</code>という変数へ入れています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>取得した値を処理する</summary>
+          <div class="details-content">
+            <pre><code>console.log(userName);
+console.log(email);
+console.log(message);</code></pre>
+            <p>この基本例では、取得した名前・メールアドレス・お問い合わせ内容を<code>console.log()</code>でコンソールへ表示しています。</p>
+            <p>ここまでの流れで、HTMLの入力欄とJavaScriptの処理がどのようにつながるかを確認できます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

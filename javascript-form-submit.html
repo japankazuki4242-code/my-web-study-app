@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>submitイベント | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>submitイベント</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>submitイベントとは？</summary>
+          <div class="details-content">
+            <p><code>submit</code>イベントは、<code>&lt;form&gt;</code>が送信されたときに発生するイベントです。</p>
+            <p>フォーム送信時の処理は、送信ボタンだけではなく、<code>&lt;form&gt;</code>へ<code>submit</code>イベントを登録するのが基本です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>HTMLの基本形</summary>
+          <div class="details-content">
+            <pre><code>&lt;form id="contact-form"&gt;
+  &lt;input id="user-name" type="text"&gt;
+  &lt;button type="submit"&gt;送信&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+            <p><code>&lt;form&gt;</code>の中に入力欄と送信ボタンを入れています。</p>
+            <p><code>type="submit"</code>のボタンは、フォームを送信するためのボタンです。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>JavaScriptの基本形</summary>
+          <div class="details-content">
+            <pre><code>const contactForm =
+  document.getElementById("contact-form");
+
+contactForm.addEventListener("submit", function () {
+  // フォーム送信時の処理
+});</code></pre>
+            <p><code>getElementById("contact-form")</code>でフォームを見つけ、<code>contactForm</code>という変数へ入れています。</p>
+            <p><code>addEventListener("submit", ...)</code>で、フォームが送信されたときの処理を登録しています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>clickとsubmitの違い</summary>
+          <div class="details-content">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">イベント</th>
+                  <th scope="col">発生するタイミング</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>click</code></td>
+                  <td>要素がクリックされた</td>
+                </tr>
+                <tr>
+                  <td><code>submit</code></td>
+                  <td><code>&lt;form&gt;</code>が送信された</td>
+                </tr>
+              </tbody>
+            </table>
+            <p><code>click</code>は、ボタンなどの要素がクリックされたことを扱います。</p>
+            <p><code>submit</code>は、フォームが送信されたことを扱います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>formへ登録する理由</summary>
+          <div class="details-content">
+            <p>フォームは、送信ボタンのクリック以外の操作でも送信されることがあります。</p>
+            <p>そのため、フォーム送信時の処理は、ボタンの<code>click</code>イベントではなく、<code>&lt;form&gt;</code>の<code>submit</code>イベントとして登録するのが基本です。</p>
+            <p><code>&lt;form&gt;</code><br>↓ <code>submit</code>イベントを登録<br>ユーザーがフォームを送信<br>↓<br>登録した処理を実行</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>処理の流れ</summary>
+          <div class="details-content">
+            <p>① HTMLに<code>&lt;form&gt;</code>を作る<br>↓<br>② フォームへidを付ける<br>↓<br>③ <code>getElementById()</code>でフォームを見つける<br>↓<br>④ <code>addEventListener()</code>で<code>submit</code>イベントを登録する<br>↓<br>⑤ ユーザーがフォームを送信する<br>↓<br>⑥ 登録しておいた処理が実行される</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

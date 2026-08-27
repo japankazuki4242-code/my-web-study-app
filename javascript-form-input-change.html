@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>input・changeイベント | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>input・changeイベント</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>inputイベントとは？</summary>
+          <div class="details-content">
+            <p><code>input</code>イベントは、入力内容が変わるたびに発生します。</p>
+            <p>文字を入力したり削除したりするたびに、その時点の入力値を使って処理できます。</p>
+            <pre class="javascript-code"><code>nameInput.addEventListener("input", function () {
+  console.log(nameInput.value);
+});</code></pre>
+            <p>この例では、入力内容が変わるたびに<code>nameInput.value</code>で現在の値を取得し、コンソールへ表示します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>changeイベントとは？</summary>
+          <div class="details-content">
+            <p><code>change</code>イベントは、値の変更が確定したときに発生します。</p>
+            <p>文字入力欄では、内容を変更してから入力欄の外へ移動したときなどに発生します。</p>
+            <pre class="javascript-code"><code>nameInput.addEventListener("change", function () {
+  console.log(nameInput.value);
+});</code></pre>
+            <p>この例では、値の変更が確定したときに<code>nameInput.value</code>で現在の値を取得し、コンソールへ表示します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>inputとchangeの違い</summary>
+          <div class="details-content">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">イベント</th>
+                  <th scope="col">発生するタイミング</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>input</code></td>
+                  <td>入力内容が変わるたび</td>
+                </tr>
+                <tr>
+                  <td><code>change</code></td>
+                  <td>値の変更が確定したとき</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>入力中にすぐ反応させたい場合は<code>input</code>、変更が確定したときに処理したい場合は<code>change</code>を使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>HTML要素を見つけてイベントを登録する</summary>
+          <div class="details-content">
+            <p>イベントを登録する前に、HTMLの入力欄をJavaScriptで見つけます。</p>
+            <p><strong>HTML：</strong></p>
+            <pre class="javascript-code"><code>&lt;input id="user-name" type="text"&gt;</code></pre>
+            <p><strong>JavaScript：</strong></p>
+            <pre class="javascript-code"><code>const nameInput =
+  document.getElementById("user-name");
+
+nameInput.addEventListener("input", function () {
+  console.log(nameInput.value);
+});
+
+nameInput.addEventListener("change", function () {
+  console.log(nameInput.value);
+});</code></pre>
+            <p><code>nameInput</code><br>→ HTMLから見つけた入力欄</p>
+            <p><code>addEventListener()</code><br>→ 入力欄にイベントを登録するメソッド</p>
+            <p><code>nameInput.value</code><br>→ 入力欄の現在の値</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>イベント処理の流れ</summary>
+          <div class="details-content">
+            <p>入力値をイベントに合わせて取得する流れは、次のとおりです。</p>
+            <p>HTML要素を見つける<br>↓<br><code>addEventListener()</code>でイベントを登録<br>↓<br>ユーザーが入力<br>↓<br><code>input</code>または<code>change</code>イベントが発生<br>↓<br><code>.value</code>で現在値を取得<br>↓<br>取得した値を使って処理する</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>イベント学習とのつながり</summary>
+          <div class="details-content">
+            <p><code>input</code>と<code>change</code>も、既存の「イベント」ページで学んだ<code>addEventListener()</code>を使って登録します。</p>
+            <p><code>click</code><br>→ 要素がクリックされたとき</p>
+            <p><code>input</code><br>→ 入力内容が変わるたび</p>
+            <p><code>change</code><br>→ 値の変更が確定したとき</p>
+            <p>イベント名は違っても、「どの要素で → 何が起きたら → 何をする」という基本の読み方は同じです。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
