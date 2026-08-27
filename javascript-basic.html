@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>JavaScriptの基本 | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>JavaScriptの基本</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>JavaScriptとは？</summary>
+          <div class="details-content">
+            <p>JavaScriptは、Webページに「動き」や「処理」を加えるためのプログラミング言語です。</p>
+            <p>たとえば、次のようなことができます。</p>
+            <ul>
+              <li>ボタンを押したときに処理する</li>
+              <li>入力した文字を取得する</li>
+              <li>入力した内容を保存する</li>
+              <li>条件によって処理を変える</li>
+            </ul>
+            <p>HTMLとCSSだけでもWebページは作れます。</p>
+            <p>そこへJavaScriptを加えると、ボタンを押すなどのユーザーの操作に反応するWebページを作れます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>HTML・CSS・JavaScriptの役割</summary>
+          <div class="details-content">
+            <p><strong>HTML</strong><br>→ ページの内容・構造を作る</p>
+            <p><strong>CSS</strong><br>→ 色・大きさ・配置など、見た目を整える</p>
+            <p><strong>JavaScript</strong><br>→ 動き・判断・処理を加える</p>
+            <p><strong>例：このアプリの自由メモ</strong></p>
+            <p><strong>HTML</strong><br>→ メモの入力欄と保存ボタンを置く</p>
+            <p><strong>CSS</strong><br>→ 入力欄や保存ボタンの見た目を整える</p>
+            <p><strong>JavaScript</strong><br>→ 保存ボタンが押されたら、入力された文章を保存する</p>
+            <p>3つは役割が違いますが、組み合わせることで1つのWeb機能になります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>JavaScriptでできること</summary>
+          <div class="details-content">
+            <p><strong>ボタンを押したら処理する</strong><br>→ 保存ボタンを押したときに、メモを保存する</p>
+            <p><strong>文字を書き換える</strong><br>→ 保存が終わったら、画面へ「保存しました」と表示する</p>
+            <p><strong>入力した内容を取得する</strong><br>→ 入力欄に書かれたメモの文章を受け取る</p>
+            <p><strong>表示／非表示を切り替える</strong><br>→ 必要な説明だけを画面に表示する</p>
+            <p><strong>条件によって処理を変える</strong><br>→ 保存されたメモがあるときだけ、入力欄へ表示する</p>
+            <p><strong>データを保存する</strong><br>→ 入力したメモをブラウザへ保存する</p>
+            <p><strong>保存したデータを読み込む</strong><br>→ ページを開いたときに、前に保存したメモを表示する</p>
+            <p>JavaScriptは「画面を動かす」だけではありません。</p>
+            <p>値を受け取り、条件を判断し、データを保存し、画面の表示を変えるなど、Webページの処理を担当します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>JavaScriptはどうやって動く？</summary>
+          <div class="details-content">
+            <p><strong>Webページでの基本的な流れ</strong></p>
+            <p>HTMLの要素を見つける<br>↓<br>ユーザーの操作を待つ<br>↓<br>値を取得する<br>↓<br>JavaScriptで処理する<br>↓<br>画面を変更する／データを保存する</p>
+            <p><strong>このアプリの自由メモの場合</strong></p>
+            <p><code>&lt;textarea&gt;</code>と保存ボタンを見つける<br>↓<br>保存ボタンが押されるのを待つ<br>↓<br><code>&lt;textarea&gt;</code>に入力された文字を取得する<br>↓<br>JavaScriptで処理する<br>↓<br><code>localStorage</code>へ保存する<br>↓<br>「保存しました」と表示する</p>
+            <p>ここでは、JavaScriptの処理が上から順番につながっていることをイメージできれば十分です。</p>
+            <p><code>getElementById()</code>など、1つ1つの詳しい書き方は、この先の学習ページで確認します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>このアプリで使っているJavaScript</summary>
+          <div class="details-content">
+            <div class="details-list">
+              <div>
+                <p><strong>1. BACKボタン</strong></p>
+                <p>BACKボタンを押したときに、ブラウザの履歴を使って1つ前のページへ戻ります。</p>
+                <details>
+                  <summary>実際のコードを見る</summary>
+                  <div class="details-content">
+                    <pre class="javascript-code"><code>// HTMLからBACKボタンを取得します。
+const backButton = document.getElementById("back-button");
+
+// BACKボタンがクリックされたときの処理です。
+backButton.addEventListener("click", function () {
+  // ブラウザの履歴を使って前のページへ戻ります。
+  history.back();
+});</code></pre>
+                  </div>
+                </details>
+              </div>
+
+              <div>
+                <p><strong>2. Destyleのコピー機能</strong></p>
+                <p>「コードをコピー」ボタンを押すと、Destyleの読み込みコードをクリップボードへコピーします。</p>
+                <p>コピーできたかどうかに合わせて、画面へ結果を表示します。</p>
+                <details>
+                  <summary>実際のコードを見る</summary>
+                  <div class="details-content">
+                    <pre class="javascript-code"><code>// コピーに使うボタン・コード・結果表示をHTMLから取得します。
+const copyDestyleButton = document.getElementById("copy-destyle-button");
+const destyleCdnCode = document.getElementById("destyle-cdn-code");
+const copyStatus = document.getElementById("copy-status");
+
+// 必要な3つの要素があるページでだけ処理します。
+if (copyDestyleButton &amp;&amp; destyleCdnCode &amp;&amp; copyStatus) {
+  copyDestyleButton.addEventListener("click", function () {
+    // コピー機能が使えないブラウザでは、メッセージを表示します。
+    if (!navigator.clipboard) {
+      copyStatus.textContent = "このブラウザではコピーできませんでした";
+      return;
+    }
+
+    // Destyleの読み込みコードをクリップボードへコピーします。
+    navigator.clipboard.writeText(destyleCdnCode.textContent)
+      .then(function () {
+        copyStatus.textContent = "コピーしました";
+      })
+      .catch(function () {
+        copyStatus.textContent = "コピーできませんでした";
+      });
+  });
+}</code></pre>
+                  </div>
+                </details>
+              </div>
+
+              <div>
+                <p><strong>3. 自由メモ（localStorage）</strong></p>
+                <p>自由メモに入力した文章を取得し、アプリ全体で共通のメモとして<code>localStorage</code>へ保存します。</p>
+                <p>ページを開いたときは、同じ保存キーからメモを読み込みます。</p>
+                <p>自由メモ<br>↓<br>JavaScriptで入力内容を取得<br>↓<br><code>localStorage</code>へ保存<br>↓<br>同じ共通メモとして読み込む</p>
+                <details>
+                  <summary>実際のコードを見る</summary>
+                  <div class="details-content">
+                    <pre class="javascript-code"><code>// アプリ全体の自由メモで共通して使用する保存キーです。
+const freeMemoStorageKey = "my-web-study-app:free-memo";
+
+// 自由メモの入力欄・保存ボタン・結果表示をHTMLから取得します。
+const freeMemoInput = document.getElementById("free-memo-input");
+const saveFreeMemoButton = document.getElementById("save-free-memo-button");
+const freeMemoStatus = document.getElementById("free-memo-status");
+
+// 必要な3つの要素があるページでだけ処理します。
+if (freeMemoInput &amp;&amp; saveFreeMemoButton &amp;&amp; freeMemoStatus) {
+  // 保存済みのメモをlocalStorageから読み込みます。
+  const savedFreeMemo = localStorage.getItem(freeMemoStorageKey);
+
+  // 保存済みのメモがある場合は、入力欄へ表示します。
+  if (savedFreeMemo !== null) {
+    freeMemoInput.value = savedFreeMemo;
+  }
+
+  // 保存ボタンがクリックされたときの処理です。
+  saveFreeMemoButton.addEventListener("click", function () {
+    // 入力欄に書かれた文章を取得します。
+    const freeMemoText = freeMemoInput.value;
+
+    // 入力された文章を共通の保存キーで保存します。
+    localStorage.setItem(freeMemoStorageKey, freeMemoText);
+    // 保存できたことを画面へ表示します。
+    freeMemoStatus.textContent = "保存しました";
+  });
+}</code></pre>
+                  </div>
+                </details>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>これから学ぶこと</summary>
+          <div class="details-content">
+            <p><strong>HTMLを操作する</strong><br>→ JavaScriptからHTMLの要素を見つけて、内容を読み取ったり変更したりする</p>
+            <p><strong>イベント</strong><br>→ クリックなどをきっかけに処理を動かす</p>
+            <p><strong>フォーム・入力</strong><br>→ <code>&lt;input&gt;</code>や<code>&lt;textarea&gt;</code>に入力された値を取得して扱う</p>
+            <p><strong>localStorage</strong><br>→ データをブラウザに保存し、あとから読み込む</p>
+            <p><strong>配列・オブジェクト</strong><br>→ 複数のデータをまとめて整理して扱う</p>
+            <p><strong>関数・コールバック</strong><br>→ 処理をまとめたり、他の処理へ関数を渡したりする</p>
+            <p><strong>実践</strong><br>→ 学んだ内容を組み合わせて、実際のWeb機能を作る</p>
+            <p>ここからはJavaScriptを単独で覚えるだけではなく、HTMLとどのようにつながって動くのかを意識しながら学んでいきます。</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
