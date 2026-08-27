@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>イベント | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>イベント</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>イベントとは？</summary>
+          <div class="details-content">
+            <p>イベントは、Webページの中で「何かが起きたこと」です。</p>
+            <p><code>click</code>イベント<br>→ ボタンなどがクリックされた</p>
+            <p><code>input</code>イベント<br>→ 入力内容が変わるたびに発生</p>
+            <p><code>change</code>イベント<br>→ 値の変更が確定したときに発生</p>
+            <p><code>submit</code>イベント<br>→ フォームが送信された</p>
+            <p>このページでは、まず<code>click</code>イベントを中心に学びます。</p>
+            <p>JavaScriptが「クリックされたかな？」と繰り返し確認しているわけではありません。</p>
+            <p>「クリックされたら、この処理をしてね」とあらかじめ登録する<br>↓<br>ユーザーがクリックする<br>↓<br>登録しておいた処理が実行される</p>
+
+            <p><strong>BACKボタンの例</strong></p>
+            <p>BACKボタンをクリック<br>↓<br><code>click</code>イベントが起きる<br>↓<br>登録していた処理を実行<br>↓<br>前のページへ戻る</p>
+
+            <p><strong>自由メモの例</strong></p>
+            <p>保存ボタンをクリック<br>↓<br><code>click</code>イベントが起きる<br>↓<br>入力された文章を取得<br>↓<br><code>localStorage</code>へ保存<br>↓<br>「保存しました」と表示</p>
+            <p>ここでは、保存の仕組みよりも、クリックをきっかけに処理が始まることを意識します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>イベントの基本的な流れ</summary>
+          <div class="details-content">
+            <p>イベントのコードは、「どの要素で」「何が起きたら」「何をするか」の3つに分けると読みやすくなります。</p>
+            <p>① HTML要素を見つける<br>↓<br>② その要素にイベントを登録する<br>↓<br>③ ユーザーが操作する<br>↓<br>④ イベントが起きる<br>↓<br>⑤ 登録しておいた処理が実行される</p>
+            <p><strong>BACKボタンの実際のコード</strong></p>
+            <pre><code>const backButton =
+  document.getElementById("back-button");
+
+backButton.addEventListener("click", function () {
+  history.back();
+});</code></pre>
+            <p><code>backButton</code><br>→ どの要素で？</p>
+            <p><code>"click"</code><br>→ 何が起きたら？</p>
+            <pre><code>function () {
+  history.back();
+}</code></pre>
+            <p>→ 何をする？</p>
+            <p>自由メモでも同じです。</p>
+            <p><code>saveFreeMemoButton</code><br>→ 保存ボタンで</p>
+            <p><code>"click"</code><br>→ クリックされたら</p>
+            <p>メモの保存処理<br>→ 入力値を取得して保存する</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>addEventListener()とは？</summary>
+          <div class="details-content">
+            <p><code>addEventListener()</code>は、HTML要素へ「このイベントが起きたら、この処理を実行してね」と登録するためのメソッドです。</p>
+            <pre><code>backButton.addEventListener("click", function () {
+  history.back();
+});</code></pre>
+            <p><code>backButton</code><br>→ イベントを登録するHTML要素</p>
+            <p><code>.</code><br>→ 左側の要素が持っている機能へつなぐ記号</p>
+            <p><code>addEventListener()</code><br>→ イベントを登録するメソッド</p>
+            <p><code>"click"</code><br>→ どんなイベントが起きたら？</p>
+            <pre><code>function () {
+  history.back();
+}</code></pre>
+            <p>→ そのとき実行する処理</p>
+            <p><code>backButton.addEventListener()</code>は、以前学んだ「オブジェクト名.メソッド名()」という形で読むことができます。</p>
+
+            <p><strong>addEventListener()の中身</strong></p>
+            <pre><code>addEventListener("click", function () {
+  // あとで実行する処理
+});</code></pre>
+            <p>1つ目の<code>"click"</code><br>→ 何が起きたら？</p>
+            <p>2つ目の<code>function () { ... }</code><br>→ そのとき何をする？</p>
+            <p><strong>復習用の基本形：</strong></p>
+            <pre><code>要素.addEventListener("イベント名", 実行する処理);</code></pre>
+          </div>
+        </details>
+
+        <details>
+          <summary>clickイベント</summary>
+          <div class="details-content">
+            <p><code>click</code>イベントは、ボタンやリンクなどがクリックされたときに発生するイベントです。</p>
+            <p><strong>基本形：</strong></p>
+            <pre><code>要素.addEventListener("click", function () {
+  // クリックされたときの処理
+});</code></pre>
+            <p><code>要素</code><br>→ どこをクリックしたら？</p>
+            <p><code>"click"</code><br>→ 何が起きたら？</p>
+            <p><code>function () { ... }</code><br>→ 何をする？</p>
+
+            <p><strong>BACKボタンの場合</strong></p>
+            <p><code>backButton</code><br>→ BACKボタンで</p>
+            <p><code>"click"</code><br>→ クリックされたら</p>
+            <p><code>history.back()</code><br>→ 前のページへ戻る</p>
+
+            <p><strong>自由メモの場合</strong></p>
+            <p>保存ボタン<br>↓<br>クリックされたら<br>↓<br>入力値を取得して保存する処理を実行</p>
+
+            <p><strong>ほかのイベント名</strong></p>
+            <p><code>"click"</code><br>→ クリック</p>
+            <p><code>"input"</code><br>→ 入力内容が変わるたびに発生</p>
+            <p><code>"change"</code><br>→ 値の変更が確定したときに発生</p>
+            <p><code>"submit"</code><br>→ フォーム送信</p>
+            <p>イベント名は、<code>"click"</code>のように文字列として書きます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>イベントとコールバック関数</summary>
+          <div class="details-content">
+            <p><code>addEventListener()</code>では、イベントが起きたときに実行してほしい関数を渡します。</p>
+            <p>別の処理へ渡して、あとから呼び出してもらう関数をコールバック関数といいます。</p>
+            <pre><code>backButton.addEventListener("click", function () {
+  history.back();
+});</code></pre>
+            <p>この中の次の部分がコールバック関数です。</p>
+            <pre><code>function () {
+  history.back();
+}</code></pre>
+            <p><strong>「あとから実行する」の流れ</strong></p>
+            <p>「BACKボタンがクリックされたら、この関数を実行してね」と登録<br>↓<br>ユーザーがクリック<br>↓<br><code>click</code>イベントが起きる<br>↓<br>登録していたコールバック関数を実行<br>↓<br><code>history.back()</code>を実行</p>
+            <p>ページを読み込んだときに、<code>history.back()</code>がすぐ実行されるわけではありません。</p>
+            <p>この<code>function () { ... }</code>は、名前を付けずにその場で書いているため、無名関数や匿名関数と呼ばれることもあります。</p>
+            <p>コールバック関数の詳しい仕組みや関数の細かな違いは、後の「関数・コールバック」ページで学びます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>このアプリで使っているイベント</summary>
+          <div class="details-content">
+            <div class="details-list">
+              <div>
+                <p><strong>1. BACKボタン</strong></p>
+                <p>BACKボタンへ<code>click</code>イベントを登録し、クリックされたら前のページへ戻ります。</p>
+                <p>HTMLの<code>id="back-button"</code><br>↓<br>JavaScriptで要素を取得<br>↓<br><code>click</code>イベントを登録<br>↓<br>ユーザーがクリック<br>↓<br><code>history.back()</code><br>↓<br>前のページへ戻る</p>
+                <details>
+                  <summary>実際のコードを見る</summary>
+                  <div class="details-content">
+                    <p><strong>HTML：</strong></p>
+                    <pre class="javascript-code"><code>&lt;button type="button" id="back-button" class="nav-button"&gt;BACK&lt;/button&gt;</code></pre>
+                    <p><strong>JavaScript：</strong></p>
+                    <pre class="javascript-code"><code>// HTMLからBACKボタンを取得します。
+const backButton = document.getElementById("back-button");
+
+// クリックされたときに前のページへ戻る処理を登録します。
+backButton.addEventListener("click", function () {
+  history.back();
+});</code></pre>
+                  </div>
+                </details>
+              </div>
+
+              <div>
+                <p><strong>2. Destyleのコピーボタン</strong></p>
+                <p>コピーボタンへ<code>click</code>イベントを登録し、クリックされたことをきっかけにコピー処理を始めます。</p>
+                <p>コピーボタン<br>↓<br><code>click</code>イベントを登録<br>↓<br>ユーザーがクリック<br>↓<br>コピー処理<br>↓<br>「コピーしました」と表示</p>
+                <details>
+                  <summary>実際のコードを見る</summary>
+                  <div class="details-content">
+                    <p><strong>HTML：</strong></p>
+                    <pre class="javascript-code"><code>&lt;pre&gt;&lt;code id="destyle-cdn-code"&gt;&amp;lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@4.0.1/destyle.min.css"&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;button type="button" id="copy-destyle-button" class="nav-button copy-button"&gt;コードをコピー&lt;/button&gt;
+&lt;p id="copy-status" class="copy-status" role="status" aria-live="polite"&gt;&lt;/p&gt;</code></pre>
+                    <p><strong>JavaScript：</strong></p>
+                    <pre class="javascript-code"><code>// HTMLからコピーボタン・コード・結果表示を取得します。
+const copyDestyleButton = document.getElementById("copy-destyle-button");
+const destyleCdnCode = document.getElementById("destyle-cdn-code");
+const copyStatus = document.getElementById("copy-status");
+
+if (copyDestyleButton &amp;&amp; destyleCdnCode &amp;&amp; copyStatus) {
+  // クリックされたときにコピーする処理を登録します。
+  copyDestyleButton.addEventListener("click", function () {
+    if (!navigator.clipboard) {
+      copyStatus.textContent = "このブラウザではコピーできませんでした";
+      return;
+    }
+
+    navigator.clipboard.writeText(destyleCdnCode.textContent)
+      .then(function () {
+        copyStatus.textContent = "コピーしました";
+      })
+      .catch(function () {
+        copyStatus.textContent = "コピーできませんでした";
+      });
+  });
+}</code></pre>
+                  </div>
+                </details>
+              </div>
+
+              <div>
+                <p><strong>3. 自由メモの保存ボタン</strong></p>
+                <p>保存ボタンへ<code>click</code>イベントを登録し、クリックされたら入力値の取得・保存・結果表示を行います。</p>
+                <p>保存ボタン<br>↓<br><code>click</code>イベントを登録<br>↓<br>ユーザーがクリック<br>↓<br><code>&lt;textarea&gt;</code>の値を取得<br>↓<br><code>localStorage</code>へ保存<br>↓<br>「保存しました」と表示</p>
+                <details>
+                  <summary>実際のコードを見る</summary>
+                  <div class="details-content">
+                    <p><strong>HTML：</strong></p>
+                    <pre class="javascript-code"><code>&lt;textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ"&gt;&lt;/textarea&gt;
+
+&lt;button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button"&gt;保存&lt;/button&gt;
+
+&lt;p id="free-memo-status" class="free-memo-status" aria-live="polite"&gt;&lt;/p&gt;</code></pre>
+                    <p><strong>JavaScript：</strong></p>
+                    <pre class="javascript-code"><code>// アプリ全体の自由メモで共通して使用する保存キーです。
+const freeMemoStorageKey = "my-web-study-app:free-memo";
+
+// HTMLから自由メモの要素を取得します。
+const freeMemoInput = document.getElementById("free-memo-input");
+const saveFreeMemoButton = document.getElementById("save-free-memo-button");
+const freeMemoStatus = document.getElementById("free-memo-status");
+
+if (freeMemoInput &amp;&amp; saveFreeMemoButton &amp;&amp; freeMemoStatus) {
+  // クリックされたときにメモを保存する処理を登録します。
+  saveFreeMemoButton.addEventListener("click", function () {
+    const freeMemoText = freeMemoInput.value;
+
+    localStorage.setItem(freeMemoStorageKey, freeMemoText);
+    freeMemoStatus.textContent = "保存しました";
+  });
+}</code></pre>
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <p><strong>3つの共通点</strong></p>
+            <p>BACKボタン・Destyleコピー・自由メモ保存は機能が違いますが、すべて同じイベントの仕組みで動いています。</p>
+            <p>ボタン<br>↓<br><code>click</code><br>↓<br>コールバック関数<br>↓<br>処理を実行</p>
+            <p>「どの要素で」「何が起きたら」「何をする」に分けると、機能が違っても同じ考え方でイベントコードを読めます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>これから学ぶこと</summary>
+          <div class="details-content">
+            <p><strong>イベントの種類</strong><br>→ <code>click</code>・<code>input</code>・<code>change</code>・<code>submit</code>など</p>
+            <p><strong>イベントを登録する</strong><br>→ <code>addEventListener()</code></p>
+            <p><strong>コールバック関数</strong><br>→ イベントが起きたときに、あとから実行される処理</p>
+            <p><strong>フォーム・入力</strong><br>→ <code>&lt;input&gt;</code>や<code>&lt;textarea&gt;</code>の値をイベントをきっかけに扱う</p>
+            <p><strong>submitイベント</strong><br>→ フォームが送信されたときの処理</p>
+            <p>イベントのコードを読むときは、「どの要素で → 何が起きたら → 何をする？」の3つに分けると理解しやすくなります。</p>
+
+            <p><strong>復習ミニ表</strong></p>
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">確認すること</th>
+                  <th scope="col">主な書き方</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>イベントを登録する</td>
+                  <td><code>addEventListener()</code></td>
+                </tr>
+                <tr>
+                  <td>クリック</td>
+                  <td><code>"click"</code></td>
+                </tr>
+                <tr>
+                  <td>入力内容が変わるたび</td>
+                  <td><code>"input"</code></td>
+                </tr>
+                <tr>
+                  <td>値の変更が確定したとき</td>
+                  <td><code>"change"</code></td>
+                </tr>
+                <tr>
+                  <td>フォーム送信</td>
+                  <td><code>"submit"</code></td>
+                </tr>
+                <tr>
+                  <td>あとで実行する処理</td>
+                  <td>コールバック関数</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>どの要素で？<br>→ <code>backButton</code></p>
+            <p>何が起きたら？<br>→ <code>"click"</code></p>
+            <p>何をする？<br>→ <code>function () { ... }</code></p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
