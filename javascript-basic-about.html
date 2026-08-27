@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>JavaScriptとは？ | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>JavaScriptとは？</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>JavaScriptは何をするもの？</summary>
+          <div class="details-content">
+            <p>JavaScriptは、Webページに「動き」や「処理」を加えるためのプログラミング言語です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>JavaScriptでできること</summary>
+          <div class="details-content">
+            <p>たとえば、次のようなことができます。</p>
+            <ul>
+              <li>ボタンを押したときに処理する</li>
+              <li>入力した文字を取得する</li>
+              <li>入力した内容を保存する</li>
+              <li>条件によって処理を変える</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>HTML・CSSとの組み合わせ</summary>
+          <div class="details-content">
+            <p>HTMLとCSSだけでもWebページは作れます。</p>
+            <p>そこへJavaScriptを加えると、ボタンを押すなどのユーザーの操作に反応するWebページを作れます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

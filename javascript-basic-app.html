@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>このアプリで使っているJavaScript | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>このアプリで使っているJavaScript</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>1. BACKボタン</summary>
+          <div class="details-content">
+            <p>BACKボタンを押したときに、ブラウザの履歴を使って1つ前のページへ戻ります。</p>
+            <details>
+              <summary>実際のコードを見る</summary>
+              <div class="details-content">
+                <pre class="javascript-code"><code>// HTMLからBACKボタンを取得します。
+const backButton = document.getElementById("back-button");
+
+// BACKボタンがクリックされたときの処理です。
+backButton.addEventListener("click", function () {
+  // ブラウザの履歴を使って前のページへ戻ります。
+  history.back();
+});</code></pre>
+              </div>
+            </details>
+          </div>
+        </details>
+
+        <details>
+          <summary>2. Destyleのコピー機能</summary>
+          <div class="details-content">
+            <p>「コードをコピー」ボタンを押すと、Destyleの読み込みコードをクリップボードへコピーします。</p>
+            <p>コピーできたかどうかに合わせて、画面へ結果を表示します。</p>
+            <details>
+              <summary>実際のコードを見る</summary>
+              <div class="details-content">
+                <pre class="javascript-code"><code>// コピーに使うボタン・コード・結果表示をHTMLから取得します。
+const copyDestyleButton = document.getElementById("copy-destyle-button");
+const destyleCdnCode = document.getElementById("destyle-cdn-code");
+const copyStatus = document.getElementById("copy-status");
+
+// 必要な3つの要素があるページでだけ処理します。
+if (copyDestyleButton &amp;&amp; destyleCdnCode &amp;&amp; copyStatus) {
+  copyDestyleButton.addEventListener("click", function () {
+    // コピー機能が使えないブラウザでは、メッセージを表示します。
+    if (!navigator.clipboard) {
+      copyStatus.textContent = "このブラウザではコピーできませんでした";
+      return;
+    }
+
+    // Destyleの読み込みコードをクリップボードへコピーします。
+    navigator.clipboard.writeText(destyleCdnCode.textContent)
+      .then(function () {
+        copyStatus.textContent = "コピーしました";
+      })
+      .catch(function () {
+        copyStatus.textContent = "コピーできませんでした";
+      });
+  });
+}</code></pre>
+              </div>
+            </details>
+          </div>
+        </details>
+
+        <details>
+          <summary>3. 自由メモ（localStorage）</summary>
+          <div class="details-content">
+            <p>自由メモに入力した文章を取得し、アプリ全体で共通のメモとして<code>localStorage</code>へ保存します。</p>
+            <p>ページを開いたときは、同じ保存キーからメモを読み込みます。</p>
+            <p>自由メモ<br>↓<br>JavaScriptで入力内容を取得<br>↓<br><code>localStorage</code>へ保存<br>↓<br>同じ共通メモとして読み込む</p>
+            <details>
+              <summary>実際のコードを見る</summary>
+              <div class="details-content">
+                <pre class="javascript-code"><code>// アプリ全体の自由メモで共通して使用する保存キーです。
+const freeMemoStorageKey = "my-web-study-app:free-memo";
+
+// 自由メモの入力欄・保存ボタン・結果表示をHTMLから取得します。
+const freeMemoInput = document.getElementById("free-memo-input");
+const saveFreeMemoButton = document.getElementById("save-free-memo-button");
+const freeMemoStatus = document.getElementById("free-memo-status");
+
+// 必要な3つの要素があるページでだけ処理します。
+if (freeMemoInput &amp;&amp; saveFreeMemoButton &amp;&amp; freeMemoStatus) {
+  // 保存済みのメモをlocalStorageから読み込みます。
+  const savedFreeMemo = localStorage.getItem(freeMemoStorageKey);
+
+  // 保存済みのメモがある場合は、入力欄へ表示します。
+  if (savedFreeMemo !== null) {
+    freeMemoInput.value = savedFreeMemo;
+  }
+
+  // 保存ボタンがクリックされたときの処理です。
+  saveFreeMemoButton.addEventListener("click", function () {
+    // 入力欄に書かれた文章を取得します。
+    const freeMemoText = freeMemoInput.value;
+
+    // 入力された文章を共通の保存キーで保存します。
+    localStorage.setItem(freeMemoStorageKey, freeMemoText);
+    // 保存できたことを画面へ表示します。
+    freeMemoStatus.textContent = "保存しました";
+  });
+}</code></pre>
+              </div>
+            </details>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

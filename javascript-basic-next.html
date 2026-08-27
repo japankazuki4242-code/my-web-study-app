@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>JavaScriptで学ぶこと | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>JavaScriptで学ぶこと</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>HTMLを操作する</summary>
+          <div class="details-content">
+            <p>→ JavaScriptからHTMLの要素を見つけて、内容を読み取ったり変更したりする</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>イベント</summary>
+          <div class="details-content">
+            <p>→ クリックなどをきっかけに処理を動かす</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>フォーム・入力</summary>
+          <div class="details-content">
+            <p>→ <code>&lt;input&gt;</code>や<code>&lt;textarea&gt;</code>に入力された値を取得して扱う</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>localStorage</summary>
+          <div class="details-content">
+            <p>→ データをブラウザに保存し、あとから読み込む</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>配列・オブジェクト</summary>
+          <div class="details-content">
+            <p>→ 複数のデータをまとめて整理して扱う</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>関数・コールバック</summary>
+          <div class="details-content">
+            <p>→ 処理をまとめたり、他の処理へ関数を渡したりする</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実践</summary>
+          <div class="details-content">
+            <p>→ 学んだ内容を組み合わせて、実際のWeb機能を作る</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>学習するときに意識すること</summary>
+          <div class="details-content">
+            <p>ここからはJavaScriptを単独で覚えるだけではなく、HTMLとどのようにつながって動くのかを意識しながら学んでいきます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

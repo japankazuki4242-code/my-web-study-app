@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>JavaScriptはどうやって動く？ | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>JavaScriptはどうやって動く？</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>Webページでの基本的な流れ</summary>
+          <div class="details-content">
+            <p><strong>Webページでの基本的な流れ</strong></p>
+            <p>HTMLの要素を見つける<br>↓<br>ユーザーの操作を待つ<br>↓<br>値を取得する<br>↓<br>JavaScriptで処理する<br>↓<br>画面を変更する／データを保存する</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモでの流れ</summary>
+          <div class="details-content">
+            <p><strong>このアプリの自由メモの場合</strong></p>
+            <p><code>&lt;textarea&gt;</code>と保存ボタンを見つける<br>↓<br>保存ボタンが押されるのを待つ<br>↓<br><code>&lt;textarea&gt;</code>に入力された文字を取得する<br>↓<br>JavaScriptで処理する<br>↓<br><code>localStorage</code>へ保存する<br>↓<br>「保存しました」と表示する</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回の学習ポイント</summary>
+          <div class="details-content">
+            <p>ここでは、JavaScriptの処理が上から順番につながっていることをイメージできれば十分です。</p>
+            <p><code>getElementById()</code>など、1つ1つの詳しい書き方は、この先の学習ページで確認します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

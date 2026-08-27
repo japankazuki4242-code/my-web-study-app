@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>JavaScriptでできること | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>JavaScriptでできること</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>画面を操作する</summary>
+          <div class="details-content">
+            <p><strong>ボタンを押したら処理する</strong><br>→ 保存ボタンを押したときに、メモを保存する</p>
+            <p><strong>文字を書き換える</strong><br>→ 保存が終わったら、画面へ「保存しました」と表示する</p>
+            <p><strong>表示／非表示を切り替える</strong><br>→ 必要な説明だけを画面に表示する</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>入力と条件を扱う</summary>
+          <div class="details-content">
+            <p><strong>入力した内容を取得する</strong><br>→ 入力欄に書かれたメモの文章を受け取る</p>
+            <p><strong>条件によって処理を変える</strong><br>→ 保存されたメモがあるときだけ、入力欄へ表示する</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>データを保存・読み込む</summary>
+          <div class="details-content">
+            <p><strong>データを保存する</strong><br>→ 入力したメモをブラウザへ保存する</p>
+            <p><strong>保存したデータを読み込む</strong><br>→ ページを開いたときに、前に保存したメモを表示する</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>JavaScriptが担当すること</summary>
+          <div class="details-content">
+            <p>JavaScriptは「画面を動かす」だけではありません。</p>
+            <p>値を受け取り、条件を判断し、データを保存し、画面の表示を変えるなど、Webページの処理を担当します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

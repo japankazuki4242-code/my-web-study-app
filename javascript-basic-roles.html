@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>HTML・CSS・JavaScriptの役割 | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>HTML・CSS・JavaScriptの役割</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>3つの役割</summary>
+          <div class="details-content">
+            <p><strong>HTML</strong><br>→ ページの内容・構造を作る</p>
+            <p><strong>CSS</strong><br>→ 色・大きさ・配置など、見た目を整える</p>
+            <p><strong>JavaScript</strong><br>→ 動き・判断・処理を加える</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモでの役割</summary>
+          <div class="details-content">
+            <p><strong>例：このアプリの自由メモ</strong></p>
+            <p><strong>HTML</strong><br>→ メモの入力欄と保存ボタンを置く</p>
+            <p><strong>CSS</strong><br>→ 入力欄や保存ボタンの見た目を整える</p>
+            <p><strong>JavaScript</strong><br>→ 保存ボタンが押されたら、入力された文章を保存する</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>3つを組み合わせる</summary>
+          <div class="details-content">
+            <p>3つは役割が違いますが、組み合わせることで1つのWeb機能になります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
