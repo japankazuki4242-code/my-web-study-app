@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>HTMLを操作する | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>HTMLを操作する</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>HTMLを操作するとは？</summary>
+          <div class="details-content">
+            <p>JavaScriptでは、HTMLに書かれている要素を見つけて、内容を読み取ったり変更したりできます。</p>
+            <p>たとえば、次のようなことができます。</p>
+            <ul>
+              <li>ボタンを見つける</li>
+              <li>入力欄に書かれた文章を取得する</li>
+              <li>HTML上の文字を変更する</li>
+            </ul>
+            <p><strong>基本の流れ</strong></p>
+            <p>HTMLに要素がある<br>↓<br>JavaScriptがその要素を見つける<br>↓<br>内容や値を読み取る<br>↓<br>必要なら変更する</p>
+            <p><strong>自由メモの簡単な例</strong></p>
+            <pre><code>&lt;textarea id="free-memo-input"&gt;&lt;/textarea&gt;</code></pre>
+            <p>HTMLに<code>id="free-memo-input"</code>の入力欄がある<br>↓<br>JavaScriptが同じidの要素を見つける<br>↓<br><code>&lt;textarea&gt;</code>に入力された文章を取得する</p>
+            <p>ここではまず、HTMLとJavaScriptが同じid名でつながることをイメージできれば十分です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>DOMとは？</summary>
+          <div class="details-content">
+            <p>DOMは、HTMLの内容をJavaScriptから扱えるようにする仕組みです。</p>
+            <p>HTMLを書く<br>↓<br>ブラウザが読み込む<br>↓<br>DOMとして扱える形になる<br>↓<br>JavaScriptから操作できる</p>
+            <p>HTMLには、要素が中に入る親子関係があります。</p>
+            <pre><code>&lt;body&gt;
+  &lt;main&gt;
+    &lt;h1&gt;Web学習アプリ&lt;/h1&gt;
+    &lt;button&gt;保存&lt;/button&gt;
+  &lt;/main&gt;
+&lt;/body&gt;</code></pre>
+            <pre><code>body
+└─ main
+   ├─ h1
+   └─ button</code></pre>
+            <p>JavaScriptは、HTMLファイルに書かれた文字そのものを直接書き換えるのではありません。</p>
+            <p>ブラウザが作ったDOMを通して、HTML要素を読み取ったり変更したりします。</p>
+            <p>この段階では、DOMは「HTMLとJavaScriptをつなぐ仕組み」と考えると分かりやすいです。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>HTML要素を見つける</summary>
+          <div class="details-content">
+            <p>idを使ってHTML要素を見つけるときは、<code>document.getElementById()</code>を使います。</p>
+            <p><strong>HTML：</strong></p>
+            <pre><code>&lt;textarea id="free-memo-input"&gt;&lt;/textarea&gt;</code></pre>
+            <p><strong>JavaScript：</strong></p>
+            <pre><code>document.getElementById("free-memo-input")</code></pre>
+            <p><code>document</code><br>→ 今ブラウザで開いているHTMLページを扱うもの</p>
+            <p><code>.</code><br>→ 左側のものが持っている機能や値へつなぐ記号</p>
+            <p><code>getElementById()</code><br>→ idを使ってHTML要素を探すメソッド</p>
+            <p><code>"free-memo-input"</code><br>→ 探したいid名</p>
+            <p>日本語では「このHTMLページから、free-memo-inputというidを持つ要素を探す」という意味です。</p>
+            <p><code>document</code>はオブジェクト、<code>getElementById()</code>はそのオブジェクトが持つメソッドとして読むこともできます。</p>
+
+            <p><strong>idとclass、1つと複数の違い</strong></p>
+            <p>idは同じページ内で重複させず、1つの要素を特定するために使います。</p>
+            <pre><code>document.getElementById("free-memo-input")</code></pre>
+            <p><code>getElementById</code>の<code>Element</code>は単数形です。idから1つの要素を探します。</p>
+            <p><code>getElementsById()</code>というメソッドは存在しません。</p>
+            <p>classは、複数の要素に同じ名前を付けられます。</p>
+            <pre><code>&lt;button class="menu-button"&gt;HTML&lt;/button&gt;
+&lt;button class="menu-button"&gt;CSS&lt;/button&gt;
+&lt;button class="menu-button"&gt;JavaScript&lt;/button&gt;</code></pre>
+            <pre><code>document.getElementsByClassName("menu-button")</code></pre>
+            <p><code>getElementsByClassName</code>の<code>Elements</code>は複数形なので、<code>s</code>が付きます。</p>
+
+            <p><strong>querySelectorを使う方法</strong></p>
+            <pre><code>document.querySelector(".menu-button")</code></pre>
+            <p>CSSセレクタを使って、最初に一致した1つを取得します。</p>
+            <pre><code>document.querySelectorAll(".menu-button")</code></pre>
+            <p>CSSセレクタを使って、一致するものをすべて取得します。</p>
+            <p><code>getElementById()</code><br>→ idから1つ</p>
+            <p><code>getElementsByClassName()</code><br>→ classから複数</p>
+            <p><code>querySelector()</code><br>→ CSSセレクタで最初の1つ</p>
+            <p><code>querySelectorAll()</code><br>→ CSSセレクタで一致するもの全部</p>
+            <p>このページでは、現在のアプリでも使っている<code>getElementById()</code>を中心に確認します。</p>
+
+            <p><strong>取得した要素を変数へ入れる</strong></p>
+            <pre><code>const freeMemoInput =
+  document.getElementById("free-memo-input");</code></pre>
+            <p>HTML要素を探す<br>↓<br>見つける<br>↓<br><code>freeMemoInput</code>という変数へ入れておく<br>↓<br>あとでその要素を使う</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>HTMLの文字を読み取る・変更する</summary>
+          <div class="details-content">
+            <p>HTML要素が持つ文字は、<code>textContent</code>で読み取ったり変更したりできます。</p>
+            <p><strong>HTML：</strong></p>
+            <pre><code>&lt;p id="message"&gt;保存前です&lt;/p&gt;</code></pre>
+            <p><strong>JavaScriptで要素を見つける：</strong></p>
+            <pre><code>const message =
+  document.getElementById("message");</code></pre>
+            <p><strong>文字を読む：</strong></p>
+            <pre><code>console.log(message.textContent);</code></pre>
+            <p><strong>文字を変更する：</strong></p>
+            <pre><code>message.textContent = "保存しました";</code></pre>
+            <p>画面上の文字は「保存前です」から「保存しました」へ変わります。</p>
+            <p><code>message</code><br>→ 取得しておいたHTML要素</p>
+            <p><code>.</code><br>→ 要素が持つ値へつなぐ記号</p>
+            <p><code>textContent</code><br>→ その要素が持っている文字</p>
+            <p><code>textContent</code>はプロパティです。</p>
+            <p><code>message.textContent</code>は「オブジェクト名.プロパティ名」という形なので、<code>()</code>は付きません。</p>
+            <p><strong>現在のアプリで使っている例：</strong></p>
+            <pre><code>freeMemoStatus.textContent = "保存しました";</code></pre>
+            <p>自由メモを保存できたときに、結果表示の文字を変更しています。</p>
+            <p>このページでは、HTML文字列を直接扱う<code>innerHTML</code>などには広げません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>input・textareaの値を取得する</summary>
+          <div class="details-content">
+            <p><code>&lt;input&gt;</code>や<code>&lt;textarea&gt;</code>に入力された値は、<code>value</code>で取得できます。</p>
+            <p><strong>HTML：</strong></p>
+            <pre><code>&lt;textarea id="free-memo-input"&gt;&lt;/textarea&gt;</code></pre>
+            <p><strong>JavaScriptで要素を見つける：</strong></p>
+            <pre><code>const freeMemoInput =
+  document.getElementById("free-memo-input");</code></pre>
+            <p><strong>入力された値を取得する：</strong></p>
+            <pre><code>const freeMemoText = freeMemoInput.value;</code></pre>
+            <p><code>&lt;textarea&gt;</code>へ文章を入力<br>↓<br><code>freeMemoInput.value</code><br>↓<br>入力された文章を取得<br>↓<br><code>freeMemoText</code>へ入れる</p>
+            <p><code>freeMemoInput</code><br>→ 取得した<code>&lt;textarea&gt;</code>要素</p>
+            <p><code>value</code><br>→ 現在入力されている値</p>
+            <p><code>value</code>もプロパティなので、<code>()</code>は付きません。</p>
+
+            <p><strong>textContentとvalueの比較</strong></p>
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">扱うもの</th>
+                  <th scope="col">使うプロパティ</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>&lt;p&gt;</code>や<code>&lt;span&gt;</code>などの文字</td>
+                  <td><code>textContent</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;input&gt;</code>や<code>&lt;textarea&gt;</code>の入力値</td>
+                  <td><code>value</code></td>
+                </tr>
+              </tbody>
+            </table>
+            <pre><code>const freeMemoText = freeMemoInput.value;
+
+freeMemoStatus.textContent = "保存しました";</code></pre>
+            <p>入力された値<br>→ <code>value</code></p>
+            <p>画面に表示する文字<br>→ <code>textContent</code></p>
+          </div>
+        </details>
+
+        <details>
+          <summary>このアプリで使っているHTML操作</summary>
+          <div class="details-content">
+            <div class="details-list">
+              <div>
+                <p><strong>1. BACKボタンを見つける</strong></p>
+                <p>HTMLのBACKボタンとJavaScriptは、同じ<code>back-button</code>というid名でつながっています。</p>
+                <p>HTMLの<code>id="back-button"</code><br>↓ 同じ名前でつながる<br>JavaScriptの<code>getElementById("back-button")</code></p>
+                <details>
+                  <summary>実際のコードを見る</summary>
+                  <div class="details-content">
+                    <p><strong>HTML：</strong></p>
+                    <pre class="javascript-code"><code>&lt;button type="button" id="back-button" class="nav-button"&gt;BACK&lt;/button&gt;</code></pre>
+                    <p><strong>JavaScript：</strong></p>
+                    <pre class="javascript-code"><code>// HTMLからBACKボタンを取得します。
+const backButton = document.getElementById("back-button");
+
+// BACKボタンがクリックされたときの処理です。
+backButton.addEventListener("click", function () {
+  history.back();
+});</code></pre>
+                  </div>
+                </details>
+              </div>
+
+              <div>
+                <p><strong>2. 自由メモの入力欄を見つけて値を読む</strong></p>
+                <p>HTMLの<code>free-memo-input</code>というidを使って入力欄を見つけ、<code>freeMemoInput</code>という変数へ入れます。</p>
+                <p>HTMLの<code>id="free-memo-input"</code><br>↓<br><code>getElementById("free-memo-input")</code><br>↓<br><code>freeMemoInput</code><br>↓ <code>.value</code><br>入力された文章</p>
+                <details>
+                  <summary>実際のコードを見る</summary>
+                  <div class="details-content">
+                    <p><strong>HTML：</strong></p>
+                    <pre class="javascript-code"><code>&lt;textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ"&gt;&lt;/textarea&gt;</code></pre>
+                    <p><strong>JavaScript：</strong></p>
+                    <pre class="javascript-code"><code>// HTMLから自由メモの入力欄を取得します。
+const freeMemoInput = document.getElementById("free-memo-input");
+
+// 入力欄に書かれた文章を取得します。
+const freeMemoText = freeMemoInput.value;</code></pre>
+                  </div>
+                </details>
+              </div>
+
+              <div>
+                <p><strong>3. 「保存しました」の文字を変更する</strong></p>
+                <p>HTMLの空の<code>&lt;p&gt;</code>をidで見つけ、<code>textContent</code>を使って「保存しました」という文字を表示します。</p>
+                <p>HTMLの<code>id="free-memo-status"</code><br>↓<br><code>getElementById("free-memo-status")</code><br>↓<br><code>freeMemoStatus.textContent</code><br>↓<br>「保存しました」と表示</p>
+                <details>
+                  <summary>実際のコードを見る</summary>
+                  <div class="details-content">
+                    <p><strong>HTML：</strong></p>
+                    <pre class="javascript-code"><code>&lt;p id="free-memo-status" class="free-memo-status" aria-live="polite"&gt;&lt;/p&gt;</code></pre>
+                    <p><strong>JavaScript：</strong></p>
+                    <pre class="javascript-code"><code>// HTMLから保存結果を表示する要素を取得します。
+const freeMemoStatus = document.getElementById("free-memo-status");
+
+// 空だった要素へ「保存しました」という文字を入れます。
+freeMemoStatus.textContent = "保存しました";</code></pre>
+                    <p><strong>結果：</strong></p>
+                    <pre class="javascript-code"><code>&lt;p
+  id="free-memo-status"
+  class="free-memo-status"
+  aria-live="polite"
+&gt;&lt;/p&gt;
+
+↓ textContentで文字を変更
+
+&lt;p
+  id="free-memo-status"
+  class="free-memo-status"
+  aria-live="polite"
+&gt;保存しました&lt;/p&gt;</code></pre>
+                    <p><code>textContent</code>はHTML要素そのものを作り直すのではなく、その要素が持つ文字内容を変更します。</p>
+                  </div>
+                </details>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>これから学ぶこと</summary>
+          <div class="details-content">
+            <p><strong>HTML要素を見つける</strong><br>→ <code>getElementById()</code>などを使う</p>
+            <p><strong>文字を扱う</strong><br>→ <code>textContent</code>を使う</p>
+            <p><strong>入力値を扱う</strong><br>→ <code>value</code>を使う</p>
+            <p><strong>複数のHTML要素を扱う</strong><br>→ classや<code>querySelectorAll()</code>などを使う</p>
+            <p><strong>イベント</strong><br>→ クリックなどをきっかけに処理を動かす</p>
+            <p>JavaScriptでHTMLを操作するときは、「まず要素を見つける → その要素の文字や値を扱う」という流れを意識すると、コードを読みやすくなります。</p>
+
+            <p><strong>復習ミニ表</strong></p>
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">やりたいこと</th>
+                  <th scope="col">主な書き方</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>idで1つ見つける</td>
+                  <td><code>getElementById()</code></td>
+                </tr>
+                <tr>
+                  <td>classから複数見つける</td>
+                  <td><code>getElementsByClassName()</code></td>
+                </tr>
+                <tr>
+                  <td>CSSセレクタで1つ見つける</td>
+                  <td><code>querySelector()</code></td>
+                </tr>
+                <tr>
+                  <td>CSSセレクタで複数見つける</td>
+                  <td><code>querySelectorAll()</code></td>
+                </tr>
+                <tr>
+                  <td>HTMLの文字を扱う</td>
+                  <td><code>textContent</code></td>
+                </tr>
+                <tr>
+                  <td><code>&lt;input&gt;</code>・<code>&lt;textarea&gt;</code>の値を扱う</td>
+                  <td><code>value</code></td>
+                </tr>
+              </tbody>
+            </table>
+            <p><code>Element</code><br>→ 1つ</p>
+            <p><code>Elements</code><br>→ 複数</p>
+            <p><code>querySelector</code><br>→ 1つ</p>
+            <p><code>querySelectorAll</code><br>→ 複数</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

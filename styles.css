@@ -259,6 +259,33 @@ code {
   overflow: auto;
 }
 
+/* JavaScript学習ページ：比較表 */
+.comparison-table {
+  width: 100%;
+  margin: 12px 0 16px;
+  border-collapse: collapse;
+}
+
+/* JavaScript学習ページ：比較表の見出し・内容 */
+.comparison-table th,
+.comparison-table td {
+  padding: 10px;
+  overflow-wrap: anywhere;
+  border: 1px solid #3a3a3a;
+  text-align: left;
+  vertical-align: top;
+}
+
+/* JavaScript学習ページ：比較表の見出し背景 */
+.comparison-table th {
+  background-color: #121212;
+}
+
+/* JavaScript学習ページ：比較表内のコードを途中で折り返さない */
+.comparison-table code {
+  white-space: nowrap;
+}
+
 /* 自由メモ共通：入力欄・保存ボタン・結果表示の縦並び */
 .free-memo-area {
   display: flex;
