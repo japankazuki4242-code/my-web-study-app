@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>データを保存する setItem() | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>データを保存する setItem()</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>setItem()とは？</summary>
+          <div class="details-content">
+            <p><code>setItem()</code>は、localStorageへデータを保存するメソッドです。</p>
+            <pre class="javascript-code"><code>localStorage.setItem("userName", "かず");</code></pre>
+            <p>この例では、<code>"userName"</code>というkeyと、<code>"かず"</code>というvalueをセットにして保存しています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>書き方を分けて読む</summary>
+          <div class="details-content">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">書き方</th>
+                  <th scope="col">意味</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>localStorage</code></td>
+                  <td>ブラウザの保存機能</td>
+                </tr>
+                <tr>
+                  <td><code>.</code></td>
+                  <td>localStorageが持つ機能につなぐ</td>
+                </tr>
+                <tr>
+                  <td><code>setItem()</code></td>
+                  <td>データを保存するメソッド</td>
+                </tr>
+                <tr>
+                  <td><code>"userName"</code></td>
+                  <td>保存する場所の名前であるkey</td>
+                </tr>
+                <tr>
+                  <td><code>"かず"</code></td>
+                  <td>保存する中身であるvalue</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <details>
+          <summary>setItem(key, value)の順番</summary>
+          <div class="details-content">
+            <p><code>setItem()</code>の基本形は、次のとおりです。</p>
+            <pre class="javascript-code"><code>setItem(key, value)</code></pre>
+            <p>丸括弧の中には、① key、② valueの順番で指定します。</p>
+            <p>① どこへ保存するかをkeyで指定する<br>↓<br>② 何を保存するかをvalueで指定する</p>
+            <p>keyとvalueの間は、カンマ<code>,</code>で区切ります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>このアプリの実際の書き方</summary>
+          <div class="details-content">
+            <p>このアプリの自由メモでは、次のコードで入力内容を保存しています。</p>
+            <pre class="javascript-code"><code>localStorage.setItem(
+  freeMemoStorageKey,
+  freeMemoText
+);</code></pre>
+            <p><code>freeMemoStorageKey</code><br>→ 保存先のkey</p>
+            <p><code>freeMemoText</code><br>→ 保存するメモの内容</p>
+            <p>基本例と同じように、key、valueの順番で指定しています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>保存までの流れ</summary>
+          <div class="details-content">
+            <p>自由メモを保存するときは、次のような流れになります。</p>
+            <p>入力欄にメモを書く<br>↓<br>保存ボタンを押す<br>↓<br>入力内容を<code>freeMemoText</code>へ入れる<br>↓<br><code>setItem()</code>でlocalStorageへ保存する</p>
+            <p>保存したデータは、同じkeyを指定することで後から読み出せます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

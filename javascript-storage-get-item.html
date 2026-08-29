@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>保存したデータを読む getItem() | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>保存したデータを読む getItem()</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>getItem()とは？</summary>
+          <div class="details-content">
+            <p><code>getItem()</code>は、localStorageに保存されているデータを読み出すメソッドです。</p>
+            <pre class="javascript-code"><code>const userName =
+  localStorage.getItem("userName");</code></pre>
+            <p><code>"userName"</code>というkeyに保存されているvalueを読み出し、<code>userName</code>という変数へ入れています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>書き方を分けて読む</summary>
+          <div class="details-content">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">書き方</th>
+                  <th scope="col">意味</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>localStorage</code></td>
+                  <td>ブラウザの保存機能</td>
+                </tr>
+                <tr>
+                  <td><code>getItem()</code></td>
+                  <td>保存されているデータを読み出すメソッド</td>
+                </tr>
+                <tr>
+                  <td><code>"userName"</code></td>
+                  <td>読み出したいデータのkey</td>
+                </tr>
+                <tr>
+                  <td><code>userName</code></td>
+                  <td>読み出したvalueを入れる変数</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <details>
+          <summary>読み出しの流れ</summary>
+          <div class="details-content">
+            <p><code>getItem()</code>は、指定されたkeyを手がかりにして保存済みのvalueを読み出します。</p>
+            <p><code>"userName"</code>というkeyを探す<br>↓<br>保存されているvalueを読み出す<br>↓<br><code>userName</code>という変数へ入れる</p>
+            <p>保存時と同じkeyを指定することが大切です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>setItem()との違い</summary>
+          <div class="details-content">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">メソッド</th>
+                  <th scope="col">役割</th>
+                  <th scope="col">基本形</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>setItem()</code></td>
+                  <td>保存</td>
+                  <td><code>setItem(key, value)</code></td>
+                </tr>
+                <tr>
+                  <td><code>getItem()</code></td>
+                  <td>読み出し</td>
+                  <td><code>getItem(key)</code></td>
+                </tr>
+              </tbody>
+            </table>
+            <p><code>setItem()</code>はkeyとvalueを指定します。<code>getItem()</code>は、読み出したいデータのkeyだけを指定します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>保存データがない場合</summary>
+          <div class="details-content">
+            <p>指定したkeyに保存データが存在しない場合、<code>getItem()</code>は<code>null</code>を返します。</p>
+            <p><code>null</code>は、ここでは「そのkeyに読み出せるデータがない」ことを表します。</p>
+            <p>データがない場合も考えて、読み出した結果が<code>null</code>ではないかを確認してから使うことがあります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>このアプリの実際の書き方</summary>
+          <div class="details-content">
+            <p>このアプリの自由メモでは、次のコードで保存済みのメモを読み出しています。</p>
+            <pre class="javascript-code"><code>const savedFreeMemo =
+  localStorage.getItem(freeMemoStorageKey);</code></pre>
+            <p><code>freeMemoStorageKey</code>を使って自由メモの保存場所を探し、読み出したvalueを<code>savedFreeMemo</code>という変数へ入れています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>読み出したメモを入力欄へ表示する</summary>
+          <div class="details-content">
+            <p>保存済みのメモを読み出した後は、次のコードへつながります。</p>
+            <pre class="javascript-code"><code>if (savedFreeMemo !== null) {
+  freeMemoInput.value = savedFreeMemo;
+}</code></pre>
+            <p><code>!==</code>は、「厳密に等しくない」という比較演算子です。</p>
+            <p><code>savedFreeMemo !== null</code>は、「<code>savedFreeMemo</code>が<code>null</code>ではない」という意味です。</p>
+            <p>保存済みのメモがある場合だけ、その内容を<code>freeMemoInput.value</code>へ入れて入力欄に表示します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>keyとvalueとは？ | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>keyとvalueとは？</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>keyとvalueとは？</summary>
+          <div class="details-content">
+            <p>localStorageは、keyとvalueをセットにしてデータを保存します。</p>
+            <p><code>key</code><br>→ 保存する場所の名前</p>
+            <p><code>value</code><br>→ その場所へ保存する中身</p>
+            <p>どの場所に、どの中身を保存するのかを2つセットで指定します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>名前を書いた引き出しのイメージ</summary>
+          <div class="details-content">
+            <p>localStorageは、名前を書いた引き出しにデータを入れるようなイメージです。</p>
+            <p>引き出しに書かれた名前<br>→ <code>key</code></p>
+            <p>引き出しの中へ入れるもの<br>→ <code>value</code></p>
+            <p>後からkeyを使って引き出しを探すと、その中に保存したvalueを読み出せます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の例</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>localStorage.setItem("userName", "かず");</code></pre>
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">書き方</th>
+                  <th scope="col">役割</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>"userName"</code></td>
+                  <td>保存する場所の名前であるkey</td>
+                </tr>
+                <tr>
+                  <td><code>"かず"</code></td>
+                  <td>保存する中身であるvalue</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>この例では、<code>"userName"</code>という名前の場所へ、<code>"かず"</code>という文字を保存しています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>このアプリの自由メモのkey</summary>
+          <div class="details-content">
+            <p>このアプリでは、自由メモ用のkeyを次のように変数へ入れています。</p>
+            <pre class="javascript-code"><code>const freeMemoStorageKey =
+  "my-web-study-app:free-memo";</code></pre>
+            <p><code>"my-web-study-app:free-memo"</code>が、自由メモを保存する場所の名前であるkeyです。</p>
+            <p><code>freeMemoStorageKey</code>という変数を使うことで、保存するときも読み出すときも同じkeyを指定できます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>keyとvalueをセットで考える</summary>
+          <div class="details-content">
+            <p>localStorageで大切なのは、keyとvalueをセットで考えることです。</p>
+            <p>① keyで保存する場所に名前を付ける<br>↓<br>② その場所へvalueを保存する<br>↓<br>③ 同じkeyを使ってvalueを読み出す</p>
+            <p>keyが違うと別の保存場所になるため、保存時と読み出し時には同じkeyを使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
