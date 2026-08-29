@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>localStorageの書き方を読む | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>localStorageの書き方を読む</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>コード全体を確認する</summary>
+          <div class="details-content">
+            <p>次のコードは、localStorageへデータを保存する基本的な書き方です。</p>
+            <pre class="javascript-code"><code>localStorage.setItem("userName", "かず");</code></pre>
+            <p><code>"userName"</code>というkeyと、<code>"かず"</code>というvalueをセットにして保存しています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>localStorage.setItemを読む</summary>
+          <div class="details-content">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">書き方</th>
+                  <th scope="col">意味</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>localStorage</code></td>
+                  <td>ブラウザの保存機能</td>
+                </tr>
+                <tr>
+                  <td><code>.</code></td>
+                  <td><code>localStorage</code>と<code>setItem</code>をつなぐ</td>
+                </tr>
+                <tr>
+                  <td><code>setItem</code></td>
+                  <td>データを保存するメソッド</td>
+                </tr>
+              </tbody>
+            </table>
+            <p><code>.</code>の左側にある<code>localStorage</code>が持っている、<code>setItem</code>という機能を使う、と読みます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>丸括弧の中を読む</summary>
+          <div class="details-content">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">記号・値</th>
+                  <th scope="col">意味</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>(</code></td>
+                  <td>引数の開始</td>
+                </tr>
+                <tr>
+                  <td><code>"userName"</code></td>
+                  <td>保存する場所の名前であるkey</td>
+                </tr>
+                <tr>
+                  <td><code>,</code></td>
+                  <td>引数の区切り</td>
+                </tr>
+                <tr>
+                  <td><code>"かず"</code></td>
+                  <td>保存する中身であるvalue</td>
+                </tr>
+                <tr>
+                  <td><code>)</code></td>
+                  <td>引数の終了</td>
+                </tr>
+                <tr>
+                  <td><code>;</code></td>
+                  <td>1つの処理の終了</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>メソッドへ渡す値を引数といいます。<code>setItem()</code>では、keyとvalueの2つを引数として渡します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>変数と文字列の違い</summary>
+          <div class="details-content">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">書き方</th>
+                  <th scope="col">表しているもの</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>freeMemoStorageKey</code></td>
+                  <td>値を入れておく変数</td>
+                </tr>
+                <tr>
+                  <td><code>"freeMemoStorageKey"</code></td>
+                  <td>引用符で囲まれた文字列そのもの</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>引用符がない<code>freeMemoStorageKey</code>を書くと、変数の中に入っている値が使われます。</p>
+            <p>引用符で囲んだ<code>"freeMemoStorageKey"</code>を書くと、「freeMemoStorageKey」という文字そのものが使われます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>改行しても同じ処理</summary>
+          <div class="details-content">
+            <p>このアプリでは、読みやすくするために引数ごとに改行しています。</p>
+            <pre class="javascript-code"><code>localStorage.setItem(
+  freeMemoStorageKey,
+  freeMemoText
+);</code></pre>
+            <p>次のように1行で書くこともできます。</p>
+            <pre class="javascript-code"><code>localStorage.setItem(freeMemoStorageKey, freeMemoText);</code></pre>
+            <p>2つのコードは改行の仕方が違うだけで、基本的には同じ処理です。どちらも、<code>freeMemoStorageKey</code>をkey、<code>freeMemoText</code>をvalueとして保存します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

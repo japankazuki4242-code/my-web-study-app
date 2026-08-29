@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>データを削除する removeItem() | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>データを削除する removeItem()</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>removeItem()とは？</summary>
+          <div class="details-content">
+            <p><code>removeItem()</code>は、指定したkeyのデータだけをlocalStorageから削除するメソッドです。</p>
+            <pre class="javascript-code"><code>localStorage.removeItem(key);</code></pre>
+            <p>丸括弧の中に、削除したいデータのkeyを指定します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>指定したkeyだけを削除する</summary>
+          <div class="details-content">
+            <p>localStorageに複数のデータが保存されていても、<code>removeItem(key)</code>が削除するのは指定したkeyのデータだけです。</p>
+            <p>削除したいkeyを指定する<br>↓<br>そのkeyに保存されているデータを削除する<br>↓<br>ほかのkeyのデータは残る</p>
+            <p>保存に使ったkeyと同じkeyを指定する必要があります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>3つのメソッドを比較する</summary>
+          <div class="details-content">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">メソッド・基本形</th>
+                  <th scope="col">役割</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>setItem()</code><br><code>setItem(key, value)</code></td>
+                  <td>保存</td>
+                </tr>
+                <tr>
+                  <td><code>getItem()</code><br><code>getItem(key)</code></td>
+                  <td>読み出し</td>
+                </tr>
+                <tr>
+                  <td><code>removeItem()</code><br><code>removeItem(key)</code></td>
+                  <td>指定したkeyを削除</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <details>
+          <summary>clear()との違い</summary>
+          <div class="details-content">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">メソッド</th>
+                  <th scope="col">削除する範囲</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>removeItem(key)</code></td>
+                  <td>指定したkeyのデータだけ</td>
+                </tr>
+                <tr>
+                  <td><code>clear()</code></td>
+                  <td>そのサイトのlocalStorageをまとめて削除</td>
+                </tr>
+              </tbody>
+            </table>
+            <p><code>clear()</code>はほかのkeyのデータもまとめて消すため、削除される範囲に注意が必要です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回は説明だけ</summary>
+          <div class="details-content">
+            <p>このページでは、<code>removeItem()</code>と<code>clear()</code>の役割を教材として説明しています。</p>
+            <p>実際のアプリには、削除ボタンや<code>removeItem()</code>・<code>clear()</code>の処理を追加していません。</p>
+            <p>自由メモの保存済みデータも削除されません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
