@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>配列から値を取り出す・変更する | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>配列から値を取り出す・変更する</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>今回使う配列</summary>
+          <div class="details-content">
+            <p>このページでは、3つの果物が入った次の配列を使います。</p>
+            <pre class="javascript-code"><code>const fruits = ["りんご", "みかん", "バナナ"];</code></pre>
+            <p>配列名は<code>fruits</code>です。index 0から順番に、「りんご」「みかん」「バナナ」が入っています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>値を取り出す</summary>
+          <div class="details-content">
+            <p>「配列名[index]」と書くと、指定した要素を配列から取り出せます。</p>
+            <p>値を取り出して確認しても、その要素が配列からなくなるわけではありません。</p>
+            <pre class="javascript-code"><code>console.log(fruits[0]);
+console.log(fruits[1]);
+console.log(fruits[2]);</code></pre>
+            <p><code>fruits[0]</code>は1番目、<code>fruits[1]</code>は2番目、<code>fruits[2]</code>は3番目の要素を指定しています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実行結果</summary>
+          <div class="details-content">
+            <p>先ほどのコードを実行すると、コンソールには次のように表示されます。</p>
+            <pre class="javascript-code"><code>りんご
+みかん
+バナナ</code></pre>
+            <p>配列の中の値が、指定したインデックスの順番で1つずつ取り出されています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>配列名[index]の読み方</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>fruits[1]</code></pre>
+            <p><code>fruits</code><br>→ 値を取り出す配列</p>
+            <p><code>[1]</code><br>→ index 1の要素を指定</p>
+            <p><code>fruits[1]</code><br>→ <code>fruits</code>のindex 1にある「みかん」</p>
+            <p>角括弧の中に、人間が数える順番ではなく、0から始まるインデックスを書きます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>値を変更する</summary>
+          <div class="details-content">
+            <p>指定した要素へ新しい値を代入すると、配列の値を変更できます。</p>
+            <pre class="javascript-code"><code>const fruits = ["りんご", "みかん", "バナナ"];
+
+fruits[1] = "ぶどう";
+
+console.log(fruits);</code></pre>
+            <p>このコードを実行すると、index 1の「みかん」が「ぶどう」へ変わります。</p>
+            <pre class="javascript-code"><code>["りんご", "ぶどう", "バナナ"]</code></pre>
+            <p>指定していない「りんご」と「バナナ」は変わりません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>変更するコードを分けて読む</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>fruits[1] = "ぶどう";</code></pre>
+            <p><code>fruits</code><br>→ 配列</p>
+            <p><code>[1]</code><br>→ index 1の要素を指定</p>
+            <p><code>=</code><br>→ 右側の値を左側へ代入</p>
+            <p><code>"ぶどう"</code><br>→ 新しく代入する値</p>
+            <p>左から読むと、「<code>fruits</code>のindex 1に、新しい値の『ぶどう』を代入する」という処理です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>constでも要素は変更できる</summary>
+          <div class="details-content">
+            <p><code>const fruits = [...]</code>と宣言していても、<code>fruits[1]</code>のように配列の要素を指定して変更できます。</p>
+            <p><code>const</code>でできないのは、<code>fruits</code>自体へ別の配列を再代入することです。</p>
+            <p><strong>できる</strong></p>
+            <pre class="javascript-code"><code>fruits[1] = "ぶどう";</code></pre>
+            <p><strong>できない</strong></p>
+            <pre class="javascript-code"><code>fruits = ["ぶどう", "もも"];</code></pre>
+            <p>「配列の要素を変更すること」と「変数へ別の配列を再代入すること」を分けて考えましょう。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>存在しないindexを指定すると？</summary>
+          <div class="details-content">
+            <p>この配列にある要素のインデックスは、0・1・2です。</p>
+            <pre class="javascript-code"><code>const fruits = ["りんご", "みかん", "バナナ"];
+
+console.log(fruits[3]);</code></pre>
+            <p>index 3には値が存在しないため、実行結果は<code>undefined</code>になります。</p>
+            <pre class="javascript-code"><code>undefined</code></pre>
+            <p><code>undefined</code>は、ここでは「指定した場所に値がない」と考えると分かりやすいです。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>間違えやすいポイント</summary>
+          <div class="details-content">
+            <p>2番目の要素を取り出したり変更したりするときは、<code>[2]</code>ではなく<code>[1]</code>を使います。インデックスは0から始まるためです。</p>
+            <p>値を取り出すだけなら<code>fruits[1]</code>、新しい値へ変更するなら<code>fruits[1] = "ぶどう";</code>のように代入を書きます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

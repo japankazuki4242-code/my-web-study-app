@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>要素とインデックス | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>要素とインデックス</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>配列の要素を確認する</summary>
+          <div class="details-content">
+            <p>配列の中にある1つ1つの値を「要素」と呼びます。</p>
+            <pre class="javascript-code"><code>const fruits = ["りんご", "みかん", "バナナ"];</code></pre>
+            <p>この配列には、「りんご」「みかん」「バナナ」という3つの要素が順番に入っています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>インデックスとは？</summary>
+          <div class="details-content">
+            <p>インデックスは、配列の中にある要素の位置を表す番号です。</p>
+            <p><code>"りんご"</code><br>→ 1番目の要素<br>→ index 0</p>
+            <p><code>"みかん"</code><br>→ 2番目の要素<br>→ index 1</p>
+            <p><code>"バナナ"</code><br>→ 3番目の要素<br>→ index 2</p>
+            <p>インデックスは、配列の左にある要素から順番に付きます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>人間は1番目、indexは0から</summary>
+          <div class="details-content">
+            <p>人間が順番を数えるときは、最初のものを「1番目」と呼ぶことが多いです。</p>
+            <p>JavaScriptの配列では、最初の要素のインデックスは<code>0</code>です。</p>
+            <p><strong>人間が数える順番</strong><br>1番目 → 2番目 → 3番目</p>
+            <p><strong>JavaScriptのindex</strong><br>0 → 1 → 2</p>
+            <p>人間が数える順番より、インデックスは1つ小さくなります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>fruits[0]を分けて読む</summary>
+          <div class="details-content">
+            <p>1番目の要素を指定するときは、次のように書きます。</p>
+            <pre class="javascript-code"><code>fruits[0]</code></pre>
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">書き方</th>
+                  <th scope="col">意味</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>fruits</code></td>
+                  <td>配列が入っている変数</td>
+                </tr>
+                <tr>
+                  <td><code>[</code></td>
+                  <td>index指定の始まり</td>
+                </tr>
+                <tr>
+                  <td><code>0</code></td>
+                  <td>指定するindex番号</td>
+                </tr>
+                <tr>
+                  <td><code>]</code></td>
+                  <td>index指定の終わり</td>
+                </tr>
+              </tbody>
+            </table>
+            <p><code>fruits[0]</code>は、「<code>fruits</code>のindex 0にある要素」と読みます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>3つの要素をindexで指定する</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>fruits[0]
+fruits[1]
+fruits[2]</code></pre>
+            <p><code>fruits[0]</code><br>→ index 0<br>→ 1番目の「りんご」</p>
+            <p><code>fruits[1]</code><br>→ index 1<br>→ 2番目の「みかん」</p>
+            <p><code>fruits[2]</code><br>→ index 2<br>→ 3番目の「バナナ」</p>
+            <p>配列名の後ろに角括弧を書き、その中へ指定したい要素のインデックスを入れます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>間違えやすいポイント</summary>
+          <div class="details-content">
+            <p><code>fruits[1]</code>は1番目の要素ではありません。index 1なので、人間が数えると2番目の「みかん」です。</p>
+            <p>最初の要素を指定したいときは、<code>fruits[0]</code>と書きます。</p>
+            <p>このページでは、インデックスが0から始まることを覚えておきましょう。要素を取り出したり変更したりする方法は、次のページで確認します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

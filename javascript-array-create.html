@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>配列を作る・constとlet | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>配列を作る・constとlet</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>配列を作る基本コード</summary>
+          <div class="details-content">
+            <p>3つの果物を入れた配列は、次のように作ります。</p>
+            <pre class="javascript-code"><code>const fruits = ["りんご", "みかん", "バナナ"];</code></pre>
+            <p>角括弧<code>[ ]</code>の中へ値を書き、値と値の間をカンマ<code>,</code>で区切ります。</p>
+            <p>作った配列を<code>fruits</code>という変数へ入れているため、後から<code>fruits</code>という名前でこの配列を使えます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>書き方を分けて読む</summary>
+          <div class="details-content">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">書き方</th>
+                  <th scope="col">意味</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>const</code></td>
+                  <td>あとから別の値を再代入できない定数を宣言する</td>
+                </tr>
+                <tr>
+                  <td><code>fruits</code></td>
+                  <td>配列を入れる変数の名前</td>
+                </tr>
+                <tr>
+                  <td><code>=</code></td>
+                  <td>右側の値を左側の変数へ代入する</td>
+                </tr>
+                <tr>
+                  <td><code>[</code></td>
+                  <td>配列の始まり</td>
+                </tr>
+                <tr>
+                  <td><code>"りんご"</code></td>
+                  <td>1つ目の要素</td>
+                </tr>
+                <tr>
+                  <td><code>,</code></td>
+                  <td>要素と要素の区切り</td>
+                </tr>
+                <tr>
+                  <td><code>"みかん"</code></td>
+                  <td>2つ目の要素</td>
+                </tr>
+                <tr>
+                  <td><code>"バナナ"</code></td>
+                  <td>3つ目の要素</td>
+                </tr>
+                <tr>
+                  <td><code>]</code></td>
+                  <td>配列の終わり</td>
+                </tr>
+                <tr>
+                  <td><code>;</code></td>
+                  <td>文の終わり</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>左から読むと、「配列を<code>fruits</code>という変数へ代入する」というコードです。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>constでも要素は変更できる</summary>
+          <div class="details-content">
+            <p><code>const</code>で配列を入れた変数を宣言しても、配列の中にある要素は変更できます。</p>
+            <pre class="javascript-code"><code>const fruits = ["りんご", "みかん"];
+
+fruits[0] = "バナナ";</code></pre>
+            <p>このコードでは、配列の1つ目の要素を「りんご」から「バナナ」へ変更しています。</p>
+            <p><code>[0]</code>は1つ目の要素を指定する書き方です。詳しい読み方は、次の「要素とインデックス」で学びます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>constでは別の配列を再代入できない</summary>
+          <div class="details-content">
+            <p><code>const</code>で宣言した<code>fruits</code>自体へ、別の配列を再代入することはできません。</p>
+            <pre class="javascript-code"><code>const fruits = ["りんご", "みかん"];
+
+fruits = ["ぶどう", "もも"];</code></pre>
+            <p>1行目で<code>fruits</code>へ配列を代入した後、同じ<code>fruits</code>へ別の配列をもう一度代入しようとしているためです。</p>
+            <p><code>const</code>は「その変数へ別の値を再代入できない」と覚えましょう。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>letでは再代入できる</summary>
+          <div class="details-content">
+            <p><code>let</code>で宣言した変数には、あとから別の値を再代入できます。</p>
+            <pre class="javascript-code"><code>let fruits = ["りんご", "みかん"];
+
+fruits = ["ぶどう", "もも"];</code></pre>
+            <p>このコードでは、<code>fruits</code>へ新しい配列を再代入しています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>constとletの違い</summary>
+          <div class="details-content">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">宣言</th>
+                  <th scope="col">再代入</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>const</code></td>
+                  <td>その変数へ別の値を再代入できない</td>
+                </tr>
+                <tr>
+                  <td><code>let</code></td>
+                  <td>あとから別の値を再代入できる</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>配列自体を別の配列へ入れ替えない場合は、<code>const</code>で宣言できます。配列の要素を変更することと、変数へ別の配列を再代入することは別です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>間違えやすいポイント</summary>
+          <div class="details-content">
+            <p><strong>誤解しやすい考え方</strong><br><code>const</code>なら配列の中身も絶対に変更できない</p>
+            <p><strong>正しい考え方</strong><br><code>const</code>で宣言した変数へ別の値は再代入できないが、配列の要素は変更できる</p>
+            <p><code>const</code>は「中身が絶対に変わらない」という意味ではありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
