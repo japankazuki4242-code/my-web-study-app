@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>let・constと値を保存する | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>let・constと値を保存する</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>値に名前を付けて保存する</summary>
+          <div class="details-content">
+            <p>変数や定数は、値に名前を付けて保存し、後からその名前で使うための仕組みです。</p>
+            <pre class="javascript-code"><code>const userName = "かず";</code></pre>
+            <p>「<code>userName</code>という名前の箱へ、『かず』という値を入れる」とイメージすると分かりやすくなります。</p>
+            <p>後から<code>userName</code>と書けば、保存した「かず」という値を使えます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>letは再代入できる</summary>
+          <div class="details-content">
+            <p><code>let</code>で宣言した変数には、後から別の値を再代入できます。</p>
+            <pre class="javascript-code"><code>let score = 10;
+
+score = 20;</code></pre>
+            <p>最初に<code>10</code>を保存し、その後で同じ<code>score</code>へ<code>20</code>を再代入しています。</p>
+            <p>値が変わる予定のあるものには、<code>let</code>を使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>constは再代入できない</summary>
+          <div class="details-content">
+            <p><code>const</code>で宣言した定数へ、後から別の値を再代入することはできません。</p>
+            <pre class="javascript-code"><code>const userName = "かず";
+
+userName = "太郎";</code></pre>
+            <p>再代入を実行した時点でエラーになります。</p>
+            <p>一度保存した値を別の値へ入れ替えないときは、<code>const</code>を使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本はconst、必要なときだけlet</summary>
+          <div class="details-content">
+            <p>宣言するときは、まず<code>const</code>で書けるかを考えます。</p>
+            <p><strong><code>const</code></strong><br>→ 後から別の値を再代入しない</p>
+            <p><strong><code>let</code></strong><br>→ 繰り返しの回数など、後から値を変える必要がある</p>
+            <p>再代入が必要なときだけ<code>let</code>を使うと、意図しない値の変更を減らせます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>camelCaseで名前を付ける</summary>
+          <div class="details-content">
+            <p>複数の単語を使って変数名や定数名を付けるときは、camelCaseがよく使われます。</p>
+            <pre class="javascript-code"><code>const userName = "かず";
+const totalPrice = 1500;</code></pre>
+            <p>最初の単語は小文字で始め、2つ目以降の単語の先頭を大文字にします。</p>
+            <p><code>userName</code>なら、「ユーザーの名前を保存している」と名前から分かります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>+=などで値を更新する</summary>
+          <div class="details-content">
+            <p><code>let</code>で宣言した数値は、<code>+=</code>などを使って更新できます。</p>
+            <pre class="javascript-code"><code>let score = 10;
+
+score += 5;
+
+console.log(score);</code></pre>
+            <p>実行結果は<code>15</code>です。</p>
+            <p><code>score += 5</code>は、次の書き方と同じ意味です。</p>
+            <pre class="javascript-code"><code>score = score + 5;</code></pre>
+            <p><code>-=</code>は値を減らすとき、<code>++</code>は値を1増やすときに使えます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>constだから中身が絶対変わらない？</summary>
+          <div class="details-content">
+            <p><code>const</code>は、「保存したものの中身が絶対に変わらない」という意味ではありません。</p>
+            <pre class="javascript-code"><code>const fruits = ["りんご", "みかん"];
+
+fruits[0] = "バナナ";</code></pre>
+            <p><code>fruits</code>へ別の配列は再代入できませんが、配列の要素は変更できます。</p>
+            <p>ここでは、「<code>const</code>で宣言した名前には、別の値を再代入できない」と整理しましょう。配列やオブジェクトの詳しい仕組みは、別の教材で学びます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>let points = 10;
+
+points += 5;</code></pre>
+            <p>① 最後の<code>points</code>の値はいくつですか？</p>
+            <p>② <code>points</code>に<code>let</code>を使う理由は何ですか？</p>
+            <p>③ 後から再代入しない名前には、<code>let</code>と<code>const</code>のどちらを使いますか？</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題の答え</summary>
+          <div class="details-content">
+            <p>① <code>15</code></p>
+            <p>② <code>points</code>の値を後から更新するため</p>
+            <p>③ <code>const</code></p>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回の学習ポイント</summary>
+          <div class="details-content">
+            <p>変数や定数は、値に名前を付けて保存する仕組みです。</p>
+            <p><code>const</code><br>→ 再代入できない</p>
+            <p><code>let</code><br>→ 再代入できる</p>
+            <p>基本は<code>const</code>を使い、値の再代入が必要なときだけ<code>let</code>を使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

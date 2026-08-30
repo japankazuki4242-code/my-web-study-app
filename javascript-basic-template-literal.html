@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>テンプレートリテラル | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>テンプレートリテラル</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>テンプレートリテラルとは？</summary>
+          <div class="details-content">
+            <p>テンプレートリテラルは、文章の中へ変数の値などを埋め込みやすくする文字列の書き方です。</p>
+            <p>シングルクォート<code>'</code>ではなく、バッククォート<code>`</code>で文字列全体を囲みます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>バッククォートを使う</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const message = `こんにちは`;</code></pre>
+            <p>文字列の最初と最後にある<code>`</code>がバッククォートです。</p>
+            <p>見た目がシングルクォート<code>'</code>と似ていますが、別の記号です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>${ }で変数を埋め込む</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const userName = "かず";
+const message = `こんにちは、${userName}さん`;
+
+console.log(message);</code></pre>
+            <p>実行結果は次のとおりです。</p>
+            <pre class="javascript-code"><code>こんにちは、かずさん</code></pre>
+            <p><code>${userName}</code>の部分が、<code>userName</code>に保存されている「かず」へ置き換わります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>コードを分けて読む</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const message = `こんにちは、${userName}さん`;</code></pre>
+            <p><code>const message</code><br>→ <code>message</code>という定数を宣言する</p>
+            <p><code>=</code><br>→ 右側の値を代入する</p>
+            <p><code>`</code><br>→ テンプレートリテラルの始まりと終わり</p>
+            <p><code>${userName}</code><br>→ <code>userName</code>の値を文章へ埋め込む</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>+で文字列をつなぐ場合との違い</summary>
+          <div class="details-content">
+            <p><strong><code>+</code>でつなぐ</strong></p>
+            <pre class="javascript-code"><code>const message = "こんにちは、" + userName + "さん";</code></pre>
+            <p><strong>テンプレートリテラル</strong></p>
+            <pre class="javascript-code"><code>const message = `こんにちは、${userName}さん`;</code></pre>
+            <p>どちらも同じ文章を作れます。テンプレートリテラルでは、文章を<code>+</code>で何度も区切らずに変数を埋め込めます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>クォートとの違い</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const message1 = 'こんにちは';
+const message2 = "こんにちは";
+const message3 = `こんにちは、${userName}さん`;</code></pre>
+            <p>シングルクォート<code>'</code>やダブルクォート<code>"</code>は、通常の文字列を作るときに使えます。</p>
+            <p>バッククォート<code>`</code>で囲むと、<code>${ }</code>を使って変数や計算結果を文章へ埋め込めます。</p>
+            <p>シングルクォートやダブルクォートで囲んだ文字列の中では、<code>${userName}</code>は変数の値へ置き換わりません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>${ }の中で計算する</summary>
+          <div class="details-content">
+            <p><code>${ }</code>の中には、変数だけでなく計算式も書けます。</p>
+            <pre class="javascript-code"><code>const price = 500;
+const quantity = 3;
+const message = `合計は${price * quantity}円です`;
+
+console.log(message);</code></pre>
+            <p>実行結果は次のとおりです。</p>
+            <pre class="javascript-code"><code>合計は1500円です</code></pre>
+            <p>先に<code>price * quantity</code>が計算され、その結果が文章へ埋め込まれます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const itemName = "ノート";
+const price = 200;</code></pre>
+            <p>テンプレートリテラルを使い、「ノートは200円です」という文章を<code>message</code>へ保存してください。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題の答え</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const message = `${itemName}は${price}円です`;</code></pre>
+            <p><code>${itemName}</code>には「ノート」、<code>${price}</code>には<code>200</code>が入ります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回の学習ポイント</summary>
+          <div class="details-content">
+            <p>テンプレートリテラルは、バッククォート<code>`</code>で囲みます。</p>
+            <p><code>${ }</code>を使うと、変数の値や計算結果を文章へ埋め込めます。</p>
+            <p>文字列と変数を<code>+</code>で何度もつなぐより、文章の形を読み取りやすく書けます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

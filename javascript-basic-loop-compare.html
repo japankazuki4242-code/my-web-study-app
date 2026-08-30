@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>while文とfor文の違い | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>while文とfor文の違い</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>while文とは？</summary>
+          <div class="details-content">
+            <p>while文は、指定した条件が<code>true</code>の間、同じ処理を繰り返します。</p>
+            <p>繰り返す回数よりも、「この条件が成り立っている間は続ける」と考えたい処理に向いています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>while文の基本コード</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>let count = 1;
+
+while (count &lt;= 3) {
+  console.log(count);
+  count++;
+}</code></pre>
+            <p><code>count</code>が<code>3</code>以下の間、現在の値を表示し、1ずつ増やします。</p>
+            <p>実行結果は<code>1</code>、<code>2</code>、<code>3</code>です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>while文を分けて読む</summary>
+          <div class="details-content">
+            <p><code>let count = 1</code><br>→ 最初の値を<code>1</code>にする</p>
+            <p><code>while (count &lt;= 3)</code><br>→ <code>count</code>が<code>3</code>以下の間、繰り返す</p>
+            <p><code>console.log(count)</code><br>→ 現在の<code>count</code>を表示する</p>
+            <p><code>count++</code><br>→ <code>count</code>を1増やす</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実行の流れ</summary>
+          <div class="details-content">
+            <p>① <code>count = 1</code><br>→ 条件は<code>true</code><br>→ <code>1</code>を表示<br>→ <code>count</code>を<code>2</code>にする</p>
+            <p>② <code>count = 2</code><br>→ 条件は<code>true</code><br>→ <code>2</code>を表示<br>→ <code>count</code>を<code>3</code>にする</p>
+            <p>③ <code>count = 3</code><br>→ 条件は<code>true</code><br>→ <code>3</code>を表示<br>→ <code>count</code>を<code>4</code>にする</p>
+            <p>④ <code>count = 4</code><br>→ <code>count &lt;= 3</code>は<code>false</code><br>→ 繰り返しを終了する</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>更新処理を忘れるとどうなる？</summary>
+          <div class="details-content">
+            <p>このように数値を使って繰り返すwhile文では、条件がいつか<code>false</code>になるように、値を更新する処理が必要です。</p>
+            <pre class="javascript-code"><code>let count = 1;
+
+while (count &lt;= 3) {
+  console.log(count);
+}</code></pre>
+            <p>この例では<code>count</code>が変わらないため、<code>count &lt;= 3</code>がずっと<code>true</code>のままです。</p>
+            <p>このコードでは条件がずっと<code>true</code>のままなので、無限ループになります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>for文との違い</summary>
+          <div class="details-content">
+            <p><strong>while文</strong><br>→ 条件が満たされている間、繰り返す</p>
+            <p><strong>for文</strong><br>→ 回数や範囲が分かっている繰り返しに向いている</p>
+            <p>for文は、最初の値・繰り返す条件・更新処理を丸括弧の中へまとめて書けます。</p>
+            <pre class="javascript-code"><code>for (let i = 1; i &lt;= 3; i++) {
+  console.log(i);
+}</code></pre>
+            <p>for文の詳しい読み方は、既存の「for文で配列を順番に処理する」で学習済みです。このページでは使い分けを中心に確認します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>while文とfor文の比較</summary>
+          <div class="details-content">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">while文</th>
+                  <th scope="col">for文</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>条件が<code>true</code>の間、繰り返す</td>
+                  <td>回数や範囲が分かっている繰り返しに向く</td>
+                </tr>
+                <tr>
+                  <td>条件と更新処理を別の場所に書く</td>
+                  <td>最初の値・条件・更新処理をまとめて書ける</td>
+                </tr>
+                <tr>
+                  <td>いつ終わるかを条件で考える</td>
+                  <td>どこからどこまで繰り返すかを考える</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <details>
+          <summary>どちらを使う？</summary>
+          <div class="details-content">
+            <p>「入力が正しくなるまで続ける」のように、条件を中心に考える場合はwhile文が向いています。</p>
+            <p>「配列の要素を先頭から最後まで処理する」のように、範囲が分かっている場合はfor文が向いています。</p>
+            <p>どちらでも書ける場合はありますが、何を基準に繰り返すのかが読みやすい方を選びます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題</summary>
+          <div class="details-content">
+            <p>① while文は、どのような間、処理を繰り返しますか？</p>
+            <p>② while文で更新処理を忘れると、どのような問題が起こる可能性がありますか？</p>
+            <p>③ 1回目から10回目まで処理するなど、回数が分かっている場合は、while文とfor文のどちらが向いていますか？</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題の答え</summary>
+          <div class="details-content">
+            <p>① 条件が<code>true</code>の間</p>
+            <p>② 条件がずっと<code>true</code>になり、無限ループになる可能性がある</p>
+            <p>③ for文</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回の学習ポイント</summary>
+          <div class="details-content">
+            <p>while文は、条件が<code>true</code>の間、処理を繰り返します。</p>
+            <p>while文では、条件がいつか<code>false</code>になるように更新処理を確認します。</p>
+            <p>条件を中心に考えるならwhile文、回数や範囲が分かっているならfor文と整理しましょう。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

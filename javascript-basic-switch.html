@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>switch文 | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>switch文</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>switch文とは？</summary>
+          <div class="details-content">
+            <p>switch文は、1つの値を複数の候補と比べ、同じ値の<code>case</code>に書かれた処理を実行するときに使います。</p>
+            <p>曜日や選択されたメニューなど、1つの値ごとに処理を分けたい場合に使えます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本コード</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const signal = "青";
+
+switch (signal) {
+  case "赤":
+    console.log("止まる");
+    break;
+  case "青":
+    console.log("進む");
+    break;
+  default:
+    console.log("信号を確認する");
+}</code></pre>
+            <p><code>signal</code>の値は「青」なので、<code>case "青"</code>の処理が実行され、「進む」と表示されます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>switch・case・break・default</summary>
+          <div class="details-content">
+            <p><code>switch (signal)</code><br>→ どの値を比べるか指定する</p>
+            <p><code>case "赤":</code><br>→ 値が「赤」と同じ場合の処理</p>
+            <p><code>break</code><br>→ switch文の処理をここで終了する</p>
+            <p><code>default</code><br>→ どの<code>case</code>にも当てはまらなかった場合の処理</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>コードを上から順に読む</summary>
+          <div class="details-content">
+            <p><code>signal</code>が「青」の場合を、上から順番に確認します。</p>
+            <p>① <code>switch (signal)</code><br>→ <code>signal</code>の値「青」を確認する</p>
+            <p>② <code>case "赤":</code><br>→ 「青」と「赤」は同じではないため進む</p>
+            <p>③ <code>case "青":</code><br>→ 値が同じなので「進む」と表示する</p>
+            <p>④ <code>break</code><br>→ switch文を終了する</p>
+            <p><code>case "青"</code>が見つかったため、<code>default</code>は実行されません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>defaultはどんなときに使う？</summary>
+          <div class="details-content">
+            <p><code>default</code>は、どの<code>case</code>とも値が同じではなかったときに実行されます。</p>
+            <pre class="javascript-code"><code>const signal = "点滅";</code></pre>
+            <p>この値は<code>case "赤"</code>にも<code>case "青"</code>にも当てはまらないため、<code>default</code>の「信号を確認する」が表示されます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>breakを書かなかった場合</summary>
+          <div class="details-content">
+            <p>一致した<code>case</code>の処理が終わった後も、<code>break</code>がなければ次の<code>case</code>以降の処理が続けて実行されます。</p>
+            <pre class="javascript-code"><code>const signal = "赤";
+
+switch (signal) {
+  case "赤":
+    console.log("止まる");
+  case "青":
+    console.log("進む");
+    break;
+}</code></pre>
+            <p>「赤」に一致した後に<code>break</code>がないため、「止まる」に続いて「進む」も表示されます。</p>
+            <p>そこで処理を終えたい<code>case</code>には、<code>break</code>を書き忘れないようにします。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>if文との簡単な違い</summary>
+          <div class="details-content">
+            <p><strong>switch文</strong><br>→ 1つの値を複数の候補と比べたいときに読みやすい</p>
+            <p><strong>if文</strong><br>→ 「80以上」や「2つの条件が両方成り立つ」など、さまざまな条件式を使える</p>
+            <p>1つの値と候補を比べるならswitch文、範囲や複数の条件を確認するならif文と考えると、使い分けやすくなります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const fruit = "みかん";
+
+switch (fruit) {
+  case "りんご":
+    console.log("赤い果物");
+    break;
+  case "みかん":
+    console.log("オレンジ色の果物");
+    break;
+  default:
+    console.log("ほかの果物");
+}</code></pre>
+            <p>① どの<code>case</code>が実行されますか？</p>
+            <p>② 何と表示されますか？</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題の答え</summary>
+          <div class="details-content">
+            <p>① <code>case "みかん":</code></p>
+            <p>② 「オレンジ色の果物」と表示されます。</p>
+            <p>その後に<code>break</code>があるため、switch文を終了します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回の学習ポイント</summary>
+          <div class="details-content">
+            <p>switch文は、1つの値を複数の候補と比べるときに使えます。</p>
+            <p><code>case</code>で候補、<code>break</code>で終了、<code>default</code>でどの候補にも当てはまらなかった場合の処理を書きます。</p>
+            <p>コードは<code>switch</code>から下へ、値が同じ<code>case</code>を探すように読みましょう。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

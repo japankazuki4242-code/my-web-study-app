@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>if・elseと比較・論理演算子 | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>if・elseと比較・論理演算子</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>trueとfalse</summary>
+          <div class="details-content">
+            <p>条件式を確認した結果は、<code>true</code>または<code>false</code>になります。</p>
+            <p><code>true</code><br>→ 条件が成り立つ</p>
+            <p><code>false</code><br>→ 条件が成り立たない</p>
+            <pre class="javascript-code"><code>20 &gt;= 18</code></pre>
+            <p><code>20</code>は<code>18</code>以上なので、この条件式の結果は<code>true</code>です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>if文とは？</summary>
+          <div class="details-content">
+            <p>if文は、条件が<code>true</code>のときだけ、波括弧<code>{ }</code>の中の処理を実行します。</p>
+            <pre class="javascript-code"><code>const age = 20;
+
+if (age &gt;= 18) {
+  console.log("18歳以上です");
+}</code></pre>
+            <p><code>age &gt;= 18</code>は<code>true</code>なので、「18歳以上です」と表示されます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>if文を分けて読む</summary>
+          <div class="details-content">
+            <p><code>if</code><br>→ 条件によって処理を分ける</p>
+            <p><code>(age &gt;= 18)</code><br>→ 確認する条件式</p>
+            <p><code>{</code><br>→ 条件が<code>true</code>のときに実行する処理の始まり</p>
+            <p><code>console.log("18歳以上です");</code><br>→ 条件が<code>true</code>なら実行する</p>
+            <p><code>}</code><br>→ 処理の終わり</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>elseを使う</summary>
+          <div class="details-content">
+            <p><code>else</code>を使うと、if文の条件が<code>false</code>だったときの処理を書けます。</p>
+            <pre class="javascript-code"><code>const age = 16;
+
+if (age &gt;= 18) {
+  console.log("18歳以上です");
+} else {
+  console.log("18歳未満です");
+}</code></pre>
+            <p><code>age &gt;= 18</code>は<code>false</code>なので、<code>else</code>の処理が実行されます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>else ifで条件を追加する</summary>
+          <div class="details-content">
+            <p><code>else if</code>を使うと、最初の条件が<code>false</code>だったときに、次の条件を確認できます。</p>
+            <pre class="javascript-code"><code>const score = 75;
+
+if (score &gt;= 80) {
+  console.log("評価A");
+} else if (score &gt;= 60) {
+  console.log("合格");
+} else {
+  console.log("再挑戦");
+}</code></pre>
+            <p>条件は上から順番に確認され、最初に<code>true</code>になった部分の処理だけが実行されます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実行される順番を確認する</summary>
+          <div class="details-content">
+            <p><code>score</code>の値が<code>75</code>の場合を、上から順番に読みます。</p>
+            <p>① <code>score &gt;= 80</code><br>→ <code>75</code>は<code>80</code>以上ではない<br>→ <code>false</code></p>
+            <p>② <code>score &gt;= 60</code><br>→ <code>75</code>は<code>60</code>以上<br>→ <code>true</code></p>
+            <p>③ 「合格」と表示する</p>
+            <p>1つの条件が<code>true</code>になったため、その後の<code>else</code>は実行されません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>比較演算子</summary>
+          <div class="details-content">
+            <p>比較演算子は、左側と右側の値を比べ、結果を<code>true</code>または<code>false</code>にします。</p>
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">書き方</th>
+                  <th scope="col">意味</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>&lt;</code></td>
+                  <td>左側が右側より小さい</td>
+                </tr>
+                <tr>
+                  <td><code>&lt;=</code></td>
+                  <td>左側が右側以下</td>
+                </tr>
+                <tr>
+                  <td><code>&gt;</code></td>
+                  <td>左側が右側より大きい</td>
+                </tr>
+                <tr>
+                  <td><code>&gt;=</code></td>
+                  <td>左側が右側以上</td>
+                </tr>
+                <tr>
+                  <td><code>===</code></td>
+                  <td>値とデータの種類が同じ</td>
+                </tr>
+                <tr>
+                  <td><code>!==</code></td>
+                  <td>値またはデータの種類が同じではない</td>
+                </tr>
+              </tbody>
+            </table>
+            <p><code>20 === 20</code><br>→ <code>true</code></p>
+            <p><code>20 === "20"</code><br>→ 数値と文字列でデータの種類が違うため<code>false</code></p>
+            <p><code>=</code>は代入、<code>===</code>は比較に使います。役割を区別しましょう。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>&amp;&amp;で2つの条件を両方確認する</summary>
+          <div class="details-content">
+            <p><code>&amp;&amp;</code>は、左右の条件が両方とも<code>true</code>のとき、全体が<code>true</code>になります。</p>
+            <pre class="javascript-code"><code>const age = 20;
+const hasTicket = true;
+
+if (age &gt;= 18 &amp;&amp; hasTicket === true) {
+  console.log("入場できます");
+}</code></pre>
+            <p><code>age &gt;= 18</code>と<code>hasTicket === true</code>が両方とも成り立つため、処理が実行されます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>||でどちらかの条件を確認する</summary>
+          <div class="details-content">
+            <p><code>||</code>は、左右の条件のどちらか一方でも<code>true</code>なら、全体が<code>true</code>になります。</p>
+            <pre class="javascript-code"><code>const day = "日";
+
+if (day === "土" || day === "日") {
+  console.log("休日です");
+}</code></pre>
+            <p><code>day === "日"</code>が成り立つため、「休日です」と表示されます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const temperature = 25;
+
+if (temperature &gt;= 30) {
+  console.log("暑いです");
+} else if (temperature &gt;= 20) {
+  console.log("過ごしやすいです");
+} else {
+  console.log("寒いです");
+}</code></pre>
+            <p>① 最初に確認する条件は何ですか？</p>
+            <p>② どの処理が実行されますか？</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題の答え</summary>
+          <div class="details-content">
+            <p>① <code>temperature &gt;= 30</code></p>
+            <p>② 最初の条件は<code>false</code>、次の<code>temperature &gt;= 20</code>は<code>true</code>なので、「過ごしやすいです」と表示されます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回の学習ポイント</summary>
+          <div class="details-content">
+            <p><code>if</code>は条件が<code>true</code>のときに処理を実行します。</p>
+            <p><code>else if</code>で次の条件、<code>else</code>でどの条件にも当てはまらなかった場合の処理を書けます。</p>
+            <p>条件は上から順番に、比較演算子や<code>&amp;&amp;</code>・<code>||</code>を1つずつ読みましょう。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
