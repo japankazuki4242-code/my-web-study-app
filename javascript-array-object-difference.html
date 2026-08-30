@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>配列とオブジェクトの違い | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>配列とオブジェクトの違い</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>配列とオブジェクトを比べる</summary>
+          <div class="details-content">
+            <p><strong>配列</strong></p>
+            <pre class="javascript-code"><code>const userArray = ["かず", 50];</code></pre>
+            <p><strong>オブジェクト</strong></p>
+            <pre class="javascript-code"><code>const userObject = {
+  name: "かず",
+  age: 50
+};</code></pre>
+            <p>どちらも名前と年齢をまとめていますが、データを管理する方法が違います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>配列は順番で管理する</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const userArray = ["かず", 50];</code></pre>
+            <p>配列は、値を順番で管理します。値を指定するときは、0から始まるindexを使います。</p>
+            <pre class="javascript-code"><code>userArray[0]</code></pre>
+            <p>→ 配列のindex 0にある要素を見る<br>→ 結果は<code>"かず"</code></p>
+          </div>
+        </details>
+
+        <details>
+          <summary>オブジェクトは項目名で管理する</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const userObject = {
+  name: "かず",
+  age: 50
+};</code></pre>
+            <p>オブジェクトは、値を意味のある項目名で管理します。値を指定するときは、プロパティ名を使います。</p>
+            <pre class="javascript-code"><code>userObject.name</code></pre>
+            <p>→ オブジェクトの<code>name</code>プロパティを見る<br>→ 結果は<code>"かず"</code></p>
+          </div>
+        </details>
+
+        <details>
+          <summary>管理方法と取り出し方の違い</summary>
+          <div class="details-content">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">配列</th>
+                  <th scope="col">オブジェクト</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>順番で管理する</td>
+                  <td>項目名で管理する</td>
+                </tr>
+                <tr>
+                  <td>indexを使う</td>
+                  <td>プロパティ名を使う</td>
+                </tr>
+                <tr>
+                  <td><code>userArray[0]</code></td>
+                  <td><code>userObject.name</code></td>
+                </tr>
+              </tbody>
+            </table>
+            <p>順番で値を選ぶのが配列、意味のある項目名で値を選ぶのがオブジェクトです。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>配列の中にオブジェクトを入れた例</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const users = [
+  { name: "かず", age: 50 },
+  { name: "太郎", age: 30 }
+];</code></pre>
+            <p><code>users</code>は配列です。その配列の各要素として、ユーザー情報をまとめたオブジェクトが入っています。</p>
+            <p>配列とオブジェクトを組み合わせた場合も、左から順番にたどると読みやすくなります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>users[1].nameを順番に読む</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>users[1].name</code></pre>
+            <p><code>users</code><br>→ 配列</p>
+            <p><code>[1]</code><br>→ index 1の要素</p>
+            <p><code>{ name: "太郎", age: 30 }</code><br>→ index 1に入っているオブジェクト</p>
+            <p><code>name</code><br>→ プロパティ名</p>
+            <p><code>"太郎"</code><br>→ 最後に取り出される値</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>users[1].name</code></pre>
+            <p>① <code>users</code>は何ですか？</p>
+            <p>② <code>[1]</code>は何を指定していますか？</p>
+            <p>③ <code>name</code>は何ですか？</p>
+            <p>④ 最後に取り出される値は何ですか？</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題の答え</summary>
+          <div class="details-content">
+            <p><code>users</code><br>→ 配列</p>
+            <p><code>[1]</code><br>→ index 1の要素を指定</p>
+            <p><code>name</code><br>→ プロパティ名</p>
+            <p>結果<br>→ <code>"太郎"</code></p>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回の学習ポイント</summary>
+          <div class="details-content">
+            <p><strong>配列</strong><br>→ 順番で管理し、indexで値を指定する</p>
+            <p><strong>オブジェクト</strong><br>→ 項目名で管理し、プロパティ名で値を指定する</p>
+            <p>配列の中にオブジェクトがある場合は、「配列 → indexの要素 → オブジェクト → プロパティ」と1段ずつたどりましょう。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>配列の中にオブジェクト | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>配列の中にオブジェクト</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>配列の要素にオブジェクトを入れる</summary>
+          <div class="details-content">
+            <p>配列の1つ1つの要素として、オブジェクトを入れることができます。</p>
+            <p>複数のユーザー情報を1つの配列へまとめるときは、次のように書けます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本コード</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const users = [
+  { name: "かず", age: 50 },
+  { name: "太郎", age: 30 }
+];</code></pre>
+            <p><code>users</code>は配列です。その配列の中に、2つのオブジェクトが要素として入っています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>usersの階層を確認する</summary>
+          <div class="details-content">
+            <p><code>users</code><br>→ 配列</p>
+            <p><code>users[0]</code><br>→ 配列のindex 0の要素</p>
+            <p><code>{ name: "かず", age: 50 }</code><br>→ <code>users[0]</code>に入っているオブジェクト</p>
+            <p><code>name</code>・<code>age</code><br>→ そのオブジェクトのプロパティ名</p>
+            <p><code>"かず"</code>・<code>50</code><br>→ それぞれのプロパティの値</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>1つのオブジェクトであり、1つの要素</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>{ name: "かず", age: 50 }</code></pre>
+            <p><strong>オブジェクトとして見る</strong><br>→ <code>name</code>と<code>age</code>を持つ1つのオブジェクト</p>
+            <p><strong><code>users</code>配列から見る</strong><br>→ index 0に入っている1つの要素（値）</p>
+            <p>同じデータでも、どのまとまりから見ているかによって「オブジェクト」と「配列の要素」という2つの見方ができます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>最初のユーザー名を取り出す</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>console.log(users[0].name);</code></pre>
+            <p>実行結果は次のとおりです。</p>
+            <pre class="javascript-code"><code>かず</code></pre>
+            <p><code>users[0].name</code>を一度に覚えるのではなく、左から1段ずつたどります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>左から1段ずつたどる</summary>
+          <div class="details-content">
+            <p><code>users</code><br>↓ 配列</p>
+            <p><code>users[0]</code><br>↓ index 0の要素を指定</p>
+            <p><code>{ name: "かず", age: 50 }</code><br>↓ その要素はオブジェクト</p>
+            <p><code>users[0].name</code><br>↓ <code>name</code>プロパティを見る</p>
+            <p><code>"かず"</code><br>→ 最後に取り出される値</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>users[0].nameを分けて読む</summary>
+          <div class="details-content">
+            <p><code>users</code><br>→ 配列</p>
+            <p><code>[0]</code><br>→ index 0の要素を指定</p>
+            <p>index 0の要素<br>→ オブジェクト</p>
+            <p><code>.name</code><br>→ <code>name</code>プロパティを見る</p>
+            <p>結果<br>→ <code>"かず"</code></p>
+          </div>
+        </details>
+
+        <details>
+          <summary>2番目のユーザー名を取り出す</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>console.log(users[1].name);</code></pre>
+            <p><code>users[1]</code>は、index 1にある2番目のオブジェクトです。</p>
+            <p>そのオブジェクトの<code>name</code>プロパティを見るため、結果は次のようになります。</p>
+            <pre class="javascript-code"><code>太郎</code></pre>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回の学習ポイント</summary>
+          <div class="details-content">
+            <p>配列の要素には、オブジェクトを入れることができます。</p>
+            <p>値を取り出すときは、「配列を選ぶ → indexで要素を選ぶ → そのオブジェクトのプロパティを見る」と左から順番にたどりましょう。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

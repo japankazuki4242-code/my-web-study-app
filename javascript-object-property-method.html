@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>プロパティとメソッドの読み方 | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>プロパティとメソッドの読み方</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>プロパティとメソッドを整理する</summary>
+          <div class="details-content">
+            <p><strong>プロパティ</strong><br>→ オブジェクトなどが持っている情報や値</p>
+            <p><strong>メソッド</strong><br>→ オブジェクトが持っている処理や機能</p>
+            <p>どちらも<code>.</code>を使ってアクセスします。コードを読むときは、<code>.</code>の右側に何があるのかを確認します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>プロパティの例</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>fruits.length
+user.name</code></pre>
+            <p><code>fruits.length</code><br>→ <code>fruits</code>が持っている要素数を見る<br>→ <code>length</code>プロパティ</p>
+            <p><code>user.name</code><br>→ <code>user</code>が持っている名前の値を見る<br>→ <code>name</code>プロパティ</p>
+            <p>どちらも、<code>.</code>の右側に情報や値を表すプロパティがあります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>user.nameを分けて読む</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>user.name</code></pre>
+            <p><code>user</code><br>→ オブジェクト</p>
+            <p><code>.</code><br>→ 持っているものへアクセスする</p>
+            <p><code>name</code><br>→ プロパティ</p>
+            <p><code>()</code>は付いていません。このコードでは処理を実行するのではなく、<code>name</code>プロパティの値を見ています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>メソッドの例</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>console.log()
+console.table()</code></pre>
+            <p><code>console.log()</code><br>→ <code>log</code>メソッド</p>
+            <p><code>console.table()</code><br>→ <code>table</code>メソッド</p>
+            <p>どちらも、<code>console</code>オブジェクトが持っている処理や機能を<code>()</code>で実行しています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>console.log()を分けて読む</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>console.log()</code></pre>
+            <p><code>console</code><br>→ オブジェクト</p>
+            <p><code>.</code><br>→ 持っているものへアクセスする</p>
+            <p><code>log</code><br>→ メソッド</p>
+            <p><code>()</code><br>→ メソッドを実行する</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>localStorageのメソッドを読む</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>localStorage.setItem("key", "value");
+localStorage.getItem("key");
+localStorage.removeItem("key");</code></pre>
+            <p><code>localStorage.setItem()</code><br>→ <code>setItem</code>メソッド</p>
+            <p><code>localStorage.getItem()</code><br>→ <code>getItem</code>メソッド</p>
+            <p><code>localStorage.removeItem()</code><br>→ <code>removeItem</code>メソッド</p>
+            <p><code>localStorage</code>という同じオブジェクトでも、<code>.</code>の右側に書くメソッドによって実行する処理が変わります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>プロパティとメソッドを並べる</summary>
+          <div class="details-content">
+            <p><code>fruits.length</code><br>→ <code>length</code>プロパティ</p>
+            <p><code>user.name</code><br>→ <code>name</code>プロパティ</p>
+            <p><code>console.log()</code><br>→ <code>log</code>メソッド</p>
+            <p><code>console.table()</code><br>→ <code>table</code>メソッド</p>
+            <p><code>localStorage.setItem()</code><br>→ <code>setItem</code>メソッド</p>
+            <p>プロパティかメソッドかを考えるときは、<code>.</code>の右側が情報・値なのか、実行する処理・機能なのかを確認します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>初心者向けの覚え方</summary>
+          <div class="details-content">
+            <p><code>.プロパティ</code><br>→ 情報や値を見る</p>
+            <p><code>.メソッド()</code><br>→ 処理を実行する</p>
+            <p>まずはこの違いを使ってコードを読み分けましょう。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
