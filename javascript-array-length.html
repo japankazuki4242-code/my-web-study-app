@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>要素数を調べる length | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>要素数を調べる length</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>今回使う配列</summary>
+          <div class="details-content">
+            <p>このページでは、3つの果物が入った次の配列を使います。</p>
+            <pre class="javascript-code"><code>const fruits = ["りんご", "みかん", "バナナ"];</code></pre>
+            <p>配列の中には、「りんご」「みかん」「バナナ」という3つの要素があります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>lengthとは？</summary>
+          <div class="details-content">
+            <p><code>length</code>は、配列に入っている要素の数を表します。</p>
+            <pre class="javascript-code"><code>const fruits = ["りんご", "みかん", "バナナ"];
+
+console.log(fruits.length);</code></pre>
+            <p>実行結果は次のとおりです。</p>
+            <pre class="javascript-code"><code>3</code></pre>
+            <p>この配列には要素が3つあるため、<code>fruits.length</code>は<code>3</code>になります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>fruits.lengthを分けて読む</summary>
+          <div class="details-content">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">書き方</th>
+                  <th scope="col">意味</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>fruits</code></td>
+                  <td>要素数を調べる配列</td>
+                </tr>
+                <tr>
+                  <td><code>.</code></td>
+                  <td><code>fruits</code>が持っている情報へアクセスする</td>
+                </tr>
+                <tr>
+                  <td><code>length</code></td>
+                  <td>要素数を表すプロパティ</td>
+                </tr>
+              </tbody>
+            </table>
+            <p><code>fruits.length</code>は、「<code>fruits</code>が持っている要素数を見る」と読むことができます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>indexとlengthの数え方</summary>
+          <div class="details-content">
+            <p>indexは、配列の最初の要素を<code>0</code>として数えます。</p>
+            <p><code>"りんご"</code><br>→ index 0</p>
+            <p><code>"みかん"</code><br>→ index 1</p>
+            <p><code>"バナナ"</code><br>→ index 2</p>
+            <p><code>length</code>は、要素の個数を普通に1つ、2つ、3つと数えます。そのため、この配列の<code>length</code>は<code>3</code>です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>lengthは最後のindexではない</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const fruits = ["りんご", "みかん", "バナナ"];</code></pre>
+            <p><strong>最後のindex</strong><br>→ <code>2</code></p>
+            <p><strong>length</strong><br>→ <code>3</code></p>
+            <p><code>length</code>は「最後のindex番号」ではなく、「配列に入っている要素の個数」です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>プロパティという言葉</summary>
+          <div class="details-content">
+            <p><code>length</code>のように、配列が持っている情報を「プロパティ」と呼びます。</p>
+            <p>ここでは、<code>length</code>は要素数を表すプロパティだと覚えれば十分です。プロパティについては、後のオブジェクト教材で詳しく学びます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

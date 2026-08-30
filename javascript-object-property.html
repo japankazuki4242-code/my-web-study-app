@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>プロパティとは？ | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>プロパティとは？</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>プロパティとは？</summary>
+          <div class="details-content">
+            <p>プロパティは、オブジェクトが持っている情報やデータです。</p>
+            <p>オブジェクトでは、プロパティ名とプロパティの値を組み合わせてデータを管理します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回使うオブジェクト</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const user = {
+  name: "かず",
+  age: 50
+};</code></pre>
+            <p>この<code>user</code>オブジェクトは、<code>name</code>と<code>age</code>という2つのプロパティを持っています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>nameプロパティを分けて読む</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>name: "かず"</code></pre>
+            <p><code>name</code><br>→ プロパティ名（key）</p>
+            <p><code>:</code><br>→ プロパティ名と値の区切り</p>
+            <p><code>"かず"</code><br>→ プロパティの値（value）</p>
+            <p><code>name: "かず"</code>は、「<code>name</code>というプロパティの値は『かず』」と読みます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>ageプロパティを分けて読む</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>age: 50</code></pre>
+            <p><code>age</code><br>→ プロパティ名（key）</p>
+            <p><code>:</code><br>→ プロパティ名と値の区切り</p>
+            <p><code>50</code><br>→ プロパティの値（value）</p>
+            <p><code>age: 50</code>は、「<code>age</code>というプロパティの値は<code>50</code>」と読みます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>keyとvalueの組み合わせ</summary>
+          <div class="details-content">
+            <p>オブジェクトのプロパティは、keyとvalueの組み合わせで考えられます。</p>
+            <p><code>name</code>というkey<br>＋<br><code>"かず"</code>というvalue</p>
+            <p><code>age</code>というkey<br>＋<br><code>50</code>というvalue</p>
+            <p>何についてのデータかをkeyで表し、そのデータの中身をvalueとして書きます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>localStorageのkeyとの違い</summary>
+          <div class="details-content">
+            <p>localStorageでもkeyとvalueを使いますが、オブジェクトのkeyとは使われる場所と役割が違います。</p>
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">keyの種類</th>
+                  <th scope="col">役割</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>localStorageのkey</td>
+                  <td>localStorageに保存したデータを見分ける名前</td>
+                </tr>
+                <tr>
+                  <td>オブジェクトのプロパティ名（key）</td>
+                  <td>オブジェクトの中にある情報を見分ける項目名</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>同じ「key」という言葉でも、localStorageのkeyなのか、オブジェクトのkeyなのかを区別しましょう。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回の学習ポイント</summary>
+          <div class="details-content">
+            <p>プロパティは、オブジェクトが持っている情報やデータです。</p>
+            <p><strong>プロパティ名（key）</strong><br>→ 何についてのデータかを表す</p>
+            <p><strong>プロパティの値（value）</strong><br>→ そのデータの中身を表す</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

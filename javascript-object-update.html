@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>オブジェクトの値を変更する | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>オブジェクトの値を変更する</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>プロパティの値を変更する</summary>
+          <div class="details-content">
+            <p>変更したいプロパティを指定し、新しい値を代入すると、プロパティの値を変更できます。</p>
+            <pre class="javascript-code"><code>const user = {
+  name: "かず",
+  age: 50
+};
+
+user.age = 51;
+
+console.log(user.age);</code></pre>
+            <p>このコードでは、<code>age</code>プロパティの値を<code>50</code>から<code>51</code>へ変更しています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実行結果</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>51</code></pre>
+            <p><code>user.age = 51;</code>を実行した後は、<code>user.age</code>から新しい値の<code>51</code>を取り出せます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>変更するコードを分けて読む</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>user.age = 51;</code></pre>
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">書き方</th>
+                  <th scope="col">意味</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>user</code></td>
+                  <td>オブジェクト</td>
+                </tr>
+                <tr>
+                  <td><code>.</code></td>
+                  <td>プロパティへアクセスする</td>
+                </tr>
+                <tr>
+                  <td><code>age</code></td>
+                  <td>変更するプロパティ</td>
+                </tr>
+                <tr>
+                  <td><code>=</code></td>
+                  <td>右側の値を左側へ代入する</td>
+                </tr>
+                <tr>
+                  <td><code>51</code></td>
+                  <td>新しい値</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>左から読むと、「<code>user</code>の<code>age</code>プロパティへ、新しい値の<code>51</code>を代入する」という処理です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>constでもプロパティは変更できる</summary>
+          <div class="details-content">
+            <p><code>const user = { ... };</code>と宣言していても、オブジェクトのプロパティの値は変更できます。</p>
+            <pre class="javascript-code"><code>user.age = 51;</code></pre>
+            <p>このコードは、<code>user</code>自体へ別のオブジェクトを再代入しているのではありません。<code>user</code>が持つ<code>age</code>プロパティの値だけを変更しています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>別のオブジェクトは再代入できない</summary>
+          <div class="details-content">
+            <p><code>const</code>で宣言した<code>user</code>自体へ、別のオブジェクトを再代入することはできません。</p>
+            <pre class="javascript-code"><code>const user = {
+  name: "かず",
+  age: 50
+};
+
+user = {
+  name: "太郎",
+  age: 30
+};</code></pre>
+            <p>このコードは、<code>user</code>へ新しいオブジェクトを再代入しようとしているため、再代入した時点でエラーになります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>2つの変更を区別する</summary>
+          <div class="details-content">
+            <p><strong>プロパティの値を変更する</strong></p>
+            <pre class="javascript-code"><code>user.age = 51;</code></pre>
+            <p>→ <code>const</code>で宣言したオブジェクトでもできる</p>
+            <p><strong>変数へ別のオブジェクトを再代入する</strong></p>
+            <pre class="javascript-code"><code>user = {
+  name: "太郎",
+  age: 30
+};</code></pre>
+            <p>→ <code>const</code>で宣言した<code>user</code>にはできない</p>
+            <p>「中にあるプロパティの値を変更すること」と「<code>user</code>自体へ別のオブジェクトを再代入すること」を混同しないようにしましょう。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

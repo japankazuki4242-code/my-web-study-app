@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>配列で間違えやすいポイント | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>配列で間違えやすいポイント</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>1番目の要素はindex 0</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const fruits = ["りんご", "みかん", "バナナ"];</code></pre>
+            <p>人間が数える1番目の要素は「りんご」です。JavaScriptでは、最初の要素をindex 0で指定します。</p>
+            <pre class="javascript-code"><code>fruits[0]</code></pre>
+            <p><code>fruits[1]</code>ではなく、<code>fruits[0]</code>が1番目の要素です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>lengthと最後のindexは違う</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const fruits = ["りんご", "みかん", "バナナ"];</code></pre>
+            <p><code>fruits.length</code><br>→ <code>3</code></p>
+            <p>最後のindex<br>→ <code>2</code></p>
+            <p><code>length</code>は要素の個数、indexは0から始まる位置の番号です。そのため、同じ数字にはなりません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>存在しないindexはundefined</summary>
+          <div class="details-content">
+            <p>3つの要素がある配列では、使われているindexは0・1・2です。</p>
+            <pre class="javascript-code"><code>console.log(fruits[3]);</code></pre>
+            <p>index 3には値が存在しないため、実行結果は<code>undefined</code>になります。</p>
+            <pre class="javascript-code"><code>undefined</code></pre>
+          </div>
+        </details>
+
+        <details>
+          <summary>index 0から配列を繰り返すときは「より小さい」を使う</summary>
+          <div class="details-content">
+            <p><strong>正しい条件</strong></p>
+            <pre class="javascript-code"><code>i &lt; fruits.length</code></pre>
+            <p><code>fruits.length</code>が<code>3</code>の場合、<code>i</code>が0・1・2の間だけ繰り返します。</p>
+            <p><strong>間違えやすい条件</strong></p>
+            <pre class="javascript-code"><code>i &lt;= fruits.length</code></pre>
+            <p><code>&lt;=</code>は「以下」という意味です。この条件では<code>i</code>が<code>3</code>のときも繰り返すため、存在しない<code>fruits[3]</code>まで処理しようとしてしまいます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>["A", "B", "C"]</code></pre>
+            <p>① 1番目の要素のindexはいくつですか？</p>
+            <p>② <code>length</code>はいくつですか？</p>
+            <p>③ 最後のindexはいくつですか？</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題の答え</summary>
+          <div class="details-content">
+            <p>① 1番目の要素のindex<br>→ <code>0</code></p>
+            <p>② <code>length</code><br>→ <code>3</code></p>
+            <p>③ 最後のindex<br>→ <code>2</code></p>
+            <p>「最初のindexは0」「lengthは要素数」「最後のindexはlengthより1小さい」と整理しましょう。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

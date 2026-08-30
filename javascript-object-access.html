@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>オブジェクトから値を取り出す | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>オブジェクトから値を取り出す</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>今回使うオブジェクト</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const user = {
+  name: "かず",
+  age: 50
+};</code></pre>
+            <p><code>user</code>オブジェクトは、<code>name</code>と<code>age</code>というプロパティを持っています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>nameの値を取り出す</summary>
+          <div class="details-content">
+            <p><code>user</code>オブジェクトの<code>name</code>プロパティを見るときは、次のように書きます。</p>
+            <pre class="javascript-code"><code>console.log(user.name);</code></pre>
+            <p>実行結果は次のとおりです。</p>
+            <pre class="javascript-code"><code>かず</code></pre>
+            <p><code>user.name</code>によって、<code>name</code>プロパティの値である「かず」を取り出しています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>user.nameを分けて読む</summary>
+          <div class="details-content">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">書き方</th>
+                  <th scope="col">意味</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>user</code></td>
+                  <td>値を取り出したいオブジェクト</td>
+                </tr>
+                <tr>
+                  <td><code>.</code></td>
+                  <td><code>user</code>が持っているものへアクセスする</td>
+                </tr>
+                <tr>
+                  <td><code>name</code></td>
+                  <td>値を取り出したいプロパティ名</td>
+                </tr>
+              </tbody>
+            </table>
+            <p><code>user.name</code>は、「<code>user</code>オブジェクトの<code>name</code>プロパティを見る」と読みます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>ageの値を取り出す</summary>
+          <div class="details-content">
+            <p><code>age</code>プロパティも、同じように取り出せます。</p>
+            <pre class="javascript-code"><code>console.log(user.age);</code></pre>
+            <p>実行結果は次のとおりです。</p>
+            <pre class="javascript-code"><code>50</code></pre>
+            <p><code>user.age</code>は、「<code>user</code>オブジェクトの<code>age</code>プロパティを見る」と読みます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>オブジェクト名.プロパティ名</summary>
+          <div class="details-content">
+            <p>オブジェクトから値を取り出す基本の形は、次のとおりです。</p>
+            <pre class="javascript-code"><code>オブジェクト名.プロパティ名</code></pre>
+            <p><code>.</code>の左側にオブジェクト名、右側に見たいプロパティ名を書きます。</p>
+            <p><code>console.log()</code>は、ここでは取り出した値をコンソールへ表示して確認するために使っています。メソッドの詳しい説明は、後の教材で学びます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回の学習ポイント</summary>
+          <div class="details-content">
+            <p><code>user.name</code><br>→ <code>user</code>の<code>name</code>プロパティの値</p>
+            <p><code>user.age</code><br>→ <code>user</code>の<code>age</code>プロパティの値</p>
+            <p>「オブジェクト名、ドット、プロパティ名」の順番で読むことを覚えましょう。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

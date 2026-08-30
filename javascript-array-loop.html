@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>for文で配列を順番に処理する | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>for文で配列を順番に処理する</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>for文でできること</summary>
+          <div class="details-content">
+            <p>for文を使うと、配列の要素を先頭から順番に処理できます。</p>
+            <p>このページでは、3つの果物を1つずつコンソールへ表示します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本コード</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const fruits = ["りんご", "みかん", "バナナ"];
+
+for (let i = 0; i &lt; fruits.length; i++) {
+  console.log(fruits[i]);
+}</code></pre>
+            <p>変数<code>i</code>を使ってindexを0から順番に変え、現在のindexにある要素を表示しています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>for文の条件を分けて読む</summary>
+          <div class="details-content">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">書き方</th>
+                  <th scope="col">意味</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>let i = 0</code></td>
+                  <td>index 0から始める</td>
+                </tr>
+                <tr>
+                  <td><code>i &lt; fruits.length</code></td>
+                  <td><code>i</code>が要素数より小さい間だけ繰り返す</td>
+                </tr>
+                <tr>
+                  <td><code>i++</code></td>
+                  <td>1回ごとに<code>i</code>を1増やし、次のindexへ進む</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>丸括弧の中は、「どこから始めるか」「いつまで続けるか」「1回ごとにどう進めるか」の順番で読みます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>なぜlet iを使う？</summary>
+          <div class="details-content">
+            <p>for文では、繰り返すたびに<code>i</code>の値を<code>0</code>、<code>1</code>、<code>2</code>と変更します。</p>
+            <p>あとから値を変更するため、<code>const i</code>ではなく<code>let i</code>と書きます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>fruits[i]とは？</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>console.log(fruits[i]);</code></pre>
+            <p><code>fruits[i]</code>は、現在の<code>i</code>と同じindexの要素を指定します。</p>
+            <p><code>i</code>が<code>0</code>なら<code>fruits[0]</code>、<code>i</code>が<code>1</code>なら<code>fruits[1]</code>として動きます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実行の流れ</summary>
+          <div class="details-content">
+            <p><code>i = 0</code><br>→ <code>fruits[0]</code><br>→ りんご</p>
+            <p><code>i = 1</code><br>→ <code>fruits[1]</code><br>→ みかん</p>
+            <p><code>i = 2</code><br>→ <code>fruits[2]</code><br>→ バナナ</p>
+            <p>次に<code>i</code>が<code>3</code>になると、<code>i &lt; fruits.length</code>は成り立たなくなるため、繰り返しを終了します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実行結果</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>りんご
+みかん
+バナナ</code></pre>
+            <p>配列のindex 0からindex 2までが、順番に1回ずつ処理されています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回の学習ポイント</summary>
+          <div class="details-content">
+            <p><code>fruits.length</code>は要素数の<code>3</code>です。<code>i &lt; fruits.length</code>と書くことで、存在するindex 0・1・2だけを順番に処理できます。</p>
+            <p>for文の条件を間違えた場合の動きは、次の「配列で間違えやすいポイント」で確認します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
