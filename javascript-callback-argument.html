@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>コールバック関数へ値を渡す | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>コールバック関数へ値を渡す</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>コールバック関数にも値を渡せる</summary>
+          <div class="details-content">
+            <p>通常の関数と同じように、コールバック関数を実行するときにも引数を渡せます。</p>
+            <pre class="javascript-code"><code>callback("かず");</code></pre>
+            <p><code>callback</code>に入っている関数を実行し、その関数へ<code>"かず"</code>を引数として渡しています。</p>
+            <p><code>callback</code>にどの関数が入っているかを確認すると、値の行き先を追いやすくなります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>小さなコード例</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>function call(callback) {
+  callback("かず");
+}
+
+function introduce(name) {
+  console.log(name);
+}
+
+call(introduce);</code></pre>
+            <p><code>introduce</code>関数そのものを<code>call</code>関数へ渡しています。</p>
+            <p><code>call</code>関数の中で<code>callback("かず");</code>を実行すると、実際には<code>introduce("かず");</code>が実行されます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>2つの仮引数を区別する</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>function call(callback) {
+  callback("かず");
+}
+
+function introduce(name) {
+  console.log(name);
+}</code></pre>
+            <p><code>call</code>関数の仮引数<code>callback</code><br>→ コールバック関数そのものを受け取る</p>
+            <p><code>introduce</code>関数の仮引数<code>name</code><br>→ <code>introduce</code>関数が実行されたときに文字列を受け取る</p>
+            <p>外側の<code>call</code>関数と、コールバックになる<code>introduce</code>関数には、それぞれ別の仮引数があります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>関数が渡る流れ</summary>
+          <div class="details-content">
+            <p><code>call(introduce);</code>を実行する</p>
+            <p><code>introduce</code><br>↓<br><code>callback</code>に入る</p>
+            <p>この時点では、<code>introduce</code>関数そのものが<code>callback</code>へ渡されたと考えます。</p>
+            <p><code>introduce</code>には<code>()</code>を付けていないため、渡す前には実行しません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>値が渡る流れ</summary>
+          <div class="details-content">
+            <p><code>callback("かず")</code><br>↓<br>実際には<code>introduce("かず")</code>が実行される</p>
+            <p><code>"かず"</code><br>↓<br><code>introduce</code>の仮引数<code>name</code>へ渡る</p>
+            <p><code>console.log(name);</code><br>↓<br><code>name</code>に入った「かず」を表示する</p>
+            <p>通常の引数・仮引数と同じく、呼び出すときの値が、実行される関数の仮引数へ渡ります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実行順を1つずつ追う</summary>
+          <div class="details-content">
+            <p>① <code>call</code>関数を定義する<br>→ 中の処理はまだ実行しない</p>
+            <p>② <code>introduce</code>関数を定義する<br>→ 中の処理はまだ実行しない</p>
+            <p>③ <code>call(introduce);</code>で、<code>introduce</code>関数そのものを渡す</p>
+            <p>④ <code>introduce</code>が<code>callback</code>へ入る</p>
+            <p>⑤ <code>callback("かず");</code>を実行する<br>→ 実際には<code>introduce("かず");</code>を実行する</p>
+            <p>⑥ <code>"かず"</code>が仮引数<code>name</code>へ渡る</p>
+            <p>⑦ <code>console.log(name);</code>で「かず」を表示する</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>function run(callback) {
+  callback("完了");
+}
+
+function showMessage(message) {
+  console.log(message);
+}
+
+run(showMessage);</code></pre>
+            <p>① <code>run</code>関数が受け取るコールバック関数は何ですか？</p>
+            <p>② <code>"完了"</code>は、どの仮引数へ渡りますか？</p>
+            <p>③ コンソールには何と表示されますか？</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題の答え</summary>
+          <div class="details-content">
+            <p>① <code>showMessage</code>関数です。</p>
+            <p>② <code>showMessage</code>関数の仮引数<code>message</code>へ渡ります。</p>
+            <p>③ <code>完了</code>と表示されます。</p>
+            <p><code>callback("完了")</code>は、実際には<code>showMessage("完了")</code>として実行されます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回の学習ポイント</summary>
+          <div class="details-content">
+            <p>コールバック関数を実行するときも、通常の関数と同じように引数を渡せます。</p>
+            <p>外側の関数が関数そのものを受け取る仮引数と、コールバック関数が値を受け取る仮引数を区別しましょう。</p>
+            <p><code>callback("かず")</code>を見たら、<code>callback</code>に入っている実際の関数名へ置き換えて考えると読みやすくなります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

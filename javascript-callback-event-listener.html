@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>addEventListener()とコールバック | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>addEventListener()とコールバック</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>このアプリで使っているコード</summary>
+          <div class="details-content">
+            <p>このアプリの<code>script.js</code>では、BACKボタンに次のコードを使っています。</p>
+            <pre class="javascript-code"><code>backButton.addEventListener("click", function () {
+  history.back();
+});</code></pre>
+            <p>このコードは、「BACKボタンがクリックされたときに、前のページへ戻る処理を実行する」と登録しています。</p>
+            <p>クリックされるまでは、<code>function () { ... }</code>の中の処理を実行しません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>backButtonを読む</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>backButton</code></pre>
+            <p><code>backButton</code>には、このページ下部のBACKボタンを表すHTML要素が入っています。</p>
+            <p>コードの先頭にあるため、「どの要素へイベントを登録するのか」を表しています。</p>
+            <p>ここでは、BACKボタンに対してクリック時の処理を登録します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>「.」とaddEventListenerを読む</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>backButton.addEventListener</code></pre>
+            <p><code>.</code><br>→ 左側にある<code>backButton</code>と、その要素が持つ機能をつなぐ記号</p>
+            <p><code>addEventListener</code><br>→ イベントが起きたときの処理を登録するメソッドの名前</p>
+            <p>以前学習した「オブジェクト名.メソッド名」という形につなげて読むことができます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>()と"click"を読む</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>addEventListener("click", function () {
+  history.back();
+})</code></pre>
+            <p><code>()</code><br>→ <code>addEventListener</code>メソッドを実行し、登録に必要な値を渡す場所</p>
+            <p><code>"click"</code><br>→ どのイベントが起きたときに処理するかを表す文字列</p>
+            <p>ここでは「クリックされたとき」という意味です。</p>
+            <p><code>"click"</code>の後ろにあるカンマ<code>,</code>で、次に渡すコールバック関数と区切っています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>function () { ... }がコールバック</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>function () {
+  history.back();
+}</code></pre>
+            <p>この部分が、<code>addEventListener()</code>へ渡しているコールバック関数です。</p>
+            <p>関数名がないため、無名関数でもあります。</p>
+            <p>「BACKボタンがクリックされたときに、この関数を実行してね」と、関数そのものを渡しています。</p>
+            <p><code>history.back()</code>の詳しい仕組みより、今はこの関数がクリック後に実行されることを確認しましょう。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>コードを小さく分けて読む</summary>
+          <div class="details-content">
+            <p><code>backButton</code><br>→ BACKボタンに</p>
+            <p><code>.</code><br>→ BACKボタンが持つ機能へつないで</p>
+            <p><code>addEventListener</code><br>→ イベントと処理を登録するメソッドを</p>
+            <p><code>()</code><br>→ 実行する</p>
+            <p><code>"click"</code><br>→ クリックされたときに</p>
+            <p><code>function () { history.back(); }</code><br>→ このコールバック関数を実行する</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>イベントから実行までの流れ</summary>
+          <div class="details-content">
+            <p>① ページの読み込み時に、BACKボタンへ<code>click</code>イベントの処理を登録する</p>
+            <p>② <code>function () { ... }</code>をコールバック関数として渡す<br>→ 登録しただけなので、<code>history.back()</code>はまだ実行しない</p>
+            <p>③ ユーザーがBACKボタンをクリックする</p>
+            <p>④ <code>click</code>イベントが起きる</p>
+            <p>⑤ 登録していたコールバック関数を実行する</p>
+            <p>⑥ コールバック関数の中にある<code>history.back();</code>を実行する</p>
+            <p>これは、以前学習した「イベント」と「関数・メソッド」がつながっている実例です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>saveButton.addEventListener("click", function () {
+  console.log("保存");
+});</code></pre>
+            <p>① イベントを登録するHTML要素を表しているのはどの部分ですか？</p>
+            <p>② イベント名は何ですか？</p>
+            <p>③ コールバック関数はどの部分ですか？</p>
+            <p>④ 「保存」はいつ表示されますか？</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題の答え</summary>
+          <div class="details-content">
+            <p>① <code>saveButton</code>です。</p>
+            <p>② <code>"click"</code>です。</p>
+            <p>③ <code>function () { console.log("保存"); }</code>の部分です。</p>
+            <p>④ <code>saveButton</code>がクリックされ、登録したコールバック関数が実行されたときです。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回の学習ポイント</summary>
+          <div class="details-content">
+            <p><code>addEventListener()</code>には、イベント名とコールバック関数を渡します。</p>
+            <p><code>function () { ... }</code>は、「クリックされたときに実行する関数」として渡されています。</p>
+            <p>登録した時点では中の処理を実行せず、指定したイベントが起きたときに実行します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

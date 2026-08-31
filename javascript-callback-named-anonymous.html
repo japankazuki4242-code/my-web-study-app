@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>名前付き関数と無名関数 | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>名前付き関数と無名関数</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>名前付き関数とは？</summary>
+          <div class="details-content">
+            <p>名前付き関数は、関数に名前を付けて定義する書き方です。</p>
+            <pre class="javascript-code"><code>function printMessage() {
+  console.log("こんにちは");
+}</code></pre>
+            <p>この関数の名前は<code>printMessage</code>です。</p>
+            <p>名前があるため、<code>printMessage()</code>と書いて実行したり、<code>printMessage</code>と書いて関数そのものを渡したりできます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>名前付き関数をコールバックにする</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>function printMessage() {
+  console.log("こんにちは");
+}
+
+call(printMessage);</code></pre>
+            <p><code>call(printMessage);</code>では、名前付き関数の<code>printMessage</code>をコールバック関数として渡しています。</p>
+            <p><code>()</code>を付けていないため、この場所では実行せず、関数そのものを渡します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>無名関数とは？</summary>
+          <div class="details-content">
+            <p>無名関数は、関数名を付けずに書く関数です。匿名関数と呼ばれることもあります。</p>
+            <p>コールバックとして渡している無名関数の部分だけを抜き出すと、次の形です。</p>
+            <pre class="javascript-code"><code>function () {
+  console.log("こんにちは");
+}</code></pre>
+            <p>これは無名関数の部分を確認するために抜き出した形で、このコードだけをそのまま実行する例ではありません。</p>
+            <p><code>function</code>の後ろに関数名がありません。</p>
+            <p>無名関数は、別の関数へ渡す場所で、そのまま書くことができます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>無名関数をコールバックにする</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>call(function () {
+  console.log("こんにちは");
+});</code></pre>
+            <p><code>call()</code>の<code>()</code>の中へ、名前を付けていない関数を直接書いています。</p>
+            <p>この<code>function () { ... }</code>全体が、<code>call</code>関数へ渡されるコールバック関数です。</p>
+            <p>定義した場所で今すぐ中の処理を実行するのではなく、<code>call</code>関数の中から呼び出されたときに実行します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>function () { }を1つずつ読む</summary>
+          <div class="details-content">
+            <p>ここでも、コールバックとして渡している無名関数の部分だけを取り出して読みます。</p>
+            <pre class="javascript-code"><code>function () {
+  console.log("こんにちは");
+}</code></pre>
+            <p><code>function</code><br>→ 関数を作るときに使うキーワード</p>
+            <p><code>()</code><br>→ 仮引数を書く場所。この例では値を受け取らないため空</p>
+            <p><code>{ }</code><br>→ 関数が実行されたときの処理を書く場所</p>
+            <p><code>console.log("こんにちは");</code><br>→ 関数が実行されたときに行う処理</p>
+            <p><code>function</code>と<code>()</code>の間に名前がないため、無名関数です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>2つの書き方を比べる</summary>
+          <div class="details-content">
+            <p><strong>名前付き関数</strong></p>
+            <pre class="javascript-code"><code>function printMessage() {
+  console.log("こんにちは");
+}
+
+call(printMessage);</code></pre>
+            <p><strong>無名関数</strong></p>
+            <pre class="javascript-code"><code>call(function () {
+  console.log("こんにちは");
+});</code></pre>
+            <p>書き方は違いますが、どちらも<code>call</code>関数へコールバック関数を渡しています。</p>
+            <p>名前付き関数は先に名前を付けて定義し、無名関数は渡す場所でそのまま定義しています。</p>
+            <p>今はアロー関数の書き方へ広げず、<code>function</code>を使った2つの形を読めれば大丈夫です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>無名関数を使った実行順</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>function call(callback) {
+  callback();
+}
+
+call(function () {
+  console.log("こんにちは");
+});</code></pre>
+            <p>① <code>call</code>関数を定義する<br>→ この時点では中の処理を実行しない</p>
+            <p>② <code>function () { ... }</code>で無名関数を作る<br>→ ここでも中の処理はまだ実行しない</p>
+            <p>③ 無名関数そのものを<code>call</code>関数へ渡す</p>
+            <p>④ 無名関数が仮引数<code>callback</code>へ入る</p>
+            <p>⑤ <code>callback();</code>で無名関数を実行する</p>
+            <p>⑥ コンソールに「こんにちは」と表示する</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>function run(callback) {
+  callback();
+}
+
+run(function () {
+  console.log("開始");
+});</code></pre>
+            <p>① このコールバック関数には名前がありますか？</p>
+            <p>② この無名関数はどの仮引数へ渡り、どのコードで実行されますか？</p>
+            <p>③ 関数が実行されると、何と表示されますか？</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題の答え</summary>
+          <div class="details-content">
+            <p>① 名前はありません。無名関数です。</p>
+            <p>② 仮引数<code>callback</code>へ渡り、<code>callback();</code>で実行されます。</p>
+            <p>③ <code>開始</code>と表示されます。</p>
+            <p><code>run</code>関数へ渡された無名関数が<code>callback</code>に入り、<code>callback();</code>によって実行されます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回の学習ポイント</summary>
+          <div class="details-content">
+            <p>名前付き関数と無名関数は、どちらもコールバック関数として使えます。</p>
+            <p>名前付き関数は、<code>call(printMessage);</code>のように関数名を使って渡します。</p>
+            <p>無名関数は、<code>call(function () { ... });</code>のように渡す場所でそのまま書けます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

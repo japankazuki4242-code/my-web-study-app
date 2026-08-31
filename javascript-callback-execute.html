@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>callback()では何が実行される？ | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>callback()では何が実行される？</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>callbackは仮引数</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>function call(callback) {
+  callback();
+}</code></pre>
+            <p><code>callback</code>は、<code>call</code>関数が値を受け取るための仮引数です。</p>
+            <p><code>callback</code>という名前の特別な関数が、JavaScriptに最初から用意されているわけではありません。</p>
+            <p>仮引数の名前は自分で決められますが、受け取る値がコールバック関数だと分かりやすいため、ここでは<code>callback</code>としています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>呼び出し時に渡された関数が入る</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>function printMessage() {
+  console.log("こんにちは");
+}
+
+call(printMessage);</code></pre>
+            <p><code>call(printMessage);</code>を実行すると、<code>printMessage</code>関数そのものが仮引数<code>callback</code>へ渡ります。</p>
+            <p>この呼び出しの間、<code>callback</code>には<code>printMessage</code>関数が入っていると考えられます。</p>
+            <p><code>printMessage</code>へ<code>()</code>を付けていないので、渡す前には実行しません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>callback()で入っている関数を実行する</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>callback();</code></pre>
+            <p><code>callback</code>の後ろに<code>()</code>があるため、<code>callback</code>に入っている関数をその時点で実行します。</p>
+            <p>今回の例では<code>callback</code>に<code>printMessage</code>が入っているため、<code>callback()</code>は実際には<code>printMessage()</code>を実行することになります。</p>
+            <p>その結果、コンソールに「こんにちは」と表示されます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>値が渡って実行される流れ</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>function call(callback) {
+  callback();
+}
+
+function printMessage() {
+  console.log("こんにちは");
+}
+
+call(printMessage);</code></pre>
+            <p><code>printMessage</code><br>↓<br><code>callback</code>に渡る</p>
+            <p><code>callback()</code><br>↓<br><code>callback</code>に入っている関数を実行する</p>
+            <p><code>printMessage</code>が実行される<br>↓<br>「こんにちは」と表示される</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>コードを1行ずつ読む</summary>
+          <div class="details-content">
+            <p>① <code>function call(callback) {</code><br>→ 仮引数<code>callback</code>で値を受け取る<code>call</code>関数を定義する</p>
+            <p>② <code>callback();</code><br>→ 受け取った関数を実行する処理を書く</p>
+            <p>③ <code>function printMessage() {</code><br>→ <code>printMessage</code>関数を定義する</p>
+            <p>④ <code>console.log("こんにちは");</code><br>→ <code>printMessage</code>が実行されたときの処理を書く</p>
+            <p>⑤ <code>call(printMessage);</code><br>→ <code>printMessage</code>関数そのものを<code>call</code>関数へ渡す</p>
+            <p>関数を定義した行では、その関数の中の処理はまだ実行されません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実行順を追う</summary>
+          <div class="details-content">
+            <p>① <code>call</code>関数と<code>printMessage</code>関数を定義する</p>
+            <p>② <code>call(printMessage);</code>で<code>call</code>関数を呼び出す</p>
+            <p>③ <code>printMessage</code>関数そのものが<code>callback</code>へ入る</p>
+            <p>④ <code>call</code>関数の中にある<code>callback();</code>へ進む</p>
+            <p>⑤ <code>callback</code>に入っている<code>printMessage</code>関数を実行する</p>
+            <p>⑥ 「こんにちは」と表示する</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>function run(task) {
+  task();
+}
+
+function showMessage() {
+  console.log("完了");
+}
+
+run(showMessage);</code></pre>
+            <p>① この例で、コールバック関数を受け取る仮引数は何ですか？</p>
+            <p>② <code>task()</code>では、実際にどの関数が実行されますか？</p>
+            <p>③ <code>task</code>はJavaScriptに最初からある特別な関数ですか？</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題の答え</summary>
+          <div class="details-content">
+            <p>① <code>task</code>です。</p>
+            <p>② <code>showMessage</code>関数です。</p>
+            <p>③ 特別な関数ではありません。<code>run</code>関数の仮引数として自分で付けた名前です。</p>
+            <p><code>run(showMessage);</code>によって<code>showMessage</code>が<code>task</code>へ入り、<code>task()</code>で実行されます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回の学習ポイント</summary>
+          <div class="details-content">
+            <p><code>callback</code>は、関数を受け取るために付けた仮引数の名前です。</p>
+            <p>呼び出し時に渡された関数が<code>callback</code>へ入ります。</p>
+            <p><code>callback()</code>は、その時点で<code>callback</code>に入っている関数を実行します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

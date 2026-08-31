@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>コールバック関数とは？ | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>コールバック関数とは？</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>コールバック関数とは？</summary>
+          <div class="details-content">
+            <p>コールバック関数は、<strong>別の関数へ渡される関数</strong>です。</p>
+            <p>JavaScriptでは、文字列や数値と同じように、関数も値として渡すことができます。</p>
+            <p>渡された関数は、受け取った側の関数が必要な場所で実行します。</p>
+            <p>まずは「関数そのものを渡し、受け取った場所で実行する仕組み」と考えましょう。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>小さなコード例</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>function call(callback) {
+  callback();
+}
+
+function printMessage() {
+  console.log("こんにちは");
+}
+
+call(printMessage);</code></pre>
+            <p><code>call</code>関数は、仮引数<code>callback</code>で関数を受け取ります。</p>
+            <p><code>printMessage</code>関数を<code>call</code>関数へ渡すと、<code>callback()</code>によって<code>printMessage</code>の処理が実行されます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>関数も値のように扱える</summary>
+          <div class="details-content">
+            <p>関数は、別の関数を呼び出すときの引数にできます。</p>
+            <pre class="javascript-code"><code>call(printMessage);</code></pre>
+            <p>この<code>printMessage</code>は、表示結果ではなく関数そのものです。</p>
+            <p><code>()</code>を付けていないため、この行で<code>printMessage</code>の中の処理を直接実行しているわけではありません。</p>
+            <p><code>call</code>関数へ、あとで実行してもらう関数を値として渡しています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>関数名と関数名()の復習</summary>
+          <div class="details-content">
+            <p><code>printMessage</code><br>→ 関数そのものを表す</p>
+            <p><code>printMessage()</code><br>→ 関数をその場で実行する</p>
+            <p>コールバックとして渡すときは、基本的に<code>call(printMessage);</code>のように<code>()</code>を付けません。</p>
+            <p>以前学習した「関数名と関数名()の違い」が、コールバック関数を読むときにも大切です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>コードを小さく分けて読む</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>function call(callback) {
+  callback();
+}</code></pre>
+            <p><code>function call(callback)</code><br>→ <code>call</code>関数を定義し、仮引数<code>callback</code>で値を受け取る</p>
+            <p><code>callback();</code><br>→ <code>callback</code>に入っている関数を実行する</p>
+            <pre class="javascript-code"><code>function printMessage() {
+  console.log("こんにちは");
+}</code></pre>
+            <p>→ 渡すための<code>printMessage</code>関数を定義する。この時点では中の処理は実行しない</p>
+            <pre class="javascript-code"><code>call(printMessage);</code></pre>
+            <p>→ <code>printMessage</code>関数そのものを<code>call</code>関数へ渡す</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実行の流れ</summary>
+          <div class="details-content">
+            <p>① <code>call</code>関数を定義する<br>→ 定義しただけなので、中の処理はまだ実行しない</p>
+            <p>② <code>printMessage</code>関数を定義する<br>→ ここでも、中の処理はまだ実行しない</p>
+            <p>③ <code>call(printMessage);</code>を実行する<br>→ <code>printMessage</code>関数そのものが<code>callback</code>へ渡る</p>
+            <p>④ <code>callback();</code>を実行する<br>→ <code>callback</code>に入っている<code>printMessage</code>関数が実行される</p>
+            <p>⑤ コンソールに「こんにちは」と表示される</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>function run(callback) {
+  callback();
+}
+
+function showMessage() {
+  console.log("学習中");
+}
+
+run(showMessage);</code></pre>
+            <p>① コールバック関数として渡されている関数は何ですか？</p>
+            <p>② <code>showMessage</code>に<code>()</code>を付けずに渡しているのはなぜですか？</p>
+            <p>③ コンソールには何と表示されますか？</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題の答え</summary>
+          <div class="details-content">
+            <p>① <code>showMessage</code>関数です。</p>
+            <p>② その場で実行せず、関数そのものを<code>run</code>関数へ渡すためです。</p>
+            <p>③ <code>学習中</code>と表示されます。</p>
+            <p><code>showMessage</code>が<code>callback</code>へ渡り、<code>callback()</code>で実行されます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回の学習ポイント</summary>
+          <div class="details-content">
+            <p>コールバック関数は、別の関数へ渡される関数です。</p>
+            <p>関数そのものを渡すときは、基本的に関数名へ<code>()</code>を付けません。</p>
+            <p>受け取った側では、<code>callback()</code>のように<code>()</code>を付けて関数を実行します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>関数を渡す・関数を実行する | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>関数を渡す・関数を実行する</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>2つの書き方を比べる</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>call(printMessage);
+
+call(printMessage());</code></pre>
+            <p>1行目と2行目は、<code>printMessage</code>の後ろに<code>()</code>があるかどうかで動きが変わります。</p>
+            <p><code>printMessage</code><br>→ 関数そのもの</p>
+            <p><code>printMessage()</code><br>→ その場で関数を実行し、その戻り値を使う</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>call(printMessage)は関数を渡す</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>call(printMessage);</code></pre>
+            <p><code>printMessage</code>に<code>()</code>がないため、この場所では関数を実行しません。</p>
+            <p><code>printMessage</code>関数そのものを、<code>call</code>関数の引数として渡しています。</p>
+            <p>コールバックとして渡したい場合は、基本的にこの形を使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>call(printMessage())は先に実行する</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>call(printMessage());</code></pre>
+            <p><code>printMessage()</code>には<code>()</code>があるため、まずその場で<code>printMessage</code>関数を実行します。</p>
+            <p>そのあと、<code>printMessage()</code>の戻り値が<code>call</code>関数へ渡されます。</p>
+            <p><code>console.log()</code>でコンソールに表示された内容と、関数から返される戻り値は別のものです。</p>
+            <p>これは「<code>printMessage</code>関数そのものをコールバックとして渡す」書き方ではありません。</p>
+            <p>今回は戻り値の詳しい応用には進まず、<code>()</code>を付けると先に実行されることを覚えましょう。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>正しい例の実行順</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>function call(callback) {
+  console.log("開始");
+  callback();
+}
+
+function printMessage() {
+  console.log("こんにちは");
+}
+
+call(printMessage);</code></pre>
+            <p>① <code>call</code>関数を定義する<br>→ この時点では中の処理はまだ実行しない</p>
+            <p>② <code>printMessage</code>関数を定義する<br>→ この時点でも中の処理はまだ実行しない</p>
+            <p>③ <code>call(printMessage);</code>を呼び出す</p>
+            <p>④ <code>printMessage</code>関数そのものが仮引数<code>callback</code>へ渡る</p>
+            <p>⑤ <code>console.log("開始");</code>を実行し、「開始」と表示する</p>
+            <p>⑥ <code>callback();</code>を実行する<br>→ <code>callback</code>に入っている<code>printMessage</code>関数が実行される</p>
+            <p>⑦ <code>console.log("こんにちは");</code>によって、「こんにちは」と表示する</p>
+            <p>実行結果は「開始」「こんにちは」の順です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よくある間違いの実行順</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>call(printMessage());</code></pre>
+            <p>① <code>call(printMessage());</code>を実行しようとする</p>
+            <p>② 引数に書かれた<code>printMessage()</code>を先に実行する</p>
+            <p>③ 「こんにちは」と表示される</p>
+            <p>④ <code>printMessage()</code>には<code>return</code>がないため、戻り値は<code>undefined</code>になる</p>
+            <p>⑤ <code>call(undefined);</code>の形で<code>call</code>関数が実行される</p>
+            <p>⑥ <code>console.log("開始");</code>によって、「開始」と表示される</p>
+            <p>⑦ <code>callback();</code>を実行しようとする</p>
+            <p>⑧ <code>callback</code>には関数ではなく<code>undefined</code>が入っているため、エラーになる</p>
+            <p><code>undefined</code>は、ここでは「戻り値として使える値が返されていない状態」くらいに考えれば大丈夫です。</p>
+            <p><code>call(printMessage());</code>は、<code>printMessage</code>関数そのものをコールバックとして渡していない点が間違いです。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>関数名と関数名()につなげる</summary>
+          <div class="details-content">
+            <p>以前学習した違いを、そのままコールバックにも当てはめられます。</p>
+            <p><code>printMessage</code><br>→ 関数そのものを使う<br>→ 別の関数へ渡せる</p>
+            <p><code>printMessage()</code><br>→ 関数の処理を今すぐ実行する</p>
+            <p>コードを見たら、関数名の後ろに<code>()</code>が付いているかを最初に確認しましょう。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>function run(callback) {
+  callback();
+}
+
+function sayHello() {
+  console.log("こんにちは");
+}</code></pre>
+            <p>① <code>sayHello</code>関数そのものを<code>run</code>関数へ渡すのは、次のどちらですか？</p>
+            <p>A：<code>run(sayHello);</code></p>
+            <p>B：<code>run(sayHello());</code></p>
+            <p>② Bでは、<code>sayHello</code>関数はいつ実行されますか？</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題の答え</summary>
+          <div class="details-content">
+            <p>① Aの<code>run(sayHello);</code>です。</p>
+            <p>② <code>run</code>関数へ値を渡す前に、その場で実行されます。</p>
+            <p>コールバックとして関数そのものを渡すときは、<code>sayHello</code>に<code>()</code>を付けません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回の学習ポイント</summary>
+          <div class="details-content">
+            <p><code>call(printMessage);</code><br>→ <code>printMessage</code>関数そのものを渡す</p>
+            <p><code>call(printMessage());</code><br>→ <code>printMessage</code>関数をその場で先に実行し、その戻り値を渡す</p>
+            <p>コールバックとして渡したい場合は、基本的に関数名へ<code>()</code>を付けません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
