@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>実践 | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>実践</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>実践とは？</summary>
+          <div class="details-content">
+            <p>実践は、これまで学習したJavaScriptを、1つの機能の中で少しずつ組み合わせていくページです。</p>
+            <p>完成コードを暗記するのではなく、次の処理がどのようにつながっているかを読むことを目的にします。</p>
+            <ul>
+              <li>どのHTML要素を取得するか</li>
+              <li>どのイベントを待つか</li>
+              <li>どの値を読み取るか</li>
+              <li>どこへ表示するか</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回作るもの</summary>
+          <div class="details-content">
+            <p>今回は「学習項目リスト」の最初の段階を作ります。</p>
+            <p>学習したい内容を入力<br>↓<br>追加ボタンを押す<br>↓<br>入力した内容を画面へ表示</p>
+            <p>たとえば、入力欄へ「JavaScriptのJSONを復習する」と入力します。</p>
+            <p>入力欄：<br>JavaScriptのJSONを復習する<br>↓<br>追加<br>↓<br>表示：<br>JavaScriptのJSONを復習する</p>
+            <p>今回はまだ配列へ追加しません。入力した1つの内容を、そのまま画面へ表示するだけです。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>使うHTML要素</summary>
+          <div class="details-content">
+            <p>今回は、入力欄・追加ボタン・表示場所の3つのHTML要素を使います。</p>
+            <pre class="javascript-code"><code>&lt;input
+  type="text"
+  id="study-item-input"
+&gt;
+
+&lt;button
+  type="button"
+  id="add-study-item-button"
+&gt;追加&lt;/button&gt;
+
+&lt;p id="study-item-result"&gt;&lt;/p&gt;</code></pre>
+            <p><code>&lt;input&gt;</code>は、学習したい内容を入力する場所です。<code>id="study-item-input"</code>を使い、JavaScriptの<code>studyItemInput</code>につなげます。</p>
+            <p><code>&lt;button&gt;</code>は、入力内容を表示するきっかけになる追加ボタンです。<code>id="add-study-item-button"</code>を使い、JavaScriptの<code>addStudyItemButton</code>につなげます。</p>
+            <p><code>&lt;p&gt;</code>は、入力内容を画面へ表示する場所です。<code>id="study-item-result"</code>を使い、JavaScriptの<code>studyItemResult</code>につなげます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>JavaScriptでHTML要素を見つける</summary>
+          <div class="details-content">
+            <p><code>document.getElementById()</code>を使い、HTMLに付けたidから3つの要素を見つけます。</p>
+            <pre class="javascript-code"><code>const studyItemInput =
+  document.getElementById("study-item-input");
+
+const addStudyItemButton =
+  document.getElementById("add-study-item-button");
+
+const studyItemResult =
+  document.getElementById("study-item-result");</code></pre>
+            <p><code>studyItemInput</code>は入力欄、<code>addStudyItemButton</code>は追加ボタン、<code>studyItemResult</code>は表示場所のHTML要素を表しています。</p>
+            <p>HTMLのidと<code>getElementById()</code>の文字列が同じ名前になることで、それぞれのコードがつながります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>clickイベントを受け取る</summary>
+          <div class="details-content">
+            <p><code>addEventListener()</code>を使い、追加ボタンがクリックされるのを待ちます。</p>
+            <pre class="javascript-code"><code>addStudyItemButton.addEventListener("click", function () {
+  // クリックされた後の処理
+});</code></pre>
+            <p><code>"click"</code>は待つイベントの種類です。追加ボタンがクリックされると、コールバック関数の<code>function () { ... }</code>の中が実行されます。</p>
+            <p>今回は<code>function () { ... }</code>という無名関数を、<code>addEventListener()</code>のコールバック関数として直接渡しています。名前付き関数を使う場合は、関数名だけを書くと関数そのものを渡し、関数名に<code>()</code>を付けるとその場で関数を実行します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>入力した値を読み取って表示する</summary>
+          <div class="details-content">
+            <p>入力欄に現在入力されている値は、<code>studyItemInput.value</code>で取得します。</p>
+            <pre class="javascript-code"><code>const studyItemText = studyItemInput.value;
+
+studyItemResult.textContent = studyItemText;</code></pre>
+            <p>取得した値を、最初に<code>studyItemText</code>という変数へ入れます。</p>
+            <p>次に、<code>studyItemResult.textContent</code>へ<code>studyItemText</code>を入れ、表示場所へ文字を表示します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>処理の流れを上から読む</summary>
+          <div class="details-content">
+            <p>今回のJavaScript全体は、次のコードです。</p>
+            <pre class="javascript-code"><code>const studyItemInput =
+  document.getElementById("study-item-input");
+
+const addStudyItemButton =
+  document.getElementById("add-study-item-button");
+
+const studyItemResult =
+  document.getElementById("study-item-result");
+
+addStudyItemButton.addEventListener("click", function () {
+  const studyItemText = studyItemInput.value;
+
+  studyItemResult.textContent = studyItemText;
+});</code></pre>
+            <p>① <code>getElementById()</code>でHTML要素を取得する<br>↓<br>② <code>addEventListener()</code>でclickを待つ<br>↓<br>③ <code>studyItemInput.value</code>で入力値を取得する<br>↓<br>④ 入力値を<code>studyItemText</code>へ保存する<br>↓<br>⑤ <code>textContent</code>で画面へ表示する</p>
+            <p><code>studyItemInput</code>から値を読み取り、その値を<code>studyItemResult</code>へ渡すことで、入力欄と表示場所がJavaScriptの処理でつながります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に試す</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <input id="study-item-input" class="study-item-input" type="text" aria-label="学習したい内容" autocomplete="off" placeholder="JavaScriptのJSONを復習する">
+
+              <button type="button" id="add-study-item-button" class="nav-button free-memo-save-button">追加</button>
+
+              <p id="study-item-result" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+    <script src="javascript-practice.js"></script>
+  </body>
+</html>

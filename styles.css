@@ -352,3 +352,23 @@ code {
   margin: 0;
   line-height: 1.7;
 }
+
+/* JavaScript実践画面：学習項目の入力欄 */
+.study-item-input {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 14px;
+  border: 1px solid #3a3a3a;
+  border-radius: 12px;
+  background-color: #121212;
+  color: #f5f5f5;
+  font: inherit;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* JavaScript実践画面：学習項目入力欄のキーボードフォーカス */
+.study-item-input:focus-visible {
+  outline: 3px solid #f5f5f5;
+  outline-offset: 3px;
+}
