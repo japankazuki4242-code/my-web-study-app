@@ -26,20 +26,20 @@
         </details>
 
         <details>
-          <summary>今回作るもの</summary>
+          <summary>PR1-1で作ったもの</summary>
           <div class="details-content">
-            <p>今回は「学習項目リスト」の最初の段階を作ります。</p>
+            <p>PR1-1では「学習項目リスト」の最初の段階を作りました。</p>
             <p>学習したい内容を入力<br>↓<br>追加ボタンを押す<br>↓<br>入力した内容を画面へ表示</p>
             <p>たとえば、入力欄へ「JavaScriptのJSONを復習する」と入力します。</p>
             <p>入力欄：<br>JavaScriptのJSONを復習する<br>↓<br>追加<br>↓<br>表示：<br>JavaScriptのJSONを復習する</p>
-            <p>今回はまだ配列へ追加しません。入力した1つの内容を、そのまま画面へ表示するだけです。</p>
+            <p>PR1-1ではまだ配列へ追加せず、入力した1つの内容をそのまま画面へ表示しました。</p>
           </div>
         </details>
 
         <details>
-          <summary>使うHTML要素</summary>
+          <summary>PR1-1で使ったHTML要素</summary>
           <div class="details-content">
-            <p>今回は、入力欄・追加ボタン・表示場所の3つのHTML要素を使います。</p>
+            <p>PR1-1では、入力欄・追加ボタン・表示場所の3つのHTML要素を使いました。</p>
             <pre class="javascript-code"><code>&lt;input
   type="text"
   id="study-item-input"
@@ -58,9 +58,9 @@
         </details>
 
         <details>
-          <summary>JavaScriptでHTML要素を見つける</summary>
+          <summary>PR1-1でHTML要素を見つける</summary>
           <div class="details-content">
-            <p><code>document.getElementById()</code>を使い、HTMLに付けたidから3つの要素を見つけます。</p>
+            <p>PR1-1では<code>document.getElementById()</code>を使い、HTMLに付けたidから3つの要素を見つけました。</p>
             <pre class="javascript-code"><code>const studyItemInput =
   document.getElementById("study-item-input");
 
@@ -87,21 +87,21 @@ const studyItemResult =
         </details>
 
         <details>
-          <summary>入力した値を読み取って表示する</summary>
+          <summary>PR1-1で入力した値を表示する</summary>
           <div class="details-content">
-            <p>入力欄に現在入力されている値は、<code>studyItemInput.value</code>で取得します。</p>
+            <p>PR1-1では、入力欄に現在入力されている値を<code>studyItemInput.value</code>で取得しました。</p>
             <pre class="javascript-code"><code>const studyItemText = studyItemInput.value;
 
 studyItemResult.textContent = studyItemText;</code></pre>
             <p>取得した値を、最初に<code>studyItemText</code>という変数へ入れます。</p>
-            <p>次に、<code>studyItemResult.textContent</code>へ<code>studyItemText</code>を入れ、表示場所へ文字を表示します。</p>
+            <p>次に、<code>studyItemResult.textContent</code>へ<code>studyItemText</code>を入れ、表示場所へ文字を表示しました。</p>
           </div>
         </details>
 
         <details>
-          <summary>処理の流れを上から読む</summary>
+          <summary>PR1-1の処理を上から読む</summary>
           <div class="details-content">
-            <p>今回のJavaScript全体は、次のコードです。</p>
+            <p>PR1-1のJavaScript全体は、次のコードです。</p>
             <pre class="javascript-code"><code>const studyItemInput =
   document.getElementById("study-item-input");
 
@@ -122,6 +122,150 @@ addStudyItemButton.addEventListener("click", function () {
         </details>
 
         <details>
+          <summary>配列に複数の項目を保存する</summary>
+          <div class="details-content">
+            <p>複数の学習項目をまとめて持つために、最初に空の配列を作ります。</p>
+            <pre class="javascript-code"><code>const studyItems = [];</code></pre>
+            <p><code>studyItems</code>は、追加した学習項目をためていく配列です。最初は何も入っていないため、<code>[ ]</code>の中は空です。</p>
+            <p>この配列は、ページを開いている間だけJavaScriptの中で使います。今回はまだlocalStorageへ保存しないため、ページを再読み込みすると空の配列へ戻ります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>push()で配列へ追加する</summary>
+          <div class="details-content">
+            <p>入力欄の値を<code>.value</code>で取得し、<code>studyItemText</code>へ入れます。</p>
+            <pre class="javascript-code"><code>const studyItemText = studyItemInput.value;
+
+studyItems.push(studyItemText);</code></pre>
+            <p><code>studyItems.push(studyItemText)</code>は、取得した学習項目を<code>studyItems</code>配列の末尾へ追加します。</p>
+            <p>追加ボタンを押すたびに同じ処理が実行されるため、配列の中へ学習項目が順番に増えていきます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>配列の中身を1件ずつ表示する</summary>
+          <div class="details-content">
+            <p><code>forEach()</code>を使い、<code>studyItems</code>配列の中身を1件ずつ処理します。</p>
+            <pre class="javascript-code"><code>studyItems.forEach(function (studyItem) {
+  // 1件ずつ表示する処理
+});</code></pre>
+            <p><code>studyItem</code>には、配列から学習項目が1件ずつ順番に渡されます。</p>
+            <p>配列に3件入っていればコールバック関数が3回実行され、それぞれの学習項目を使って表示処理を行います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>liを作って一覧へ追加する</summary>
+          <div class="details-content">
+            <p>HTMLには、学習項目一覧を表示するための<code>&lt;ul&gt;</code>を用意します。</p>
+            <pre class="javascript-code"><code>&lt;ul id="study-item-list"&gt;&lt;/ul&gt;</code></pre>
+            <p>JavaScriptでは、学習項目1件につき1つの<code>&lt;li&gt;</code>を作ります。</p>
+            <pre class="javascript-code"><code>const listItem = document.createElement("li");
+
+listItem.textContent = studyItem;
+
+studyItemList.appendChild(listItem);</code></pre>
+            <p><code>document.createElement("li")</code>でli要素を作り、<code>listItem.textContent</code>で学習項目の文字を入れます。</p>
+            <p>最後に<code>appendChild()</code>を使い、作ったli要素を<code>studyItemList</code>のul要素へ追加します。ここが、JavaScriptでHTML要素を作って画面へ追加するDOM操作です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>renderStudyItems()の役割</summary>
+          <div class="details-content">
+            <p><code>renderStudyItems()</code>は、配列の現在の内容を画面へ一覧表示する名前付き関数です。</p>
+            <pre class="javascript-code"><code>function renderStudyItems() {
+  studyItemList.textContent = "";
+
+  studyItems.forEach(function (studyItem) {
+    const listItem = document.createElement("li");
+
+    listItem.textContent = studyItem;
+    studyItemList.appendChild(listItem);
+  });
+}</code></pre>
+            <p>最初に<code>studyItemList.textContent = ""</code>で前回表示した一覧を空にします。</p>
+            <p>次に<code>forEach()</code>で配列を1件ずつ処理し、li要素を作ってul要素へ追加します。</p>
+            <p>追加ボタンを押したあとに<code>renderStudyItems()</code>を実行すると、配列へ追加した最新状態が画面へ表示されます。</p>
+            <pre class="javascript-code"><code>studyItems.push(studyItemText);
+
+renderStudyItems();</code></pre>
+          </div>
+        </details>
+
+        <details>
+          <summary>PR1-2全体の処理の流れ</summary>
+          <div class="details-content">
+            <p>PR1-2のJavaScript全体は、次のコードです。</p>
+            <pre class="javascript-code"><code>const studyItemInput =
+  document.getElementById("study-item-input");
+
+const addStudyItemButton =
+  document.getElementById("add-study-item-button");
+
+const studyItemList =
+  document.getElementById("study-item-list");
+
+const studyItems = [];
+
+function renderStudyItems() {
+  studyItemList.textContent = "";
+
+  studyItems.forEach(function (studyItem) {
+    const listItem = document.createElement("li");
+
+    listItem.textContent = studyItem;
+    studyItemList.appendChild(listItem);
+  });
+}
+
+addStudyItemButton.addEventListener("click", function () {
+  const studyItemText = studyItemInput.value;
+
+  studyItems.push(studyItemText);
+  renderStudyItems();
+});</code></pre>
+            <p>入力<br>↓<br><code>.value</code>で取得<br>↓<br><code>push()</code>で配列へ追加<br>↓<br><code>renderStudyItems()</code><br>↓<br><code>forEach()</code>で1件ずつ処理<br>↓<br>liを作る<br>↓<br>ulへ追加<br>↓<br>一覧表示</p>
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">学習内容</th>
+                  <th scope="col">今回のつながり</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>.value</code></td>
+                  <td>inputの入力値を取得する</td>
+                </tr>
+                <tr>
+                  <td><code>push()</code></td>
+                  <td>配列の末尾へ学習項目を追加する</td>
+                </tr>
+                <tr>
+                  <td><code>forEach()</code></td>
+                  <td>配列の項目を1件ずつ処理する</td>
+                </tr>
+                <tr>
+                  <td><code>function</code></td>
+                  <td>一覧表示の処理を1つにまとめる</td>
+                </tr>
+                <tr>
+                  <td><code>textContent</code></td>
+                  <td>li要素へ学習項目の文字を表示する</td>
+                </tr>
+                <tr>
+                  <td>DOM</td>
+                  <td>li要素を作り、ul要素へ追加する</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>それぞれのコードを暗記するのではなく、入力値が配列へ入り、配列の内容がHTMLの一覧へつながる順番を確認します。</p>
+          </div>
+        </details>
+
+        <details>
           <summary>実際に試す</summary>
           <div class="details-content">
             <div class="free-memo-area">
@@ -129,7 +273,7 @@ addStudyItemButton.addEventListener("click", function () {
 
               <button type="button" id="add-study-item-button" class="nav-button free-memo-save-button">追加</button>
 
-              <p id="study-item-result" class="free-memo-status" aria-live="polite"></p>
+              <ul id="study-item-list" class="study-item-list" aria-live="polite"></ul>
             </div>
           </div>
         </details>
