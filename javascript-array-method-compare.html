@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>forEach・find・filter・mapを比べる | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>forEach・find・filter・mapを比べる</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>4つのメソッドを比べる</summary>
+          <div class="details-content">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">メソッド</th>
+                  <th scope="col">主な目的</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>forEach()</code></td>
+                  <td>要素を1つずつ処理する</td>
+                </tr>
+                <tr>
+                  <td><code>find()</code></td>
+                  <td>条件に合う最初の1つを取得する</td>
+                </tr>
+                <tr>
+                  <td><code>filter()</code></td>
+                  <td>条件に合うものをすべて集め、新しい配列を作る</td>
+                </tr>
+                <tr>
+                  <td><code>map()</code></td>
+                  <td>すべての要素を変換し、新しい配列を作る</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>何をしたいかによって、選ぶ配列メソッドが変わります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>同じ配列で確認する</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const numbers = [10, 20, 30];</code></pre>
+            <p>この同じ配列を使って、4つのメソッドの違いを確認します。</p>
+            <p>それぞれの例は、「1つずつ表示する」「最初の1つを探す」「すべて選ぶ」「すべて変換する」という違う目的を持っています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>forEach()は1つずつ処理</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>numbers.forEach(function (number) {
+  console.log(number);
+});</code></pre>
+            <p><code>10</code>、<code>20</code>、<code>30</code>を順番に表示します。</p>
+            <p>主な目的は、各要素に対して処理を実行することです。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>find()は最初の1つを取得</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const found = numbers.find(function (number) {
+  return number &gt;= 20;
+});</code></pre>
+            <p>20以上の最初の要素である<code>20</code>を取得します。</p>
+            <p>条件に合う<code>30</code>もありますが、<code>find()</code>の結果は最初の1つだけです。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>filter()はすべて集める</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const filtered = numbers.filter(function (number) {
+  return number &gt;= 20;
+});</code></pre>
+            <p>20以上の要素をすべて集め、<code>[20, 30]</code>という新しい配列を作ります。</p>
+            <p><code>filter()</code>自体は、元の<code>numbers</code>配列を変更しません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>map()はすべて変換</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const doubled = numbers.map(function (number) {
+  return number * 2;
+});</code></pre>
+            <p>すべての要素を2倍し、<code>[20, 40, 60]</code>という新しい配列を作ります。</p>
+            <p><code>map()</code>自体は、元の<code>numbers</code>配列を変更しません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>目的からメソッドを選ぶ</summary>
+          <div class="details-content">
+            <p>各要素を表示したい<br>→ <code>forEach()</code></p>
+            <p>条件に合う最初の要素が欲しい<br>→ <code>find()</code></p>
+            <p>条件に合う要素をすべて集めたい<br>→ <code>filter()</code></p>
+            <p>すべての要素から新しい値を作りたい<br>→ <code>map()</code></p>
+            <p>まず「最終的に何が欲しいか」を考えると、メソッドを選びやすくなります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実行順と処理の流れを比べる</summary>
+          <div class="details-content">
+            <p>4つとも、配列の要素を先頭からコールバック関数へ渡します。</p>
+            <p><code>forEach()</code><br>→ 各要素に処理を行う</p>
+            <p><code>find()</code><br>→ 条件が最初に<code>true</code>になった要素を結果にする</p>
+            <p><code>filter()</code><br>→ 条件が<code>true</code>になった要素をすべて集める</p>
+            <p><code>map()</code><br>→ 各要素から<code>return</code>された値をすべて集める</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題</summary>
+          <div class="details-content">
+            <p>① 配列の要素を1つずつコンソールへ表示したいときは、どのメソッドを使いますか？</p>
+            <p>② 条件に合う最初の1つだけを取得したいときは、どのメソッドを使いますか？</p>
+            <p>③ 条件に合う要素をすべて集めたいときは、どのメソッドを使いますか？</p>
+            <p>④ すべての要素を2倍した新しい配列を作りたいときは、どのメソッドを使いますか？</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題の答え</summary>
+          <div class="details-content">
+            <p>① <code>forEach()</code>です。</p>
+            <p>② <code>find()</code>です。</p>
+            <p>③ <code>filter()</code>です。</p>
+            <p>④ <code>map()</code>です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回の学習ポイント</summary>
+          <div class="details-content">
+            <p><code>forEach()</code>・<code>find()</code>・<code>filter()</code>・<code>map()</code>は、目的がそれぞれ違います。</p>
+            <p>コードを書く前に、「処理したい」「最初の1つが欲しい」「すべて選びたい」「変換したい」のどれかを確認しましょう。</p>
+            <p>今は基本的な役割を使い分けられれば大丈夫です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>filter() - 条件に合うもの | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>filter() - 条件に合うもの</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>filter()とは？</summary>
+          <div class="details-content">
+            <p><code>filter()</code>は、条件に合う要素をすべて集める配列メソッドです。</p>
+            <p>条件に合った要素を入れた、新しい配列を結果として作ります。</p>
+            <p>条件を確認する処理は、コールバック関数として<code>filter()</code>へ渡します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本コード</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const numbers = [10, 20, 30, 40];
+
+const filtered = numbers.filter(function (number) {
+  return number &gt;= 30;
+});
+
+console.log(filtered);</code></pre>
+            <p>30以上の要素をすべて集め、新しい配列を<code>filtered</code>へ保存しています。</p>
+            <p>実行結果は<code>[30, 40]</code>です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>コードを分けて読む</summary>
+          <div class="details-content">
+            <p><code>numbers</code><br>→ 条件を確認する元の配列</p>
+            <p><code>filter</code><br>→ 条件に合う要素をすべて集める配列メソッド</p>
+            <p><code>function (number) { ... }</code><br>→ 各要素の条件を確認するコールバック関数</p>
+            <p><code>number</code><br>→ 配列から1つずつ渡される要素を受け取る仮引数</p>
+            <p><code>filtered</code><br>→ <code>filter()</code>が作った新しい配列を保存する変数</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>trueとfalseで選ぶ</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>return number &gt;= 30;</code></pre>
+            <p>条件が<code>true</code>になった要素は、新しい配列へ入ります。</p>
+            <p>条件が<code>false</code>になった要素は、新しい配列へ入りません。</p>
+            <p><code>return</code>は、現在の要素が条件に合うかどうかを<code>filter()</code>へ返しています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実行順を追う</summary>
+          <div class="details-content">
+            <p><code>10</code> → <code>10 &gt;= 30</code>は<code>false</code> → 新しい配列へ入れない</p>
+            <p><code>20</code> → <code>20 &gt;= 30</code>は<code>false</code> → 新しい配列へ入れない</p>
+            <p><code>30</code> → <code>30 &gt;= 30</code>は<code>true</code> → 新しい配列へ入れる</p>
+            <p><code>40</code> → <code>40 &gt;= 30</code>は<code>true</code> → 新しい配列へ入れる</p>
+            <p>すべての要素を確認した結果、新しい配列は<code>[30, 40]</code>になります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>元の配列は変更しない</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>console.log(numbers);
+console.log(filtered);</code></pre>
+            <p><code>numbers</code><br>→ <code>[10, 20, 30, 40]</code></p>
+            <p><code>filtered</code><br>→ <code>[30, 40]</code></p>
+            <p><code>filter()</code>自体は元の<code>numbers</code>配列を変更せず、条件に合う要素を入れた別の新しい配列を作ります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>find()との違い</summary>
+          <div class="details-content">
+            <p><code>find()</code><br>→ 条件に合う最初の1つを結果にする</p>
+            <p><code>filter()</code><br>→ 条件に合うものをすべて集め、新しい配列を結果にする</p>
+            <p>同じ<code>number &gt;= 30</code>という条件でも、<code>find()</code>の結果は<code>30</code>、<code>filter()</code>の結果は<code>[30, 40]</code>です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>コードを上から順番に読む</summary>
+          <div class="details-content">
+            <p>① <code>numbers</code>配列を作る</p>
+            <p>② <code>numbers.filter(...)</code>を実行する</p>
+            <p>③ 各要素を仮引数<code>number</code>へ1つずつ渡す</p>
+            <p>④ コールバック関数が条件の結果を返す</p>
+            <p>⑤ <code>true</code>になった<code>30</code>と<code>40</code>を新しい配列へ入れる</p>
+            <p>⑥ 新しい配列を<code>filtered</code>へ保存する</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const scores = [40, 80, 90];
+
+const passed = scores.filter(function (score) {
+  return score &gt;= 70;
+});</code></pre>
+            <p>① 新しい配列へ入る要素は何ですか？</p>
+            <p>② <code>passed</code>はどのような配列になりますか？</p>
+            <p>③ 元の<code>scores</code>配列は変わりますか？</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題の答え</summary>
+          <div class="details-content">
+            <p>① <code>80</code>と<code>90</code>です。</p>
+            <p>② <code>[80, 90]</code>になります。</p>
+            <p>③ 変わりません。<code>scores</code>は<code>[40, 80, 90]</code>のままです。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回の学習ポイント</summary>
+          <div class="details-content">
+            <p><code>filter()</code>は、条件に合う要素をすべて集めます。</p>
+            <p>条件が<code>true</code>になった要素から、新しい配列を作ります。</p>
+            <p><code>filter()</code>自体は、元の配列を変更せず、条件に合う要素を入れた新しい配列を作ります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

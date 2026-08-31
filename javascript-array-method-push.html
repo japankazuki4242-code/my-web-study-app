@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>push() - 末尾へ追加 | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>push() - 末尾へ追加</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>push()とは？</summary>
+          <div class="details-content">
+            <p><code>push()</code>は、配列の末尾へ新しい要素を追加するメソッドです。</p>
+            <pre class="javascript-code"><code>配列名.push(追加する値);</code></pre>
+            <p><code>()</code>の中へ、配列に追加したい値を書きます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>1つの要素を追加する</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const fruits = ["りんご", "みかん"];
+
+fruits.push("バナナ");
+
+console.log(fruits);</code></pre>
+            <p><code>fruits.push("バナナ");</code>によって、末尾へ「バナナ」が追加されます。</p>
+            <p>実行結果は<code>["りんご", "みかん", "バナナ"]</code>です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実行前と実行後を比べる</summary>
+          <div class="details-content">
+            <p><strong>push()を実行する前</strong></p>
+            <pre class="javascript-code"><code>["りんご", "みかん"]</code></pre>
+            <p><strong>push()を実行した後</strong></p>
+            <pre class="javascript-code"><code>["りんご", "みかん", "バナナ"]</code></pre>
+            <p><code>push()</code>は、元の<code>fruits</code>配列そのものへ要素を追加します。</p>
+            <p>別の新しい配列を作るのではなく、元の配列そのものが変わることが大切です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>複数の要素を追加する</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const colors = ["赤"];
+
+colors.push("青", "黄");
+
+console.log(colors);</code></pre>
+            <p><code>()</code>の中をカンマ<code>,</code>で区切ると、複数の要素をまとめて末尾へ追加できます。</p>
+            <p>実行結果は<code>["赤", "青", "黄"]</code>です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>lengthとのつながり</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const colors = ["赤"];
+
+console.log(colors.length);
+
+colors.push("青", "黄");
+
+console.log(colors.length);</code></pre>
+            <p>実行前の要素数は<code>1</code>です。</p>
+            <p>2つ追加した後の要素数は<code>3</code>です。</p>
+            <p><code>push()</code>で要素が増えると、配列の<code>length</code>も増えます。</p>
+            <p>このページでは、<code>push()</code>の戻り値の詳しい説明には進みません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>コードを分けて読む</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>fruits.push("バナナ");</code></pre>
+            <p><code>fruits</code><br>→ 要素を追加する元の配列</p>
+            <p><code>.</code><br>→ <code>fruits</code>が持つメソッドへアクセスする</p>
+            <p><code>push</code><br>→ 末尾へ追加するメソッド</p>
+            <p><code>("バナナ")</code><br>→ <code>push</code>を実行し、追加する値を渡す</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>コードの実行順を上から読む</summary>
+          <div class="details-content">
+            <p>① <code>const fruits = ["りんご", "みかん"];</code><br>→ 2つの要素が入った配列を作る</p>
+            <p>② <code>fruits.push("バナナ");</code><br>→ 元の配列の末尾へ「バナナ」を追加する</p>
+            <p>③ <code>console.log(fruits);</code><br>→ 追加後の配列を表示する</p>
+            <p>「りんご」「みかん」の後ろに「バナナ」が加わります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const numbers = [1, 2];
+
+numbers.push(3, 4);
+
+console.log(numbers);
+console.log(numbers.length);</code></pre>
+            <p>① <code>numbers</code>配列は、実行後にどうなりますか？</p>
+            <p>② 実行後の<code>numbers.length</code>はいくつですか？</p>
+            <p>③ 元の<code>numbers</code>配列そのものは変わりますか？</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題の答え</summary>
+          <div class="details-content">
+            <p>① <code>[1, 2, 3, 4]</code>になります。</p>
+            <p>② <code>4</code>です。</p>
+            <p>③ 変わります。<code>push()</code>は元の配列の末尾へ要素を追加します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回の学習ポイント</summary>
+          <div class="details-content">
+            <p><code>push()</code>は、配列の末尾へ1つ以上の要素を追加します。</p>
+            <p><code>push()</code>を実行すると、元の配列そのものが変わります。</p>
+            <p>要素を追加すると、配列の<code>length</code>も増えます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

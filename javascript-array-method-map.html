@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>map() - すべて変換 | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>map() - すべて変換</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>map()とは？</summary>
+          <div class="details-content">
+            <p><code>map()</code>は、配列の各要素を使って新しい値を作る配列メソッドです。</p>
+            <p>各要素から作った値を順番に入れた、新しい配列が結果になります。</p>
+            <p>値を作る処理は、コールバック関数として<code>map()</code>へ渡します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本コード</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const numbers = [1, 2, 3];
+
+const doubled = numbers.map(function (number) {
+  return number * 2;
+});
+
+console.log(doubled);</code></pre>
+            <p>各要素を2倍した値から、新しい配列を作っています。</p>
+            <p>実行結果は<code>[2, 4, 6]</code>です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>コードを分けて読む</summary>
+          <div class="details-content">
+            <p><code>numbers</code><br>→ 変換に使う元の配列</p>
+            <p><code>map</code><br>→ 各要素から新しい値を作る配列メソッド</p>
+            <p><code>function (number) { ... }</code><br>→ 新しい値を作るコールバック関数</p>
+            <p><code>number</code><br>→ 配列から1つずつ渡される要素を受け取る仮引数</p>
+            <p><code>doubled</code><br>→ <code>map()</code>が作った新しい配列を保存する変数</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>returnする値が新しい要素になる</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>return number * 2;</code></pre>
+            <p>現在の要素を2倍し、その計算結果を<code>return</code>しています。</p>
+            <p><code>return</code>した値が、<code>map()</code>の作る新しい配列へ入ります。</p>
+            <p>条件の<code>true</code>・<code>false</code>を返すのではなく、新しく作った値を返すことがポイントです。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>1を変換する流れ</summary>
+          <div class="details-content">
+            <p><code>1</code><br>↓<br>仮引数<code>number</code>へ渡る</p>
+            <p><code>number * 2</code><br>↓<br><code>1 * 2</code>を計算する</p>
+            <p><code>2</code>を<code>return</code>する<br>↓<br>新しい配列へ<code>2</code>が入る</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>2と3も順番に変換する</summary>
+          <div class="details-content">
+            <p><code>2</code><br>→ <code>number</code>へ渡る<br>→ <code>2 * 2</code><br>→ <code>4</code>を<code>return</code><br>→ 新しい配列へ入る</p>
+            <p><code>3</code><br>→ <code>number</code>へ渡る<br>→ <code>3 * 2</code><br>→ <code>6</code>を<code>return</code><br>→ 新しい配列へ入る</p>
+            <p>すべての変換が終わると、新しい配列は<code>[2, 4, 6]</code>になります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>元の配列は変更しない</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>console.log(numbers);
+console.log(doubled);</code></pre>
+            <p><code>numbers</code><br>→ <code>[1, 2, 3]</code></p>
+            <p><code>doubled</code><br>→ <code>[2, 4, 6]</code></p>
+            <p><code>map()</code>自体は元の配列を変更せず、変換した値を入れた別の新しい配列を作ります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>filter()との違い</summary>
+          <div class="details-content">
+            <p><code>filter()</code><br>→ 元の要素を条件で選び、選ばれた要素から新しい配列を作る</p>
+            <p><code>map()</code><br>→ すべての要素から新しい値を作り、新しい配列を作る</p>
+            <p>「条件に合うものを選びたい」のか、「各要素を別の値へ変換したい」のかで使い分けます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>コードの実行順を上から読む</summary>
+          <div class="details-content">
+            <p>① <code>numbers</code>配列を作る</p>
+            <p>② <code>numbers.map(...)</code>を実行する</p>
+            <p>③ 各要素を仮引数<code>number</code>へ1つずつ渡す</p>
+            <p>④ コールバック関数で2倍した値を<code>return</code>する</p>
+            <p>⑤ 返された<code>2</code>・<code>4</code>・<code>6</code>から新しい配列を作る</p>
+            <p>⑥ 新しい配列を<code>doubled</code>へ保存する</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const prices = [100, 200, 300];
+
+const increased = prices.map(function (price) {
+  return price + 50;
+});</code></pre>
+            <p>① 仮引数<code>price</code>には、どの値が順番に渡りますか？</p>
+            <p>② コールバック関数は、それぞれ何を<code>return</code>しますか？</p>
+            <p>③ <code>increased</code>はどのような配列になりますか？</p>
+            <p>④ 元の<code>prices</code>配列は変わりますか？</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題の答え</summary>
+          <div class="details-content">
+            <p>① <code>100</code>、<code>200</code>、<code>300</code>の順です。</p>
+            <p>② <code>150</code>、<code>250</code>、<code>350</code>を順番に返します。</p>
+            <p>③ <code>[150, 250, 350]</code>になります。</p>
+            <p>④ 変わりません。<code>prices</code>は<code>[100, 200, 300]</code>のままです。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回の学習ポイント</summary>
+          <div class="details-content">
+            <p><code>map()</code>は、配列のすべての要素から新しい値を作ります。</p>
+            <p>コールバック関数が<code>return</code>した値が、新しい配列へ順番に入ります。</p>
+            <p><code>map()</code>自体は、元の配列を変更せず、変換した値を入れた新しい配列を作ります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

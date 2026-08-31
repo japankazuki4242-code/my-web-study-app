@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>配列メソッドとコールバックのつながり | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>配列メソッドと<br>コールバックのつながり</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>これまでの学習がつながる</summary>
+          <div class="details-content">
+            <p>配列メソッドのコードには、これまで学んだ内容が一緒に登場します。</p>
+            <p>配列・メソッド・関数・引数・仮引数・<code>return</code>・コールバック関数の役割を分けて読むと、長く見えるコードも追いやすくなります。</p>
+            <p>このページでは、<code>map()</code>の例を使って、それぞれのつながりを整理します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回読むコード</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const numbers = [1, 2, 3];
+
+const doubled = numbers.map(function (number) {
+  return number * 2;
+});</code></pre>
+            <p><code>numbers</code>配列の各要素を2倍し、新しい配列を<code>doubled</code>へ保存するコードです。</p>
+            <p>実行後の<code>doubled</code>は<code>[2, 4, 6]</code>になります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>numbers・ドット・map・()を読む</summary>
+          <div class="details-content">
+            <p><code>numbers</code><br>→ <code>[1, 2, 3]</code>が入っている配列</p>
+            <p><code>.</code><br>→ <code>numbers</code>配列が持つ機能へアクセスする</p>
+            <p><code>map</code><br>→ 各要素から新しい値を作る配列メソッド</p>
+            <p><code>()</code><br>→ <code>map</code>メソッドを実行し、必要な値を渡す場所</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>function (number) { ... }を読む</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>function (number) {
+  return number * 2;
+}</code></pre>
+            <p>これは、<code>map()</code>へ渡しているコールバック関数の部分だけを抜き出した形です。</p>
+            <p><code>function (number) { ... }</code><br>→ 各要素から新しい値を作るコールバック関数</p>
+            <p><code>number</code><br>→ 配列から1つずつ渡される値を受け取る仮引数</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>return number * 2を読む</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>return number * 2;</code></pre>
+            <p>現在<code>number</code>に入っている値を2倍します。</p>
+            <p><code>return</code>した計算結果が、<code>map()</code>の作る新しい配列へ入ります。</p>
+            <p><code>1</code>なら<code>2</code>、<code>2</code>なら<code>4</code>、<code>3</code>なら<code>6</code>を返します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>doubledを読む</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const doubled = numbers.map(...);</code></pre>
+            <p><code>numbers.map(...)</code>の結果として、新しい配列ができます。</p>
+            <p><code>doubled</code>は、その新しい配列を保存する変数です。</p>
+            <p>元の<code>numbers</code>は<code>[1, 2, 3]</code>のまま、<code>doubled</code>には<code>[2, 4, 6]</code>が入ります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>コードを1行ずつ読む</summary>
+          <div class="details-content">
+            <p>① <code>const numbers = [1, 2, 3];</code><br>→ 元になる配列を作る</p>
+            <p>② <code>function (number) { ... }</code><br>→ コールバック関数として<code>map()</code>の引数へ渡す</p>
+            <p>③ <code>numbers.map(function (number) { ... })</code><br>→ そのコールバック関数を引数として受け取り、<code>numbers</code>配列の<code>map()</code>メソッドを実行する</p>
+            <p>④ <code>return number * 2;</code><br>→ 各要素を2倍した値を返す</p>
+            <p>⑤ <code>const doubled =</code><br>→ <code>map()</code>が作った新しい配列を<code>doubled</code>へ保存する</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実行順を追う</summary>
+          <div class="details-content">
+            <p>① <code>numbers</code>配列を作る</p>
+            <p>② コールバック関数を引数として渡して、<code>map()</code>を実行する</p>
+            <p>③ <code>1</code>が<code>number</code>へ渡る<br>→ <code>2</code>を返す<br>→ 新しい配列へ入る</p>
+            <p>④ <code>2</code>が<code>number</code>へ渡る<br>→ <code>4</code>を返す<br>→ 新しい配列へ入る</p>
+            <p>⑤ <code>3</code>が<code>number</code>へ渡る<br>→ <code>6</code>を返す<br>→ 新しい配列へ入る</p>
+            <p>⑥ 新しい配列<code>[2, 4, 6]</code>を<code>doubled</code>へ保存する</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>つながりをまとめる</summary>
+          <div class="details-content">
+            <p>配列<code>numbers</code><br>↓<br>配列メソッド<code>map()</code>を実行</p>
+            <p>コールバック関数<br>↓<br><code>map()</code>へ渡る</p>
+            <p>配列の各要素<br>↓<br>仮引数<code>number</code>へ渡る</p>
+            <p><code>return number * 2</code><br>↓<br>新しい配列へ入れる値を返す</p>
+            <p><code>map()</code>の結果<br>↓<br>新しい配列として<code>doubled</code>へ保存する</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const prices = [100, 200];
+
+const increased = prices.map(function (price) {
+  return price + 50;
+});</code></pre>
+            <p>① 配列名は何ですか？</p>
+            <p>② 配列メソッド名は何ですか？</p>
+            <p>③ コールバック関数はどの部分ですか？</p>
+            <p>④ 仮引数は何ですか？</p>
+            <p>⑤ <code>return</code>した値は、何に使われますか？</p>
+            <p>⑥ <code>increased</code>には、どの配列が入りますか？</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題の答え</summary>
+          <div class="details-content">
+            <p>① <code>prices</code>です。</p>
+            <p>② <code>map</code>です。</p>
+            <p>③ <code>function (price) { return price + 50; }</code>の部分です。</p>
+            <p>④ <code>price</code>です。</p>
+            <p>⑤ <code>map()</code>が作る新しい配列の要素になります。</p>
+            <p>⑥ <code>[150, 250]</code>が入ります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回の学習ポイント</summary>
+          <div class="details-content">
+            <p>配列メソッドのコードは、配列・メソッド・コールバック関数・仮引数・<code>return</code>がつながって動きます。</p>
+            <p><code>numbers.map(function (number) { ... });</code>は、「<code>numbers</code>の各要素を<code>number</code>で受け取り、コールバック関数で変換する」と読めます。</p>
+            <p><code>return</code>した値から新しい配列が作られ、その結果を変数へ保存できます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

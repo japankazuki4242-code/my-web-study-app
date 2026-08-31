@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>find() - 最初の1件 | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>find() - 最初の1件</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>find()とは？</summary>
+          <div class="details-content">
+            <p><code>find()</code>は、条件に合う最初の要素を探す配列メソッドです。</p>
+            <p>配列の先頭から順番に条件を確認し、最初に条件に合った要素を結果にします。</p>
+            <p>条件を確認する処理は、コールバック関数として<code>find()</code>へ渡します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本コード</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const numbers = [10, 20, 30, 40];
+
+const found = numbers.find(function (number) {
+  return number &gt;= 30;
+});
+
+console.log(found);</code></pre>
+            <p><code>30以上</code>という条件に最初に合う要素を探し、結果を<code>found</code>へ保存しています。</p>
+            <p>実行結果は<code>30</code>です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>コードを分けて読む</summary>
+          <div class="details-content">
+            <p><code>numbers</code><br>→ 探す対象の配列</p>
+            <p><code>find</code><br>→ 条件に合う最初の要素を探す配列メソッド</p>
+            <p><code>function (number) { ... }</code><br>→ 条件を確認するコールバック関数</p>
+            <p><code>number</code><br>→ 配列から1つずつ渡される要素を受け取る仮引数</p>
+            <p><code>found</code><br>→ <code>find()</code>で見つかった結果を保存する変数</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>returnで条件の結果を返す</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>return number &gt;= 30;</code></pre>
+            <p><code>number &gt;= 30</code>は、現在の要素が30以上かを比べます。</p>
+            <p>条件に合う場合は<code>true</code>、合わない場合は<code>false</code>になります。</p>
+            <p><code>return</code>によって、その<code>true</code>または<code>false</code>を<code>find()</code>へ返します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実行順を追う</summary>
+          <div class="details-content">
+            <p><code>10</code><br>→ <code>number</code>へ渡る<br>→ <code>10 &gt;= 30</code>は<code>false</code><br>→ 次の要素へ進む</p>
+            <p><code>20</code><br>→ <code>number</code>へ渡る<br>→ <code>20 &gt;= 30</code>は<code>false</code><br>→ 次の要素へ進む</p>
+            <p><code>30</code><br>→ <code>number</code>へ渡る<br>→ <code>30 &gt;= 30</code>は<code>true</code><br>→ <code>30</code>が結果になる</p>
+            <p>最初の<code>30</code>が見つかったため、この例では<code>40</code>まで条件を確認する必要はありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>最初の1つが結果になる</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const numbers = [10, 30, 40];
+
+const found = numbers.find(function (number) {
+  return number &gt;= 30;
+});</code></pre>
+            <p><code>30</code>と<code>40</code>はどちらも条件に合いますが、結果は最初に見つかった<code>30</code>だけです。</p>
+            <p><code>find()</code>は、条件に合うすべての要素を集めるメソッドではありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>見つからない場合はundefined</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const numbers = [10, 20];
+
+const found = numbers.find(function (number) {
+  return number &gt;= 30;
+});
+
+console.log(found);</code></pre>
+            <p>どの要素も条件に合わないため、結果は<code>undefined</code>です。</p>
+            <p><code>undefined</code>は、ここでは「条件に合う要素が見つからなかった」と考えれば大丈夫です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>コードを上から順番に読む</summary>
+          <div class="details-content">
+            <p>① <code>numbers</code>配列を作る</p>
+            <p>② <code>numbers.find(...)</code>を実行する</p>
+            <p>③ 各要素が仮引数<code>number</code>へ順番に渡る</p>
+            <p>④ コールバック関数が<code>number &gt;= 30</code>の結果を返す</p>
+            <p>⑤ 最初に<code>true</code>になった要素<code>30</code>を、<code>found</code>へ保存する</p>
+            <p>⑥ <code>console.log(found);</code>で<code>30</code>を表示する</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const scores = [40, 80, 90];
+
+const found = scores.find(function (score) {
+  return score &gt;= 70;
+});</code></pre>
+            <p>① 仮引数<code>score</code>には、どの値がどの順番で渡りますか？</p>
+            <p>② 最初に<code>true</code>になる値は何ですか？</p>
+            <p>③ <code>found</code>へ保存される値は何ですか？</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題の答え</summary>
+          <div class="details-content">
+            <p>① 最初に<code>40</code>、次に<code>80</code>が渡ります。</p>
+            <p>② <code>80</code>です。</p>
+            <p>③ <code>80</code>です。</p>
+            <p><code>80</code>で条件に合う要素が見つかるため、この例では次の<code>90</code>まで確認しません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回の学習ポイント</summary>
+          <div class="details-content">
+            <p><code>find()</code>は、条件に合う最初の要素を結果にします。</p>
+            <p>コールバック関数は、条件の結果を<code>true</code>または<code>false</code>として返します。</p>
+            <p>条件に合う要素が1つもない場合、結果は<code>undefined</code>になります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

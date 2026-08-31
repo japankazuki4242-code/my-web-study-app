@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>配列メソッドとは？ | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>配列メソッドとは？</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>メソッドの復習</summary>
+          <div class="details-content">
+            <p>メソッドは、オブジェクトが持っている関数です。</p>
+            <p>「どの値が持つ機能なのか」を左側で確認し、ドット<code>.</code>の右側にあるメソッド名を読みます。</p>
+            <pre class="javascript-code"><code>値.メソッド名()</code></pre>
+            <p><code>()</code>が付いているため、そのメソッドを実行する形です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>配列メソッドとは？</summary>
+          <div class="details-content">
+            <p>配列には、要素を追加したり、1つずつ処理したりする便利なメソッドがあります。</p>
+            <p>配列が持っているこれらの処理を、配列メソッドとして使えます。</p>
+            <pre class="javascript-code"><code>const fruits = ["りんご", "みかん"];
+
+fruits.push("バナナ");</code></pre>
+            <p>この例では、配列<code>fruits</code>が持つ<code>push()</code>メソッドを使っています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>array.method()の形</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>array.method()</code></pre>
+            <p><code>array</code><br>→ メソッドを使う配列</p>
+            <p><code>.</code><br>→ 配列と、その配列が持つメソッドをつなぐ</p>
+            <p><code>method</code><br>→ 実行したいメソッドの名前</p>
+            <p><code>()</code><br>→ メソッドを実行する</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際のコードを分けて読む</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>fruits.push("バナナ");</code></pre>
+            <p><code>fruits</code><br>→ 配列名</p>
+            <p><code>.</code><br>→ <code>fruits</code>が持つ機能へアクセスする</p>
+            <p><code>push</code><br>→ 配列の末尾へ追加するメソッド名</p>
+            <p><code>("バナナ")</code><br>→ <code>push</code>メソッドを実行し、追加する値を渡す</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>これから学ぶ5つのメソッド</summary>
+          <div class="details-content">
+            <p><code>push()</code><br>→ 配列の末尾へ要素を追加する</p>
+            <p><code>forEach()</code><br>→ 配列の要素を1つずつ処理する</p>
+            <p><code>find()</code><br>→ 条件に合う最初の1つを探す</p>
+            <p><code>filter()</code><br>→ 条件に合う要素をすべて集める</p>
+            <p><code>map()</code><br>→ 各要素から新しい値を作る</p>
+            <p>今は役割の違いを大まかに確認し、次のページから1つずつ学びます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>コードの実行順を上から読む</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const numbers = [10, 20];
+
+numbers.push(30);
+
+console.log(numbers);</code></pre>
+            <p>① <code>numbers</code>という配列を作る</p>
+            <p>② <code>numbers.push(30);</code>で、配列の末尾へ<code>30</code>を追加する</p>
+            <p>③ <code>console.log(numbers);</code>で、追加後の配列を表示する</p>
+            <p>実行結果は<code>[10, 20, 30]</code>です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const colors = ["赤", "緑"];
+
+colors.push("青");</code></pre>
+            <p>① 配列名は何ですか？</p>
+            <p>② メソッド名は何ですか？</p>
+            <p>③ <code>.</code>は何をつないでいますか？</p>
+            <p>④ <code>()</code>の中に渡している値は何ですか？</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題の答え</summary>
+          <div class="details-content">
+            <p>① <code>colors</code>です。</p>
+            <p>② <code>push</code>です。</p>
+            <p>③ 配列<code>colors</code>と、その配列が持つ<code>push</code>メソッドをつないでいます。</p>
+            <p>④ <code>"青"</code>です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回の学習ポイント</summary>
+          <div class="details-content">
+            <p>配列メソッドは、配列が持っている便利な処理です。</p>
+            <p>基本の形は<code>配列名.メソッド名()</code>です。</p>
+            <p>コードを読むときは、配列名・ドット・メソッド名・丸括弧に分けて確認しましょう。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

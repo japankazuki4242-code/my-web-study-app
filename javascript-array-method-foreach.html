@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>forEach() - 1つずつ処理 | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>forEach() - 1つずつ処理</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>forEach()とは？</summary>
+          <div class="details-content">
+            <p><code>forEach()</code>は、配列の要素を先頭から1つずつ取り出して処理するメソッドです。</p>
+            <p>「それぞれの要素に対して、この処理を行う」と考えると読みやすくなります。</p>
+            <p>各要素に行う処理は、コールバック関数として<code>forEach()</code>へ渡します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本コード</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const fruits = ["りんご", "みかん", "バナナ"];
+
+fruits.forEach(function (fruit) {
+  console.log(fruit);
+});</code></pre>
+            <p><code>fruits</code>配列から要素が1つずつ取り出され、仮引数<code>fruit</code>へ渡されます。</p>
+            <p>コールバック関数が要素の数だけ実行され、それぞれの値を表示します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>コードを小さく分けて読む</summary>
+          <div class="details-content">
+            <p><code>fruits</code><br>→ 処理する配列</p>
+            <p><code>.</code><br>→ 配列が持つメソッドへアクセスする</p>
+            <p><code>forEach</code><br>→ メソッド名</p>
+            <p><code>()</code><br>→ <code>forEach</code>メソッドを実行する</p>
+            <p><code>function (fruit) { ... }</code><br>→ <code>forEach()</code>へ渡しているコールバック関数</p>
+            <p><code>fruit</code><br>→ 配列から1つずつ渡される要素を受け取る仮引数</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>コールバック関数とのつながり</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>function (fruit) {
+  console.log(fruit);
+}</code></pre>
+            <p>これは、<code>forEach()</code>へ渡している無名のコールバック関数の部分です。</p>
+            <p><code>forEach()</code>は配列の要素を1つ取り出すたびに、この関数を実行します。</p>
+            <p><code>fruit</code>には、現在取り出している要素が入ります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実行順を追う</summary>
+          <div class="details-content">
+            <p>① 「りんご」<br>↓<br>仮引数<code>fruit</code>へ渡る<br>↓<br><code>console.log(fruit);</code>で表示する</p>
+            <p>② 「みかん」<br>↓<br>仮引数<code>fruit</code>へ渡る<br>↓<br><code>console.log(fruit);</code>で表示する</p>
+            <p>③ 「バナナ」<br>↓<br>仮引数<code>fruit</code>へ渡る<br>↓<br><code>console.log(fruit);</code>で表示する</p>
+            <p>配列の先頭から末尾まで、同じコールバック関数が1要素につき1回実行されます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実行結果</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>りんご
+みかん
+バナナ</code></pre>
+            <p>配列の3つの要素が、先頭から順番に表示されます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>for文との簡単な違い</summary>
+          <div class="details-content">
+            <p>for文では、変数<code>i</code>や<code>fruits.length</code>を使って繰り返す範囲を自分で書きました。</p>
+            <p><code>forEach()</code>では、配列の要素を1つずつ処理する流れがメソッドに用意されています。</p>
+            <p>今回は、配列の全要素へ同じ処理を行いたいときに<code>forEach()</code>を使う、と覚えれば大丈夫です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const numbers = [10, 20, 30];
+
+numbers.forEach(function (number) {
+  console.log(number);
+});</code></pre>
+            <p>① 配列名は何ですか？</p>
+            <p>② コールバック関数はどの部分ですか？</p>
+            <p>③ 仮引数<code>number</code>には、どの値がどの順番で渡りますか？</p>
+            <p>④ コンソールには何が表示されますか？</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題の答え</summary>
+          <div class="details-content">
+            <p>① <code>numbers</code>です。</p>
+            <p>② <code>function (number) { console.log(number); }</code>の部分です。</p>
+            <p>③ <code>10</code>、<code>20</code>、<code>30</code>の順に渡ります。</p>
+            <p>④ <code>10</code>、<code>20</code>、<code>30</code>が順番に表示されます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回の学習ポイント</summary>
+          <div class="details-content">
+            <p><code>forEach()</code>は、配列の要素を先頭から1つずつ処理します。</p>
+            <p>処理はコールバック関数として渡し、仮引数が現在の要素を受け取ります。</p>
+            <p>コードは「配列 → <code>forEach()</code> → コールバック関数 → 仮引数」のつながりで読みましょう。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

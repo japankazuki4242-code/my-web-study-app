@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>元の配列と新しい配列 | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>元の配列と新しい配列</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>結果の形はメソッドごとに違う</summary>
+          <div class="details-content">
+            <p>配列メソッドを実行した後の動きは、メソッドによって違います。</p>
+            <p>元の配列そのものを変更するもの、新しい配列を作るもの、配列を作ることが目的ではないものがあります。</p>
+            <p>暗記するのではなく、実行前と実行後の値を比べながら確認しましょう。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>5つのメソッドを整理する</summary>
+          <div class="details-content">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">メソッド</th>
+                  <th scope="col">今回確認する動き</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>push()</code></td>
+                  <td>元の配列を変更する</td>
+                </tr>
+                <tr>
+                  <td><code>filter()</code></td>
+                  <td>元の配列を変更せず、新しい配列を作る</td>
+                </tr>
+                <tr>
+                  <td><code>map()</code></td>
+                  <td>元の配列を変更せず、新しい配列を作る</td>
+                </tr>
+                <tr>
+                  <td><code>forEach()</code></td>
+                  <td>要素を1つずつ処理する</td>
+                </tr>
+                <tr>
+                  <td><code>find()</code></td>
+                  <td>条件に合う最初の要素を取得する</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <details>
+          <summary>push()は元の配列を変更する</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const numbers = [1, 2, 3];
+
+numbers.push(4);
+
+console.log(numbers);</code></pre>
+            <p>実行前<br>→ <code>[1, 2, 3]</code></p>
+            <p>実行後<br>→ <code>[1, 2, 3, 4]</code></p>
+            <p><code>numbers</code>配列そのものへ<code>4</code>が追加されています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>filter()は新しい配列を作る</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const numbers = [1, 2, 3];
+
+const filtered = numbers.filter(function (number) {
+  return number &gt;= 2;
+});</code></pre>
+            <p>元の<code>numbers</code><br>→ <code>[1, 2, 3]</code>のまま</p>
+            <p>新しい<code>filtered</code><br>→ <code>[2, 3]</code></p>
+            <p>条件に合う要素を入れた、別の新しい配列ができます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>map()も新しい配列を作る</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const numbers = [1, 2, 3];
+
+const doubled = numbers.map(function (number) {
+  return number * 2;
+});</code></pre>
+            <p>元の<code>numbers</code><br>→ <code>[1, 2, 3]</code>のまま</p>
+            <p>新しい<code>doubled</code><br>→ <code>[2, 4, 6]</code></p>
+            <p>各要素を変換した値を入れた、別の新しい配列ができます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>forEach()は1つずつ処理する</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const numbers = [1, 2, 3];
+
+numbers.forEach(function (number) {
+  console.log(number);
+});</code></pre>
+            <p>この例では、各要素を順番に表示することが目的です。</p>
+            <p>実行後も元の<code>numbers</code>は<code>[1, 2, 3]</code>のままです。</p>
+            <p>今回は、<code>forEach()</code>を新しい配列を作るためには使っていません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>find()は最初の要素を取得する</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const numbers = [1, 2, 3];
+
+const found = numbers.find(function (number) {
+  return number &gt;= 2;
+});</code></pre>
+            <p>結果の<code>found</code><br>→ 最初に条件に合う要素<code>2</code></p>
+            <p>元の<code>numbers</code><br>→ <code>[1, 2, 3]</code>のまま</p>
+            <p><code>find()</code>は新しい配列を作るのではなく、条件に合って見つかった1つの要素を結果にします。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実行順に沿って前後を確認する</summary>
+          <div class="details-content">
+            <p>① メソッドを実行する前の元の配列を確認する</p>
+            <p>② メソッドを実行する</p>
+            <p>③ 元の配列をもう一度確認する</p>
+            <p>④ 結果を別の変数へ保存している場合は、その値も確認する</p>
+            <p>この順番で見ると、「元の配列が変わったのか」「別の結果ができたのか」を区別できます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題</summary>
+          <div class="details-content">
+            <p>① 元の配列そのものへ要素を追加するメソッドは何ですか？</p>
+            <p>② 条件に合う要素から新しい配列を作るメソッドは何ですか？</p>
+            <p>③ 各要素を変換して新しい配列を作るメソッドは何ですか？</p>
+            <p>④ 条件に合う最初の1つを取得するメソッドは何ですか？</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題の答え</summary>
+          <div class="details-content">
+            <p>① <code>push()</code>です。</p>
+            <p>② <code>filter()</code>です。</p>
+            <p>③ <code>map()</code>です。</p>
+            <p>④ <code>find()</code>です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回の学習ポイント</summary>
+          <div class="details-content">
+            <p><code>push()</code>は元の配列を変更します。</p>
+            <p><code>filter()</code>と<code>map()</code>自体は、元の配列を変更せず新しい配列を作ります。</p>
+            <p><code>forEach()</code>は1つずつ処理し、<code>find()</code>は条件に合う最初の要素を取得します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
