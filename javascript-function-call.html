@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>関数名と関数名()の違い | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>関数名と関数名()の違い</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>introduceとintroduce()を比べる</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>introduce
+introduce()</code></pre>
+            <p>この2つは、<code>()</code>があるかどうかで意味が変わります。</p>
+            <p><code>introduce</code><br>→ 関数そのものを表す</p>
+            <p><code>introduce()</code><br>→ 関数の中にある処理を実行する</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>関数名だけを書く場合</summary>
+          <div class="details-content">
+            <p>関数名だけを書くと、定義した関数そのものを表します。</p>
+            <pre class="javascript-code"><code>function introduce() {
+  console.log("かずです");
+}
+
+const savedFunction = introduce;</code></pre>
+            <p><code>introduce</code>に<code>()</code>がないため、この行では関数の処理を実行していません。</p>
+            <p><code>savedFunction</code>には、「かずです」と表示した結果ではなく、<code>introduce</code>関数そのものが入ります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>()を付ける場合</summary>
+          <div class="details-content">
+            <p>関数名の後ろに<code>()</code>を付けると、その関数を呼び出して処理を実行します。</p>
+            <pre class="javascript-code"><code>introduce();</code></pre>
+            <p><code>introduce</code>関数の中にある<code>console.log("かずです");</code>が実行されます。</p>
+            <p>コンソールに「かずです」と表示されるのは、この呼び出しを行ったときです。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>同じ関数を別の名前から実行する</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const savedFunction = introduce;
+
+savedFunction();</code></pre>
+            <p>1行目では、<code>introduce</code>関数そのものを<code>savedFunction</code>へ入れています。</p>
+            <p>3行目では、<code>savedFunction</code>に<code>()</code>を付けて、入っている関数を実行しています。</p>
+            <p>そのため、<code>introduce()</code>を呼び出したときと同じように「かずです」と表示されます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>1行ずつ分けて読む</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>function introduce() {
+  console.log("かずです");
+}
+
+const savedFunction = introduce;
+savedFunction();</code></pre>
+            <p>① <code>function introduce() {</code><br>→ <code>introduce</code>関数を定義する</p>
+            <p>② <code>console.log("かずです");</code><br>→ 呼び出されたときの処理を決める</p>
+            <p>③ <code>const savedFunction = introduce;</code><br>→ 関数を実行せず、関数そのものを別の名前へ入れる</p>
+            <p>④ <code>savedFunction();</code><br>→ 入っている関数を実行する</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>「関数そのもの」と「関数を実行する」の違い</summary>
+          <div class="details-content">
+            <p><strong>関数そのものを使うとき</strong><br>→ <code>introduce</code>のように、<code>()</code>を付けずに書く</p>
+            <p>関数そのものは、<code>const savedFunction = introduce;</code>のように別の変数へ入れることができます。</p>
+            <p><strong>関数を実行するとき</strong><br>→ <code>introduce()</code>のように、<code>()</code>を付ける</p>
+            <p>この違いは、後で別の処理へ関数そのものを渡すコードを読むときの基礎になります。</p>
+            <p>このページではコールバック関数の詳しい説明には進まず、まず<code>()</code>の有無を見分けられれば大丈夫です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>function showMessage() {
+  console.log("お知らせ");
+}
+
+const task = showMessage;
+task();</code></pre>
+            <p>① 関数を実行せず、関数そのものを値として使っている<code>showMessage</code>は、どの行にありますか？</p>
+            <p>② 関数を実行しているのは、どの行ですか？</p>
+            <p>③ コンソールには何と表示されますか？</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題の答え</summary>
+          <div class="details-content">
+            <p>① <code>const task = showMessage;</code>の<code>showMessage</code></p>
+            <p>② <code>task();</code></p>
+            <p>③ <code>お知らせ</code></p>
+            <p><code>showMessage</code>では関数を実行せず、<code>task()</code>でその関数を実行しています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回の学習ポイント</summary>
+          <div class="details-content">
+            <p><code>関数名</code><br>→ 関数そのものを表す</p>
+            <p><code>関数名()</code><br>→ 関数を呼び出して実行する</p>
+            <p>コードを読むときは、関数名の後ろに<code>()</code>が付いているかを確認しましょう。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

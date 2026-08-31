@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>引数・仮引数 | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>引数・仮引数</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>関数へ値を渡す仕組み</summary>
+          <div class="details-content">
+            <p>関数は、呼び出すときに外から値を受け取り、その値を使って処理できます。</p>
+            <pre class="javascript-code"><code>function introduce(name) {
+  console.log(name);
+}
+
+introduce("かず");</code></pre>
+            <p>この例では、呼び出すときに渡した<code>"かず"</code>を、関数の中で表示しています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>引数とは？</summary>
+          <div class="details-content">
+            <p>引数は、関数を呼び出すときに関数へ渡す値です。</p>
+            <pre class="javascript-code"><code>introduce("かず");</code></pre>
+            <p>このコードでは、<code>"かず"</code>が引数です。</p>
+            <p>引数は、呼び出す関数名の後ろにある<code>()</code>の中へ書きます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>仮引数とは？</summary>
+          <div class="details-content">
+            <p>仮引数は、関数が受け取る値に付ける名前です。</p>
+            <pre class="javascript-code"><code>function introduce(name) {
+  console.log(name);
+}</code></pre>
+            <p>このコードでは、関数を定義するときの<code>name</code>が仮引数です。</p>
+            <p>受け取った値は、関数の中で<code>name</code>という名前を使って読み出せます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>値がどこからどこへ渡る？</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>function introduce(name) {
+  console.log(name);
+}
+
+introduce("かず");</code></pre>
+            <p>① <code>introduce("かず");</code><br>→ 引数として<code>"かず"</code>を渡す</p>
+            <p>② <code>function introduce(name)</code><br>→ 仮引数<code>name</code>が<code>"かず"</code>を受け取る</p>
+            <p>③ <code>console.log(name);</code><br>→ <code>name</code>に入った<code>"かず"</code>を表示する</p>
+            <p>引数の値が、同じ位置にある仮引数へ渡されると考えましょう。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>呼び出す値を変えてみる</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>introduce("かず");
+introduce("あき");</code></pre>
+            <p>1回目は<code>name</code>へ<code>"かず"</code>が渡されます。</p>
+            <p>2回目は<code>name</code>へ<code>"あき"</code>が渡されます。</p>
+            <p>同じ関数でも、呼び出すときの引数を変えることで、違う値を使って処理できます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>複数の引数を渡す</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>function add(number1, number2) {
+  console.log(number1 + number2);
+}
+
+add(3, 5);</code></pre>
+            <p><code>3</code><br>→ 1番目の仮引数<code>number1</code>へ渡る</p>
+            <p><code>5</code><br>→ 2番目の仮引数<code>number2</code>へ渡る</p>
+            <p><code>number1 + number2</code>は<code>3 + 5</code>になるため、<code>8</code>と表示されます。</p>
+            <p>複数の引数と仮引数は、どちらもカンマ<code>,</code>で区切ります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>コードを1行ずつ読む</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>function add(number1, number2) {
+  const total = number1 + number2;
+  console.log(total);
+}
+
+add(3, 5);</code></pre>
+            <p>① <code>function add(number1, number2) { ... }</code><br>→ <code>add</code>関数を定義する<br>→ この時点では関数内の処理はまだ実行しない</p>
+            <p>② <code>add(3, 5);</code><br>→ 関数を呼び出し、<code>3</code>と<code>5</code>を渡す</p>
+            <p>③ <code>3</code>が<code>number1</code>、<code>5</code>が<code>number2</code>へ渡る</p>
+            <p>④ <code>const total = number1 + number2;</code><br>→ <code>3 + 5</code>を計算して、<code>total</code>へ保存する</p>
+            <p>⑤ <code>console.log(total);</code><br>→ <code>8</code>を表示する</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>function showScore(name, score) {
+  console.log(name);
+  console.log(score);
+}
+
+showScore("かず", 80);</code></pre>
+            <p>① 仮引数は何ですか？</p>
+            <p>② 引数は何ですか？</p>
+            <p>③ <code>name</code>へ渡る値は何ですか？</p>
+            <p>④ <code>score</code>へ渡る値は何ですか？</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題の答え</summary>
+          <div class="details-content">
+            <p>① <code>name</code>と<code>score</code></p>
+            <p>② <code>"かず"</code>と<code>80</code></p>
+            <p>③ <code>"かず"</code></p>
+            <p>④ <code>80</code></p>
+            <p>1番目の引数は1番目の仮引数へ、2番目の引数は2番目の仮引数へ渡ります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回の学習ポイント</summary>
+          <div class="details-content">
+            <p><strong>引数</strong><br>→ 関数を呼び出すときに渡す値</p>
+            <p><strong>仮引数</strong><br>→ 関数が受け取る値に付ける名前</p>
+            <p>複数ある場合は、引数と仮引数の位置を順番に対応させて読みましょう。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

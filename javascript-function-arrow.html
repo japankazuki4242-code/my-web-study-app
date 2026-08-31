@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>functionとアロー関数 | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>functionとアロー関数</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>functionを使った関数</summary>
+          <div class="details-content">
+            <p><code>function</code>を使うと、次のように関数を定義できます。</p>
+            <pre class="javascript-code"><code>function greet() {
+  console.log("こんにちは");
+}</code></pre>
+            <p><code>function</code>の後ろに関数名の<code>greet</code>を書き、<code>{ }</code>の中に実行したい処理を書いています。</p>
+            <p><code>greet()</code>と呼び出すと、「こんにちは」と表示されます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>アロー関数とは？</summary>
+          <div class="details-content">
+            <p>アロー関数は、<code>function</code>を使う関数とは別の書き方です。</p>
+            <pre class="javascript-code"><code>const greet = () =&gt; {
+  console.log("こんにちは");
+};</code></pre>
+            <p><code>=&gt;</code>が矢印のように見えるため、「アロー関数」と呼びます。</p>
+            <p>この例では、アロー関数を<code>greet</code>という名前へ入れています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>アロー関数の基本形</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>() =&gt; {
+  処理
+}</code></pre>
+            <p><code>()</code><br>→ 関数が受け取る値（仮引数）を書く場所。この例では何も受け取らないため空</p>
+            <p><code>=&gt;</code><br>→ アロー関数で使う記号</p>
+            <p><code>{ }</code><br>→ 関数を呼び出したときに実行する処理を書く場所</p>
+            <p>まずは、この3つが並ぶ基本の形を覚えましょう。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>同じ処理を2つの書き方で比べる</summary>
+          <div class="details-content">
+            <p><strong>functionを使った関数</strong></p>
+            <pre class="javascript-code"><code>function greet() {
+  console.log("こんにちは");
+}</code></pre>
+            <p><strong>アロー関数</strong></p>
+            <pre class="javascript-code"><code>const greet = () =&gt; {
+  console.log("こんにちは");
+};</code></pre>
+            <p>書き方は違いますが、どちらも<code>greet()</code>と呼び出すと「こんにちは」と表示します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>書き方を1つずつ読む</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const greet = () =&gt; {
+  console.log("こんにちは");
+};
+
+greet();</code></pre>
+            <p>① <code>const greet =</code><br>→ <code>greet</code>という名前へ、右側の関数を入れる</p>
+            <p>② <code>() =&gt; {</code><br>→ アロー関数の開始</p>
+            <p>③ <code>console.log("こんにちは");</code><br>→ 呼び出されたときに実行する処理</p>
+            <p>④ <code>greet();</code><br>→ <code>greet</code>に入っているアロー関数を実行する</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>まずは両方の形を読めればよい</summary>
+          <div class="details-content">
+            <p>JavaScriptのコードでは、<code>function</code>を使った関数とアロー関数の両方を見かけます。</p>
+            <p><code>function greet() { }</code><br>→ <code>function</code>を使った関数</p>
+            <p><code>const greet = () =&gt; { };</code><br>→ アロー関数</p>
+            <p>今は、どちらも処理をひとまとまりにする関数だと読めれば大丈夫です。</p>
+            <p>アロー関数には処理が1行のときの省略記法などもありますが、このページでは基本形だけを使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const showMessage = () =&gt; {
+  console.log("完了");
+};
+
+showMessage();</code></pre>
+            <p>① この関数は、<code>function</code>を使った関数とアロー関数のどちらですか？</p>
+            <p>② 関数名は何ですか？</p>
+            <p>③ 関数を呼び出している行はどこですか？</p>
+            <p>④ コンソールには何と表示されますか？</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題の答え</summary>
+          <div class="details-content">
+            <p>① アロー関数</p>
+            <p>② <code>showMessage</code></p>
+            <p>③ <code>showMessage();</code></p>
+            <p>④ <code>完了</code></p>
+            <p><code>=&gt;</code>が、アロー関数を見分ける目印です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回の学習ポイント</summary>
+          <div class="details-content">
+            <p>関数には、<code>function</code>を使う書き方とアロー関数の書き方があります。</p>
+            <p>アロー関数の基本形は<code>() =&gt; { }</code>です。</p>
+            <p>まずは省略しない基本形で、それぞれの記号と処理のつながりを読みましょう。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

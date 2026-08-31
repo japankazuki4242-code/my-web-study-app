@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>スコープ | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>スコープ</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>スコープとは？</summary>
+          <div class="details-content">
+            <p>スコープは、変数や定数を使える範囲のことです。</p>
+            <p>変数を宣言した場所によって、その変数を使える場所が変わります。</p>
+            <p>まずは、「関数の外で宣言したか、関数の中で宣言したか」に注目しましょう。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>関数の外で宣言した変数</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const userName = "かず";
+
+function greet() {
+  console.log(userName);
+}
+
+greet();</code></pre>
+            <p><code>userName</code>は関数の外で宣言されています。</p>
+            <p>この例では、関数の外にある<code>userName</code>を、<code>greet</code>関数の中から使えます。</p>
+            <p><code>greet()</code>を呼び出すと、「かず」と表示されます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>関数の中で宣言した変数</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>function greet() {
+  const message = "こんにちは";
+  console.log(message);
+}
+
+greet();</code></pre>
+            <p><code>message</code>は、<code>greet</code>関数の中で宣言されています。</p>
+            <p>同じ関数の<code>{ }</code>の中にある<code>console.log(message);</code>では、<code>message</code>を使えます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>関数内の変数は外から使えない</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>function greet() {
+  const message = "こんにちは";
+}
+
+console.log(message);</code></pre>
+            <p><code>message</code>を使えるのは、宣言した<code>greet</code>関数の中だけです。</p>
+            <p>関数の外にある<code>console.log(message);</code>からは使えないため、実行するとエラーになります。</p>
+            <p>このページではまず、関数の<code>{ }</code>の内側で宣言したか、外側で宣言したかを目印にして考えます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>グローバルスコープとローカルスコープ</summary>
+          <div class="details-content">
+            <p><strong>グローバルスコープ</strong><br>→ 関数の外など、広い範囲で使える場所</p>
+            <p><strong>ローカルスコープ</strong><br>→ 関数の中など、限られた範囲だけで使える場所</p>
+            <p>関数の外で宣言した<code>userName</code>は広い範囲で使えます。</p>
+            <p>関数の中で宣言した<code>message</code>は、その関数の中だけで使えます。</p>
+            <p>まずは用語を暗記するより、「どこで宣言され、どこから使っているか」を確認しましょう。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>同じ名前でも別の変数になる場合</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const message = "関数の外";
+
+function showMessage() {
+  const message = "関数の中";
+  console.log(message);
+}
+
+showMessage();
+console.log(message);</code></pre>
+            <p><code>showMessage()</code>の中<br>→ 関数の中で宣言した<code>message</code>を使うため、「関数の中」と表示する</p>
+            <p>最後の<code>console.log(message);</code><br>→ 関数の外で宣言した<code>message</code>を使うため、「関数の外」と表示する</p>
+            <p>名前は同じでも、宣言した範囲が違うため別の変数です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>コードを上から順番に読む</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const appName = "学習アプリ";
+
+function showTitle() {
+  const pageName = "関数";
+  console.log(appName);
+  console.log(pageName);
+}
+
+showTitle();</code></pre>
+            <p>① 関数の外で<code>appName</code>を宣言する</p>
+            <p>② <code>showTitle</code>関数を定義する。この時点では中の処理を実行しない</p>
+            <p>③ <code>showTitle()</code>を呼び出す</p>
+            <p>④ 関数の中で<code>pageName</code>を宣言する</p>
+            <p>⑤ 関数の中から、外側の<code>appName</code>と内側の<code>pageName</code>を表示する</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>const outsideText = "外";
+
+function showText() {
+  const insideText = "中";
+  console.log(outsideText);
+  console.log(insideText);
+}
+
+showText();</code></pre>
+            <p>① 関数の外で宣言されている定数はどれですか？</p>
+            <p>② 関数の中だけで使える定数はどれですか？</p>
+            <p>③ <code>showText</code>関数の中から<code>outsideText</code>を使えますか？</p>
+            <p>④ 関数の外から<code>insideText</code>を使えますか？</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題の答え</summary>
+          <div class="details-content">
+            <p>① <code>outsideText</code></p>
+            <p>② <code>insideText</code></p>
+            <p>③ 使えます</p>
+            <p>④ 使えません</p>
+            <p><code>insideText</code>のスコープは、<code>showText</code>関数の中だけです。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回の学習ポイント</summary>
+          <div class="details-content">
+            <p>スコープは、変数や定数を使える範囲です。</p>
+            <p>関数の外で宣言した変数は関数の中から使えますが、関数の中で宣言した変数は関数の外から使えません。</p>
+            <p>同じ名前でもスコープが違えば、別の変数になる場合があります。まずは、どこで宣言された変数なのかを確認して読みましょう。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

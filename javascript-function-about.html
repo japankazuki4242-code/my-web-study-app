@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>関数とは？・定義と呼び出し | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>関数とは？・定義と呼び出し</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>関数とは？</summary>
+          <div class="details-content">
+            <p>関数は、処理をひとまとまりにして、名前を付けたものです。</p>
+            <p>同じ処理が必要になったときは、その名前を使って何度でも実行できます。</p>
+            <p>「あいさつする」「合計を計算する」のように、何をする処理なのかが分かる名前を付けると、コードを読みやすくできます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>関数を定義するとは？</summary>
+          <div class="details-content">
+            <p>関数を定義するとは、まとめたい処理の内容と、その関数の名前を決めることです。</p>
+            <pre class="javascript-code"><code>function greet() {
+  console.log("こんにちは");
+}</code></pre>
+            <p><code>function</code><br>→ 関数を定義するときに使う言葉</p>
+            <p><code>greet</code><br>→ 関数名</p>
+            <p><code>{ }</code><br>→ ひとまとまりにする処理を書く場所</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>関数を呼び出すとは？</summary>
+          <div class="details-content">
+            <p>関数を呼び出すとは、定義した関数の処理を実行することです。</p>
+            <pre class="javascript-code"><code>greet();</code></pre>
+            <p>関数名の後ろに<code>()</code>を付けると、<code>greet</code>の中にまとめた処理が実行されます。</p>
+            <p>この例では、コンソールに「こんにちは」と表示されます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>複数の処理をまとめる</summary>
+          <div class="details-content">
+            <p>関数の<code>{ }</code>には、複数の処理をまとめて書けます。</p>
+            <pre class="javascript-code"><code>function introduce() {
+  console.log("かずです");
+  console.log("よろしくお願いします");
+}</code></pre>
+            <p><code>introduce()</code>を呼び出すと、2つの<code>console.log()</code>が上から順番に実行されます。</p>
+            <p>関係する処理を1つの関数にまとめることで、「何をするための処理か」が分かりやすくなります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>定義しただけでは実行されない</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>function greet() {
+  console.log("こんにちは");
+}</code></pre>
+            <p>このコードは<code>greet</code>関数を定義しただけです。この時点では、コンソールに何も表示されません。</p>
+            <p>処理を実行するには、定義とは別に次の呼び出しが必要です。</p>
+            <pre class="javascript-code"><code>greet();</code></pre>
+          </div>
+        </details>
+
+        <details>
+          <summary>コードを上から順番に読む</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>function greet() {
+  console.log("こんにちは");
+}
+
+greet();
+console.log("次の処理");</code></pre>
+            <p>① <code>function greet() {</code><br>→ <code>greet</code>関数を定義する</p>
+            <p>② <code>console.log("こんにちは");</code><br>→ 呼び出されたときに実行する処理として覚えておく</p>
+            <p>③ <code>greet();</code><br>→ <code>greet</code>関数を呼び出し、「こんにちは」を表示する</p>
+            <p>④ <code>console.log("次の処理");</code><br>→ 関数の呼び出しが終わった後、「次の処理」を表示する</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>function sayHello() {
+  console.log("Hello");
+}
+
+sayHello();</code></pre>
+            <p>① 関数名は何ですか？</p>
+            <p>② 関数を定義している部分はどこですか？</p>
+            <p>③ 関数を呼び出している部分はどこですか？</p>
+            <p>④ コンソールには何と表示されますか？</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題の答え</summary>
+          <div class="details-content">
+            <p>① <code>sayHello</code></p>
+            <p>② <code>function sayHello() {</code>から<code>}</code>まで</p>
+            <p>③ <code>sayHello();</code></p>
+            <p>④ <code>Hello</code></p>
+            <p>定義した関数は、<code>sayHello()</code>と呼び出されたときに実行されます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回の学習ポイント</summary>
+          <div class="details-content">
+            <p>このページでは、次の4点を覚えておきましょう。</p>
+            <ul>
+              <li>関数は、処理をひとまとまりにしたもの</li>
+              <li>定義は、関数の名前と処理の内容を決めること</li>
+              <li>呼び出しは、定義した関数を実行すること</li>
+              <li>関数は定義しただけでは実行されない</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

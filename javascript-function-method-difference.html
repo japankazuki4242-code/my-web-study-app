@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>関数とメソッドの違い | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>関数とメソッドの違い</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>関数とは？</summary>
+          <div class="details-content">
+            <p>関数は、処理をひとまとまりにして、名前を付けたものです。</p>
+            <pre class="javascript-code"><code>function introduce() {
+  console.log("かずです");
+}</code></pre>
+            <p>この例では、<code>introduce</code>という名前の関数を定義しています。</p>
+            <p><code>introduce()</code>と書くと、関数を呼び出せます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>メソッドとは？</summary>
+          <div class="details-content">
+            <p>オブジェクトの中にある関数を、メソッドと呼びます。</p>
+            <pre class="javascript-code"><code>const user = {
+  introduce: function () {
+    console.log("かずです");
+  }
+};</code></pre>
+            <p><code>user</code>オブジェクトの<code>introduce</code>プロパティに、関数が入っています。</p>
+            <p>このように、オブジェクトが持っている処理や機能として使う関数がメソッドです。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>以前学習したオブジェクトとのつながり</summary>
+          <div class="details-content">
+            <p>オブジェクトは、関係する値や機能を1つにまとめられます。</p>
+            <pre class="javascript-code"><code>const user = {
+  name: "かず",
+  introduce: function () {
+    console.log("こんにちは");
+  }
+};</code></pre>
+            <p><code>name</code><br>→ 文字列が入っているプロパティ</p>
+            <p><code>introduce</code><br>→ 関数が入っているプロパティで、呼び出すときはメソッドとして使う</p>
+            <p>オブジェクトが持つ名前付きの値を、プロパティと呼びます。</p>
+            <p>そのプロパティの値が関数で、処理として呼び出して使うものをメソッドと呼びます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>見た目の違いを比べる</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>introduce();
+user.introduce();</code></pre>
+            <p><code>introduce()</code><br>→ <code>introduce</code>という関数を呼び出す</p>
+            <p><code>user.introduce()</code><br>→ <code>user</code>オブジェクトが持つ<code>introduce</code>メソッドを呼び出す</p>
+            <p>メソッドの呼び出しには、オブジェクト名とメソッド名をつなぐ<code>.</code>があります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>コードを分けて読む</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>user.introduce();</code></pre>
+            <p><code>user</code><br>→ オブジェクト</p>
+            <p><code>.</code><br>→ <code>user</code>が持っているものへアクセスする</p>
+            <p><code>introduce</code><br>→ メソッド名</p>
+            <p><code>()</code><br>→ メソッドを実行する</p>
+            <p>全体で、「<code>user</code>オブジェクトが持つ<code>introduce</code>メソッドを実行する」と読みます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>addEventListener()もメソッド</summary>
+          <div class="details-content">
+            <p>このアプリの<code>script.js</code>では、次の形のコードを使っています。</p>
+            <pre class="javascript-code"><code>backButton.addEventListener("click", function () {
+  history.back();
+});</code></pre>
+            <p><code>backButton</code><br>→ 操作する要素を表すオブジェクト</p>
+            <p><code>addEventListener</code><br>→ <code>backButton</code>が持つメソッド</p>
+            <p><code>()</code><br>→ メソッドを実行する</p>
+            <p>このページでは、<code>backButton.addEventListener()</code>を「オブジェクトが持つメソッド」と読めれば大丈夫です。丸括弧の中にある関数の役割は、次のPhaseで学びます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題</summary>
+          <div class="details-content">
+            <pre class="javascript-code"><code>showMessage();
+console.log("完了");
+localStorage.getItem("userName");</code></pre>
+            <p>① 関数の呼び出しはどれですか？</p>
+            <p>② メソッドの呼び出しはどれですか？</p>
+            <p>③ <code>console.log()</code>のオブジェクト名とメソッド名は何ですか？</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>確認問題の答え</summary>
+          <div class="details-content">
+            <p>① <code>showMessage();</code></p>
+            <p>② <code>console.log("完了");</code>と<code>localStorage.getItem("userName");</code></p>
+            <p>③ オブジェクト名は<code>console</code>、メソッド名は<code>log</code>です。</p>
+            <p><code>オブジェクト.メソッド()</code>という形を目印にしましょう。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>今回の学習ポイント</summary>
+          <div class="details-content">
+            <p><strong>関数</strong><br>→ 処理をひとまとまりにしたもの</p>
+            <p><strong>メソッド</strong><br>→ オブジェクトの中にある関数</p>
+            <p><code>functionName()</code>は関数の呼び出し、<code>object.method()</code>はメソッドの呼び出しとして読めます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
