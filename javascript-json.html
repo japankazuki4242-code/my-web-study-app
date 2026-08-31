@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>JSON | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>JSON</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>JSONとは？</summary>
+          <div class="details-content">
+            <p>JSONはプログラミング言語ではなく、データを決まった形式で表すためのデータ形式です。</p>
+            <p>JSONは「JavaScript Object Notation」の略です。JavaScriptのオブジェクトと似た書き方で、データを表します。</p>
+            <pre class="javascript-code"><code>{
+  "name": "かず",
+  "skill": "JavaScript"
+}</code></pre>
+            <p>VS Codeの<code>settings.json</code>のように、設定データなどにもJSON形式が使われることがあります。</p>
+            <p>このページではVS Codeの設定ではなく、JavaScriptの配列・オブジェクトをlocalStorageへ保存するときに使うJSONを学びます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>JSONの基本的な書き方</summary>
+          <div class="details-content">
+            <p>JSONはJavaScriptのオブジェクトと似ていますが、JSONとしての書き方があります。</p>
+            <pre class="javascript-code"><code>{
+  "name": "かず",
+  "skills": ["HTML", "CSS", "JavaScript"]
+}</code></pre>
+            <ul>
+              <li>オブジェクト形式は<code>{ }</code>、配列形式は<code>[ ]</code>で囲みます。</li>
+              <li>keyはダブルクォート<code>" "</code>で囲みます。</li>
+              <li>文字列もダブルクォート<code>" "</code>で囲みます。</li>
+              <li>keyとvalueは<code>:</code>でつなぎます。</li>
+              <li>複数のデータは<code>,</code>で区切ります。</li>
+            </ul>
+            <p>まずはこの基本的な書き方を覚えれば大丈夫です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>JSON.stringify() - 文字列に変換する</summary>
+          <div class="details-content">
+            <p>次の<code>skills</code>は、JavaScriptの配列です。</p>
+            <pre class="javascript-code"><code>const skills = ["HTML", "CSS", "JavaScript"];</code></pre>
+            <p>localStorageはデータを文字列として保存します。そのため、配列やオブジェクトを保存するときは、<code>JSON.stringify()</code>を使って保存できる文字列へ変換します。</p>
+            <pre class="javascript-code"><code>const skillsText = JSON.stringify(skills);</code></pre>
+            <p><code>skills</code>の配列を<code>JSON.stringify()</code>へ渡し、変換後のJSON形式の文字列を<code>skillsText</code>へ入れています。</p>
+            <p>配列<br>↓<br><code>JSON.stringify()</code><br>↓<br>JSON形式の文字列</p>
+            <p><code>JSON.stringify()</code>は、配列・オブジェクトを保存用の文字列へ変換する役割です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>JSON.parse() - 元のデータに戻す</summary>
+          <div class="details-content">
+            <p>localStorageから<code>getItem()</code>で読み出した直後のデータは文字列です。</p>
+            <pre class="javascript-code"><code>const savedSkills = localStorage.getItem("skills");
+
+const skills = JSON.parse(savedSkills);</code></pre>
+            <p><code>savedSkills</code>には、localStorageから読み出した文字列が入ります。その文字列を<code>JSON.parse()</code>へ渡すと、元のJavaScriptの配列へ戻せます。</p>
+            <p>localStorageから文字列を読み出す<br>↓<br><code>JSON.parse()</code><br>↓<br>JavaScriptの配列・オブジェクトへ戻す</p>
+            <p><code>JSON.stringify()</code>は文字列へ変換し、<code>JSON.parse()</code>は文字列から元のデータへ戻します。2つは逆方向の役割です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>localStorageで配列・オブジェクトを保存する</summary>
+          <div class="details-content">
+            <p>配列・JSON・localStorageをつなげると、次のように保存と読み出しができます。</p>
+            <pre class="javascript-code"><code>const skills = ["HTML", "CSS", "JavaScript"];
+
+const skillsText = JSON.stringify(skills);
+
+localStorage.setItem("skills", skillsText);
+
+const savedSkills = localStorage.getItem("skills");
+
+const restoredSkills = JSON.parse(savedSkills);</code></pre>
+            <p><code>skills</code>は、保存したいJavaScriptの配列です。</p>
+            <p><code>skillsText</code>は、<code>JSON.stringify()</code>で配列を変換した保存用の文字列です。</p>
+            <p><code>setItem()</code>は、<code>"skills"</code>というkeyで文字列をlocalStorageへ保存します。</p>
+            <p><code>savedSkills</code>は、<code>getItem()</code>でlocalStorageから読み出した文字列です。</p>
+            <p><code>restoredSkills</code>は、<code>JSON.parse()</code>で文字列から元の配列へ戻したデータです。</p>
+            <p>配列を作る<br>↓<br><code>JSON.stringify()</code>で文字列へ変換<br>↓<br><code>setItem()</code>で保存<br>↓<br><code>getItem()</code>で読み出す<br>↓<br><code>JSON.parse()</code>で配列へ戻す</p>
+            <p>このアプリの共通自由メモは、textareaに入力した文字列をそのまま保存しています。そのため、自由メモには<code>JSON.stringify()</code>と<code>JSON.parse()</code>は必要ありません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>JSON練習エリア</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="json-practice-input" class="free-memo-input" aria-label="JSON練習入力欄" autocomplete="off" spellcheck="false" placeholder="{
+  &quot;name&quot;: &quot;かず&quot;,
+  &quot;skills&quot;: [&quot;HTML&quot;, &quot;CSS&quot;, &quot;JavaScript&quot;]
+}"></textarea>
+
+              <button type="button" id="check-json-button" class="nav-button free-memo-save-button">JSONを確認</button>
+
+              <p id="json-practice-result" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

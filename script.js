@@ -49,3 +49,34 @@ if (freeMemoInput && saveFreeMemoButton && freeMemoStatus) {
     freeMemoStatus.textContent = "保存しました";
   });
 }
+
+// JSON練習エリアだけで使用する保存キーです。
+const jsonPracticeStorageKey = "my-web-study-app:json-practice";
+
+// JSON練習エリアで使用する要素を取得します。
+const jsonPracticeInput = document.getElementById("json-practice-input");
+const checkJsonButton = document.getElementById("check-json-button");
+const jsonPracticeResult = document.getElementById("json-practice-result");
+
+if (jsonPracticeInput && checkJsonButton && jsonPracticeResult) {
+  // 保存済みの練習内容がある場合は、入力欄へ表示します。
+  const savedJsonPractice = localStorage.getItem(jsonPracticeStorageKey);
+
+  if (savedJsonPractice !== null) {
+    jsonPracticeInput.value = savedJsonPractice;
+  }
+
+  // 確認ボタンを押したとき、入力内容を保存してJSONの書き方を確認します。
+  checkJsonButton.addEventListener("click", function () {
+    const jsonPracticeText = jsonPracticeInput.value;
+
+    localStorage.setItem(jsonPracticeStorageKey, jsonPracticeText);
+
+    try {
+      JSON.parse(jsonPracticeText);
+      jsonPracticeResult.textContent = "正しいJSONです";
+    } catch (error) {
+      jsonPracticeResult.textContent = "JSONの書き方を確認してください";
+    }
+  });
+}
