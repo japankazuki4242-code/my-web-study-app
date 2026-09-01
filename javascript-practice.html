@@ -624,6 +624,230 @@ addStudyItemButton.addEventListener("click", function () {
           </div>
         </section>
 
+        <section class="practice-step" aria-labelledby="practice-step-5-title">
+          <header class="practice-step__header">
+            <p class="practice-step__number">STEP 5</p>
+            <h2 id="practice-step-5-title" class="practice-step__title">学習項目をブラウザに保存する</h2>
+            <p class="practice-step__pr">PR1-5</p>
+          </header>
+
+          <div class="practice-step__details">
+            <details>
+              <summary>なぜJSON.stringify()が必要なのか</summary>
+              <div class="details-content">
+                <p><code>studyItems</code>は、学習内容と完了状態を持つオブジェクトの配列です。</p>
+                <pre class="javascript-code"><code>[
+  {
+    text: "HTMLを復習する",
+    done: true
+  },
+  {
+    text: "CSSを復習する",
+    done: false
+  }
+]</code></pre>
+                <p>localStorageは値を文字列として保存します。配列やオブジェクトをそのまま渡すと、元の構造を正しく保てません。そのため、JSON.stringify()でJSON文字列へ変換して保存します。</p>
+                <pre class="javascript-code"><code>const studyItemsJson = JSON.stringify(studyItems);</code></pre>
+                <p><code>JSON.stringify()</code>を使うと、配列とその中のオブジェクトを、同じ情報を持つJSON文字列へ変換できます。</p>
+                <p><code>studyItems</code>の配列・オブジェクト<br>↓<br><code>JSON.stringify()</code><br>↓<br>JSON文字列</p>
+                <p>読み込むときは反対に、JSON文字列を<code>JSON.parse()</code>で配列・オブジェクトへ戻します。</p>
+              </div>
+            </details>
+
+            <details>
+              <summary>学習項目をlocalStorageへ保存する</summary>
+              <div class="details-content">
+                <p>学習項目リストでは、自由メモやJSON練習とは別の保存キーを使います。</p>
+                <pre class="javascript-code"><code>const studyItemsStorageKey =
+  "my-web-study-app:study-items";</code></pre>
+                <p>保存処理は、何度でも同じ処理を使えるように<code>saveStudyItems()</code>という名前付き関数へまとめます。</p>
+                <pre class="javascript-code"><code>function saveStudyItems() {
+  const studyItemsJson = JSON.stringify(studyItems);
+
+  localStorage.setItem(
+    studyItemsStorageKey,
+    studyItemsJson
+  );
+}</code></pre>
+                <p>最初に<code>JSON.stringify()</code>の結果を<code>studyItemsJson</code>へ入れます。次に、そのJSON文字列を<code>localStorage.setItem()</code>で保存します。</p>
+                <p><code>studyItems</code><br>↓<br><code>JSON.stringify()</code><br>↓<br><code>studyItemsJson</code><br>↓<br><code>localStorage.setItem()</code></p>
+              </div>
+            </details>
+
+            <details>
+              <summary>追加したあとに保存する</summary>
+              <div class="details-content">
+                <p>追加ボタンを押したときは、新しい学習項目を配列へ追加したあとで保存します。</p>
+                <pre class="javascript-code"><code>studyItems.push(studyItem);
+
+saveStudyItems();
+renderStudyItems();</code></pre>
+                <p><code>push()</code>より先に保存すると、新しい項目がまだ配列へ入っていません。そのため、追加してから最新の<code>studyItems</code>を保存します。</p>
+                <p>新しい学習項目を作る<br>↓<br><code>push()</code>で配列へ追加<br>↓<br><code>saveStudyItems()</code>で保存<br>↓<br><code>renderStudyItems()</code>で表示</p>
+              </div>
+            </details>
+
+            <details>
+              <summary>チェック変更後に保存する</summary>
+              <div class="details-content">
+                <p>チェックボックスを操作したときは、最初に現在のチェック状態を<code>done</code>へ戻します。</p>
+                <pre class="javascript-code"><code>checkbox.addEventListener("change", function () {
+  studyItem.done = checkbox.checked;
+
+  saveStudyItems();
+});</code></pre>
+                <p><code>studyItem.done</code>を変更したあとに<code>saveStudyItems()</code>を実行するため、最新の完了状態が保存されます。</p>
+                <p><code>checkbox.checked</code><br>↓<br><code>studyItem.done</code><br>↓<br><code>saveStudyItems()</code></p>
+              </div>
+            </details>
+
+            <details>
+              <summary>保存したデータを読み込む</summary>
+              <div class="details-content">
+                <p>保存した学習項目は、<code>loadStudyItems()</code>という名前付き関数で読み込みます。</p>
+                <pre class="javascript-code"><code>function loadStudyItems() {
+  const savedStudyItems =
+    localStorage.getItem(studyItemsStorageKey);
+
+  if (savedStudyItems !== null) {
+    // 保存データがある場合の処理
+  }
+}</code></pre>
+                <p><code>localStorage.getItem()</code>の結果を<code>savedStudyItems</code>へ入れます。保存データがない場合はnullになるため、nullではない場合だけ復元処理へ進みます。</p>
+                <p><code>localStorage.getItem()</code><br>↓<br>保存データを取得<br>↓<br>保存データがない場合はnull<br>↓<br>nullではない場合だけ、このあとの復元処理へ進む</p>
+              </div>
+            </details>
+
+            <details>
+              <summary>JSON.parse()で元の配列へ戻す</summary>
+              <div class="details-content">
+                <p><code>localStorage.getItem()</code>で読み込んだ値はJSON文字列です。配列やオブジェクトとして使うために、<code>JSON.parse()</code>で元の形へ戻します。</p>
+                <pre class="javascript-code"><code>const restoredStudyItems =
+  JSON.parse(savedStudyItems);</code></pre>
+                <p>復元した配列は、分かりやすいように<code>restoredStudyItems</code>という変数へ入れます。</p>
+                <p>保存するときは、配列・オブジェクトからJSON文字列へ変換しました。読み込むときは、その逆向きです。</p>
+                <p>JSON文字列<br>↓<br><code>JSON.parse()</code><br>↓<br>配列・オブジェクト</p>
+              </div>
+            </details>
+
+            <details>
+              <summary>constの配列へデータを戻す</summary>
+              <div class="details-content">
+                <p>学習項目を保持する<code>studyItems</code>は、PR1-2から使っているconstの配列です。</p>
+                <pre class="javascript-code"><code>const studyItems = [];</code></pre>
+                <p>constの変数へ別の配列を直接代入することはできませんが、配列の中身は<code>push()</code>で変更できます。</p>
+                <pre class="javascript-code"><code>restoredStudyItems.forEach(function (studyItem) {
+  studyItems.push(studyItem);
+});</code></pre>
+                <p><code>forEach()</code>で復元した配列から学習項目を1件ずつ取り出し、既存の<code>studyItems</code>へ<code>push()</code>します。</p>
+                <p><code>restoredStudyItems</code><br>↓<br><code>forEach()</code><br>↓<br><code>studyItem</code>を1件取得<br>↓<br><code>studyItems.push(studyItem)</code></p>
+              </div>
+            </details>
+
+            <details>
+              <summary>renderStudyItems()で画面へ復元する</summary>
+              <div class="details-content">
+                <p>保存データを<code>studyItems</code>へ戻したあと、既存の<code>renderStudyItems()</code>を実行します。</p>
+                <pre class="javascript-code"><code>renderStudyItems();</code></pre>
+                <p><code>itemText.textContent = studyItem.text</code>によって、保存していた学習内容が表示されます。</p>
+                <p><code>checkbox.checked = studyItem.done</code>によって、保存していたtrue・falseがチェック状態へ反映されます。</p>
+                <p>ページを開いたときに読み込みを始めるため、関数を定義したあとで<code>loadStudyItems()</code>を1回実行します。</p>
+                <pre class="javascript-code"><code>loadStudyItems();</code></pre>
+                <p>localStorage<br>↓<br><code>JSON.parse()</code><br>↓<br><code>studyItems</code><br>↓<br><code>renderStudyItems()</code><br>↓<br>画面</p>
+              </div>
+            </details>
+
+            <details>
+              <summary>STEP 5の処理を上から読む</summary>
+              <div class="details-content">
+                <p>PR1-5の<code>javascript-practice.js</code>全体は、次のコードです。</p>
+                <pre class="javascript-code"><code>const studyItemInput =
+  document.getElementById("study-item-input");
+
+const addStudyItemButton =
+  document.getElementById("add-study-item-button");
+
+const studyItemList =
+  document.getElementById("study-item-list");
+
+const studyItemsStorageKey =
+  "my-web-study-app:study-items";
+
+const studyItems = [];
+
+function saveStudyItems() {
+  const studyItemsJson = JSON.stringify(studyItems);
+
+  localStorage.setItem(studyItemsStorageKey, studyItemsJson);
+}
+
+function renderStudyItems() {
+  studyItemList.textContent = "";
+
+  studyItems.forEach(function (studyItem) {
+    const listItem = document.createElement("li");
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = studyItem.done;
+
+    const itemText = document.createElement("span");
+    itemText.textContent = studyItem.text;
+
+    checkbox.addEventListener("change", function () {
+      studyItem.done = checkbox.checked;
+
+      saveStudyItems();
+    });
+
+    listItem.appendChild(checkbox);
+    listItem.appendChild(itemText);
+
+    studyItemList.appendChild(listItem);
+  });
+}
+
+function loadStudyItems() {
+  const savedStudyItems =
+    localStorage.getItem(studyItemsStorageKey);
+
+  if (savedStudyItems !== null) {
+    const restoredStudyItems = JSON.parse(savedStudyItems);
+
+    restoredStudyItems.forEach(function (studyItem) {
+      studyItems.push(studyItem);
+    });
+  }
+
+  renderStudyItems();
+}
+
+addStudyItemButton.addEventListener("click", function () {
+  const studyItemText = studyItemInput.value;
+
+  const studyItem = {
+    text: studyItemText,
+    done: false
+  };
+
+  studyItems.push(studyItem);
+
+  saveStudyItems();
+  renderStudyItems();
+});
+
+loadStudyItems();</code></pre>
+                <p>保存は、<code>studyItems</code>を<code>JSON.stringify()</code>でJSON文字列へ変換し、<code>localStorage.setItem()</code>へ渡す流れです。</p>
+                <p>読み込みは、<code>localStorage.getItem()</code>でJSON文字列を取得し、<code>JSON.parse()</code>で配列へ戻す流れです。</p>
+                <p>復元した配列は<code>forEach()</code>で1件ずつ処理し、constの<code>studyItems</code>へ<code>push()</code>してから<code>renderStudyItems()</code>で画面へ表示します。</p>
+                <p>追加時は<code>push()</code>のあと、チェック変更時は<code>done</code>の変更後に<code>saveStudyItems()</code>を実行するため、文字と完了状態の両方が最新の状態で保存されます。</p>
+                <p>【保存】<br><code>studyItems</code><br>↓<br><code>JSON.stringify()</code><br>↓<br><code>localStorage.setItem()</code></p>
+                <p>【読み込み】<br><code>localStorage.getItem()</code><br>↓<br><code>JSON.parse()</code><br>↓<br><code>forEach()</code><br>↓<br><code>studyItems.push()</code><br>↓<br><code>renderStudyItems()</code></p>
+              </div>
+            </details>
+          </div>
+        </section>
+
         <details>
           <summary>学習項目リストを実際に試す</summary>
           <div class="details-content">

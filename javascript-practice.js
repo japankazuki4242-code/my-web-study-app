@@ -3,8 +3,19 @@ const studyItemInput = document.getElementById("study-item-input");
 const addStudyItemButton = document.getElementById("add-study-item-button");
 const studyItemList = document.getElementById("study-item-list");
 
-// ページを開いている間、追加した学習項目を保持する配列です。
+// 学習項目リストだけで使用するlocalStorageの保存キーです。
+const studyItemsStorageKey = "my-web-study-app:study-items";
+
+// ページ内で使用する学習項目を保持する配列です。
+// 保存済みの学習項目はloadStudyItems()でこの配列へ戻します。
 const studyItems = [];
+
+// 学習項目の配列をJSON文字列にしてlocalStorageへ保存します。
+function saveStudyItems() {
+  const studyItemsJson = JSON.stringify(studyItems);
+
+  localStorage.setItem(studyItemsStorageKey, studyItemsJson);
+}
 
 // 配列に入っている学習項目を画面へ一覧表示します。
 function renderStudyItems() {
@@ -27,6 +38,8 @@ function renderStudyItems() {
     // チェック状態が変わったら、オブジェクトの完了状態へ戻します。
     checkbox.addEventListener("change", function () {
       studyItem.done = checkbox.checked;
+
+      saveStudyItems();
     });
 
     listItem.appendChild(checkbox);
@@ -34,6 +47,21 @@ function renderStudyItems() {
 
     studyItemList.appendChild(listItem);
   });
+}
+
+// localStorageに保存した学習項目を配列へ戻して画面に表示します。
+function loadStudyItems() {
+  const savedStudyItems = localStorage.getItem(studyItemsStorageKey);
+
+  if (savedStudyItems !== null) {
+    const restoredStudyItems = JSON.parse(savedStudyItems);
+
+    restoredStudyItems.forEach(function (studyItem) {
+      studyItems.push(studyItem);
+    });
+  }
+
+  renderStudyItems();
 }
 
 // 追加ボタンを押したとき、学習項目オブジェクトを配列へ追加します。
@@ -52,5 +80,9 @@ addStudyItemButton.addEventListener("click", function () {
   // 学習項目オブジェクトを配列の末尾へ追加します。
   studyItems.push(studyItem);
 
+  saveStudyItems();
   renderStudyItems();
 });
+
+// ページを開いたとき、保存済みの学習項目を読み込みます。
+loadStudyItems();
