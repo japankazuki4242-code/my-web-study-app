@@ -15,7 +15,23 @@ function renderStudyItems() {
   studyItems.forEach(function (studyItem) {
     const listItem = document.createElement("li");
 
-    listItem.textContent = studyItem.text;
+    // チェックボックスを作り、オブジェクトの完了状態を反映します。
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = studyItem.done;
+
+    // 学習内容を表示するspan要素を作ります。
+    const itemText = document.createElement("span");
+    itemText.textContent = studyItem.text;
+
+    // チェック状態が変わったら、オブジェクトの完了状態へ戻します。
+    checkbox.addEventListener("change", function () {
+      studyItem.done = checkbox.checked;
+    });
+
+    listItem.appendChild(checkbox);
+    listItem.appendChild(itemText);
+
     studyItemList.appendChild(listItem);
   });
 }

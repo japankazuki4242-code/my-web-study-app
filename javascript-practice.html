@@ -388,6 +388,156 @@ addStudyItemButton.addEventListener("click", function () {
         </details>
 
         <details>
+          <summary>doneプロパティを使う</summary>
+          <div class="details-content">
+            <p>PR1-3では、1件の学習項目を<code>text</code>と<code>done</code>を持つオブジェクトにしました。</p>
+            <pre class="javascript-code"><code>{
+  text: "HTMLを復習する",
+  done: false
+}</code></pre>
+            <p><code>text</code>は学習内容、<code>done</code>は完了したかどうかを表します。</p>
+            <p>PR1-3では<code>done</code>を作るだけでしたが、PR1-4ではチェックボックスとつなげ、初めて画面の操作に使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>trueとfalseで完了状態を表す</summary>
+          <div class="details-content">
+            <p><code>done</code>プロパティには、trueまたはfalseを入れて完了状態を表します。</p>
+            <p><code>done: false</code><br>↓<br>未完了</p>
+            <p><code>done: true</code><br>↓<br>完了</p>
+            <p>新しい学習項目は<code>done: false</code>で作るため、最初は未完了です。チェックボックスを操作すると、この値がtrueまたはfalseへ変わります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>チェックボックスをJavaScriptで作る</summary>
+          <div class="details-content">
+            <p>学習項目1件につき1つのチェックボックスを、JavaScriptで作ります。</p>
+            <pre class="javascript-code"><code>const checkbox = document.createElement("input");
+
+checkbox.type = "checkbox";</code></pre>
+            <p><code>document.createElement("input")</code>でinput要素を作り、<code>checkbox.type = "checkbox"</code>でチェックボックスにします。</p>
+            <p>チェックボックスはHTMLへ最初から書いているのではありません。<code>forEach()</code>の中で、学習項目オブジェクト1件ごとにJavaScriptが作ります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>doneをcheckedへ反映する</summary>
+          <div class="details-content">
+            <p>作ったチェックボックスへ、学習項目オブジェクトの完了状態を反映します。</p>
+            <pre class="javascript-code"><code>checkbox.checked = studyItem.done;</code></pre>
+            <p><code>studyItem.done</code>がfalseならチェックなし、trueならチェックありになります。</p>
+            <p><code>studyItem.done</code><br>↓<br><code>checkbox.checked</code><br>↓<br>画面のチェック状態</p>
+            <p>これは、JavaScriptのデータを画面へ反映する処理です。</p>
+            <p>新しい項目を追加して<code>renderStudyItems()</code>が再実行されても、配列内の<code>done</code>がtrueなら、チェックありの状態で作り直されます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>changeイベントを受け取る</summary>
+          <div class="details-content">
+            <p>チェックボックスの状態が変わったことは、changeイベントで受け取ります。</p>
+            <pre class="javascript-code"><code>checkbox.addEventListener("change", function () {
+  studyItem.done = checkbox.checked;
+});</code></pre>
+            <p>changeイベントは、ユーザーがチェックを付けたり外したりして、チェック状態が変わったときに発生します。</p>
+            <p>状態が変わるとコールバック関数の中が実行され、画面の新しいチェック状態を学習項目オブジェクトへ戻します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>checkedをdoneへ戻す</summary>
+          <div class="details-content">
+            <p><code>checkbox.checked</code>は、チェックボックスの現在の状態を表します。</p>
+            <p>チェックあり<br>↓<br>true</p>
+            <p>チェックなし<br>↓<br>false</p>
+            <pre class="javascript-code"><code>studyItem.done = checkbox.checked;</code></pre>
+            <p>この代入によって、チェックがあればtrue、チェックがなければfalseが<code>studyItem.done</code>へ入ります。</p>
+            <p>画面でチェックを変更<br>↓<br><code>checkbox.checked</code><br>↓<br><code>studyItem.done</code></p>
+            <p>これは、画面の操作をJavaScriptのデータへ戻す処理です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>textとdoneをそれぞれ画面で使う</summary>
+          <div class="details-content">
+            <p><code>forEach()</code>で受け取る<code>studyItem</code>は、学習項目オブジェクト1件です。</p>
+            <pre class="javascript-code"><code>{
+  text: "HTMLを復習する",
+  done: false
+}</code></pre>
+            <p>同じオブジェクトの2つのプロパティを、それぞれ別の画面要素へつなげます。</p>
+            <p><code>studyItem.text</code><br>↓<br>spanの文字</p>
+            <p><code>studyItem.done</code><br>↓<br>checkboxのチェック状態</p>
+            <pre class="javascript-code"><code>itemText.textContent = studyItem.text;
+
+checkbox.checked = studyItem.done;</code></pre>
+          </div>
+        </details>
+
+        <details>
+          <summary>PR1-4全体の処理の流れ</summary>
+          <div class="details-content">
+            <p>PR1-4の<code>javascript-practice.js</code>全体は、次のコードです。</p>
+            <pre class="javascript-code"><code>const studyItemInput =
+  document.getElementById("study-item-input");
+
+const addStudyItemButton =
+  document.getElementById("add-study-item-button");
+
+const studyItemList =
+  document.getElementById("study-item-list");
+
+const studyItems = [];
+
+function renderStudyItems() {
+  studyItemList.textContent = "";
+
+  studyItems.forEach(function (studyItem) {
+    const listItem = document.createElement("li");
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = studyItem.done;
+
+    const itemText = document.createElement("span");
+    itemText.textContent = studyItem.text;
+
+    checkbox.addEventListener("change", function () {
+      studyItem.done = checkbox.checked;
+    });
+
+    listItem.appendChild(checkbox);
+    listItem.appendChild(itemText);
+
+    studyItemList.appendChild(listItem);
+  });
+}
+
+addStudyItemButton.addEventListener("click", function () {
+  const studyItemText = studyItemInput.value;
+
+  const studyItem = {
+    text: studyItemText,
+    done: false
+  };
+
+  studyItems.push(studyItem);
+
+  renderStudyItems();
+});</code></pre>
+            <p><code>document.createElement()</code>を使って、li・checkbox・spanを学習項目ごとに作っています。</p>
+            <p><code>checkbox.checked = studyItem.done</code>が、オブジェクトの完了状態を画面へ反映する場所です。</p>
+            <p><code>checkbox.addEventListener("change", ...)</code>がチェック変更を受け取り、<code>studyItem.done = checkbox.checked</code>が画面の状態をオブジェクトへ戻す場所です。</p>
+            <p>一覧を作る流れは次のとおりです。</p>
+            <p><code>studyItems</code><br>↓<br><code>forEach()</code><br>↓<br><code>studyItem</code>を1件取得<br>↓<br>liを作る<br>↓<br>checkboxを作る<br>↓<br><code>studyItem.done</code>を<code>checkbox.checked</code>へ反映<br>↓<br>spanを作る<br>↓<br><code>studyItem.text</code>を表示<br>↓<br>checkboxとspanをliへ追加<br>↓<br>liをulへ追加</p>
+            <p>ユーザー操作からデータへ戻す流れは次のとおりです。</p>
+            <p>チェックを付ける・外す<br>↓<br>changeイベント<br>↓<br><code>checkbox.checked</code><br>↓<br>true・false<br>↓<br><code>studyItem.done</code></p>
+          </div>
+        </details>
+
+        <details>
           <summary>実際に試す</summary>
           <div class="details-content">
             <div class="free-memo-area">

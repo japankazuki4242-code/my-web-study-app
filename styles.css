@@ -378,8 +378,31 @@ code {
   width: 100%;
   min-width: 0;
   margin: 0;
-  padding-left: 24px;
+  padding-left: 0;
   line-height: 1.7;
+  list-style: none;
+  overflow-wrap: anywhere;
+}
+
+/* JavaScript実践画面：チェックボックスと学習内容の横並び */
+.study-item-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+}
+
+/* JavaScript実践画面：学習項目のチェックボックス */
+.study-item-list input[type="checkbox"] {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  margin: 2px 0 0;
+}
+
+/* JavaScript実践画面：長い学習内容の折り返し */
+.study-item-list span {
+  min-width: 0;
   overflow-wrap: anywhere;
 }
 
