@@ -1,11 +1,13 @@
 <!doctype html>
 <html lang="ja">
+
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>実践 | Web学習アプリ</title>
     <link rel="stylesheet" href="styles.css">
   </head>
+
   <body class="page-with-bottom-nav">
     <main class="app-container">
       <h1>実践</h1>
@@ -25,22 +27,30 @@
           </div>
         </details>
 
-        <details>
-          <summary>PR1-1で作ったもの</summary>
-          <div class="details-content">
-            <p>PR1-1では「学習項目リスト」の最初の段階を作りました。</p>
-            <p>学習したい内容を入力<br>↓<br>追加ボタンを押す<br>↓<br>入力した内容を画面へ表示</p>
-            <p>たとえば、入力欄へ「JavaScriptのJSONを復習する」と入力します。</p>
-            <p>入力欄：<br>JavaScriptのJSONを復習する<br>↓<br>追加<br>↓<br>表示：<br>JavaScriptのJSONを復習する</p>
-            <p>PR1-1ではまだ配列へ追加せず、入力した1つの内容をそのまま画面へ表示しました。</p>
-          </div>
-        </details>
+        <section class="practice-step" aria-labelledby="practice-step-1-title">
+          <header class="practice-step__header">
+            <p class="practice-step__number">STEP 1</p>
+            <h2 id="practice-step-1-title" class="practice-step__title">入力した文字を画面に表示する</h2>
+            <p class="practice-step__pr">PR1-1</p>
+          </header>
 
-        <details>
-          <summary>PR1-1で使ったHTML要素</summary>
-          <div class="details-content">
-            <p>PR1-1では、入力欄・追加ボタン・表示場所の3つのHTML要素を使いました。</p>
-            <pre class="javascript-code"><code>&lt;input
+          <div class="practice-step__details">
+            <details>
+              <summary>STEP 1で作るもの</summary>
+              <div class="details-content">
+                <p>PR1-1では「学習項目リスト」の最初の段階を作りました。</p>
+                <p>学習したい内容を入力<br>↓<br>追加ボタンを押す<br>↓<br>入力した内容を画面へ表示</p>
+                <p>たとえば、入力欄へ「JavaScriptのJSONを復習する」と入力します。</p>
+                <p>入力欄：<br>JavaScriptのJSONを復習する<br>↓<br>追加<br>↓<br>表示：<br>JavaScriptのJSONを復習する</p>
+                <p>PR1-1ではまだ配列へ追加せず、入力した1つの内容をそのまま画面へ表示しました。</p>
+              </div>
+            </details>
+
+            <details>
+              <summary>使うHTML要素を確認する</summary>
+              <div class="details-content">
+                <p>PR1-1では、入力欄・追加ボタン・表示場所の3つのHTML要素を使いました。</p>
+                <pre class="javascript-code"><code>&lt;input
   type="text"
   id="study-item-input"
 &gt;
@@ -51,17 +61,23 @@
 &gt;追加&lt;/button&gt;
 
 &lt;p id="study-item-result"&gt;&lt;/p&gt;</code></pre>
-            <p><code>&lt;input&gt;</code>は、学習したい内容を入力する場所です。<code>id="study-item-input"</code>を使い、JavaScriptの<code>studyItemInput</code>につなげます。</p>
-            <p><code>&lt;button&gt;</code>は、入力内容を表示するきっかけになる追加ボタンです。<code>id="add-study-item-button"</code>を使い、JavaScriptの<code>addStudyItemButton</code>につなげます。</p>
-            <p><code>&lt;p&gt;</code>は、入力内容を画面へ表示する場所です。<code>id="study-item-result"</code>を使い、JavaScriptの<code>studyItemResult</code>につなげます。</p>
-          </div>
-        </details>
+                <p>
+                  <code>&lt;input&gt;</code>は、学習したい内容を入力する場所です。<code>id="study-item-input"</code>を使い、JavaScriptの<code>studyItemInput</code>につなげます。
+                </p>
+                <p>
+                  <code>&lt;button&gt;</code>は、入力内容を表示するきっかけになる追加ボタンです。<code>id="add-study-item-button"</code>を使い、JavaScriptの<code>addStudyItemButton</code>につなげます。
+                </p>
+                <p>
+                  <code>&lt;p&gt;</code>は、入力内容を画面へ表示する場所です。<code>id="study-item-result"</code>を使い、JavaScriptの<code>studyItemResult</code>につなげます。
+                </p>
+              </div>
+            </details>
 
-        <details>
-          <summary>PR1-1でHTML要素を見つける</summary>
-          <div class="details-content">
-            <p>PR1-1では<code>document.getElementById()</code>を使い、HTMLに付けたidから3つの要素を見つけました。</p>
-            <pre class="javascript-code"><code>const studyItemInput =
+            <details>
+              <summary>JavaScriptでHTML要素を見つける</summary>
+              <div class="details-content">
+                <p>PR1-1では<code>document.getElementById()</code>を使い、HTMLに付けたidから3つの要素を見つけました。</p>
+                <pre class="javascript-code"><code>const studyItemInput =
   document.getElementById("study-item-input");
 
 const addStudyItemButton =
@@ -69,40 +85,45 @@ const addStudyItemButton =
 
 const studyItemResult =
   document.getElementById("study-item-result");</code></pre>
-            <p><code>studyItemInput</code>は入力欄、<code>addStudyItemButton</code>は追加ボタン、<code>studyItemResult</code>は表示場所のHTML要素を表しています。</p>
-            <p>HTMLのidと<code>getElementById()</code>の文字列が同じ名前になることで、それぞれのコードがつながります。</p>
-          </div>
-        </details>
+                <p>
+                  <code>studyItemInput</code>は入力欄、<code>addStudyItemButton</code>は追加ボタン、<code>studyItemResult</code>は表示場所のHTML要素を表しています。
+                </p>
+                <p>HTMLのidと<code>getElementById()</code>の文字列が同じ名前になることで、それぞれのコードがつながります。</p>
+              </div>
+            </details>
 
-        <details>
-          <summary>clickイベントを受け取る</summary>
-          <div class="details-content">
-            <p><code>addEventListener()</code>を使い、追加ボタンがクリックされるのを待ちます。</p>
-            <pre class="javascript-code"><code>addStudyItemButton.addEventListener("click", function () {
+            <details>
+              <summary>クリックを受け取る</summary>
+              <div class="details-content">
+                <p><code>addEventListener()</code>を使い、追加ボタンがクリックされるのを待ちます。</p>
+                <pre class="javascript-code"><code>addStudyItemButton.addEventListener("click", function () {
   // クリックされた後の処理
 });</code></pre>
-            <p><code>"click"</code>は待つイベントの種類です。追加ボタンがクリックされると、コールバック関数の<code>function () { ... }</code>の中が実行されます。</p>
-            <p>今回は<code>function () { ... }</code>という無名関数を、<code>addEventListener()</code>のコールバック関数として直接渡しています。名前付き関数を使う場合は、関数名だけを書くと関数そのものを渡し、関数名に<code>()</code>を付けるとその場で関数を実行します。</p>
-          </div>
-        </details>
+                <p><code>"click"</code>は待つイベントの種類です。追加ボタンがクリックされると、コールバック関数の<code>function () { ... }</code>の中が実行されます。
+                </p>
+                <p>
+                  今回は<code>function () { ... }</code>という無名関数を、<code>addEventListener()</code>のコールバック関数として直接渡しています。名前付き関数を使う場合は、関数名だけを書くと関数そのものを渡し、関数名に<code>()</code>を付けるとその場で関数を実行します。
+                </p>
+              </div>
+            </details>
 
-        <details>
-          <summary>PR1-1で入力した値を表示する</summary>
-          <div class="details-content">
-            <p>PR1-1では、入力欄に現在入力されている値を<code>studyItemInput.value</code>で取得しました。</p>
-            <pre class="javascript-code"><code>const studyItemText = studyItemInput.value;
+            <details>
+              <summary>入力した値を取得して表示する</summary>
+              <div class="details-content">
+                <p>PR1-1では、入力欄に現在入力されている値を<code>studyItemInput.value</code>で取得しました。</p>
+                <pre class="javascript-code"><code>const studyItemText = studyItemInput.value;
 
 studyItemResult.textContent = studyItemText;</code></pre>
-            <p>取得した値を、最初に<code>studyItemText</code>という変数へ入れます。</p>
-            <p>次に、<code>studyItemResult.textContent</code>へ<code>studyItemText</code>を入れ、表示場所へ文字を表示しました。</p>
-          </div>
-        </details>
+                <p>取得した値を、最初に<code>studyItemText</code>という変数へ入れます。</p>
+                <p>次に、<code>studyItemResult.textContent</code>へ<code>studyItemText</code>を入れ、表示場所へ文字を表示しました。</p>
+              </div>
+            </details>
 
-        <details>
-          <summary>PR1-1の処理を上から読む</summary>
-          <div class="details-content">
-            <p>PR1-1のJavaScript全体は、次のコードです。</p>
-            <pre class="javascript-code"><code>const studyItemInput =
+            <details>
+              <summary>STEP 1の処理を上から読む</summary>
+              <div class="details-content">
+                <p>PR1-1のJavaScript全体は、次のコードです。</p>
+                <pre class="javascript-code"><code>const studyItemInput =
   document.getElementById("study-item-input");
 
 const addStudyItemButton =
@@ -116,66 +137,53 @@ addStudyItemButton.addEventListener("click", function () {
 
   studyItemResult.textContent = studyItemText;
 });</code></pre>
-            <p>① <code>getElementById()</code>でHTML要素を取得する<br>↓<br>② <code>addEventListener()</code>でclickを待つ<br>↓<br>③ <code>studyItemInput.value</code>で入力値を取得する<br>↓<br>④ 入力値を<code>studyItemText</code>へ保存する<br>↓<br>⑤ <code>textContent</code>で画面へ表示する</p>
-            <p><code>studyItemInput</code>から値を読み取り、その値を<code>studyItemResult</code>へ渡すことで、入力欄と表示場所がJavaScriptの処理でつながります。</p>
+                <p>① <code>getElementById()</code>でHTML要素を取得する<br>↓<br>②
+                  <code>addEventListener()</code>でclickを待つ<br>↓<br>③
+                  <code>studyItemInput.value</code>で入力値を取得する<br>↓<br>④ 入力値を<code>studyItemText</code>へ保存する<br>↓<br>⑤
+                  <code>textContent</code>で画面へ表示する</p>
+                <p>
+                  <code>studyItemInput</code>から値を読み取り、その値を<code>studyItemResult</code>へ渡すことで、入力欄と表示場所がJavaScriptの処理でつながります。
+                </p>
+              </div>
+            </details>
           </div>
-        </details>
+        </section>
 
-        <details>
-          <summary>配列に複数の項目を保存する</summary>
-          <div class="details-content">
-            <p>複数の学習項目をまとめて持つために、最初に空の配列を作ります。</p>
-            <pre class="javascript-code"><code>const studyItems = [];</code></pre>
-            <p><code>studyItems</code>は、追加した学習項目をためていく配列です。最初は何も入っていないため、<code>[ ]</code>の中は空です。</p>
-            <p>この配列は、ページを開いている間だけJavaScriptの中で使います。今回はまだlocalStorageへ保存しないため、ページを再読み込みすると空の配列へ戻ります。</p>
-          </div>
-        </details>
+        <section class="practice-step" aria-labelledby="practice-step-2-title">
+          <header class="practice-step__header">
+            <p class="practice-step__number">STEP 2</p>
+            <h2 id="practice-step-2-title" class="practice-step__title">複数の学習項目を一覧に表示する</h2>
+            <p class="practice-step__pr">PR1-2</p>
+          </header>
 
-        <details>
-          <summary>push()で配列へ追加する</summary>
-          <div class="details-content">
-            <p>入力欄の値を<code>.value</code>で取得し、<code>studyItemText</code>へ入れます。</p>
-            <pre class="javascript-code"><code>const studyItemText = studyItemInput.value;
+          <div class="practice-step__details">
+            <details>
+              <summary>配列に複数の学習項目を入れる</summary>
+              <div class="details-content">
+                <p>複数の学習項目をまとめて持つために、最初に空の配列を作ります。</p>
+                <pre class="javascript-code"><code>const studyItems = [];</code></pre>
+                <p><code>studyItems</code>は、追加した学習項目をためていく配列です。最初は何も入っていないため、<code>[ ]</code>の中は空です。</p>
+                <p>この配列は、ページを開いている間だけJavaScriptの中で使います。今回はまだlocalStorageへ保存しないため、ページを再読み込みすると空の配列へ戻ります。</p>
+              </div>
+            </details>
+
+            <details>
+              <summary>push()で新しい項目を追加する</summary>
+              <div class="details-content">
+                <p>入力欄の値を<code>.value</code>で取得し、<code>studyItemText</code>へ入れます。</p>
+                <pre class="javascript-code"><code>const studyItemText = studyItemInput.value;
 
 studyItems.push(studyItemText);</code></pre>
-            <p><code>studyItems.push(studyItemText)</code>は、取得した学習項目を<code>studyItems</code>配列の末尾へ追加します。</p>
-            <p>追加ボタンを押すたびに同じ処理が実行されるため、配列の中へ学習項目が順番に増えていきます。</p>
-          </div>
-        </details>
+                <p><code>studyItems.push(studyItemText)</code>は、取得した学習項目を<code>studyItems</code>配列の末尾へ追加します。</p>
+                <p>追加ボタンを押すたびに同じ処理が実行されるため、配列の中へ学習項目が順番に増えていきます。</p>
+              </div>
+            </details>
 
-        <details>
-          <summary>配列の中身を1件ずつ表示する</summary>
-          <div class="details-content">
-            <p><code>forEach()</code>を使い、<code>studyItems</code>配列の中身を1件ずつ処理します。</p>
-            <pre class="javascript-code"><code>studyItems.forEach(function (studyItem) {
-  // 1件ずつ表示する処理
-});</code></pre>
-            <p><code>studyItem</code>には、配列から学習項目が1件ずつ順番に渡されます。</p>
-            <p>配列に3件入っていればコールバック関数が3回実行され、それぞれの学習項目を使って表示処理を行います。</p>
-          </div>
-        </details>
-
-        <details>
-          <summary>liを作って一覧へ追加する</summary>
-          <div class="details-content">
-            <p>HTMLには、学習項目一覧を表示するための<code>&lt;ul&gt;</code>を用意します。</p>
-            <pre class="javascript-code"><code>&lt;ul id="study-item-list"&gt;&lt;/ul&gt;</code></pre>
-            <p>JavaScriptでは、学習項目1件につき1つの<code>&lt;li&gt;</code>を作ります。</p>
-            <pre class="javascript-code"><code>const listItem = document.createElement("li");
-
-listItem.textContent = studyItem;
-
-studyItemList.appendChild(listItem);</code></pre>
-            <p><code>document.createElement("li")</code>でli要素を作り、<code>listItem.textContent</code>で学習項目の文字を入れます。</p>
-            <p>最後に<code>appendChild()</code>を使い、作ったli要素を<code>studyItemList</code>のul要素へ追加します。ここが、JavaScriptでHTML要素を作って画面へ追加するDOM操作です。</p>
-          </div>
-        </details>
-
-        <details>
-          <summary>renderStudyItems()の役割</summary>
-          <div class="details-content">
-            <p><code>renderStudyItems()</code>は、配列の現在の内容を画面へ一覧表示する名前付き関数です。</p>
-            <pre class="javascript-code"><code>function renderStudyItems() {
+            <details>
+              <summary>renderStudyItems()で一覧表示を始める</summary>
+              <div class="details-content">
+                <p><code>renderStudyItems()</code>は、配列の現在の内容を画面へ一覧表示する名前付き関数です。</p>
+                <pre class="javascript-code"><code>function renderStudyItems() {
   studyItemList.textContent = "";
 
   studyItems.forEach(function (studyItem) {
@@ -185,20 +193,50 @@ studyItemList.appendChild(listItem);</code></pre>
     studyItemList.appendChild(listItem);
   });
 }</code></pre>
-            <p>最初に<code>studyItemList.textContent = ""</code>で前回表示した一覧を空にします。</p>
-            <p>次に<code>forEach()</code>で配列を1件ずつ処理し、li要素を作ってul要素へ追加します。</p>
-            <p>追加ボタンを押したあとに<code>renderStudyItems()</code>を実行すると、配列へ追加した最新状態が画面へ表示されます。</p>
-            <pre class="javascript-code"><code>studyItems.push(studyItemText);
+                <p>最初に<code>studyItemList.textContent = ""</code>で前回表示した一覧を空にします。</p>
+                <p>次に<code>forEach()</code>で配列を1件ずつ処理し、li要素を作ってul要素へ追加します。</p>
+                <p>追加ボタンを押したあとに<code>renderStudyItems()</code>を実行すると、配列へ追加した最新状態が画面へ表示されます。</p>
+                <pre class="javascript-code"><code>studyItems.push(studyItemText);
 
 renderStudyItems();</code></pre>
-          </div>
-        </details>
+              </div>
+            </details>
 
-        <details>
-          <summary>PR1-2全体の処理の流れ</summary>
-          <div class="details-content">
-            <p>PR1-2のJavaScript全体は、次のコードです。</p>
-            <pre class="javascript-code"><code>const studyItemInput =
+            <details>
+              <summary>配列から1件ずつ取り出す</summary>
+              <div class="details-content">
+                <p><code>forEach()</code>を使い、<code>studyItems</code>配列の中身を1件ずつ処理します。</p>
+                <pre class="javascript-code"><code>studyItems.forEach(function (studyItem) {
+  // 1件ずつ表示する処理
+});</code></pre>
+                <p><code>studyItem</code>には、配列から学習項目が1件ずつ順番に渡されます。</p>
+                <p>配列に3件入っていればコールバック関数が3回実行され、それぞれの学習項目を使って表示処理を行います。</p>
+              </div>
+            </details>
+
+            <details>
+              <summary>liを作って画面へ追加する</summary>
+              <div class="details-content">
+                <p>HTMLには、学習項目一覧を表示するための<code>&lt;ul&gt;</code>を用意します。</p>
+                <pre class="javascript-code"><code>&lt;ul id="study-item-list"&gt;&lt;/ul&gt;</code></pre>
+                <p>JavaScriptでは、学習項目1件につき1つの<code>&lt;li&gt;</code>を作ります。</p>
+                <pre class="javascript-code"><code>const listItem = document.createElement("li");
+
+listItem.textContent = studyItem;
+
+studyItemList.appendChild(listItem);</code></pre>
+                <p><code>document.createElement("li")</code>でli要素を作り、<code>listItem.textContent</code>で学習項目の文字を入れます。</p>
+                <p>
+                  最後に<code>appendChild()</code>を使い、作ったli要素を<code>studyItemList</code>のul要素へ追加します。ここが、JavaScriptでHTML要素を作って画面へ追加するDOM操作です。
+                </p>
+              </div>
+            </details>
+
+            <details>
+              <summary>STEP 2の処理を上から読む</summary>
+              <div class="details-content">
+                <p>PR1-2のJavaScript全体は、次のコードです。</p>
+                <pre class="javascript-code"><code>const studyItemInput =
   document.getElementById("study-item-input");
 
 const addStudyItemButton =
@@ -226,89 +264,107 @@ addStudyItemButton.addEventListener("click", function () {
   studyItems.push(studyItemText);
   renderStudyItems();
 });</code></pre>
-            <p>入力<br>↓<br><code>.value</code>で取得<br>↓<br><code>push()</code>で配列へ追加<br>↓<br><code>renderStudyItems()</code><br>↓<br><code>forEach()</code>で1件ずつ処理<br>↓<br>liを作る<br>↓<br>ulへ追加<br>↓<br>一覧表示</p>
-            <table class="comparison-table">
-              <thead>
-                <tr>
-                  <th scope="col">学習内容</th>
-                  <th scope="col">今回のつながり</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><code>.value</code></td>
-                  <td>inputの入力値を取得する</td>
-                </tr>
-                <tr>
-                  <td><code>push()</code></td>
-                  <td>配列の末尾へ学習項目を追加する</td>
-                </tr>
-                <tr>
-                  <td><code>forEach()</code></td>
-                  <td>配列の項目を1件ずつ処理する</td>
-                </tr>
-                <tr>
-                  <td><code>function</code></td>
-                  <td>一覧表示の処理を1つにまとめる</td>
-                </tr>
-                <tr>
-                  <td><code>textContent</code></td>
-                  <td>li要素へ学習項目の文字を表示する</td>
-                </tr>
-                <tr>
-                  <td>DOM</td>
-                  <td>li要素を作り、ul要素へ追加する</td>
-                </tr>
-              </tbody>
-            </table>
-            <p>それぞれのコードを暗記するのではなく、入力値が配列へ入り、配列の内容がHTMLの一覧へつながる順番を確認します。</p>
+                <p>
+                  入力<br>↓<br><code>.value</code>で取得<br>↓<br><code>push()</code>で配列へ追加<br>↓<br><code>renderStudyItems()</code><br>↓<br><code>forEach()</code>で1件ずつ処理<br>↓<br>liを作る<br>↓<br>ulへ追加<br>↓<br>一覧表示
+                </p>
+                <table class="comparison-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">学習内容</th>
+                      <th scope="col">今回のつながり</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>.value</code></td>
+                      <td>inputの入力値を取得する</td>
+                    </tr>
+                    <tr>
+                      <td><code>push()</code></td>
+                      <td>配列の末尾へ学習項目を追加する</td>
+                    </tr>
+                    <tr>
+                      <td><code>forEach()</code></td>
+                      <td>配列の項目を1件ずつ処理する</td>
+                    </tr>
+                    <tr>
+                      <td><code>function</code></td>
+                      <td>一覧表示の処理を1つにまとめる</td>
+                    </tr>
+                    <tr>
+                      <td><code>textContent</code></td>
+                      <td>li要素へ学習項目の文字を表示する</td>
+                    </tr>
+                    <tr>
+                      <td>DOM</td>
+                      <td>li要素を作り、ul要素へ追加する</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p>それぞれのコードを暗記するのではなく、入力値が配列へ入り、配列の内容がHTMLの一覧へつながる順番を確認します。</p>
+              </div>
+            </details>
           </div>
-        </details>
+        </section>
 
-        <details>
-          <summary>文字列だけでは持てない情報</summary>
-          <div class="details-content">
-            <p>PR1-2では、1件の学習項目を文字列として配列へ追加していました。</p>
-            <pre class="javascript-code"><code>"HTMLを復習する"</code></pre>
-            <p>この文字列が持っているのは、学習内容という1つの情報だけです。</p>
-            <p>今後、1件の学習項目に「学習内容」と「完了したかどうか」のような複数の情報を持たせるには、それらを1つにまとめる必要があります。</p>
-            <p>そこでPR1-3では、複数のプロパティをまとめて持てるオブジェクトを使います。</p>
-          </div>
-        </details>
+        <section class="practice-step" aria-labelledby="practice-step-3-title">
+          <header class="practice-step__header">
+            <p class="practice-step__number">STEP 3</p>
+            <h2 id="practice-step-3-title" class="practice-step__title">学習内容と完了状態をセットで持つ</h2>
+            <p class="practice-step__pr">PR1-3</p>
+          </header>
 
-        <details>
-          <summary>学習項目をオブジェクトにする</summary>
-          <div class="details-content">
-            <p>入力欄から取得した文字列を使い、1件分の学習項目を表すオブジェクトを作ります。</p>
-            <pre class="javascript-code"><code>const studyItem = {
+          <div class="practice-step__details">
+            <details>
+              <summary>なぜ文字列だけでは足りないのか</summary>
+              <div class="details-content">
+                <p>PR1-2では、1件の学習項目を文字列として配列へ追加していました。</p>
+                <pre class="javascript-code"><code>"HTMLを復習する"</code></pre>
+                <p>この文字列が持っているのは、学習内容という1つの情報だけです。</p>
+                <p>今後、1件の学習項目に「学習内容」と「完了したかどうか」のような複数の情報を持たせるには、それらを1つにまとめる必要があります。</p>
+                <p>そこでPR1-3では、複数のプロパティをまとめて持てるオブジェクトを使います。</p>
+              </div>
+            </details>
+
+            <details>
+              <summary>学習項目をオブジェクトにする</summary>
+              <div class="details-content">
+                <p>入力欄から取得した文字列を使い、1件分の学習項目を表すオブジェクトを作ります。</p>
+                <pre class="javascript-code"><code>const studyItem = {
   text: studyItemText,
   done: false
 };</code></pre>
-            <p><code>studyItem</code>は、学習項目1件を入れる変数です。</p>
-            <p><code>text</code>は学習内容を保存するプロパティで、値にはinputから取得した文字列の<code>studyItemText</code>を入れます。</p>
-            <p><code>done</code>は完了状態を保存するプロパティです。<code>false</code>は、まだ完了していない状態を表します。</p>
-            <p>今回は<code>done: false</code>として情報を持たせるだけで、完了状態を変更したり画面へ表示したりする処理はまだ作りません。</p>
-          </div>
-        </details>
+                <p><code>studyItem</code>は、学習項目1件を入れる変数です。</p>
+              </div>
+            </details>
 
-        <details>
-          <summary>オブジェクトを配列へpush()する</summary>
-          <div class="details-content">
-            <p><code>push()</code>の役割はPR1-2と同じで、値を配列の末尾へ追加することです。</p>
-            <pre class="javascript-code"><code>studyItems.push(studyItem);</code></pre>
-            <p>PR1-2では、文字列が入っている<code>studyItemText</code>を追加していました。</p>
-            <pre class="javascript-code"><code>studyItems.push(studyItemText);</code></pre>
-            <p>PR1-3では、学習内容と完了状態をまとめた<code>studyItem</code>オブジェクトを追加します。</p>
-            <p>文字列を追加する<br>↓<br>オブジェクトを追加する</p>
-            <p>この点が変わり、<code>studyItems</code>は文字列の配列からオブジェクトの配列になります。</p>
-          </div>
-        </details>
+            <details>
+              <summary>text と done に役割を分ける</summary>
+              <div class="details-content">
+                <p><code>text</code>は学習内容を保存するプロパティで、値にはinputから取得した文字列の<code>studyItemText</code>を入れます。</p>
+                <p><code>done</code>は完了状態を保存するプロパティです。<code>false</code>は、まだ完了していない状態を表します。</p>
+                <p>今回は<code>done: false</code>として情報を持たせるだけで、完了状態を変更したり画面へ表示したりする処理はまだ作りません。</p>
+              </div>
+            </details>
 
-        <details>
-          <summary>オブジェクト配列の中身を見る</summary>
-          <div class="details-content">
-            <p>学習項目を2件追加すると、<code>studyItems</code>配列の中は次のようになります。</p>
-            <pre class="javascript-code"><code>[
+            <details>
+              <summary>オブジェクトを配列へ追加する</summary>
+              <div class="details-content">
+                <p><code>push()</code>の役割はPR1-2と同じで、値を配列の末尾へ追加することです。</p>
+                <pre class="javascript-code"><code>studyItems.push(studyItem);</code></pre>
+                <p>PR1-2では、文字列が入っている<code>studyItemText</code>を追加していました。</p>
+                <pre class="javascript-code"><code>studyItems.push(studyItemText);</code></pre>
+                <p>PR1-3では、学習内容と完了状態をまとめた<code>studyItem</code>オブジェクトを追加します。</p>
+                <p>文字列を追加する<br>↓<br>オブジェクトを追加する</p>
+                <p>この点が変わり、<code>studyItems</code>は文字列の配列からオブジェクトの配列になります。</p>
+              </div>
+            </details>
+
+            <details>
+              <summary>配列から学習項目を1件ずつ取り出す</summary>
+              <div class="details-content">
+                <p>学習項目を2件追加すると、<code>studyItems</code>配列の中は次のようになります。</p>
+                <pre class="javascript-code"><code>[
   {
     text: "HTMLを復習する",
     done: false
@@ -318,36 +374,43 @@ addStudyItemButton.addEventListener("click", function () {
     done: false
   }
 ]</code></pre>
-            <p>外側の<code>[ ]</code>が配列で、その中に<code>{ }</code>で表した学習項目オブジェクトが複数入っています。</p>
-            <p>それぞれのオブジェクトは、<code>text</code>と<code>done</code>という同じ2つのプロパティを持っています。</p>
-          </div>
-        </details>
+                <p>外側の<code>[ ]</code>が配列で、その中に<code>{ }</code>で表した学習項目オブジェクトが複数入っています。</p>
+                <p>それぞれのオブジェクトは、<code>text</code>と<code>done</code>という同じ2つのプロパティを持っています。</p>
+                <p><code>forEach()</code>を使うと、配列から学習項目オブジェクトを1件ずつ取り出せます。</p>
+                <pre class="javascript-code"><code>studyItems.forEach(function (studyItem) {
+  // studyItemは学習項目オブジェクト1件
+});</code></pre>
+                <p><code>studyItem</code>には、<code>text</code>と<code>done</code>を持つオブジェクトが順番に入ります。</p>
+              </div>
+            </details>
 
-        <details>
-          <summary>studyItem.textで値を取り出す</summary>
-          <div class="details-content">
-            <p><code>forEach()</code>で配列を処理すると、<code>studyItem</code>には学習項目オブジェクトが1件ずつ入ります。</p>
-            <pre class="javascript-code"><code>studyItems.forEach(function (studyItem) {
+            <details>
+              <summary>studyItem.text から文字を取り出して表示する</summary>
+              <div class="details-content">
+                <p><code>forEach()</code>で配列を処理すると、<code>studyItem</code>には学習項目オブジェクトが1件ずつ入ります。</p>
+                <pre class="javascript-code"><code>studyItems.forEach(function (studyItem) {
   const listItem = document.createElement("li");
 
   listItem.textContent = studyItem.text;
   studyItemList.appendChild(listItem);
 });</code></pre>
-            <p><code>studyItem</code>は、次のようなオブジェクト1件を表します。</p>
-            <pre class="javascript-code"><code>{
+                <p><code>studyItem</code>は、次のようなオブジェクト1件を表します。</p>
+                <pre class="javascript-code"><code>{
   text: "HTMLを復習する",
   done: false
 }</code></pre>
-            <p>画面へ表示したいのは学習内容なので、<code>studyItem.text</code>と書いて<code>text</code>プロパティの値だけを取り出します。</p>
-            <p><code>studyItem.text</code><br>↓<br><code>"HTMLを復習する"</code><br>↓<br><code>listItem.textContent</code>でli要素へ表示</p>
-          </div>
-        </details>
+                <p>画面へ表示したいのは学習内容なので、<code>studyItem.text</code>と書いて<code>text</code>プロパティの値だけを取り出します。</p>
+                <p>
+                  <code>studyItem.text</code><br>↓<br><code>"HTMLを復習する"</code><br>↓<br><code>listItem.textContent</code>でli要素へ表示
+                </p>
+              </div>
+            </details>
 
-        <details>
-          <summary>PR1-3全体の処理の流れ</summary>
-          <div class="details-content">
-            <p>PR1-3の<code>javascript-practice.js</code>全体は、次のコードです。</p>
-            <pre class="javascript-code"><code>const studyItemInput =
+            <details>
+              <summary>STEP 3の処理を上から読む</summary>
+              <div class="details-content">
+                <p>PR1-3の<code>javascript-practice.js</code>全体は、次のコードです。</p>
+                <pre class="javascript-code"><code>const studyItemInput =
   document.getElementById("study-item-input");
 
 const addStudyItemButton =
@@ -381,106 +444,122 @@ addStudyItemButton.addEventListener("click", function () {
 
   renderStudyItems();
 });</code></pre>
-            <p>input<br>↓<br><code>.value</code><br>↓<br><code>studyItemText</code><br>↓<br><code>studyItem</code>オブジェクトを作る<br>↓<br><code>push()</code><br>↓<br><code>studyItems</code>配列へ追加<br>↓<br><code>renderStudyItems()</code><br>↓<br><code>forEach()</code><br>↓<br><code>studyItem</code>オブジェクトを1件ずつ受け取る<br>↓<br><code>studyItem.text</code><br>↓<br>liへ表示</p>
-            <p><code>studyItemText</code>の文字列が<code>studyItem</code>オブジェクトの<code>text</code>プロパティへ入り、そのオブジェクトが<code>studyItems</code>配列へ追加されます。</p>
-            <p>一覧表示では、同じ配列からオブジェクトを1件ずつ受け取り、<code>studyItem.text</code>で学習内容を取り出してli要素へつなげます。</p>
+                <p>
+                  input<br>↓<br><code>.value</code><br>↓<br><code>studyItemText</code><br>↓<br><code>studyItem</code>オブジェクトを作る<br>↓<br><code>push()</code><br>↓<br><code>studyItems</code>配列へ追加<br>↓<br><code>renderStudyItems()</code><br>↓<br><code>forEach()</code><br>↓<br><code>studyItem</code>オブジェクトを1件ずつ受け取る<br>↓<br><code>studyItem.text</code><br>↓<br>liへ表示
+                </p>
+                <p>
+                  <code>studyItemText</code>の文字列が<code>studyItem</code>オブジェクトの<code>text</code>プロパティへ入り、そのオブジェクトが<code>studyItems</code>配列へ追加されます。
+                </p>
+                <p>一覧表示では、同じ配列からオブジェクトを1件ずつ受け取り、<code>studyItem.text</code>で学習内容を取り出してli要素へつなげます。</p>
+              </div>
+            </details>
           </div>
-        </details>
+        </section>
 
-        <details>
-          <summary>doneプロパティを使う</summary>
-          <div class="details-content">
-            <p>PR1-3では、1件の学習項目を<code>text</code>と<code>done</code>を持つオブジェクトにしました。</p>
-            <pre class="javascript-code"><code>{
+        <section class="practice-step" aria-labelledby="practice-step-4-title">
+          <header class="practice-step__header">
+            <p class="practice-step__number">STEP 4</p>
+            <h2 id="practice-step-4-title" class="practice-step__title">チェックボックスと完了状態を連動する</h2>
+            <p class="practice-step__pr">PR1-4</p>
+          </header>
+
+          <div class="practice-step__details">
+            <details>
+              <summary>done で完了状態を管理する</summary>
+              <div class="details-content">
+                <p>PR1-3では、1件の学習項目を<code>text</code>と<code>done</code>を持つオブジェクトにしました。</p>
+                <pre class="javascript-code"><code>{
   text: "HTMLを復習する",
   done: false
 }</code></pre>
-            <p><code>text</code>は学習内容、<code>done</code>は完了したかどうかを表します。</p>
-            <p>PR1-3では<code>done</code>を作るだけでしたが、PR1-4ではチェックボックスとつなげ、初めて画面の操作に使います。</p>
-          </div>
-        </details>
+                <p><code>text</code>は学習内容、<code>done</code>は完了したかどうかを表します。</p>
+                <p>PR1-3では<code>done</code>を作るだけでしたが、PR1-4ではチェックボックスとつなげ、初めて画面の操作に使います。</p>
+              </div>
+            </details>
 
-        <details>
-          <summary>trueとfalseで完了状態を表す</summary>
-          <div class="details-content">
-            <p><code>done</code>プロパティには、trueまたはfalseを入れて完了状態を表します。</p>
-            <p><code>done: false</code><br>↓<br>未完了</p>
-            <p><code>done: true</code><br>↓<br>完了</p>
-            <p>新しい学習項目は<code>done: false</code>で作るため、最初は未完了です。チェックボックスを操作すると、この値がtrueまたはfalseへ変わります。</p>
-          </div>
-        </details>
+            <details>
+              <summary>true と false の意味を確認する</summary>
+              <div class="details-content">
+                <p><code>done</code>プロパティには、trueまたはfalseを入れて完了状態を表します。</p>
+                <p><code>done: false</code><br>↓<br>未完了</p>
+                <p><code>done: true</code><br>↓<br>完了</p>
+                <p>新しい学習項目は<code>done: false</code>で作るため、最初は未完了です。チェックボックスを操作すると、この値がtrueまたはfalseへ変わります。</p>
+              </div>
+            </details>
 
-        <details>
-          <summary>チェックボックスをJavaScriptで作る</summary>
-          <div class="details-content">
-            <p>学習項目1件につき1つのチェックボックスを、JavaScriptで作ります。</p>
-            <pre class="javascript-code"><code>const checkbox = document.createElement("input");
+            <details>
+              <summary>チェックボックスをJavaScriptで作る</summary>
+              <div class="details-content">
+                <p>学習項目1件につき1つのチェックボックスを、JavaScriptで作ります。</p>
+                <pre class="javascript-code"><code>const checkbox = document.createElement("input");
 
 checkbox.type = "checkbox";</code></pre>
-            <p><code>document.createElement("input")</code>でinput要素を作り、<code>checkbox.type = "checkbox"</code>でチェックボックスにします。</p>
-            <p>チェックボックスはHTMLへ最初から書いているのではありません。<code>forEach()</code>の中で、学習項目オブジェクト1件ごとにJavaScriptが作ります。</p>
-          </div>
-        </details>
+                <p>
+                  <code>document.createElement("input")</code>でinput要素を作り、<code>checkbox.type = "checkbox"</code>でチェックボックスにします。
+                </p>
+                <p>チェックボックスはHTMLへ最初から書いているのではありません。<code>forEach()</code>の中で、学習項目オブジェクト1件ごとにJavaScriptが作ります。</p>
+              </div>
+            </details>
 
-        <details>
-          <summary>doneをcheckedへ反映する</summary>
-          <div class="details-content">
-            <p>作ったチェックボックスへ、学習項目オブジェクトの完了状態を反映します。</p>
-            <pre class="javascript-code"><code>checkbox.checked = studyItem.done;</code></pre>
-            <p><code>studyItem.done</code>がfalseならチェックなし、trueならチェックありになります。</p>
-            <p><code>studyItem.done</code><br>↓<br><code>checkbox.checked</code><br>↓<br>画面のチェック状態</p>
-            <p>これは、JavaScriptのデータを画面へ反映する処理です。</p>
-            <p>新しい項目を追加して<code>renderStudyItems()</code>が再実行されても、配列内の<code>done</code>がtrueなら、チェックありの状態で作り直されます。</p>
-          </div>
-        </details>
+            <details>
+              <summary>done をチェックボックスへ反映する</summary>
+              <div class="details-content">
+                <p>作ったチェックボックスへ、学習項目オブジェクトの完了状態を反映します。</p>
+                <pre class="javascript-code"><code>checkbox.checked = studyItem.done;</code></pre>
+                <p><code>studyItem.done</code>がfalseならチェックなし、trueならチェックありになります。</p>
+                <p><code>studyItem.done</code><br>↓<br><code>checkbox.checked</code><br>↓<br>画面のチェック状態</p>
+                <p>これは、JavaScriptのデータを画面へ反映する処理です。</p>
+                <p>新しい項目を追加して<code>renderStudyItems()</code>が再実行されても、配列内の<code>done</code>がtrueなら、チェックありの状態で作り直されます。</p>
+              </div>
+            </details>
 
-        <details>
-          <summary>changeイベントを受け取る</summary>
-          <div class="details-content">
-            <p>チェックボックスの状態が変わったことは、changeイベントで受け取ります。</p>
-            <pre class="javascript-code"><code>checkbox.addEventListener("change", function () {
+            <details>
+              <summary>チェック変更を受け取る</summary>
+              <div class="details-content">
+                <p>チェックボックスの状態が変わったことは、changeイベントで受け取ります。</p>
+                <pre class="javascript-code"><code>checkbox.addEventListener("change", function () {
   studyItem.done = checkbox.checked;
 });</code></pre>
-            <p>changeイベントは、ユーザーがチェックを付けたり外したりして、チェック状態が変わったときに発生します。</p>
-            <p>状態が変わるとコールバック関数の中が実行され、画面の新しいチェック状態を学習項目オブジェクトへ戻します。</p>
-          </div>
-        </details>
+                <p>changeイベントは、ユーザーがチェックを付けたり外したりして、チェック状態が変わったときに発生します。</p>
+                <p>状態が変わるとコールバック関数の中が実行され、画面の新しいチェック状態を学習項目オブジェクトへ戻します。</p>
+              </div>
+            </details>
 
-        <details>
-          <summary>checkedをdoneへ戻す</summary>
-          <div class="details-content">
-            <p><code>checkbox.checked</code>は、チェックボックスの現在の状態を表します。</p>
-            <p>チェックあり<br>↓<br>true</p>
-            <p>チェックなし<br>↓<br>false</p>
-            <pre class="javascript-code"><code>studyItem.done = checkbox.checked;</code></pre>
-            <p>この代入によって、チェックがあればtrue、チェックがなければfalseが<code>studyItem.done</code>へ入ります。</p>
-            <p>画面でチェックを変更<br>↓<br><code>checkbox.checked</code><br>↓<br><code>studyItem.done</code></p>
-            <p>これは、画面の操作をJavaScriptのデータへ戻す処理です。</p>
-          </div>
-        </details>
+            <details>
+              <summary>チェック状態を done へ戻す</summary>
+              <div class="details-content">
+                <p><code>checkbox.checked</code>は、チェックボックスの現在の状態を表します。</p>
+                <p>チェックあり<br>↓<br>true</p>
+                <p>チェックなし<br>↓<br>false</p>
+                <pre class="javascript-code"><code>studyItem.done = checkbox.checked;</code></pre>
+                <p>この代入によって、チェックがあればtrue、チェックがなければfalseが<code>studyItem.done</code>へ入ります。</p>
+                <p>画面でチェックを変更<br>↓<br><code>checkbox.checked</code><br>↓<br><code>studyItem.done</code></p>
+                <p>これは、画面の操作をJavaScriptのデータへ戻す処理です。</p>
+              </div>
+            </details>
 
-        <details>
-          <summary>textとdoneをそれぞれ画面で使う</summary>
-          <div class="details-content">
-            <p><code>forEach()</code>で受け取る<code>studyItem</code>は、学習項目オブジェクト1件です。</p>
-            <pre class="javascript-code"><code>{
+            <details>
+              <summary>text と done をそれぞれ画面で使う</summary>
+              <div class="details-content">
+                <p><code>forEach()</code>で受け取る<code>studyItem</code>は、学習項目オブジェクト1件です。</p>
+                <pre class="javascript-code"><code>{
   text: "HTMLを復習する",
   done: false
 }</code></pre>
-            <p>同じオブジェクトの2つのプロパティを、それぞれ別の画面要素へつなげます。</p>
-            <p><code>studyItem.text</code><br>↓<br>spanの文字</p>
-            <p><code>studyItem.done</code><br>↓<br>checkboxのチェック状態</p>
-            <pre class="javascript-code"><code>itemText.textContent = studyItem.text;
+                <p>同じオブジェクトの2つのプロパティを、それぞれ別の画面要素へつなげます。</p>
+                <p><code>studyItem.text</code><br>↓<br>spanの文字</p>
+                <p><code>studyItem.done</code><br>↓<br>checkboxのチェック状態</p>
+                <pre class="javascript-code"><code>itemText.textContent = studyItem.text;
 
 checkbox.checked = studyItem.done;</code></pre>
-          </div>
-        </details>
+              </div>
+            </details>
 
-        <details>
-          <summary>PR1-4全体の処理の流れ</summary>
-          <div class="details-content">
-            <p>PR1-4の<code>javascript-practice.js</code>全体は、次のコードです。</p>
-            <pre class="javascript-code"><code>const studyItemInput =
+            <details>
+              <summary>STEP 4の処理を上から読む</summary>
+              <div class="details-content">
+                <p>PR1-4の<code>javascript-practice.js</code>全体は、次のコードです。</p>
+                <pre class="javascript-code"><code>const studyItemInput =
   document.getElementById("study-item-input");
 
 const addStudyItemButton =
@@ -527,21 +606,30 @@ addStudyItemButton.addEventListener("click", function () {
 
   renderStudyItems();
 });</code></pre>
-            <p><code>document.createElement()</code>を使って、li・checkbox・spanを学習項目ごとに作っています。</p>
-            <p><code>checkbox.checked = studyItem.done</code>が、オブジェクトの完了状態を画面へ反映する場所です。</p>
-            <p><code>checkbox.addEventListener("change", ...)</code>がチェック変更を受け取り、<code>studyItem.done = checkbox.checked</code>が画面の状態をオブジェクトへ戻す場所です。</p>
-            <p>一覧を作る流れは次のとおりです。</p>
-            <p><code>studyItems</code><br>↓<br><code>forEach()</code><br>↓<br><code>studyItem</code>を1件取得<br>↓<br>liを作る<br>↓<br>checkboxを作る<br>↓<br><code>studyItem.done</code>を<code>checkbox.checked</code>へ反映<br>↓<br>spanを作る<br>↓<br><code>studyItem.text</code>を表示<br>↓<br>checkboxとspanをliへ追加<br>↓<br>liをulへ追加</p>
-            <p>ユーザー操作からデータへ戻す流れは次のとおりです。</p>
-            <p>チェックを付ける・外す<br>↓<br>changeイベント<br>↓<br><code>checkbox.checked</code><br>↓<br>true・false<br>↓<br><code>studyItem.done</code></p>
+                <p><code>document.createElement()</code>を使って、li・checkbox・spanを学習項目ごとに作っています。</p>
+                <p><code>checkbox.checked = studyItem.done</code>が、オブジェクトの完了状態を画面へ反映する場所です。</p>
+                <p>
+                  <code>checkbox.addEventListener("change", ...)</code>がチェック変更を受け取り、<code>studyItem.done = checkbox.checked</code>が画面の状態をオブジェクトへ戻す場所です。
+                </p>
+                <p>一覧を作る流れは次のとおりです。</p>
+                <p>
+                  <code>studyItems</code><br>↓<br><code>forEach()</code><br>↓<br><code>studyItem</code>を1件取得<br>↓<br>liを作る<br>↓<br>checkboxを作る<br>↓<br><code>studyItem.done</code>を<code>checkbox.checked</code>へ反映<br>↓<br>spanを作る<br>↓<br><code>studyItem.text</code>を表示<br>↓<br>checkboxとspanをliへ追加<br>↓<br>liをulへ追加
+                </p>
+                <p>ユーザー操作からデータへ戻す流れは次のとおりです。</p>
+                <p>
+                  チェックを付ける・外す<br>↓<br>changeイベント<br>↓<br><code>checkbox.checked</code><br>↓<br>true・false<br>↓<br><code>studyItem.done</code>
+                </p>
+              </div>
+            </details>
           </div>
-        </details>
+        </section>
 
         <details>
-          <summary>実際に試す</summary>
+          <summary>学習項目リストを実際に試す</summary>
           <div class="details-content">
             <div class="free-memo-area">
-              <input id="study-item-input" class="study-item-input" type="text" aria-label="学習したい内容" autocomplete="off" placeholder="JavaScriptのJSONを復習する">
+              <input id="study-item-input" class="study-item-input" type="text" aria-label="学習したい内容" autocomplete="off"
+                placeholder="JavaScriptのJSONを復習する">
 
               <button type="button" id="add-study-item-button" class="nav-button free-memo-save-button">追加</button>
 
@@ -575,4 +663,5 @@ addStudyItemButton.addEventListener("click", function () {
     <script src="script.js"></script>
     <script src="javascript-practice.js"></script>
   </body>
+
 </html>
