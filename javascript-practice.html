@@ -266,6 +266,128 @@ addStudyItemButton.addEventListener("click", function () {
         </details>
 
         <details>
+          <summary>文字列だけでは持てない情報</summary>
+          <div class="details-content">
+            <p>PR1-2では、1件の学習項目を文字列として配列へ追加していました。</p>
+            <pre class="javascript-code"><code>"HTMLを復習する"</code></pre>
+            <p>この文字列が持っているのは、学習内容という1つの情報だけです。</p>
+            <p>今後、1件の学習項目に「学習内容」と「完了したかどうか」のような複数の情報を持たせるには、それらを1つにまとめる必要があります。</p>
+            <p>そこでPR1-3では、複数のプロパティをまとめて持てるオブジェクトを使います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>学習項目をオブジェクトにする</summary>
+          <div class="details-content">
+            <p>入力欄から取得した文字列を使い、1件分の学習項目を表すオブジェクトを作ります。</p>
+            <pre class="javascript-code"><code>const studyItem = {
+  text: studyItemText,
+  done: false
+};</code></pre>
+            <p><code>studyItem</code>は、学習項目1件を入れる変数です。</p>
+            <p><code>text</code>は学習内容を保存するプロパティで、値にはinputから取得した文字列の<code>studyItemText</code>を入れます。</p>
+            <p><code>done</code>は完了状態を保存するプロパティです。<code>false</code>は、まだ完了していない状態を表します。</p>
+            <p>今回は<code>done: false</code>として情報を持たせるだけで、完了状態を変更したり画面へ表示したりする処理はまだ作りません。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>オブジェクトを配列へpush()する</summary>
+          <div class="details-content">
+            <p><code>push()</code>の役割はPR1-2と同じで、値を配列の末尾へ追加することです。</p>
+            <pre class="javascript-code"><code>studyItems.push(studyItem);</code></pre>
+            <p>PR1-2では、文字列が入っている<code>studyItemText</code>を追加していました。</p>
+            <pre class="javascript-code"><code>studyItems.push(studyItemText);</code></pre>
+            <p>PR1-3では、学習内容と完了状態をまとめた<code>studyItem</code>オブジェクトを追加します。</p>
+            <p>文字列を追加する<br>↓<br>オブジェクトを追加する</p>
+            <p>この点が変わり、<code>studyItems</code>は文字列の配列からオブジェクトの配列になります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>オブジェクト配列の中身を見る</summary>
+          <div class="details-content">
+            <p>学習項目を2件追加すると、<code>studyItems</code>配列の中は次のようになります。</p>
+            <pre class="javascript-code"><code>[
+  {
+    text: "HTMLを復習する",
+    done: false
+  },
+  {
+    text: "CSSのflexboxを復習する",
+    done: false
+  }
+]</code></pre>
+            <p>外側の<code>[ ]</code>が配列で、その中に<code>{ }</code>で表した学習項目オブジェクトが複数入っています。</p>
+            <p>それぞれのオブジェクトは、<code>text</code>と<code>done</code>という同じ2つのプロパティを持っています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>studyItem.textで値を取り出す</summary>
+          <div class="details-content">
+            <p><code>forEach()</code>で配列を処理すると、<code>studyItem</code>には学習項目オブジェクトが1件ずつ入ります。</p>
+            <pre class="javascript-code"><code>studyItems.forEach(function (studyItem) {
+  const listItem = document.createElement("li");
+
+  listItem.textContent = studyItem.text;
+  studyItemList.appendChild(listItem);
+});</code></pre>
+            <p><code>studyItem</code>は、次のようなオブジェクト1件を表します。</p>
+            <pre class="javascript-code"><code>{
+  text: "HTMLを復習する",
+  done: false
+}</code></pre>
+            <p>画面へ表示したいのは学習内容なので、<code>studyItem.text</code>と書いて<code>text</code>プロパティの値だけを取り出します。</p>
+            <p><code>studyItem.text</code><br>↓<br><code>"HTMLを復習する"</code><br>↓<br><code>listItem.textContent</code>でli要素へ表示</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>PR1-3全体の処理の流れ</summary>
+          <div class="details-content">
+            <p>PR1-3の<code>javascript-practice.js</code>全体は、次のコードです。</p>
+            <pre class="javascript-code"><code>const studyItemInput =
+  document.getElementById("study-item-input");
+
+const addStudyItemButton =
+  document.getElementById("add-study-item-button");
+
+const studyItemList =
+  document.getElementById("study-item-list");
+
+const studyItems = [];
+
+function renderStudyItems() {
+  studyItemList.textContent = "";
+
+  studyItems.forEach(function (studyItem) {
+    const listItem = document.createElement("li");
+
+    listItem.textContent = studyItem.text;
+    studyItemList.appendChild(listItem);
+  });
+}
+
+addStudyItemButton.addEventListener("click", function () {
+  const studyItemText = studyItemInput.value;
+
+  const studyItem = {
+    text: studyItemText,
+    done: false
+  };
+
+  studyItems.push(studyItem);
+
+  renderStudyItems();
+});</code></pre>
+            <p>input<br>↓<br><code>.value</code><br>↓<br><code>studyItemText</code><br>↓<br><code>studyItem</code>オブジェクトを作る<br>↓<br><code>push()</code><br>↓<br><code>studyItems</code>配列へ追加<br>↓<br><code>renderStudyItems()</code><br>↓<br><code>forEach()</code><br>↓<br><code>studyItem</code>オブジェクトを1件ずつ受け取る<br>↓<br><code>studyItem.text</code><br>↓<br>liへ表示</p>
+            <p><code>studyItemText</code>の文字列が<code>studyItem</code>オブジェクトの<code>text</code>プロパティへ入り、そのオブジェクトが<code>studyItems</code>配列へ追加されます。</p>
+            <p>一覧表示では、同じ配列からオブジェクトを1件ずつ受け取り、<code>studyItem.text</code>で学習内容を取り出してli要素へつなげます。</p>
+          </div>
+        </details>
+
+        <details>
           <summary>実際に試す</summary>
           <div class="details-content">
             <div class="free-memo-area">
