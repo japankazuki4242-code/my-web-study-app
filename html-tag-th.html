@@ -46,11 +46,17 @@
           <summary>属性名・属性値の例</summary>
           <div class="details-content">
             <pre><code>&lt;th scope="col"&gt;商品名&lt;/th&gt;
-&lt;th scope="row"&gt;コーヒー&lt;/th&gt;</code></pre>
+&lt;th scope="row"&gt;コーヒー&lt;/th&gt;
+&lt;th colspan="2"&gt;商品一覧&lt;/th&gt;
+&lt;th rowspan="2"&gt;商品名&lt;/th&gt;</code></pre>
             <p>属性名：<code>scope</code></p>
             <p><code>scope="col"</code><br>→ 列の見出し</p>
             <p><code>scope="row"</code><br>→ 行の見出し</p>
             <p><code>scope</code>は、その見出しがどの方向のセルに関係するかを表します。</p>
+            <p><code>colspan</code><br>→ 横方向</p>
+            <p><code>rowspan</code><br>→ 縦方向</p>
+            <p><code>&lt;th&gt;</code>には、セルを結合する<code>colspan</code>と<code>rowspan</code>も付けられます。</p>
+            <p>詳しくは<a href="html-table-cell-span.html" class="external-link">セルの結合（colspan / rowspan）</a>で確認できます。</p>
           </div>
         </details>
 

@@ -39,10 +39,16 @@
         <details>
           <summary>属性名・属性値の例</summary>
           <div class="details-content">
-            <pre><code>&lt;td class="table-data"&gt;500円&lt;/td&gt;</code></pre>
+            <pre><code>&lt;td class="table-data"&gt;500円&lt;/td&gt;
+&lt;td colspan="2"&gt;セルを横に結合&lt;/td&gt;
+&lt;td rowspan="2"&gt;セルを縦に結合&lt;/td&gt;</code></pre>
             <p>属性名：<code>class</code><br>属性値：<code>table-data</code></p>
             <p><code>class</code>を付けると、CSSやJavaScriptからこのデータセルを指定できます。</p>
             <p>HTMLの<code>&lt;td&gt;</code>はデータセルという意味を表し、色や配置などの見た目はCSSで調整します。</p>
+            <p><code>colspan</code><br>→ 横方向</p>
+            <p><code>rowspan</code><br>→ 縦方向</p>
+            <p><code>&lt;td&gt;</code>には、セルを結合する<code>colspan</code>と<code>rowspan</code>も付けられます。</p>
+            <p>詳しくは<a href="html-table-cell-span.html" class="external-link">セルの結合（colspan / rowspan）</a>で確認できます。</p>
           </div>
         </details>
 

@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>セルの結合 | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>セルの結合</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>セルの結合とは？</summary>
+          <div class="details-content">
+            <p>表のセルは通常、1つずつ並びます。</p>
+            <p><code>colspan</code>や<code>rowspan</code>を使うと、1つのセルを複数の列や行にまたがらせることができます。</p>
+            <p><code>colspan</code>と<code>rowspan</code>はタグではありません。<code>&lt;th&gt;</code>や<code>&lt;td&gt;</code>の開始タグに付けるHTMLの属性です。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>colspan（横に結合）</summary>
+          <div class="details-content">
+            <p><code>colspan</code>は、セルを横方向に広げて、列を結合する属性です。</p>
+            <pre><code>&lt;th colspan="2"&gt;商品一覧&lt;/th&gt;</code></pre>
+            <p><code>&lt;th colspan="2"&gt;</code>は、「この<code>th</code>セルを横方向に2列分使う」という意味です。</p>
+            <p>属性名：<code>colspan</code><br>属性値：<code>2</code></p>
+          </div>
+        </details>
+
+        <details>
+          <summary>rowspan（縦に結合）</summary>
+          <div class="details-content">
+            <p><code>rowspan</code>は、セルを縦方向に広げて、行を結合する属性です。</p>
+            <pre><code>&lt;td rowspan="2"&gt;コーヒー&lt;/td&gt;</code></pre>
+            <p><code>&lt;td rowspan="2"&gt;</code>は、「この<code>td</code>セルを縦方向に2行分使う」という意味です。</p>
+            <p>属性名：<code>rowspan</code><br>属性値：<code>2</code></p>
+          </div>
+        </details>
+
+        <details>
+          <summary>colspan のコード例</summary>
+          <div class="details-content">
+            <pre><code>&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th colspan="2"&gt;商品一覧&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;コーヒー&lt;/td&gt;
+      &lt;td&gt;500円&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+            <p><strong>注目する部分：</strong></p>
+            <p><code>&lt;th colspan="2"&gt;</code></p>
+            <p><code>colspan="2"</code><br>→ 横方向に2列分使う</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>rowspan のコード例</summary>
+          <div class="details-content">
+            <pre><code>&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td rowspan="2"&gt;コーヒー&lt;/td&gt;
+      &lt;td&gt;ホット&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td&gt;アイス&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+            <p><strong>注目する部分：</strong></p>
+            <p><code>&lt;td rowspan="2"&gt;</code></p>
+            <p><code>rowspan="2"</code><br>→ 縦方向に2行分使う</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>tr・th・tdとの関係</summary>
+          <div class="details-content">
+            <p><code>&lt;tr&gt;</code>は、表の1行を作るタグです。</p>
+            <p><code>&lt;th&gt;</code>は見出しセル、<code>&lt;td&gt;</code>はデータセルを作るタグです。どちらにも<code>colspan</code>と<code>rowspan</code>を付けられます。</p>
+            <p><strong>表全体の基本構造：</strong></p>
+            <pre><code>&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;商品名&lt;/th&gt;
+      &lt;th&gt;価格&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;コーヒー&lt;/td&gt;
+      &lt;td&gt;500円&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+            <p><code>colspan</code>と<code>rowspan</code>は、<code>&lt;tr&gt;</code>ではなく、<code>&lt;th&gt;</code>または<code>&lt;td&gt;</code>の開始タグに付けます。</p>
+            <pre><code>○ &lt;th colspan="2"&gt;
+○ &lt;td rowspan="2"&gt;
+× &lt;tr colspan="2"&gt;</code></pre>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
