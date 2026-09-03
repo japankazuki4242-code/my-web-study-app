@@ -57,6 +57,26 @@
             <p><code>1px</code><br>→ 線の太さ</p>
             <p><code>solid</code><br>→ 線の種類</p>
             <p><code>black</code><br>→ 線の色</p>
+            <p><strong>borderは上下左右に付く</strong></p>
+            <p><code>border: 1px solid black;</code>を指定すると、上下左右の4辺に同じ線が付きます。</p>
+            <p><code>top</code> → <code>1px</code><br><code>right</code> → <code>1px</code><br><code>bottom</code> → <code>1px</code><br><code>left</code> → <code>1px</code></p>
+            <p>全体で合計1pxという意味ではなく、上下左右それぞれの境界線の太さが1pxです。</p>
+            <p><strong>1辺だけ指定できる</strong></p>
+            <pre><code>.box {
+  border-top: 1px solid black;
+}</code></pre>
+            <p><code>top</code> → <code>1px</code><br><code>right</code> → なし<br><code>bottom</code> → なし<br><code>left</code> → なし</p>
+            <p><code>border-top</code>・<code>border-right</code>・<code>border-bottom</code>・<code>border-left</code>を使うと、4辺を個別に指定できます。</p>
+            <pre><code>.box {
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+}</code></pre>
+            <p><strong><code>&lt;hr&gt;</code>との違い</strong></p>
+            <p><code>&lt;hr&gt;</code><br>→ HTMLで内容・話題の区切りを表す</p>
+            <p><code>border</code> / <code>border-top</code><br>→ CSSで要素に線・枠線という見た目を付ける</p>
+            <p>横線のような見た目が似る場合はありますが、HTMLの<code>&lt;hr&gt;</code>とCSSの<code>border</code>では役割が違います。</p>
           </div>
         </details>
 

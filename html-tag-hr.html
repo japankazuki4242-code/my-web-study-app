@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>&lt;hr&gt; | Web学習アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="page-with-bottom-nav">
+    <main class="app-container">
+      <h1>&lt;hr&gt;</h1>
+
+      <div class="details-list">
+        <details>
+          <summary>何をするタグ？</summary>
+          <div class="details-content">
+            <p><code>&lt;hr&gt;</code>は、文章や内容の中で、話題・内容が切り替わる区切りを表すHTMLタグです。</p>
+            <p>ブラウザでは通常、横線のように表示されます。</p>
+            <p>見た目として横線を表示するだけではなく、HTML上で内容の区切りという意味を表します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>基本の書き方</summary>
+          <div class="details-content">
+            <pre><code>&lt;p&gt;前半の内容です。&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;後半の内容です。&lt;/p&gt;</code></pre>
+            <p>内容が切り替わる場所に<code>&lt;hr&gt;</code>を書きます。</p>
+            <p><code>&lt;hr&gt;</code>は終了タグを書かず、1つのタグだけで使います。</p>
+            <p>○ <code>&lt;hr&gt;</code></p>
+          </div>
+        </details>
+
+        <details>
+          <summary>属性名・属性値の例</summary>
+          <div class="details-content">
+            <pre><code>&lt;hr class="section-divider"&gt;</code></pre>
+            <p>属性名：<code>class</code><br>属性値：<code>section-divider</code></p>
+            <p><code>class</code>を付けると、CSSからこの<code>&lt;hr&gt;</code>を指定できます。</p>
+            <p><code>&lt;hr&gt;</code>は内容の区切りを表すタグで、基本的に専用の属性を付けなくても使用できます。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>よく使う場面</summary>
+          <div class="details-content">
+            <p><code>&lt;hr&gt;</code>は、HTMLとして内容の区切りを表したい場所で使います。</p>
+            <ul>
+              <li>話題が切り替わる場所</li>
+              <li>文章の内容を区切りたい場所</li>
+              <li>前半と後半の内容を分ける場所</li>
+            </ul>
+            <p>単なる装飾として線を付けたい場合と、HTMLで内容の区切りを表したい場合では役割が違います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>CSSのborderとの違い</summary>
+          <div class="details-content">
+            <p><code>&lt;hr&gt;</code><br>→ HTML<br>→ 内容・話題の区切りを表す</p>
+            <p><code>border</code><br>→ CSS<br>→ 要素に枠線・線という見た目を付ける</p>
+            <pre><code>.box {
+  border: 1px solid black;
+}</code></pre>
+            <p>上側だけに線を付ける場合は、<code>border-top</code>を使います。</p>
+            <pre><code>.box {
+  border-top: 1px solid black;
+}</code></pre>
+            <p>横線に近い見た目になる場合があっても、HTMLの<code>&lt;hr&gt;</code>とCSSの<code>border</code>では役割が違います。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>実際に使った例</summary>
+          <div class="details-content">
+            <p><code>&lt;hr&gt;</code>は、今回Udemyで新しく学習したタグです。</p>
+            <p>確認した既存の実作品では、使用したことを確認できませんでした。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>自由メモ</summary>
+          <div class="details-content">
+            <div class="free-memo-area">
+              <textarea id="free-memo-input" class="free-memo-input" aria-label="自由メモ" autocomplete="off"></textarea>
+
+              <button type="button" id="save-free-memo-button" class="nav-button free-memo-save-button">保存</button>
+
+              <p id="free-memo-status" class="free-memo-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ページナビゲーション">
+      <div class="bottom-nav__inner">
+        <button type="button" id="back-button" class="nav-button">BACK</button>
+        <a href="index.html" class="nav-button">TOP</a>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
