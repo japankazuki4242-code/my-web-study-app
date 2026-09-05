@@ -83,11 +83,25 @@
         </details>
 
         <details>
-          <summary>今回は説明だけ</summary>
+          <summary>このアプリの削除機能との違い</summary>
           <div class="details-content">
-            <p>このページでは、<code>removeItem()</code>と<code>clear()</code>の役割を教材として説明しています。</p>
-            <p>実際のアプリには、削除ボタンや<code>removeItem()</code>・<code>clear()</code>の処理を追加していません。</p>
-            <p>自由メモの保存済みデータも削除されません。</p>
+            <p><code>localStorage.removeItem(key)</code>と、JavaScript実践ページの学習項目を1件削除する処理は、削除する範囲が違います。</p>
+            <p><code>removeItem("my-web-study-app:study-items")</code>を実行すると、そのkey自体が削除されます。1件だけではなく、そのkeyに保存されている学習項目リスト全体がlocalStorageから消えます。</p>
+            <p>今回の削除ボタンでは<code>removeItem()</code>を使いません。<code>studyItems.splice(index, 1)</code>で配列から対象の1件だけ削除します。</p>
+            <pre class="javascript-code"><code>studyItems.splice(index, 1);
+saveStudyItems();
+renderStudyItems();</code></pre>
+            <p>配列から1件削除<br>↓<br><code>saveStudyItems()</code><br>↓<br><code>JSON.stringify()</code>で削除後の配列を文字列へ変換<br>↓<br><code>localStorage.setItem()</code><br>↓<br>同じkeyの内容を削除後の配列で更新</p>
+            <table class="comparison-table">
+              <thead>
+                <tr><th scope="col">処理</th><th scope="col">役割</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>removeItem()</code></td><td>指定したlocalStorageのkeyそのものを削除する</td></tr>
+                <tr><td>今回の削除ボタン</td><td>配列から1件だけ削除し、setItem()で更新後の配列を同じkeyへ保存し直す</td></tr>
+              </tbody>
+            </table>
+            <p><code>clear()</code>も使用しません。自由メモなど、ほかのkeyに保存されているデータを削除する処理はありません。</p>
           </div>
         </details>
 

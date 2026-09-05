@@ -23,7 +23,7 @@ function renderStudyItems() {
   studyItemList.textContent = "";
 
   // 配列の学習項目オブジェクトを1件ずつli要素にして追加します。
-  studyItems.forEach(function (studyItem) {
+  studyItems.forEach(function (studyItem, index) {
     const listItem = document.createElement("li");
 
     // チェックボックスを作り、オブジェクトの完了状態を反映します。
@@ -42,8 +42,32 @@ function renderStudyItems() {
       saveStudyItems();
     });
 
+    // 学習項目ごとに削除ボタンを作ります。
+    const deleteButton = document.createElement("button");
+    deleteButton.type = "button";
+    deleteButton.textContent = "削除";
+    deleteButton.className = "study-item-delete-button";
+
+    // 削除する学習内容を確認してから、配列の対象項目を1件削除します。
+    deleteButton.addEventListener("click", function () {
+      const shouldDelete = confirm(
+        "「" + studyItem.text + "」を削除しますか？"
+      );
+
+      // キャンセルの場合は、削除や保存をせずに処理を終了します。
+      if (shouldDelete === false) {
+        return;
+      }
+
+      // indexの位置から1件削除し、保存してから一覧を作り直します。
+      studyItems.splice(index, 1);
+      saveStudyItems();
+      renderStudyItems();
+    });
+
     listItem.appendChild(checkbox);
     listItem.appendChild(itemText);
+    listItem.appendChild(deleteButton);
 
     studyItemList.appendChild(listItem);
   });

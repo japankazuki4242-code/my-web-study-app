@@ -848,6 +848,227 @@ loadStudyItems();</code></pre>
           </div>
         </section>
 
+        <section class="practice-step" aria-labelledby="practice-step-6-title">
+          <header class="practice-step__header">
+            <p class="practice-step__number">STEP 6</p>
+            <h2 id="practice-step-6-title" class="practice-step__title">学習項目を1件削除する</h2>
+            <p class="practice-step__pr">PR1-6</p>
+          </header>
+
+          <div class="practice-step__details">
+            <details>
+              <summary>なぜ削除機能が必要なのか</summary>
+              <div class="details-content">
+                <p>間違えて追加した項目や、不要になった項目を1件ずつ取り除けるようにします。残したい項目や完了状態はそのまま保ちます。</p>
+                <p>削除ボタンを押すと確認画面が開き、OKを押した場合だけ削除します。キャンセルした場合は、配列も保存データも変更しません。</p>
+              </div>
+            </details>
+
+            <details>
+              <summary>削除ボタンをJavaScriptで作る</summary>
+              <div class="details-content">
+                <p><code>forEach()</code>の中で、各学習項目に対応するbutton要素を作ります。学習項目が3件なら、削除ボタンも3個作られます。</p>
+                <pre class="javascript-code"><code>const deleteButton = document.createElement("button");
+deleteButton.type = "button";
+deleteButton.textContent = "削除";
+deleteButton.className = "study-item-delete-button";</code></pre>
+                <p><code>type = "button"</code>で通常のボタンにし、<code>textContent</code>で「削除」と表示します。<code>className</code>は削除ボタン用のCSSにつなげます。</p>
+                <p>クリック時の処理を登録した後、<code>appendChild()</code>でチェックボックス、学習内容、削除ボタンの順にliへ入れます。</p>
+                <pre class="javascript-code"><code>listItem.appendChild(checkbox);
+listItem.appendChild(itemText);
+listItem.appendChild(deleteButton);</code></pre>
+                <pre class="javascript-code"><code>li
+├─ checkbox
+├─ span（学習内容）
+└─ button（削除）</code></pre>
+              </div>
+            </details>
+
+            <details>
+              <summary>削除したい学習項目を特定する</summary>
+              <div class="details-content">
+                <pre class="javascript-code"><code>studyItems.forEach(function (studyItem, index) {
+  // 学習項目と、その位置を使って処理します。
+});</code></pre>
+                <p><code>studyItem</code>は今処理している学習項目オブジェクト、<code>index</code>はその項目が配列の何番目にあるかを表す番号です。</p>
+                <p>indexは0から始まります。1件目は0、2件目は1、3件目は2です。各削除ボタンのクリック処理で、このindexを使って対象を指定します。</p>
+                <p>削除後は一覧を作り直すので、残った項目の新しい位置に対応するindexで、ボタンの処理も登録し直されます。</p>
+              </div>
+            </details>
+
+            <details>
+              <summary>削除前に表示する確認文</summary>
+              <div class="details-content">
+                <pre class="javascript-code"><code>const shouldDelete = confirm(
+  "「" + studyItem.text + "」を削除しますか？"
+);
+
+if (shouldDelete === false) {
+  return;
+}</code></pre>
+                <p><code>studyItem.text</code>を文字列とつなげると、「CSSを復習する」を削除しますか？のように、対象の学習項目名を確認画面へ表示できます。</p>
+                <p><code>confirm()</code>は、OKなら<code>true</code>、キャンセルなら<code>false</code>を返します。この結果を<code>shouldDelete</code>へ入れます。</p>
+                <p>falseなら<code>return;</code>でクリック時の処理を終了します。削除や保存より前に確認するため、キャンセルした場合は何も変更されません。</p>
+              </div>
+            </details>
+
+            <details>
+              <summary>splice()で配列から1件削除する</summary>
+              <div class="details-content">
+                <p>配列から削除する基本形は、<code>splice(開始位置, 削除する個数)</code>です。</p>
+                <pre class="javascript-code"><code>studyItems.splice(index, 1);</code></pre>
+                <p><code>index</code>は削除を開始する位置、<code>1</code>は削除する個数です。たとえばindexが1なら、2件目の学習項目を1件だけ削除します。</p>
+                <p><code>push()</code>は配列の末尾へ追加します。今回の<code>splice()</code>は、配列の指定した位置から要素を削除します。</p>
+                <p><code>const studyItems = [];</code>の配列自体を別の配列に置き換えず、その中身を変更します。</p>
+              </div>
+            </details>
+
+            <details>
+              <summary>削除後に保存して画面を更新する</summary>
+              <div class="details-content">
+                <pre class="javascript-code"><code>studyItems.splice(index, 1);
+saveStudyItems();
+renderStudyItems();</code></pre>
+                <p>配列から削除しただけでは、localStorageに削除前のデータが残っています。<code>saveStudyItems()</code>で削除後の配列を保存すると、再読み込みしても削除した項目は戻りません。</p>
+                <p>その後、<code>renderStudyItems()</code>で一覧を作り直し、残った項目を表示します。</p>
+                <p>配列を変える<br>↓<br>保存する<br>↓<br>画面を更新する</p>
+                <p>保存キーとJSONの形式はこれまでと同じです。<code>removeItem()</code>や<code>clear()</code>は使いません。</p>
+              </div>
+            </details>
+
+            <details>
+              <summary>STEP 6の処理を上から読む</summary>
+              <div class="details-content">
+                <p>PR1-6のJavaScript全体は次のコードです。追加時の前後の空白除去・空入力防止・入力欄クリア・フォーカスと、チェック状態の保存も含みます。</p>
+                <pre class="javascript-code"><code>// 実践エリアで使用するHTML要素を取得します。
+const studyItemInput = document.getElementById("study-item-input");
+const addStudyItemButton = document.getElementById("add-study-item-button");
+const studyItemList = document.getElementById("study-item-list");
+
+// 学習項目リストだけで使用するlocalStorageの保存キーです。
+const studyItemsStorageKey = "my-web-study-app:study-items";
+
+// ページ内で使用する学習項目を保持する配列です。
+// 保存済みの学習項目はloadStudyItems()でこの配列へ戻します。
+const studyItems = [];
+
+// 学習項目の配列をJSON文字列にしてlocalStorageへ保存します。
+function saveStudyItems() {
+  const studyItemsJson = JSON.stringify(studyItems);
+
+  localStorage.setItem(studyItemsStorageKey, studyItemsJson);
+}
+
+// 配列に入っている学習項目を画面へ一覧表示します。
+function renderStudyItems() {
+  // 前回表示した一覧を一度空にします。
+  studyItemList.textContent = "";
+
+  // 配列の学習項目オブジェクトを1件ずつli要素にして追加します。
+  studyItems.forEach(function (studyItem, index) {
+    const listItem = document.createElement("li");
+
+    // チェックボックスを作り、オブジェクトの完了状態を反映します。
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = studyItem.done;
+
+    // 学習内容を表示するspan要素を作ります。
+    const itemText = document.createElement("span");
+    itemText.textContent = studyItem.text;
+
+    // チェック状態が変わったら、オブジェクトの完了状態へ戻します。
+    checkbox.addEventListener("change", function () {
+      studyItem.done = checkbox.checked;
+
+      saveStudyItems();
+    });
+
+    // 学習項目ごとに削除ボタンを作ります。
+    const deleteButton = document.createElement("button");
+    deleteButton.type = "button";
+    deleteButton.textContent = "削除";
+    deleteButton.className = "study-item-delete-button";
+
+    // 削除する学習内容を確認してから、配列の対象項目を1件削除します。
+    deleteButton.addEventListener("click", function () {
+      const shouldDelete = confirm(
+        "「" + studyItem.text + "」を削除しますか？"
+      );
+
+      // キャンセルの場合は、削除や保存をせずに処理を終了します。
+      if (shouldDelete === false) {
+        return;
+      }
+
+      // indexの位置から1件削除し、保存してから一覧を作り直します。
+      studyItems.splice(index, 1);
+      saveStudyItems();
+      renderStudyItems();
+    });
+
+    listItem.appendChild(checkbox);
+    listItem.appendChild(itemText);
+    listItem.appendChild(deleteButton);
+
+    studyItemList.appendChild(listItem);
+  });
+}
+
+// localStorageに保存した学習項目を配列へ戻して画面に表示します。
+function loadStudyItems() {
+  const savedStudyItems = localStorage.getItem(studyItemsStorageKey);
+
+  if (savedStudyItems !== null) {
+    const restoredStudyItems = JSON.parse(savedStudyItems);
+
+    restoredStudyItems.forEach(function (studyItem) {
+      studyItems.push(studyItem);
+    });
+  }
+
+  renderStudyItems();
+}
+
+// 追加ボタンを押したとき、学習項目オブジェクトを配列へ追加します。
+addStudyItemButton.addEventListener("click", function () {
+  // inputから前後の空白を取り除いて学習内容の文字列を取得します。
+  const studyItemText = studyItemInput.value.trim();
+
+  // 空文字の場合はここで処理を終了します。
+  if (studyItemText === "") {
+    return;
+  }
+
+  // 1件分の学習項目を表すオブジェクトを作ります。
+  const studyItem = {
+    // textにはinputから取得した学習内容を保存します。
+    text: studyItemText,
+    // doneには完了したかどうかを保存します。最初は未完了です。
+    done: false
+  };
+
+  // 学習項目オブジェクトを配列の末尾へ追加します。
+  studyItems.push(studyItem);
+
+  saveStudyItems();
+  renderStudyItems();
+
+  // 正常に追加できたら入力欄を空にします。
+  studyItemInput.value = "";
+  // 続けて入力できるようにフォーカスを戻します。
+  studyItemInput.focus();
+});
+
+// ページを開いたとき、保存済みの学習項目を読み込みます。
+loadStudyItems();</code></pre>
+                <p><code>forEach()</code><br>↓<br><code>studyItem / index</code>で学習項目と位置を受け取る<br>↓<br>削除ボタンを作る<br>↓<br>clickイベントを登録し、クリックを待つ<br>↓<br><code>studyItem.text</code>で確認文を作る<br>↓<br><code>confirm()</code>で確認する<br>↓<br>キャンセルなら終了、OKなら続行<br>↓<br><code>splice(index, 1)</code>で1件削除<br>↓<br><code>saveStudyItems()</code>で保存<br>↓<br><code>renderStudyItems()</code>で画面を更新</p>
+                <p>一覧を作る処理と、ボタンを押した後に動く処理を分けて読みます。削除はボタンを作った時点では実行されず、クリック後の確認でOKを押したときに実行されます。</p>
+              </div>
+            </details>
+          </div>
+        </section>
+
         <details>
           <summary>学習項目リストを実際に試す</summary>
           <div class="details-content">
