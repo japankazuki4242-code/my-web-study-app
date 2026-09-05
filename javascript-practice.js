@@ -66,8 +66,13 @@ function loadStudyItems() {
 
 // 追加ボタンを押したとき、学習項目オブジェクトを配列へ追加します。
 addStudyItemButton.addEventListener("click", function () {
-  // inputから学習内容の文字列を取得します。
-  const studyItemText = studyItemInput.value;
+  // inputから前後の空白を取り除いて学習内容の文字列を取得します。
+  const studyItemText = studyItemInput.value.trim();
+
+  // 空文字の場合はここで処理を終了します。
+  if (studyItemText === "") {
+    return;
+  }
 
   // 1件分の学習項目を表すオブジェクトを作ります。
   const studyItem = {
@@ -82,6 +87,11 @@ addStudyItemButton.addEventListener("click", function () {
 
   saveStudyItems();
   renderStudyItems();
+
+  // 正常に追加できたら入力欄を空にします。
+  studyItemInput.value = "";
+  // 続けて入力できるようにフォーカスを戻します。
+  studyItemInput.focus();
 });
 
 // ページを開いたとき、保存済みの学習項目を読み込みます。
